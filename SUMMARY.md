@@ -6,5 +6,6 @@
 
 ## Course
 
-- [CME213](README.md)
+- [CME213](Course/index.md)
   - [C++ notes](Course/CME 213/note1.md)
+
