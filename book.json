@@ -1,0 +1,17 @@
+{
+    "structure" : {
+        "readme" : "Introduction.md"
+    },
+    "plugins": [
+        "hide-element",
+        "back-to-top-button",
+        "chapter-fold",
+        "code",
+        "splitter"
+    ],
+    "pluginsConfig": {
+        "hide-element": {
+            "elements": [".gitbook-link"]
+        }
+    }
+}
