@@ -1,4 +1,4 @@
-# 【学习笔记】张量并行
+# 【学习笔记】大模型训练：张量并行
 
 [原文链接1](https://zhuanlan.zhihu.com/p/622212228)
 
@@ -11,26 +11,26 @@
 > - `h`：hidden_size，表示每个token向量的维度。
 > - `h'`：参数W的hidden_size。
 >
-> ![img](images/llm-9/1)
+> ![img](/images/llm-9/1)
 
 ## 1. 按行切分
 
 > **(1) forward**
 > 我们用`N`来表示GPU的数量。有几块GPU，就把W按行维度切成几份。下图展示了N=2时的切割方式：
 >
-> ![img](images/llm-9/3)
+> ![img](/images/llm-9/3)
 >
 > W按照行维度切开后，X的维度和它不对齐了，这可怎么做矩阵乘法呢？很简单，再把X“按列切开”就行了，如下图所示：
 >
-> ![img](images/llm-9/2)
+> ![img](/images/llm-9/2)
 
 ## 2.按列切分
 
-> ![img](images/llm-9/4)
+> ![img](/images/llm-9/4)
 
 # MLP层
 
-> ![img](images/llm-9/5)
+> ![img](/images/llm-9/5)
 >
 > 在MLP层中，**对A采用“列切割”，对B采用“行切割”**。
 >
@@ -39,7 +39,7 @@
 >
 > 为什么我们对A采用列切割，对B采用行切割呢？**这样设计的原因是，我们尽量保证各GPU上的计算相互独立，减少通讯量**。对A来说，需要做一次GELU的计算，而GELU函数是非线形的，它的性质如下：
 >
-> ![img](images/llm-9/6)
+> ![img](/images/llm-9/6)
 >
 > 如果对A采用行切割，我们必须在做GELU前，做一次AllReduce，这样就会产生额外通讯量。但是如果对A采用列切割，那每块GPU就可以继续独立计算了。
 >

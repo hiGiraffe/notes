@@ -4,7 +4,7 @@
 
 * # 循环神经网络
 
-  > ![img](images/nlp-4/1)
+  > ![img](/images/nlp-4/1)
   >
   > * x为序列输入
   >
@@ -77,7 +77,7 @@
 
   * ## 激活函数
 
-    > ![image-20240322233229214](images/nlp-4/2)
+    > ![image-20240322233229214](/images/nlp-4/2)
 
     ```python
     def sigmoid(x, derivative=False):
@@ -212,9 +212,9 @@
 
 * LSTM
 
-  > ![img](images/nlp-4/3)
+  > ![img](/images/nlp-4/3)
   >
-  > ![img](images/nlp-4/4)
+  > ![img](/images/nlp-4/4)
   >
   > 包含5个基本组件，它们是：
   >
@@ -224,7 +224,7 @@
   > - 遗忘门（forget_gate）-控制当前输入和先前单元状态中有多少信息流入当前单元状态
   > - 输出门（output_gate）-控制有多少信息从当前单元状态进入隐藏状态
   >
-  > ![img](images/nlp-4/5)
+  > ![img](/images/nlp-4/5)
   >
   > 三个门控单元及一个细胞状态单元的输入都是一样的，都是当前时刻的输入$x_t$以及上一个隐藏状态$h_{t-1}$, 但是他们的参数是不同的，同时细胞状态单元使用的是$tanh$激活函数。
   >

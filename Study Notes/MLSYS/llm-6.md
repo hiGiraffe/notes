@@ -12,7 +12,7 @@
 
 一个样例
 
-> ![img](C:\Data Files\github repo\github blog\hiGiraffe\source\images\llm-6\1)
+> ![img](/images/llm-6/1)
 >
 > Let’s assume that we process a single sequence at a time (i.e. batch size is 1)
 >

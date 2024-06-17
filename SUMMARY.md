@@ -4,7 +4,7 @@
 
 ### Blogs
 
-* [Machine Learning System Learning_Path](Blogs\Learning_Path.md) 
+* [Resources](Blogs\Learning_Path.md) 
 * [Scientific Research Drawing Tools](Blogs\tool-1.md) 
 
 ### Paper Reading Notes
@@ -37,7 +37,7 @@
   -  [大模型训练：流水线并行](Study Notes\MLSYS\llm-1.md) 
   -  [大模型训练：数据并行](Study Notes\MLSYS\llm-2.md) 
   -  [大模型训练：流水线并行](Study Notes\MLSYS\llm-5.md) 
-  -  [张量并行](Study Notes\MLSYS\llm-9.md) 
+  -  [大模型训练：张量并行](Study Notes\MLSYS\llm-9.md) 
 - [NLP](Study Notes\NLP\index.md) 
   * [如何从头实现一个神经网络](Study Notes\NLP\nlp-1.md) 
   * [史上最详细循环神经网络讲解（RNN/LSTM/GRU）](Study Notes\NLP\nlp-2.md) 
@@ -45,6 +45,9 @@
   * [从零开始实现循环神经网络（无框架）](Study Notes\NLP\nlp-4.md) 
   * [损失函数（Loss Function）](Study Notes\NLP\nlp-5.md) 
   * [自回归模型和GPT ](Study Notes\NLP\nlp-6.md) 
+- [Resource Schedule](Study Notes\Resource Schedule\index.md) 
+  -  [新型计算机系统设计与性能优化课程笔记-AI4Sys](Study Notes\Resource Schedule\新型计算机.md) 
+
 - [CME213](Study Notes/CME 213/index.md)
   - [C++ notes](Study Notes/CME 213/note1.md)
   - [CUDA Notes in HW3](Study Notes\CUDA\cuda-2.md) 
