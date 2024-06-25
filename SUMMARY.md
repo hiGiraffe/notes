@@ -10,6 +10,7 @@
 ### Paper Reading Notes
 
 * [High Performance Computing](Paper Reading Notes\hpc\index.md) 
+  * [【SC 2023】Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines](Paper Reading Notes\hpc\AutoMap.md) 
 
 * [Graph](Paper Reading Notes\graph\index.md) 
   * [【SIGMOD 2020】GPU-Accelerated Subgraph Enumeration on Partitioned Graphs](Paper Reading Notes\graph\graph-2.md) 

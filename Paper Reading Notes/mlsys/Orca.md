@@ -23,17 +23,17 @@
 
 ## GPT推理过程
 
-> ![image-20240401225416690](images/hpc-ai-1/1)
+> ![image-20240401225416690](/images/hpc-ai-1/1)
 >
 > 就是之前文章的自回归部分
 >
 > At a high level, the Attention operation computes a weighted average of the tokens of interest so that each token in the sequence is aware of the other. It takes three inputs, query, key, and value, computes dot products of the query (for the current token) with all keys (for the tokens of interest), applies Softmax on the dot products to get weights, and conducts weighted average of all values associated with the weights.
 
-> ![image-20240402235301243](images/hpc-ai-1/3)
+> ![image-20240402235301243](/images/hpc-ai-1/3)
 >
 > Prior to the Attention operation, there are the layer normalization operation (LayerNorm) and the QKV Linear (linear and split operations to get the query, key and value). Operations performed after Attention are, in order, a linear operation (Attn Out Linear), an add operation for residual connection (Add), layer normalization operation (LayerNorm), the multilayer perceptron (MLP) operations, and the other residual connection operation (Add).
 
-> ![image-20240402235135695](images/hpc-ai-1/2)
+> ![image-20240402235135695](/images/hpc-ai-1/2)
 >
 > Transformer layer的输入是越来越多的，1：t的；LSTM的输入长度是不变的。
 
@@ -58,7 +58,7 @@
 
 以下是其中一个示例
 
-> ![image-20240403001200945](images/hpc-ai-1/4)
+> ![image-20240403001200945](/images/hpc-ai-1/4)
 
 # 挑战
 
@@ -71,7 +71,7 @@
 
 所以就会面临
 
-> ![image-20240403001606876](images/hpc-ai-1/5)
+> ![image-20240403001606876](/images/hpc-ai-1/5)
 >
 > 问题1：同一批次有的请求很早就完成了，但仍需要等待其他请求完成才能返回。
 >
@@ -87,7 +87,7 @@
 >
 > (3) receives execution results for the scheduled iteration.
 >
-> ![image-20240403120215279](images/hpc-ai-1/6)
+> ![image-20240403120215279](/images/hpc-ai-1/6)
 >
 > 这里可以理解为一次迭代生成一个新的token。
 
@@ -121,7 +121,7 @@
 并使用Attention K/V manager保留keys和value，直到scheduler让其清楚数据。
 
 
-> ![image-20240403135404704](images/hpc-ai-1/7)
+> ![image-20240403135404704](/images/hpc-ai-1/7)
 
 # ORCA design
 
@@ -134,11 +134,11 @@
 > * inter-layer parallelism
 >   * splits Transformer layers over multiple GPUs
 >
-> ![image-20240403163515889](images/hpc-ai-1/8)
+> ![image-20240403163515889](/images/hpc-ai-1/8)
 >
 > 上图是一个层间和层内并行的样例，使得模型在六个GPU上并行。
 >
-> ![image-20240403163751394](images/hpc-ai-1/9)
+> ![image-20240403163751394](/images/hpc-ai-1/9)
 >
 > 每个Worker代表inter-layer parallelism的一个部分。例如worker1代表GPU 1、2、3，代表着图6中处理着Layer1和2的部分。
 >
@@ -169,9 +169,9 @@ OCRA将控制信息和张量数据传输分开，利用NCCL来传输中间张量
 
     ORCA调度器需要知道预分配内存区域的剩余大小。
 
-> ![image-20240403191340925](images/hpc-ai-1/10)
+> ![image-20240403191340925](/images/hpc-ai-1/10)
 >
-> ![image-20240403192012489](images/hpc-ai-1/11)
+> ![image-20240403192012489](/images/hpc-ai-1/11)
 >
 > | 缩写        | 含义                                                         |
 > | ----------- | ------------------------------------------------------------ |
@@ -190,7 +190,7 @@ OCRA将控制信息和张量数据传输分开，利用NCCL来传输中间张量
 
 9-10行，调度器保证数据够的情况下，每个worker都在工作。
 
-> ![image-20240403194231561](images/hpc-ai-1/12)
+> ![image-20240403194231561](/images/hpc-ai-1/12)
 >
 > 和以前最主要的区别现在可以实现batch和batch之间的流水线，而之前不能。
 >
