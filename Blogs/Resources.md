@@ -192,5 +192,13 @@ to be continue
 
 **有意思的系列**
 
-- [ ] [优雅玩转实验室服务器（七）优雅地使用ssh或者http访问内网服务器——frp内网穿透教程](https://zhuanlan.zhihu.com/p/688161704)
+- [ ] [**优雅玩转实验室服务器（七）优雅地使用ssh或者http访问内网服务器——frp内网穿透教程](https://zhuanlan.zhihu.com/p/688161704)**
+
+---
+
+**CUDA**
+
+- [ ] **[CUDA C++ Best Practices Guide ](https://docs.nvidia.com/cuda/pdf/CUDA_C_Best_Practices_Guide.pdf)**
+- [ ] **[CUDA C++ Programming Guide ](https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf)**
+- [ ] **[Optimizing Matrix Transpose in CUDA ](https://developer.download.nvidia.com/assets/cuda/files/MatrixTranspose.pdf)**
 

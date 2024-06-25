@@ -4,7 +4,7 @@
 
 ### Blogs
 
-* [Resources](Blogs\Learning_Path.md) 
+* [Resources](Blogs\Resources.md) 
 * [Scientific Research Drawing Tools](Blogs\tool-1.md) 
 
 ### Paper Reading Notes
@@ -18,26 +18,27 @@
 * [Machine Learning System](Paper Reading Notes\mlsys\index.md) 
   *  [【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU](Paper Reading Notes\mlsys\FlexGen.md)  
   * [【OSDI 2020】Orca, A Distributed Serving System for Transformer-Based Generative Models](Paper Reading Notes\mlsys\Orca.md) 
+  *  [【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention ](Paper Reading Notes\mlsys\vllm.md) 
 
 
 ### Study Notes
 
-- [CUDA](Study Notes\CUDA\index.md) 
-  -  [Chapter 5 in CUDA C++ Programming Guide](Study Notes\CUDA\cuda-1.md) 
-- [OpenMp](Study Notes\OPENMP\index.md) 
-  -  [OpenMp Notes](Study Notes\OPENMP\openmp.md) 
 - [Machine Learning System](Study Notes\MLSYS\index.md) 
+  - [vllm](Study Notes\MLSYS\vllm\index.md) 
+    - [vLLM Schedule](Study Notes\MLSYS\vllm\llm-4.md) 
+    - [Detailed explanation of vllm block mechanism](Study Notes\MLSYS\vllm\vllm-block.md)  
+    - [vllm gpu paged attention](Study Notes\MLSYS\vllm\vllm-attention.md) 
+    - [vLLM cpu paged attention](Study Notes\MLSYS\vllm\vllm-cpu.md)  
+    - [vLLM cache engine](Study Notes\MLSYS\vllm\vllm-cache.md) 
   - [ML Refresher / Softmax Regression](Study Notes\MLSYS\mlsys-1.md)
   - [Automatic differentiation](Study Notes\MLSYS\mlsys-2.md) 
   - [llama2部署记录](Study Notes\MLSYS\llm-3.md) 
-  - [vLLM Schedule](Study Notes\MLSYS\llm-4.md) 
-  -  [Detailed explanation of vllm block mechanism](Study Notes\MLSYS\vllm-block.md)  
   - [LLM Inference Series](Study Notes\MLSYS\llm-6.md) 
   - [Llama Model's decoder computing](Study Notes\MLSYS\llm-8.md) 
-  -  [大模型训练：流水线并行](Study Notes\MLSYS\llm-1.md) 
-  -  [大模型训练：数据并行](Study Notes\MLSYS\llm-2.md) 
-  -  [大模型训练：流水线并行](Study Notes\MLSYS\llm-5.md) 
-  -  [大模型训练：张量并行](Study Notes\MLSYS\llm-9.md) 
+  - [大模型训练：流水线并行](Study Notes\MLSYS\llm-1.md) 
+  - [大模型训练：数据并行](Study Notes\MLSYS\llm-2.md) 
+  - [大模型训练：流水线并行](Study Notes\MLSYS\llm-5.md) 
+  - [大模型训练：张量并行](Study Notes\MLSYS\llm-9.md) 
 - [NLP](Study Notes\NLP\index.md) 
   * [如何从头实现一个神经网络](Study Notes\NLP\nlp-1.md) 
   * [史上最详细循环神经网络讲解（RNN/LSTM/GRU）](Study Notes\NLP\nlp-2.md) 
@@ -47,7 +48,6 @@
   * [自回归模型和GPT ](Study Notes\NLP\nlp-6.md) 
 - [Resource Schedule](Study Notes\Resource Schedule\index.md) 
   -  [新型计算机系统设计与性能优化课程笔记-AI4Sys](Study Notes\Resource Schedule\新型计算机.md) 
-
 - [CME213](Study Notes/CME 213/index.md)
   - [C++ notes](Study Notes/CME 213/note1.md)
   - [CUDA Notes in HW3](Study Notes\CUDA\cuda-2.md) 
@@ -58,5 +58,13 @@
   * [Bit Hacks](Study Notes\MIT 6.172\mit-6-172-3.md) 
   * [Parallel Storage Allocation](Study Notes\MIT 6.172\mit-6-172-12.md) 
   * [HW:Profiling Serial MergeSort](Study Notes\MIT 6.172\mit-6-172-hw2.md) 
+
+* [CUDA](Study Notes\CUDA\index.md) 
+
+  -  [Chapter 5 in CUDA C++ Programming Guide](Study Notes\CUDA\cuda-1.md) 
+
+* [OpenMp](Study Notes\OPENMP\index.md) 
+
+  -  [OpenMp Notes](Study Notes\OPENMP\openmp.md) 
 
   
