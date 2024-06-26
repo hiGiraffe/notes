@@ -18,3 +18,14 @@ vLLM代码架构：
 * **transformers_utils**
 * **usage**
 * **worker**
+
+---
+
+vLLM外部逻辑
+
+![image-20240626155335259](C:\Data Files\github repo\github blog\gitbook\images\vllm\1.png)
+
+使用offline的方法，则会调用llm.py的generate函数
+
+1. 增加所有request
+2. 调用_run_engine进行推理

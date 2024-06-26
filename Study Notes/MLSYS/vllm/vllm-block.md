@@ -1,5 +1,11 @@
 # Detailed explanation of vllm block mechanism
 
+
+
+
+
+
+
 BlockManager这个class下又维护着两个重要属性：
 
 - **`BlockAllocator`：物理块分配者，负责实际为seq做物理块的分配、释放、拷贝等操作。**其下又分成`self.gpu_allocator`和`self.cpu_allocator`两种类型，分别管理gpu和cpu上的物理块。
