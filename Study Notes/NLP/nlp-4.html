@@ -1,0 +1,1441 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>从零开始实现循环神经网络（无框架） · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="nlp-5.html" />
+    
+    
+    <link rel="prev" href="nlp-3.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Resources.html">
+            
+                <a href="../../Blogs/Resources.html">
+            
+                    
+                    Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/tool-1.html">
+            
+                <a href="../../Blogs/tool-1.html">
+            
+                    
+                    Scientific Research Drawing Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../Paper Reading Notes/mlsys/">
+            
+                <a href="../../Paper Reading Notes/mlsys/">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../Paper Reading Notes/mlsys/FlexGen.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/FlexGen.html">
+            
+                    
+                    【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../Paper Reading Notes/mlsys/Orca.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/Orca.html">
+            
+                    
+                    【OSDI 2020】Orca, A Distributed Serving System for Transformer-Based Generative Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../Paper Reading Notes/mlsys/vllm.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/vllm.html">
+            
+                    
+                    【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../Gavel.md">
+            
+                <span>
+            
+                    
+                    Gavel：把Gavel的解决方案总结到博客中(Stanford)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../Paper Reading Notes/hpc/">
+            
+                <a href="../../Paper Reading Notes/hpc/">
+            
+                    
+                    High Performance Computing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../Paper Reading Notes/hpc/AutoMap.html">
+            
+                <a href="../../Paper Reading Notes/hpc/AutoMap.html">
+            
+                    
+                    【SC 2023】Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../Paper Reading Notes/graph/">
+            
+                <a href="../../Paper Reading Notes/graph/">
+            
+                    
+                    Graph
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../Paper Reading Notes/graph/graph-2.html">
+            
+                <a href="../../Paper Reading Notes/graph/graph-2.html">
+            
+                    
+                    【SIGMOD 2020】GPU-Accelerated Subgraph Enumeration on Partitioned Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../Paper Reading Notes/graph/graph.html">
+            
+                <a href="../../Paper Reading Notes/graph/graph.html">
+            
+                    
+                    【SC 2022】VSGM: View-Based GPU-Accelerated Subgraph Matching on Large Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../Paper Reading Notes/graph/ICDE 2023 work stealing.html">
+            
+                <a href="../../Paper Reading Notes/graph/ICDE 2023 work stealing.html">
+            
+                    
+                    【ICDE 2023】Efﬁcient Multi-GPU Graph Processing with Remote Work Stealing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../MLSYS/">
+            
+                <a href="../MLSYS/">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../MLSYS/vllm/">
+            
+                <a href="../MLSYS/vllm/">
+            
+                    
+                    vllm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="../MLSYS/vllm/vllm-schedule.html">
+            
+                <a href="../MLSYS/vllm/vllm-schedule.html">
+            
+                    
+                    vLLM Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="../MLSYS/vllm/vllm-block.html">
+            
+                <a href="../MLSYS/vllm/vllm-block.html">
+            
+                    
+                    Detailed explanation of vllm block mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="../MLSYS/vllm/vllm-attention.html">
+            
+                <a href="../MLSYS/vllm/vllm-attention.html">
+            
+                    
+                    vllm gpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.4" data-path="../MLSYS/vllm/vllm-cpu.html">
+            
+                <a href="../MLSYS/vllm/vllm-cpu.html">
+            
+                    
+                    vLLM cpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.5" data-path="../MLSYS/vllm/vllm-cache.html">
+            
+                <a href="../MLSYS/vllm/vllm-cache.html">
+            
+                    
+                    vLLM cache engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../MLSYS/mlsys-1.html">
+            
+                <a href="../MLSYS/mlsys-1.html">
+            
+                    
+                    ML Refresher / Softmax Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../MLSYS/mlsys-2.html">
+            
+                <a href="../MLSYS/mlsys-2.html">
+            
+                    
+                    Automatic differentiation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../MLSYS/llm-3.html">
+            
+                <a href="../MLSYS/llm-3.html">
+            
+                    
+                    llama2部署记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../MLSYS/llm-6.html">
+            
+                <a href="../MLSYS/llm-6.html">
+            
+                    
+                    LLM Inference Series
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../MLSYS/llm-8.html">
+            
+                <a href="../MLSYS/llm-8.html">
+            
+                    
+                    Llama Model's decoder computing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../MLSYS/llm-1.html">
+            
+                <a href="../MLSYS/llm-1.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../MLSYS/llm-2.html">
+            
+                <a href="../MLSYS/llm-2.html">
+            
+                    
+                    大模型训练：数据并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../MLSYS/llm-5.html">
+            
+                <a href="../MLSYS/llm-5.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../MLSYS/llm-9.html">
+            
+                <a href="../MLSYS/llm-9.html">
+            
+                    
+                    大模型训练：张量并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="nlp-1.html">
+            
+                <a href="nlp-1.html">
+            
+                    
+                    如何从头实现一个神经网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="nlp-2.html">
+            
+                <a href="nlp-2.html">
+            
+                    
+                    史上最详细循环神经网络讲解（RNN/LSTM/GRU）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="nlp-3.html">
+            
+                <a href="nlp-3.html">
+            
+                    
+                    完全图解RNN、RNN变体、Seq2Seq、Attention机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.2.4" data-path="nlp-4.html">
+            
+                <a href="nlp-4.html">
+            
+                    
+                    从零开始实现循环神经网络（无框架）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="nlp-5.html">
+            
+                <a href="nlp-5.html">
+            
+                    
+                    损失函数（Loss Function）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="nlp-6.html">
+            
+                <a href="nlp-6.html">
+            
+                    
+                    自回归模型和GPT 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../Resource Schedule/">
+            
+                <a href="../Resource Schedule/">
+            
+                    
+                    Resource Schedule
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../Resource Schedule/新型计算机.html">
+            
+                <a href="../Resource Schedule/新型计算机.html">
+            
+                    
+                    新型计算机系统设计与性能优化课程笔记-AI4Sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../CME 213/">
+            
+                <a href="../CME 213/">
+            
+                    
+                    CME213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../CME 213/note1.html">
+            
+                <a href="../CME 213/note1.html">
+            
+                    
+                    C++ notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../CUDA/cuda-2.html">
+            
+                <a href="../CUDA/cuda-2.html">
+            
+                    
+                    CUDA Notes in HW3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    Introduction and Matrix Multiplication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Bentley Rules for Optimizing Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Bit Hacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Parallel Storage Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.5" data-path="../MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    HW:Profiling Serial MergeSort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../CUDA/">
+            
+                <a href="../CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../CUDA/cuda-1.html">
+            
+                <a href="../CUDA/cuda-1.html">
+            
+                    
+                    Chapter 5 in CUDA C++ Programming Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../OPENMP/">
+            
+                <a href="../OPENMP/">
+            
+                    
+                    OpenMp
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../OPENMP/openmp.html">
+            
+                <a href="../OPENMP/openmp.html">
+            
+                    
+                    OpenMp Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >从零开始实现循环神经网络（无框架）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x5B9E;&#x73B0;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;&#x65E0;&#x6846;&#x67B6;&#xFF09;">&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x5B9E;&#x73B0;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;&#x65E0;&#x6846;&#x67B6;&#xFF09;</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/226048698" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+<ul>
+<li><h1 id="&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h1>
+<blockquote>
+<p><img src="../../images/nlp-4/1" alt="img"></p>
+<ul>
+<li><p>x&#x4E3A;&#x5E8F;&#x5217;&#x8F93;&#x5165;</p>
+</li>
+<li><p>U &#x4E3A;&#x8FDE;&#x63A5;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x8F93;&#x5165;&#x5C42;&#x4E0E;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;</p>
+</li>
+<li>V&#x4E3A;&#x8FDE;&#x63A5;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x4E0E;&#x4E0B;&#x4E00;&#x65F6;&#x523B;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;</li>
+<li>U&#x4E3A;&#x8FDE;&#x63A5;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x9690;&#x85CF;&#x5C42;&#x4E0E;&#x8F93;&#x51FA;&#x5C42;&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;</li>
+<li>h&#x4E3A;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x5355;&#x5143;</li>
+<li>o&#x4E3A;&#x8F93;&#x51FA;&#x72B6;&#x6001;&#x5355;&#x5143;</li>
+</ul>
+<p>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x65F6;&#x523B;</p>
+<ul>
+<li>$h<em>t=f(Ux_t+Vh</em>{t-1})$&#xFF0C;&#x5176;&#x4E2D;f&#x4E3A;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#xFF0C;&#x5982;tanh</li>
+<li>$o_t=softmax(Wh_t)$</li>
+</ul>
+</blockquote>
+<ul>
+<li><h2 id="&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;">&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;</h2>
+<pre><code class="lang-python">hidden_size = <span class="hljs-number">50</span> <span class="hljs-comment"># &#x9690;&#x85CF;&#x5C42;&#x795E;&#x7ECF;&#x5143;&#x4E2A;&#x6570;</span>
+vocab_size  = <span class="hljs-number">4</span> <span class="hljs-comment"># &#x8BCD;&#x6C47;&#x8868;&#x5927;&#x5C0F;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_orthogonal</span><span class="hljs-params">(param)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x6B63;&#x4EA4;&#x521D;&#x59CB;&#x5316;.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">if</span> param.ndim &lt; <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&quot;&#x53C2;&#x6570;&#x7EF4;&#x5EA6;&#x5FC5;&#x987B;&#x5927;&#x4E8E;2.&quot;</span>)
+    rows, cols = param.shape
+    <span class="hljs-comment"># &#x751F;&#x6210;&#x6307;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x670D;&#x4ECE;&#x6807;&#x51C6;&#x6B63;&#x6001;&#x5206;&#x5E03;&#xFF08;&#x5747;&#x503C;&#x4E3A;0&#xFF0C;&#x65B9;&#x5DEE;&#x4E3A;1&#xFF09;&#x7684;&#x968F;&#x673A;&#x6570;&#x77E9;&#x9635;</span>
+    new_param = np.random.randn(rows, cols) 
+    <span class="hljs-keyword">if</span> rows &lt; cols:
+        new_param = new_param.T 
+    <span class="hljs-comment"># QR &#x77E9;&#x9635;&#x5206;&#x89E3;&#xFF0C; q&#x4E3A;&#x6B63;&#x4EA4;&#x77E9;&#x9635;&#xFF0C;r&#x4E3A;&#x4E0A;&#x4E09;&#x89D2;&#x77E9;&#x9635;</span>
+    q, r = np.linalg.qr(new_param)
+    <span class="hljs-comment"># &#x8BA9;q&#x5747;&#x5300;&#x5206;&#x5E03;&#xFF0C;https://arxiv.org/pdf/math-ph/0609050.pdf</span>
+        <span class="hljs-comment"># &#x4ECE;&#x4E0A;&#x4E09;&#x89D2;&#x77E9;&#x9635;R&#x4E2D;&#x63D0;&#x53D6;&#x5BF9;&#x89D2;&#x7EBF;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x5B58;&#x50A8;&#x5728;&#x4E00;&#x4E2A;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;d&#x4E2D;&#x3002;&#x53C2;&#x6570;0&#x8868;&#x793A;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x63D0;&#x53D6;&#x7684;&#x5BF9;&#x89D2;&#x7EBF;&#x4F4D;&#x4E8E;R&#x7684;&#x4E3B;&#x5BF9;&#x89D2;&#x7EBF;&#x4E0A;&#x3002;</span>
+    d = np.diag(r, <span class="hljs-number">0</span>)
+        <span class="hljs-comment"># &#x8FD9;&#x884C;&#x4EE3;&#x7801;&#x5BF9;d&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x53D6;&#x7B26;&#x53F7;&#xFF0C;&#x5373;&#x5C06;&#x6B63;&#x6570;&#x6620;&#x5C04;&#x4E3A;+1&#xFF0C;&#x8D1F;&#x6570;&#x6620;&#x5C04;&#x4E3A;-1&#xFF0C;&#x96F6;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#x3002;</span>
+        <span class="hljs-comment"># &#x8FD9;&#x6837;&#x505A;&#x662F;&#x4E3A;&#x4E86;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x4E0E;d&#x76F8;&#x540C;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x7EC4;ph&#xFF0C;&#x5176;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x503C;&#x53EA;&#x80FD;&#x4E3A;+1&#x3001;-1&#x6216;0&#x3002;</span>
+    ph = np.sign(d)
+        <span class="hljs-comment"># &#x5C06;&#x6B63;&#x4EA4;&#x77E9;&#x9635;Q&#x7684;&#x6BCF;&#x4E00;&#x5217;&#x90FD;&#x4E58;&#x4EE5;&#x5BF9;&#x5E94;&#x7684;ph&#x6570;&#x7EC4;&#x5143;&#x7D20;&#xFF0C;&#x4ECE;&#x800C;&#x8C03;&#x6574;&#x4E86;Q&#x7684;&#x65B9;&#x5411;&#x3002;</span>
+        <span class="hljs-comment"># &#x4E58;&#x4EE5;-1&#x7684;&#x5217;&#x610F;&#x5473;&#x7740;&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x5728;QR&#x5206;&#x89E3;&#x4E2D;&#x88AB;&#x53CD;&#x8F6C;&#x4E86;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x8C03;&#x6574;&#xFF0C;&#x786E;&#x4FDD;&#x4E86;Q&#x77E9;&#x9635;&#x7684;&#x5BF9;&#x89D2;&#x7EBF;&#x5143;&#x7D20;&#x4E3A;&#x6B63;&#x6570;&#x3002;</span>
+    q *= ph
+    <span class="hljs-keyword">if</span> rows &lt; cols:
+        q = q.T
+    new_param = q
+    <span class="hljs-keyword">return</span> new_param
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_rnn</span><span class="hljs-params">(hidden_size, vocab_size)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x521D;&#x59CB;&#x5316;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x53C2;&#x6570;.
+    Args:
+    hidden_size: &#x9690;&#x85CF;&#x5C42;&#x795E;&#x7ECF;&#x5143;&#x4E2A;&#x6570;
+    vocab_size: &#x8BCD;&#x6C47;&#x8868;&#x5927;&#x5C0F;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># &#x8F93;&#x5165;&#x5230;&#x9690;&#x85CF;&#x5C42;&#x6743;&#x91CD;&#x77E9;&#x9635;</span>
+    U = np.zeros((hidden_size, vocab_size))
+    <span class="hljs-comment"># &#x9690;&#x85CF;&#x5C42;&#x5230;&#x9690;&#x85CF;&#x5C42;&#x6743;&#x91CD;&#x77E9;&#x9635;</span>
+    V = np.zeros((hidden_size, hidden_size))
+    <span class="hljs-comment"># &#x9690;&#x85CF;&#x5C42;&#x5230;&#x8F93;&#x51FA;&#x5C42;&#x6743;&#x91CD;&#x77E9;&#x9635;</span>
+    W = np.zeros((vocab_size, hidden_size))
+    <span class="hljs-comment"># &#x9690;&#x5C42;bias</span>
+    b_hidden = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x8F93;&#x51FA;&#x5C42;bias</span>
+    b_out = np.zeros((vocab_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x6743;&#x91CD;&#x521D;&#x59CB;&#x5316;</span>
+    U = init_orthogonal(U)
+    V = init_orthogonal(V)
+    W = init_orthogonal(W)   
+    <span class="hljs-keyword">return</span> U, V, W, b_hidden, b_out
+</code></pre>
+</li>
+<li><h2 id="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;">&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</h2>
+<blockquote>
+<p><img src="../../images/nlp-4/2" alt="image-20240322233229214"></p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sigmoid</span><span class="hljs-params">(x, derivative=False)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Args:
+    x: &#x8F93;&#x5165;&#x6570;&#x636E;x
+    derivative: &#x5982;&#x679C;&#x4E3A;True&#x5219;&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;
+    &quot;&quot;&quot;</span>
+    x_safe = x + <span class="hljs-number">1e-12</span>
+    f = <span class="hljs-number">1</span> / (<span class="hljs-number">1</span> + np.exp(-x_safe))
+    <span class="hljs-keyword">if</span> derivative: 
+        <span class="hljs-keyword">return</span> f * (<span class="hljs-number">1</span> - f)
+    <span class="hljs-keyword">else</span>: 
+        <span class="hljs-keyword">return</span> f
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tanh</span><span class="hljs-params">(x, derivative=False)</span>:</span>
+    x_safe = x + <span class="hljs-number">1e-12</span>
+    f = (np.exp(x_safe)-np.exp(-x_safe))/(np.exp(x_safe)+np.exp(-x_safe))
+    <span class="hljs-keyword">if</span> derivative: 
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>-f**<span class="hljs-number">2</span>
+    <span class="hljs-keyword">else</span>: 
+        <span class="hljs-keyword">return</span> f
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">softmax</span><span class="hljs-params">(x, derivative=False)</span>:</span>
+    x_safe = x + <span class="hljs-number">1e-12</span>
+    f = np.exp(x_safe) / np.sum(np.exp(x_safe))
+
+    <span class="hljs-keyword">if</span> derivative:
+        <span class="hljs-keyword">pass</span> <span class="hljs-comment"># &#x672C;&#x6587;&#x4E0D;&#x8BA1;&#x7B97;softmax&#x51FD;&#x6570;&#x5BFC;&#x6570;</span>
+    <span class="hljs-keyword">else</span>: 
+        <span class="hljs-keyword">return</span> f
+</code></pre>
+</li>
+<li><h2 id="rnn&#x524D;&#x5411;&#x4F20;&#x64AD;">RNN&#x524D;&#x5411;&#x4F20;&#x64AD;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward_pass</span><span class="hljs-params">(inputs, hidden_state, params)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    RNN&#x524D;&#x5411;&#x4F20;&#x64AD;&#x8BA1;&#x7B97;
+    Args:
+    inputs: &#x8F93;&#x5165;&#x5E8F;&#x5217;
+    hidden_state: &#x521D;&#x59CB;&#x5316;&#x540E;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x53C2;&#x6570;
+    params: RNN&#x53C2;&#x6570;
+    &quot;&quot;&quot;</span>
+    U, V, W, b_hidden, b_out = params
+    outputs, hidden_states = [], []
+
+    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(len(inputs)):
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x9690;&#x85CF;&#x72B6;&#x6001;</span>
+        hidden_state = tanh(np.dot(U, inputs[t]) + np.dot(V, hidden_state) + b_hidden)
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x8F93;&#x51FA;</span>
+        out = softmax(np.dot(W, hidden_state) + b_out)
+        <span class="hljs-comment"># &#x4FDD;&#x5B58;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;</span>
+        outputs.append(out)
+        hidden_states.append(hidden_state.copy())
+    <span class="hljs-keyword">return</span> outputs, hidden_states
+</code></pre>
+</li>
+<li><h2 id="rnn&#x540E;&#x5411;&#x4F20;&#x64AD;">RNN&#x540E;&#x5411;&#x4F20;&#x64AD;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">clip_gradient_norm</span><span class="hljs-params">(grads, max_norm=<span class="hljs-number">0.25</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x68AF;&#x5EA6;&#x526A;&#x88C1;&#x9632;&#x6B62;&#x68AF;&#x5EA6;&#x7206;&#x70B8;
+    &quot;&quot;&quot;</span> 
+    max_norm = float(max_norm)
+    total_norm = <span class="hljs-number">0</span>
+    <span class="hljs-comment"># &#x5BF9;&#x68AF;&#x5EA6;&#x5217;&#x8868;&#x8FDB;&#x884C;&#x904D;&#x5386;</span>
+    <span class="hljs-keyword">for</span> grad <span class="hljs-keyword">in</span> grads:
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5F53;&#x524D;&#x68AF;&#x5EA6;&#x7684;&#x5E73;&#x65B9;&#x8303;&#x6570;</span>
+        grad_norm = np.sum(np.power(grad, <span class="hljs-number">2</span>))
+        total_norm += grad_norm
+    <span class="hljs-comment"># &#x6240;&#x6709;&#x68AF;&#x5EA6;&#x7684;&#x603B;&#x8303;&#x6570;</span>
+    total_norm = np.sqrt(total_norm)
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x526A;&#x88C1;&#x7CFB;&#x6570;</span>
+    clip_coef = max_norm / (total_norm + <span class="hljs-number">1e-6</span>)
+    <span class="hljs-comment"># &#x526A;&#x88C1;&#x68AF;&#x5EA6;</span>
+    <span class="hljs-keyword">if</span> clip_coef &lt; <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">for</span> grad <span class="hljs-keyword">in</span> grads:
+            grad *= clip_coef
+    <span class="hljs-keyword">return</span> grads
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backward_pass</span><span class="hljs-params">(inputs, outputs, hidden_states, targets, params)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x540E;&#x5411;&#x4F20;&#x64AD;
+    Args:
+     inputs: &#x5E8F;&#x5217;&#x8F93;&#x5165;
+     outputs: &#x8F93;&#x51FA;
+     hidden_states: &#x9690;&#x85CF;&#x72B6;&#x6001;
+     targets: &#x9884;&#x6D4B;&#x76EE;&#x6807;
+     params: RNN&#x53C2;&#x6570;
+    &quot;&quot;&quot;</span>
+    U, V, W, b_hidden, b_out = params
+    d_U, d_V, d_W = np.zeros_like(U), np.zeros_like(V), np.zeros_like(W)
+    d_b_hidden, d_b_out = np.zeros_like(b_hidden), np.zeros_like(b_out)
+    <span class="hljs-comment"># &#x8DDF;&#x8E2A;&#x9690;&#x85CF;&#x5C42;&#x504F;&#x5BFC;&#x53CA;&#x635F;&#x5931;</span>
+    d_h_next = np.zeros_like(hidden_states[<span class="hljs-number">0</span>])
+    loss = <span class="hljs-number">0</span>
+    <span class="hljs-comment"># &#x5BF9;&#x4E8E;&#x8F93;&#x51FA;&#x5E8F;&#x5217;&#x5F53;&#x4E2D;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x53CD;&#x5411;&#x904D;&#x5386; s.t. t = N, N-1, ... 1, 0</span>
+    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> reversed(range(len(outputs))):
+        <span class="hljs-comment"># &#x4EA4;&#x53C9;&#x71B5;&#x635F;&#x5931;</span>
+        loss += -np.mean(np.log(outputs[t]+<span class="hljs-number">1e-12</span>) * targets[t])
+        <span class="hljs-comment"># d_loss/d_o</span>
+        d_o = outputs[t].copy()
+        d_o[np.argmax(targets[t])] -= <span class="hljs-number">1</span>  
+        <span class="hljs-comment"># d_o/d_w</span>
+        d_W += np.dot(d_o, hidden_states[t].T)
+        d_b_out += d_o   
+        <span class="hljs-comment"># d_o/d_h</span>
+        d_h = np.dot(W.T, d_o) + d_h_next
+        <span class="hljs-comment"># Backpropagate through non-linearity</span>
+        d_f = tanh(hidden_states[t], derivative=<span class="hljs-keyword">True</span>) * d_h
+        d_b_hidden += d_f  
+        <span class="hljs-comment"># d_f/d_u</span>
+        d_U += np.dot(d_f, inputs[t].T)
+        <span class="hljs-comment"># d_f/d_v</span>
+        d_V += np.dot(d_f, hidden_states[t<span class="hljs-number">-1</span>].T)
+        d_h_next = np.dot(V.T, d_f)
+    grads = d_U, d_V, d_W, d_b_hidden, d_b_out    
+    <span class="hljs-comment"># &#x68AF;&#x5EA6;&#x88C1;&#x526A;</span>
+    grads = clip_gradient_norm(grads)
+    <span class="hljs-keyword">return</span> loss, grads
+</code></pre>
+</li>
+<li><h2 id="&#x68AF;&#x5EA6;&#x4F18;&#x5316;">&#x68AF;&#x5EA6;&#x4F18;&#x5316;</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_parameters</span><span class="hljs-params">(params, grads, lr=<span class="hljs-number">1e-3</span>)</span>:</span>
+    <span class="hljs-comment"># lr&#xFF0C; learning rate&#xFF0C; &#x5B66;&#x4E60;&#x7387;</span>
+    <span class="hljs-keyword">for</span> param, grad <span class="hljs-keyword">in</span> zip(params, grads):
+        param -= lr * grad
+    <span class="hljs-keyword">return</span> params
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>LSTM</p>
+<blockquote>
+<p><img src="../../images/nlp-4/3" alt="img"></p>
+<p><img src="../../images/nlp-4/4" alt="img"></p>
+<p>&#x5305;&#x542B;5&#x4E2A;&#x57FA;&#x672C;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B83;&#x4EEC;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x5355;&#x5143;&#x72B6;&#x6001;&#xFF08;cell_state&#xFF09;-&#x50A8;&#x5B58;&#x77ED;&#x671F;&#x8BB0;&#x5FC6;&#x548C;&#x957F;&#x671F;&#x8BB0;&#x5FC6;&#x7684;&#x50A8;&#x5B58;&#x5355;&#x5143;</li>
+<li>&#x9690;&#x85CF;&#x72B6;&#x6001;(hidden_state) -&#x6839;&#x636E;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x3001;&#x5148;&#x524D;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x548C;&#x5F53;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7684;&#x8F93;&#x51FA;&#x72B6;&#x6001;&#x4FE1;&#x606F;</li>
+<li>&#x8F93;&#x5165;&#x95E8;&#xFF08;input_gate&#xFF09;-&#x63A7;&#x5236;&#x4ECE;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x6D41;&#x5230;&#x5355;&#x5143;&#x72B6;&#x6001;&#x7684;&#x4FE1;&#x606F;&#x91CF;</li>
+<li>&#x9057;&#x5FD8;&#x95E8;&#xFF08;forget_gate&#xFF09;-&#x63A7;&#x5236;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x548C;&#x5148;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;&#x4E2D;&#x6709;&#x591A;&#x5C11;&#x4FE1;&#x606F;&#x6D41;&#x5165;&#x5F53;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;</li>
+<li>&#x8F93;&#x51FA;&#x95E8;&#xFF08;output_gate&#xFF09;-&#x63A7;&#x5236;&#x6709;&#x591A;&#x5C11;&#x4FE1;&#x606F;&#x4ECE;&#x5F53;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;&#x8FDB;&#x5165;&#x9690;&#x85CF;&#x72B6;&#x6001;</li>
+</ul>
+<p><img src="../../images/nlp-4/5" alt="img"></p>
+<p>&#x4E09;&#x4E2A;&#x95E8;&#x63A7;&#x5355;&#x5143;&#x53CA;&#x4E00;&#x4E2A;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x5355;&#x5143;&#x7684;&#x8F93;&#x5165;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x90FD;&#x662F;&#x5F53;&#x524D;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165;$x<em>t$&#x4EE5;&#x53CA;&#x4E0A;&#x4E00;&#x4E2A;&#x9690;&#x85CF;&#x72B6;&#x6001;$h</em>{t-1}$, &#x4F46;&#x662F;&#x4ED6;&#x4EEC;&#x7684;&#x53C2;&#x6570;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x540C;&#x65F6;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x5355;&#x5143;&#x4F7F;&#x7528;&#x7684;&#x662F;$tanh$&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x9057;&#x5FD8;&#x95E8;$f<em>t$&#xFF0C;&#x4E0A;&#x4E00;&#x7EC6;&#x80DE;&#x72B6;&#x6001;$c</em>{t-1}$, &#x8BB0;&#x5FC6;&#x95E8;$i_t$ &#x53CA;&#x5F53;&#x524D;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x4E00;&#x8D77;&#x51B3;&#x5B9A;&#x8F93;&#x51FA;&#x7EC6;&#x80DE;&#x72B6;&#x6001; $c_t$&#x3002;</p>
+<p>&#x8F93;&#x51FA;&#x95E8; $o_t$&#x53CA; $c_t$&#x5171;&#x540C;&#x51B3;&#x5B9A;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x8F93;&#x51FA; $h_t$&#x3002;</p>
+</blockquote>
+<ul>
+<li><h2 id="&#x53C2;&#x6570;&#x521D;&#x59CB;&#x5316;">&#x53C2;&#x6570;&#x521D;&#x59CB;&#x5316;</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x8F93;&#x5165;&#x5355;&#x5143; + &#x9690;&#x85CF;&#x5355;&#x5143; &#x62FC;&#x63A5;&#x540E;&#x7684;&#x5927;&#x5C0F;</span>
+z_size = hidden_size + vocab_size 
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_lstm</span><span class="hljs-params">(hidden_size, vocab_size, z_size)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    LSTM&#x7F51;&#x7EDC;&#x521D;&#x59CB;&#x5316;
+    Args:
+     hidden_size: &#x9690;&#x85CF;&#x5355;&#x5143;&#x5927;&#x5C0F;
+     vocab_size: &#x8BCD;&#x6C47;&#x8868;&#x5927;&#x5C0F;
+     z_size: &#x9690;&#x85CF;&#x5355;&#x5143; + &#x8F93;&#x5165;&#x5355;&#x5143;&#x5927;&#x5C0F;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># &#x9057;&#x5FD8;&#x95E8;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_f = np.random.randn(hidden_size, z_size)
+    b_f = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x8BB0;&#x5FC6;&#x95E8;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_i = np.random.randn(hidden_size, z_size)
+    b_i = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_g = np.random.randn(hidden_size, z_size)
+    b_g = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x8F93;&#x51FA;&#x95E8;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_o = np.random.randn(hidden_size, z_size)
+    b_o = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x8FDE;&#x63A5;&#x9690;&#x85CF;&#x5355;&#x5143;&#x53CA;&#x8F93;&#x51FA;&#x7684;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_v = np.random.randn(vocab_size, hidden_size)
+    b_v = np.zeros((vocab_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x6B63;&#x4EA4;&#x53C2;&#x6570;&#x521D;&#x59CB;&#x5316;</span>
+    W_f = init_orthogonal(W_f)
+    W_i = init_orthogonal(W_i)
+    W_g = init_orthogonal(W_g)
+    W_o = init_orthogonal(W_o)
+    W_v = init_orthogonal(W_v)
+    <span class="hljs-keyword">return</span> W_f, W_i, W_g, W_o, W_v, b_f, b_i, b_g, b_o, b_v
+</code></pre>
+</li>
+<li><p>LSTM&#x524D;&#x5411;&#x8BA1;&#x7B97;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(inputs, h_prev, C_prev, p)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Arguments:
+    inputs: [..., x, ...],  x&#x8868;&#x793A;t&#x65F6;&#x523B;&#x7684;&#x6570;&#x636E;,  x&#x7684;&#x7EF4;&#x5EA6;&#x4E3A;(n_x, m).
+    h_prev&#xFF1A; t-1&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF0C;&#x7EF4;&#x5EA6;&#x4E3A; (n_a, m)
+    C_prev&#xFF1A; t-1&#x65F6;&#x523B;&#x7684;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF0C;&#x7EF4;&#x5EA6;&#x4E3A; (n_a, m)
+    p&#xFF1A;&#x5217;&#x8868;&#xFF0C;&#x5305;&#x542B;LSTM&#x521D;&#x59CB;&#x5316;&#x5F53;&#x4E2D;&#x6240;&#x6709;&#x53C2;&#x6570;:
+                        W_f&#xFF1A; (n_a, n_a + n_x)
+                        b_f&#xFF1A; (n_a, 1)
+                        W_i&#xFF1A; (n_a, n_a + n_x)
+                        b_i&#xFF1A; (n_a, 1)
+                        W_g&#xFF1A; (n_a, n_a + n_x)
+                        b_g&#xFF1A; (n_a, 1)
+                        W_o&#xFF1A; (n_a, n_a + n_x)
+                        b_o&#xFF1A; (n_a, 1)
+                        W_v&#xFF1A; (n_v, n_a)
+                        b_v&#xFF1A; (n_v, 1)
+    Returns:
+    z_s, f_s, i_s, g_s, C_s, o_s, h_s, v_s&#xFF1A;&#x6BCF;&#x4E00;&#x6B21;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x540E;&#x7684;&#x4E2D;&#x95F4;&#x8F93;&#x51FA;
+    outputs&#xFF1A;t&#x65F6;&#x523B;&#x7684;&#x9884;&#x4F30;&#x503C;&#xFF0C; &#x7EF4;&#x5EA6;&#x4E3A;(n_v, m)
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">assert</span> h_prev.shape == (hidden_size, <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">assert</span> C_prev.shape == (hidden_size, <span class="hljs-number">1</span>)
+    W_f, W_i, W_g, W_o, W_v, b_f, b_i, b_g, b_o, b_v = p
+    <span class="hljs-comment"># &#x4FDD;&#x5B58;&#x5404;&#x4E2A;&#x5355;&#x5143;&#x7684;&#x8BA1;&#x7B97;&#x8F93;&#x51FA;&#x503C;</span>
+    x_s, z_s, f_s, i_s,  = [], [] ,[], []
+    g_s, C_s, o_s, h_s = [], [] ,[], []
+    v_s, output_s =  [], [] 
+    h_s.append(h_prev)
+    C_s.append(C_prev)
+    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> inputs:
+        <span class="hljs-comment"># &#x62FC;&#x63A5;&#x8F93;&#x5165;&#x53CA;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x5355;&#x5143;&#x6570;&#x636E;</span>
+        z = np.row_stack((h_prev, x))
+        z_s.append(z)
+        <span class="hljs-comment"># &#x9057;&#x5FD8;&#x95E8;&#x8BA1;&#x7B97;</span>
+        f = sigmoid(np.dot(W_f, z) + b_f)
+        f_s.append(f)
+        <span class="hljs-comment"># &#x8F93;&#x5165;&#x95E8;&#x8BA1;&#x7B97;</span>
+        i = sigmoid(np.dot(W_i, z) + b_i)
+        i_s.append(i) 
+        <span class="hljs-comment"># &#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x5355;&#x5143;&#x8BA1;&#x7B97;</span>
+        g = tanh(np.dot(W_g, z) + b_g)
+        g_s.append(g)
+        <span class="hljs-comment"># &#x4E0B;&#x4E00;&#x65F6;&#x523B;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x8BA1;&#x7B97;</span>
+        C_prev = f * C_prev + i * g 
+        C_s.append(C_prev)
+        <span class="hljs-comment"># &#x8F93;&#x51FA;&#x95E8;&#x8BA1;&#x7B97;</span>
+        o = sigmoid(np.dot(W_o, z) + b_o)
+        o_s.append(o)
+        <span class="hljs-comment"># &#x9690;&#x85CF;&#x72B6;&#x6001;&#x5355;&#x5143;&#x8BA1;&#x7B97;</span>
+        h_prev = o * tanh(C_prev)
+        h_s.append(h_prev)
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x9884;&#x4F30;&#x503C;</span>
+        v = np.dot(W_v, h_prev) + b_v
+        v_s.append(v)
+        <span class="hljs-comment"># softmax&#x8F6C;&#x6362;</span>
+        output = softmax(v)
+        output_s.append(output)
+    <span class="hljs-keyword">return</span> z_s, f_s, i_s, g_s, C_s, o_s, h_s, v_s, output_s
+</code></pre>
+</li>
+<li><h2 id="lstm&#x540E;&#x5411;&#x4F20;&#x64AD;">LSTM&#x540E;&#x5411;&#x4F20;&#x64AD;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backward</span><span class="hljs-params">(z, f, i, g, C, o, h, v, outputs, targets, p = params)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Arguments:
+    z&#xFF0C;f&#xFF0C;i&#xFF0C;g&#xFF0C;C&#xFF0C;o&#xFF0C;h&#xFF0C;v&#xFF0C;outputs&#xFF1A;&#x5BF9;&#x5E94;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x8F93;&#x51FA;
+    targets&#xFF1A; &#x76EE;&#x6807;&#x503C;
+    p&#xFF1A;W_f&#xFF0C;b_f&#xFF0C;W_i&#xFF0C;b_i&#xFF0C;W_g&#xFF0C;b_g&#xFF0C;W_o&#xFF0C;b_o&#xFF0C;W_v&#xFF0C;b_v&#xFF0C; LSTM&#x53C2;&#x6570;
+    Returns:
+    loss&#xFF1A;&#x4EA4;&#x53C9;&#x71B5;&#x635F;&#x5931;
+    grads&#xFF1A;p&#x4E2D;&#x53C2;&#x6570;&#x7684;&#x68AF;&#x5EA6;
+    &quot;&quot;&quot;</span>
+    W_f, W_i, W_g, W_o, W_v, b_f, b_i, b_g, b_o, b_v = p
+    <span class="hljs-comment"># &#x521D;&#x59CB;&#x5316;&#x68AF;&#x5EA6;&#x4E3A;0</span>
+    W_f_d = np.zeros_like(W_f)
+    b_f_d = np.zeros_like(b_f)
+
+    W_i_d = np.zeros_like(W_i)
+    b_i_d = np.zeros_like(b_i)
+&#x200B;
+    W_g_d = np.zeros_like(W_g)
+    b_g_d = np.zeros_like(b_g)
+&#x200B;
+    W_o_d = np.zeros_like(W_o)
+    b_o_d = np.zeros_like(b_o)
+&#x200B;
+    W_v_d = np.zeros_like(W_v)
+    b_v_d = np.zeros_like(b_v)
+
+    dh_next = np.zeros_like(h[<span class="hljs-number">0</span>])
+    dC_next = np.zeros_like(C[<span class="hljs-number">0</span>])    
+    <span class="hljs-comment"># &#x8BB0;&#x5F55;loss</span>
+    loss = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> reversed(range(len(outputs))):
+        loss += -np.mean(np.log(outputs[t]) * targets[t])
+        C_prev= C[t<span class="hljs-number">-1</span>]
+        <span class="hljs-comment">#&#x8F93;&#x51FA;&#x68AF;&#x5EA6;</span>
+        dv = np.copy(outputs[t])
+        dv[np.argmax(targets[t])] -= <span class="hljs-number">1</span>
+        <span class="hljs-comment">#&#x9690;&#x85CF;&#x5355;&#x5143;&#x72B6;&#x6001;&#x5BF9;&#x8F93;&#x51FA;&#x7684;&#x68AF;&#x5EA6;</span>
+        W_v_d += np.dot(dv, h[t].T)
+        b_v_d += dv
+        <span class="hljs-comment">#&#x9690;&#x85CF;&#x5355;&#x5143;&#x68AF;&#x5EA6;</span>
+        dh = np.dot(W_v.T, dv)        
+        dh += dh_next
+        do = dh * tanh(C[t])
+        do = sigmoid(o[t], derivative=<span class="hljs-keyword">True</span>)*do
+        <span class="hljs-comment">#&#x8F93;&#x5165;&#x5355;&#x5143;&#x68AF;&#x5EA6;</span>
+        W_o_d += np.dot(do, z[t].T)
+        b_o_d += do
+        <span class="hljs-comment">#&#x4E0B;&#x4E00;&#x65F6;&#x523B;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x68AF;&#x5EA6;</span>
+        dC = np.copy(dC_next)
+        dC += dh * o[t] * tanh(tanh(C[t]), derivative=<span class="hljs-keyword">True</span>)
+        dg = dC * i[t]
+        dg = tanh(g[t], derivative=<span class="hljs-keyword">True</span>) * dg 
+        <span class="hljs-comment"># &#x5F53;&#x524D;&#x65F6;&#x523B;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x68AF;&#x5EA6;</span>
+        W_g_d += np.dot(dg, z[t].T)
+        b_g_d += dg
+        <span class="hljs-comment"># &#x8F93;&#x5165;&#x5355;&#x5143;&#x68AF;&#x5EA6;</span>
+        di = dC * g[t]
+        di = sigmoid(i[t], <span class="hljs-keyword">True</span>) * di
+        W_i_d += np.dot(di, z[t].T)
+        b_i_d += di
+        <span class="hljs-comment"># &#x9057;&#x5FD8;&#x5355;&#x5143;&#x68AF;&#x5EA6;</span>
+        df = dC * C_prev
+        df = sigmoid(f[t]) * df
+        W_f_d += np.dot(df, z[t].T)
+        b_f_d += df
+        <span class="hljs-comment"># &#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x53CA;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x68AF;&#x5EA6;</span>
+        dz = (np.dot(W_f.T, df)
+             + np.dot(W_i.T, di)
+             + np.dot(W_g.T, dg)
+             + np.dot(W_o.T, do))
+        dh_prev = dz[:hidden_size, :]
+        dC_prev = f[t] * dC
+    grads= W_f_d, W_i_d, W_g_d, W_o_d, W_v_d, b_f_d, b_i_d, b_g_d, b_o_d, b_v_d
+    <span class="hljs-comment"># &#x68AF;&#x5EA6;&#x88C1;&#x526A;</span>
+    grads = clip_gradient_norm(grads)
+    <span class="hljs-keyword">return</span> loss, grads
+</code></pre>
+</li>
+<li><p>&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;</p>
+<blockquote>
+<p>RNN&#x548C;LSTM&#x7F51;&#x7EDC;&#x7684;&#x524D;&#x540E;&#x5411;&#x4F20;&#x64AD;&#x90FD;&#x5B9E;&#x73B0;&#x5B8C;&#x6BD5;&#xFF0C;&#x4E24;&#x8005;&#x7684;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E00;&#x81F4;&#xFF0C;&#x6574;&#x4E2A;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x5305;&#x62EC; &#x8F93;&#x5165;&#x6570;&#x636E;-&gt;&#x6570;&#x636E;&#x9884;&#x5904;&#x7406;-&gt;&#x524D;&#x5411;&#x4F20;&#x64AD;-&gt;&#x540E;&#x5411;&#x4F20;&#x64AD;-&gt;&#x66F4;&#x65B0;&#x53C2;&#x6570;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x904D;&#x5386;&#x8BAD;&#x7EC3;&#x96C6;&#x5F53;&#x4E2D;&#x7684;&#x5E8F;&#x5217;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">for</span> inputs, targets <span class="hljs-keyword">in</span> training_set:
+    <span class="hljs-comment"># &#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x9884;&#x5904;&#x7406;</span>
+    inputs_one_hot = one_hot_encode_sequence(inputs, vocab_size)
+    targets_one_hot = one_hot_encode_sequence(targets, vocab_size)
+    <span class="hljs-comment"># &#x9488;&#x5BF9;&#x6BCF;&#x4E2A;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#xFF0C;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x9690;&#x72B6;&#x6001;&#x53C2;&#x6570;</span>
+    hidden_state = np.zeros_like(hidden_state)
+    <span class="hljs-comment"># &#x524D;&#x5411;&#x4F20;&#x64AD;</span>
+    outputs, hidden_states = forward_pass(inputs_one_hot, hidden_state, params)
+    <span class="hljs-comment"># &#x540E;&#x5411;&#x4F20;&#x64AD;</span>
+    loss, grads = backward_pass(inputs_one_hot, outputs, hidden_states, targets_one_hot, params)
+    <span class="hljs-comment"># &#x68AF;&#x5EA6;&#x66F4;&#x65B0;</span>
+    params = update_parameters(params, grads, lr=<span class="hljs-number">3e-4</span>)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="nlp-3.html" class="navigation navigation-prev " aria-label="Previous page: 完全图解RNN、RNN变体、Seq2Seq、Attention机制">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="nlp-5.html" class="navigation navigation-next " aria-label="Next page: 损失函数（Loss Function）">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"从零开始实现循环神经网络（无框架）","level":"4.2.4","depth":2,"next":{"title":"损失函数（Loss Function）","level":"4.2.5","depth":2,"path":"Study Notes/NLP/nlp-5.md","ref":"Study Notes/NLP/nlp-5.md","articles":[]},"previous":{"title":"完全图解RNN、RNN变体、Seq2Seq、Attention机制","level":"4.2.3","depth":2,"path":"Study Notes/NLP/nlp-3.md","ref":"Study Notes/NLP/nlp-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Study Notes/NLP/nlp-4.md","mtime":"2024-06-28T16:16:39.614Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-28T16:17:12.802Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

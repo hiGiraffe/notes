@@ -1,0 +1,1186 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Llama Model's decoder computing · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="llm-1.html" />
+    
+    
+    <link rel="prev" href="llm-6.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Resources.html">
+            
+                <a href="../../Blogs/Resources.html">
+            
+                    
+                    Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/tool-1.html">
+            
+                <a href="../../Blogs/tool-1.html">
+            
+                    
+                    Scientific Research Drawing Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../Paper Reading Notes/mlsys/">
+            
+                <a href="../../Paper Reading Notes/mlsys/">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../Paper Reading Notes/mlsys/FlexGen.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/FlexGen.html">
+            
+                    
+                    【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../Paper Reading Notes/mlsys/Orca.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/Orca.html">
+            
+                    
+                    【OSDI 2020】Orca, A Distributed Serving System for Transformer-Based Generative Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../Paper Reading Notes/mlsys/vllm.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/vllm.html">
+            
+                    
+                    【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../Gavel.md">
+            
+                <span>
+            
+                    
+                    Gavel：把Gavel的解决方案总结到博客中(Stanford)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../Paper Reading Notes/hpc/">
+            
+                <a href="../../Paper Reading Notes/hpc/">
+            
+                    
+                    High Performance Computing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../Paper Reading Notes/hpc/AutoMap.html">
+            
+                <a href="../../Paper Reading Notes/hpc/AutoMap.html">
+            
+                    
+                    【SC 2023】Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../Paper Reading Notes/graph/">
+            
+                <a href="../../Paper Reading Notes/graph/">
+            
+                    
+                    Graph
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../Paper Reading Notes/graph/graph-2.html">
+            
+                <a href="../../Paper Reading Notes/graph/graph-2.html">
+            
+                    
+                    【SIGMOD 2020】GPU-Accelerated Subgraph Enumeration on Partitioned Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../Paper Reading Notes/graph/graph.html">
+            
+                <a href="../../Paper Reading Notes/graph/graph.html">
+            
+                    
+                    【SC 2022】VSGM: View-Based GPU-Accelerated Subgraph Matching on Large Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../Paper Reading Notes/graph/ICDE 2023 work stealing.html">
+            
+                <a href="../../Paper Reading Notes/graph/ICDE 2023 work stealing.html">
+            
+                    
+                    【ICDE 2023】Efﬁcient Multi-GPU Graph Processing with Remote Work Stealing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="vllm/">
+            
+                <a href="vllm/">
+            
+                    
+                    vllm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="vllm/vllm-schedule.html">
+            
+                <a href="vllm/vllm-schedule.html">
+            
+                    
+                    vLLM Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="vllm/vllm-block.html">
+            
+                <a href="vllm/vllm-block.html">
+            
+                    
+                    Detailed explanation of vllm block mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="vllm/vllm-attention.html">
+            
+                <a href="vllm/vllm-attention.html">
+            
+                    
+                    vllm gpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.4" data-path="vllm/vllm-cpu.html">
+            
+                <a href="vllm/vllm-cpu.html">
+            
+                    
+                    vLLM cpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.5" data-path="vllm/vllm-cache.html">
+            
+                <a href="vllm/vllm-cache.html">
+            
+                    
+                    vLLM cache engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="mlsys-1.html">
+            
+                <a href="mlsys-1.html">
+            
+                    
+                    ML Refresher / Softmax Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="mlsys-2.html">
+            
+                <a href="mlsys-2.html">
+            
+                    
+                    Automatic differentiation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="llm-3.html">
+            
+                <a href="llm-3.html">
+            
+                    
+                    llama2部署记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="llm-6.html">
+            
+                <a href="llm-6.html">
+            
+                    
+                    LLM Inference Series
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.6" data-path="llm-8.html">
+            
+                <a href="llm-8.html">
+            
+                    
+                    Llama Model's decoder computing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="llm-1.html">
+            
+                <a href="llm-1.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="llm-2.html">
+            
+                <a href="llm-2.html">
+            
+                    
+                    大模型训练：数据并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="llm-5.html">
+            
+                <a href="llm-5.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="llm-9.html">
+            
+                <a href="llm-9.html">
+            
+                    
+                    大模型训练：张量并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../NLP/">
+            
+                <a href="../NLP/">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../NLP/nlp-1.html">
+            
+                <a href="../NLP/nlp-1.html">
+            
+                    
+                    如何从头实现一个神经网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../NLP/nlp-2.html">
+            
+                <a href="../NLP/nlp-2.html">
+            
+                    
+                    史上最详细循环神经网络讲解（RNN/LSTM/GRU）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../NLP/nlp-3.html">
+            
+                <a href="../NLP/nlp-3.html">
+            
+                    
+                    完全图解RNN、RNN变体、Seq2Seq、Attention机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../NLP/nlp-4.html">
+            
+                <a href="../NLP/nlp-4.html">
+            
+                    
+                    从零开始实现循环神经网络（无框架）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../NLP/nlp-5.html">
+            
+                <a href="../NLP/nlp-5.html">
+            
+                    
+                    损失函数（Loss Function）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../NLP/nlp-6.html">
+            
+                <a href="../NLP/nlp-6.html">
+            
+                    
+                    自回归模型和GPT 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../Resource Schedule/">
+            
+                <a href="../Resource Schedule/">
+            
+                    
+                    Resource Schedule
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../Resource Schedule/新型计算机.html">
+            
+                <a href="../Resource Schedule/新型计算机.html">
+            
+                    
+                    新型计算机系统设计与性能优化课程笔记-AI4Sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../CME 213/">
+            
+                <a href="../CME 213/">
+            
+                    
+                    CME213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../CME 213/note1.html">
+            
+                <a href="../CME 213/note1.html">
+            
+                    
+                    C++ notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../CUDA/cuda-2.html">
+            
+                <a href="../CUDA/cuda-2.html">
+            
+                    
+                    CUDA Notes in HW3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    Introduction and Matrix Multiplication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Bentley Rules for Optimizing Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Bit Hacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Parallel Storage Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.5" data-path="../MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    HW:Profiling Serial MergeSort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../CUDA/">
+            
+                <a href="../CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../CUDA/cuda-1.html">
+            
+                <a href="../CUDA/cuda-1.html">
+            
+                    
+                    Chapter 5 in CUDA C++ Programming Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../OPENMP/">
+            
+                <a href="../OPENMP/">
+            
+                    
+                    OpenMp
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../OPENMP/openmp.html">
+            
+                <a href="../OPENMP/openmp.html">
+            
+                    
+                    OpenMp Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Llama Model's decoder computing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="llama-models-decoder-computing">Llama Model&apos;s decoder computing</h1>
+<p><a href="https://github.com/hiGiraffe/transformers/blob/main/src/transformers/models/llama/modeling_llama.py" target="_blank">code</a></p>
+<p><strong>decoder&#x8BA1;&#x7B97;</strong></p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LlamaDecoderLayer</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(
+        self,
+        hidden_states: torch.Tensor,
+        attention_mask: Optional[torch.Tensor] = None,
+        position_ids: Optional[torch.LongTensor] = None,
+        past_key_value: Optional[Tuple[torch.Tensor]] = None,
+        output_attentions: Optional[bool] = False,
+        use_cache: Optional[bool] = False,
+        cache_position: Optional[torch.LongTensor] = None,
+        **kwargs,
+    )</span> -&gt; Tuple[torch.FloatTensor, Optional[Tuple[torch.FloatTensor, torch.FloatTensor]]]:</span>
+        <span class="hljs-comment"># hidden_states (`torch.FloatTensor`): input to the layer of shape `(batch, seq_len, embed_dim)`</span>
+
+        <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;padding_mask&quot;</span> <span class="hljs-keyword">in</span> kwargs:
+            warnings.warn(
+                <span class="hljs-string">&quot;Passing `padding_mask` is deprecated and will be removed in v4.37. Please make sure use `attention_mask` instead.`&quot;</span>
+            )
+
+        residual = hidden_states
+
+        <span class="hljs-comment"># &#x5F52;&#x4E00;&#x5316;&#x5904;&#x7406;</span>
+        hidden_states = self.input_layernorm(hidden_states)
+
+        <span class="hljs-comment"># Self Attention</span>
+        hidden_states, self_attn_weights, present_key_value = self.self_attn(
+            hidden_states=hidden_states,
+            attention_mask=attention_mask,
+            position_ids=position_ids,
+            past_key_value=past_key_value,
+            output_attentions=output_attentions,
+            use_cache=use_cache,
+            cache_position=cache_position,
+            **kwargs,
+        )
+        hidden_states = residual + hidden_states
+
+        <span class="hljs-comment"># Fully Connected</span>
+        residual = hidden_states
+        hidden_states = self.post_attention_layernorm(hidden_states)
+        hidden_states = self.mlp(hidden_states)
+        hidden_states = residual + hidden_states
+
+        outputs = (hidden_states,)
+
+        <span class="hljs-keyword">if</span> output_attentions:
+            outputs += (self_attn_weights,)
+
+        <span class="hljs-keyword">if</span> use_cache:
+            outputs += (present_key_value,)
+
+        <span class="hljs-keyword">return</span> outputs
+</code></pre>
+<p><strong>layernorm&#x8BA1;&#x7B97;</strong></p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LlamaRMSNorm</span><span class="hljs-params">(nn.Module)</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, hidden_states)</span>:</span>
+        input_dtype = hidden_states.dtype
+        <span class="hljs-comment"># &#x8F6C;&#x4E3A;32&#x4F4D;</span>
+        hidden_states = hidden_states.to(torch.float32)
+        <span class="hljs-comment"># &#x5148;&#x5BF9;&#x6240;&#x6709;&#x5143;&#x7D20;&#x53D6;&#x5E73;&#x65B9;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x5728;embed_dim&#x7EF4;&#x5EA6;&#x8BA1;&#x7B97;&#x5E73;&#x5747;&#x503C;</span>
+        variance = hidden_states.pow(<span class="hljs-number">2</span>).mean(<span class="hljs-number">-1</span>, keepdim=<span class="hljs-keyword">True</span>)
+        <span class="hljs-comment"># &#x518D;&#x4E58;&#x4EE5;&#x6807;&#x51C6;&#x5DEE;&#x7684;&#x5012;&#x6570;</span>
+        hidden_states = hidden_states * torch.rsqrt(variance + self.variance_epsilon)
+        <span class="hljs-keyword">return</span> self.weight * hidden_states.to(input_dtype)
+</code></pre>
+<p><strong>llama Attention&#x8BA1;&#x7B97;</strong></p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LlamaAttention</span><span class="hljs-params">(nn.Module)</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(
+        self,
+        hidden_states: torch.Tensor,
+        attention_mask: Optional[torch.Tensor] = None,
+        position_ids: Optional[torch.LongTensor] = None,
+        past_key_value: Optional[Cache] = None,
+        output_attentions: bool = False,
+        use_cache: bool = False,
+        cache_position: Optional[torch.LongTensor] = None,
+        **kwargs,
+    )</span> -&gt; Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:</span>
+        bsz, q_len, _ = hidden_states.size()
+
+        <span class="hljs-keyword">if</span> self.config.pretraining_tp &gt; <span class="hljs-number">1</span>:
+            <span class="hljs-comment"># &#x91C7;&#x7528;tensor parallel&#xFF0C;&#x5BF9;key&#x548C;value&#x5206;&#x7247;&#x5904;&#x7406;</span>
+            key_value_slicing = (self.num_key_value_heads * self.head_dim) // self.config.pretraining_tp
+            query_slices = self.q_proj.weight.split(
+                (self.num_heads * self.head_dim) // self.config.pretraining_tp, dim=<span class="hljs-number">0</span>
+            )
+            key_slices = self.k_proj.weight.split(key_value_slicing, dim=<span class="hljs-number">0</span>)
+            value_slices = self.v_proj.weight.split(key_value_slicing, dim=<span class="hljs-number">0</span>)
+
+            <span class="hljs-comment"># &#x7EBF;&#x6027;&#x6295;&#x5F71;+&#x62FC;&#x63A5;</span>
+            <span class="hljs-comment"># hidden_states&#x7684;shape&#x662F;:[batch_size, seq_len, hidden_size] -&gt;</span>
+            <span class="hljs-comment"># [batch_size, seq_len, key_value_slicing] -&gt;</span>
+            <span class="hljs-comment"># [batch_size, seq_len, self.num_heads * self.head_dim]</span>
+            query_states = [F.linear(hidden_states, query_slices[i]) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.config.pretraining_tp)]
+            query_states = torch.cat(query_states, dim=<span class="hljs-number">-1</span>)
+
+            key_states = [F.linear(hidden_states, key_slices[i]) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.config.pretraining_tp)]
+            key_states = torch.cat(key_states, dim=<span class="hljs-number">-1</span>)
+
+            value_states = [F.linear(hidden_states, value_slices[i]) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.config.pretraining_tp)]
+            value_states = torch.cat(value_states, dim=<span class="hljs-number">-1</span>)
+
+        <span class="hljs-keyword">else</span>:
+            query_states = self.q_proj(hidden_states)
+            key_states = self.k_proj(hidden_states)
+            value_states = self.v_proj(hidden_states)
+
+        <span class="hljs-comment"># &#x4EA4;&#x6362;&#x4F4D;&#x7F6E;</span>
+        query_states = query_states.view(bsz, q_len, self.num_heads, self.head_dim).transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+        key_states = key_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+        value_states = value_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+
+        past_key_value = getattr(self, <span class="hljs-string">&quot;past_key_value&quot;</span>, past_key_value)
+        cos, sin = self.rotary_emb(value_states, position_ids)
+        query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
+        <span class="hljs-comment"># &#x5982;&#x679C;&#x6709;&#x4E4B;&#x524D;&#x7684;kv&#xFF0C;&#x6BD4;&#x5982;kv cache&#xFF0C;&#x66F4;&#x65B0;&#x3002;</span>
+        <span class="hljs-keyword">if</span> past_key_value <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-comment"># sin and cos are specific to RoPE models; cache_position needed for the static cache</span>
+            cache_kwargs = {<span class="hljs-string">&quot;sin&quot;</span>: sin, <span class="hljs-string">&quot;cos&quot;</span>: cos, <span class="hljs-string">&quot;cache_position&quot;</span>: cache_position}
+            key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
+
+        <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x662F;GQA&#x7684;&#x65B9;&#x6CD5;&#x3002;</span>
+        key_states = repeat_kv(key_states, self.num_key_value_groups)
+        value_states = repeat_kv(value_states, self.num_key_value_groups)
+
+        <span class="hljs-comment"># transformer&#x8BBA;&#x6587;&#x4E2D;&#x7684;attention&#x64CD;&#x4F5C;</span>
+        <span class="hljs-comment"># &#x5148;&#x505A;QK^T / sqrt(d),&#x5F97;&#x5230;softmax&#x64CD;&#x4F5C;&#x4E4B;&#x524D;&#x7684;score</span>
+        attn_weights = torch.matmul(query_states, key_states.transpose(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) / math.sqrt(self.head_dim)
+
+        <span class="hljs-comment"># &#x5982;&#x679C;&#x6709;attention_mask,&#x5219;&#x5728;softmax&#x4E4B;&#x524D;&#x505A;&#x52A0;&#x6CD5;,&#x522B;&#x63A9;&#x7801;&#x90E8;&#x5206;&#x4E3A;-inf,&#x672A;&#x88AB;&#x63A9;&#x7801;&#x90E8;&#x5206;&#x4E3A;0</span>
+        <span class="hljs-comment"># &#x6700;&#x5F00;&#x59CB;&#x7684;&#x4E24;&#x4E2A;&#x63A9;&#x7801;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5B8C;&#x6210;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;</span>
+        <span class="hljs-keyword">if</span> attention_mask <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:  <span class="hljs-comment"># no matter the length, we just slice it</span>
+            causal_mask = attention_mask[:, :, :, : key_states.shape[<span class="hljs-number">-2</span>]]
+            attn_weights = attn_weights + causal_mask
+
+        <span class="hljs-comment"># upcast attention to fp32</span>
+        <span class="hljs-comment"># &#x4F7F;&#x7528;float32&#x6570;&#x636E;&#x683C;&#x5F0F;,&#x8BA1;&#x7B97;&#x7ED3;&#x675F;&#x540E;&#x8F6C;&#x6362;&#x4E3A;&#x524D;&#x9762;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;</span>
+        attn_weights = nn.functional.softmax(attn_weights, dim=<span class="hljs-number">-1</span>, dtype=torch.float32).to(query_states.dtype)
+        attn_weights = nn.functional.dropout(attn_weights, p=self.attention_dropout, training=self.training)
+        <span class="hljs-comment"># &#x6700;&#x540E;&#x548C;&#x8F93;&#x51FA;&#x5F20;&#x91CF;&#x76F8;&#x4E58;&#x5F97;&#x5230;&#x8F93;&#x51FA;&#x6CE8;&#x610F;&#x529B;</span>
+        attn_output = torch.matmul(attn_weights, value_states)
+
+        <span class="hljs-comment"># &#x5BF9;&#x8F93;&#x51FA;&#x8FDB;&#x884C;&#x5F62;&#x72B6;&#x53D8;&#x6362;,&#x4F7F;&#x5176;&#x80FD;&#x591F;&#x7B26;&#x5408;&#x540E;&#x9762;MLP&#x5C42;&#x8BA1;&#x7B97;&#x7684;&#x8F93;&#x5165;&#x5F62;</span>
+        <span class="hljs-keyword">if</span> attn_output.size() != (bsz, self.num_heads, q_len, self.head_dim):
+            <span class="hljs-keyword">raise</span> ValueError(
+                f<span class="hljs-string">&quot;`attn_output` should be of size {(bsz, self.num_heads, q_len, self.head_dim)}, but is&quot;</span>
+                f<span class="hljs-string">&quot; {attn_output.size()}&quot;</span>
+            )
+
+        attn_output = attn_output.transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>).contiguous()
+
+        attn_output = attn_output.reshape(bsz, q_len, self.hidden_size)
+
+        <span class="hljs-keyword">if</span> self.config.pretraining_tp &gt; <span class="hljs-number">1</span>:
+            <span class="hljs-comment"># tensor parallel</span>
+            attn_output = attn_output.split(self.hidden_size // self.config.pretraining_tp, dim=<span class="hljs-number">2</span>)
+            o_proj_slices = self.o_proj.weight.split(self.hidden_size // self.config.pretraining_tp, dim=<span class="hljs-number">1</span>)
+            attn_output = sum([F.linear(attn_output[i], o_proj_slices[i]) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.config.pretraining_tp)])
+        <span class="hljs-keyword">else</span>:
+            attn_output = self.o_proj(attn_output)
+
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> output_attentions:
+            attn_weights = <span class="hljs-keyword">None</span>
+
+        <span class="hljs-keyword">return</span> attn_output, attn_weights, past_key_value
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="llm-6.html" class="navigation navigation-prev " aria-label="Previous page: LLM Inference Series">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="llm-1.html" class="navigation navigation-next " aria-label="Next page: 大模型训练：流水线并行">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Llama Model's decoder computing","level":"4.1.6","depth":2,"next":{"title":"大模型训练：流水线并行","level":"4.1.7","depth":2,"path":"Study Notes/MLSYS/llm-1.md","ref":"Study Notes/MLSYS/llm-1.md","articles":[]},"previous":{"title":"LLM Inference Series","level":"4.1.5","depth":2,"path":"Study Notes/MLSYS/llm-6.md","ref":"Study Notes/MLSYS/llm-6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Study Notes/MLSYS/llm-8.md","mtime":"2024-06-28T16:16:39.614Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-28T16:17:12.802Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
