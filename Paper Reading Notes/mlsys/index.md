@@ -1,7 +1,7 @@
 # To Read List
 
 - [ ] [Gavel：把Gavel的解决方案总结到博客中(Stanford)](Gavel.md) 
-- [ ] [Apparate：cluster scheduling方向，提前退出，改变推理的颗粒度(普林斯顿)](..\Paper Reading Notes\mlsys\Apparate.md) 
+- [ ] [Apparate：cluster scheduling方向，提前退出，改变推理的颗粒度(普林斯顿)](Apparate.md) 
 - [ ] [Shockwave：cluster scheduling方向，动态自适应情况下维持公平性(普林斯顿)](Shockwave.md)  
 - [ ] [TinyQuanta：cluster scheduling方向，微秒级高效盲调度系统(UCB)](TinyQuanta.md) 
 - [ ] [ExeGPT：LLM推理的调度(Hanyang University)](ExeGPT.md)  
