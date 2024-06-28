@@ -13,7 +13,7 @@
   *  [【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU](Paper Reading Notes\mlsys\FlexGen.md)  
   *  [【OSDI 2020】Orca, A Distributed Serving System for Transformer-Based Generative Models](Paper Reading Notes\mlsys\Orca.md) 
   *  [【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention ](Paper Reading Notes\mlsys\vllm.md) 
-
+  *  [Gavel：把Gavel的解决方案总结到博客中(Stanford)](Gavel.md) 
 * [High Performance Computing](Paper Reading Notes\hpc\index.md) 
   * [【SC 2023】Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines](Paper Reading Notes\hpc\AutoMap.md) 
 * [Graph](Paper Reading Notes\graph\index.md) 

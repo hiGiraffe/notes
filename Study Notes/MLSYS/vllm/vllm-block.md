@@ -1,10 +1,14 @@
 # Detailed explanation of vllm block mechanism
 
+## 逻辑块
 
 
 
 
 
+
+
+---
 
 BlockManager这个class下又维护着两个重要属性：
 
