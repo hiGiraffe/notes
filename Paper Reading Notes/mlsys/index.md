@@ -8,6 +8,7 @@
 - [ ] [Llumnix：LLM推理的动态调度系统，在处理tail latencies上有很大优势(Alibaba)](Llumnix.md) 
 - [ ] [Sia：DL混合并行弹性作业调度系统(UCB)](Sia.md) 
 - [ ] [SCLS：切片级调度，可以理解为Orca Pro(NJU)](SCLS.md) 
+- [ ] Mooncake
 
 # A guide to LLM inference and performance
 

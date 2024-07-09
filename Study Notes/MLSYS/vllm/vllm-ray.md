@@ -7,3 +7,5 @@
 3. 然后定义RayGPUExecutor
 
 https://zhuanlan.zhihu.com/p/701992511
+
+https://zhuanlan.zhihu.com/p/671660453
