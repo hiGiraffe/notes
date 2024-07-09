@@ -345,7 +345,9 @@ def from_layer(layer: nn.Module,
 
 ---
 
-lora/models.py
+**lora/models.py**
+
+假如数量不够，会调用remove_oldest来从cpu cache中移除最早添加的。
 
 ```python
 # LoRAModel类
@@ -468,6 +470,10 @@ lora/models.py
 ```
 
 ---
+
+目前观测结果是：所有都使用了LoRA层
+
+
 
 todo:
 
