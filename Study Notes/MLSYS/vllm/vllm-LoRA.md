@@ -472,10 +472,3 @@ def from_layer(layer: nn.Module,
 ---
 
 目前观测结果是：所有都使用了LoRA层
-
-
-
-todo:
-
-* 如何调入调出的
-* lora/models机制下的remove_lora和add_lora
