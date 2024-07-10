@@ -95,7 +95,7 @@ $$
 For softmax regression (i.e., linear hypothesis class and softmax loss):
 
 $$
-\operatorname*{mininize}\ {\frac{1}{m}}\sum_{i=1}^{m}\ell_{c e}(\theta^{T}x^{(i)},y^{(i)})
+mininize\ {\frac{1}{m}}\sum_{i=1}^{m}\ell_{c e}(\theta^{T}x^{(i)},y^{(i)})
 $$
 
 ## Optimization: gradient descent
