@@ -119,18 +119,50 @@ LoRA中我们需要重点注意两个机制：
 
 在这里通过对LoRAModelManager类的初始化，我们实现了把对应的modules换成LoRA的modules。
 
-这里面的mapping就是为了激活使用的。
-
 具体的更换机制如下，其中module是旧的module：
 
 ```python
-			new_module = replace_submodule(
+    def _create_lora_modules(self):
+        for module_name, module in self.model.named_modules(
+                remove_duplicate=False):
+            if not self._match_target_modules(module_name):
+                continue
+            parts = module_name.split(".")[-1]
+            packed_moduled_lst = self.packed_modules_mapping.get(parts, [])
+            new_module = replace_submodule(
                 self.model, module_name,
-                from_layer(module, self.lora_slots, self.lora_config, 
+                from_layer(module, self.lora_slots, self.lora_config,
                            packed_moduled_lst, self.model.config))
+            # LinearScalingRotaryEmbeddingWithLora is used to handle
+            # long context lora. Register relevant metadata.
+            if isinstance(new_module, LinearScalingRotaryEmbeddingWithLora):
+                self.long_lora_context = LongContextLoRAContext(
+                    new_module.scaling_factors, new_module.rotary_dim)
+                self.scaling_factor_to_offset = \
+                    new_module.scaling_factor_to_offset
+            # (yard1): TODO make this more robust
+            if "lm_head" in module_name:
+                logits_processor_module = self.model.get_submodule(
+                    "logits_processor")
+                new_module = replace_submodule(
+                    self.model, "logits_processor",
+                    from_layer_logits_processor(logits_processor_module,
+                                                module, self.lora_slots,
+                                                self.lora_config,
+                                                self.model.config))
+            self.register_module(module_name, new_module)
+            self._register_packed_modules(module_name)
+            new_module.set_mapping(self.base_indices, self.sampler_indices,
+                                   self.sampler_indices_padded,
+                                   self.embeddings_indices,
+                                   self.long_lora_indices, self.indices_len)
 ```
 
-其中，replace_submodule函数如下，功能为利用新的module替换了model中对应的旧module
+其中
+
+* 在这里最后设置了Mapping部分，将后续推理过程中的各个变量初始化
+
+* replace_submodule函数如下，功能为利用新的module替换了model中对应的旧module。
 
 ```python
 def replace_submodule(model: nn.Module, module_name: str,
@@ -267,9 +299,15 @@ def from_layer(layer: nn.Module,
                          lora_mapping: LoRAMapping) -> None:
         self._apply_loras(lora_requests)
         self._lora_manager.set_lora_mapping(lora_mapping)
+```
 
+#### Apply LoRA部分
+
+注意，这里apply lora后，并不是调用同一个类的_apply_loras，而是调用其子类LRUCacheWorkerLoRAManager的__apply_loras。这里的机制是将所有lora request都add到gpu中。
+
+```python
+# LRUCacheWorkerLoRAManager
     def _apply_loras(self, lora_requests: Set[LoRARequest]) -> None:
-        loras_that_exist = self.list_loras()
         loras_map = {
             lora_request.lora_int_id: lora_request
             for lora_request in lora_requests if lora_request
@@ -279,32 +317,47 @@ def from_layer(layer: nn.Module,
                 f"Number of requested LoRAs ({len(loras_map)}) is greater "
                 "than the number of GPU LoRA slots "
                 f"({self._lora_manager.lora_slots}).")
-
-        new_loras = set(loras_map)
-        loras_to_add = new_loras - loras_that_exist
-        loras_to_remove = loras_that_exist - new_loras
-
-        for lora_id in loras_to_remove:
-            self.remove_lora(lora_id)
-
-        for lora_id in loras_to_add:
-            self.add_lora(loras_map[lora_id])
+        for lora in loras_map.values():
+            self.add_lora(lora)
 ```
 
 首先 applay lora就是把根据lora request，计算处要add的lora模块和remove的lora模块。
 
 其中，对于要add的lora模块，依次进行load，add和activate，其中会先load到**cpu**上，然后再将其add到cpu cache上，最后通过activate将其放到gpu上。
 
-```python
-# WorkerLoRAManager类
+````python
+# LRUCacheWorkerLoRAManager
     def add_lora(self, lora_request: LoRARequest) -> bool:
-        if lora_request.lora_int_id in self.list_loras():
-            return False
-        lora = self._load_lora(lora_request)
-        loaded = self._lora_manager.add_lora(lora)
-        self._lora_manager.activate_lora(lora.id)
+        if lora_request.lora_int_id not in self.list_loras():
+            # Remove before we load the new lora to save memory
+            if len(self._lora_manager) + 1 > self._lora_manager.capacity:
+                assert isinstance(self._lora_manager, LRUCacheLoRAModelManager)
+                self._lora_manager.remove_oldest_lora()
+            lora = self._load_lora(lora_request)
+            loaded = self._lora_manager.add_lora(lora)
+        else:
+            # If the lora is already loaded, just touch it to
+            # update its position in the caches
+            loaded = self._lora_manager.get_lora(
+                lora_request.lora_int_id) is not None
+        self._lora_manager.activate_lora(lora_request.lora_int_id)
         return loaded
-    
+````
+
+add_lora做的工作则是
+
+* 判断是否被导入过CPU了
+  * 假如没有导入过
+    * 根据LRU的规则，假如空间不够，则移除LRU的那一个LoRA
+    * 调用_load_lora把LoRA model load到cpu上
+    * 利用_lora_manager的add_lora将其记录在__lora_manager中
+
+  * 假如导入过，则直接调用get_lora检查是否获取成功。
+
+* 然后再用_lora_manager的activate_lora对其推到GPU上，并设置对应的LoRA weight
+
+````python
+# WorkerLoRAManager类
      def _load_lora(self, lora_request: LoRARequest) -> LoRAModel:
         try:
             model = self._lora_manager.model
@@ -341,13 +394,12 @@ def from_layer(layer: nn.Module,
                              f"is greater than lora_extra_vocab_size "
                              f"{self.lora_config.lora_extra_vocab_size}.")
         return lora   
-```
+````
+_load_lora的机制则是把LoRA参数从disk中存到CPU内存中，类型为LoRAModel，注意这里是一个完整的LoRA变量了！
 
 ---
 
 **lora/models.py**
-
-假如数量不够，会调用remove_oldest来从cpu cache中移除最早添加的。
 
 ```python
 # LoRAModel类
@@ -383,6 +435,7 @@ def from_layer(layer: nn.Module,
             Loaded LoRA Model.
         """
         
+    # 将LoRA加载到CPU上！    
 	def add_lora(self, lora: LoRAModel) -> bool:
         """Add a LoRAModel to the manager CPU cache."""
         logger.debug(
@@ -395,7 +448,8 @@ def from_layer(layer: nn.Module,
             self._add_lora(lora)
             return True
         return False
-        
+    
+    # 把LoRA部署到GPU上    
     def activate_lora(
         self,
         lora_id: int,
@@ -407,7 +461,127 @@ def from_layer(layer: nn.Module,
         # We always touch to update the LRU cache order
         self._active_loras.touch(lora_id)
         return result
+    
+    def activate_lora(
+        self,
+        lora_id: int,
+    ) -> bool:
+        """Move LoRA into a GPU buffer to be used in the forward pass."""
+        if lora_id in self._active_loras:
+            return False
+        first_free_slot = next(
+            ((i, lora_id) for i, lora_id in enumerate(self.lora_index_to_id)
+             if lora_id is None), None)
+        if first_free_slot is None:
+            raise ValueError("No free lora slots")
+        index, _ = first_free_slot
+        self._active_loras[lora_id] = None
+        lora_model = self._registered_loras[lora_id]
+        logger.debug("Activating LoRA. int id: %d, slot index: %d",
+                     lora_model.id, index)
+        self.lora_index_to_id[index] = lora_model.id
+        for module_name, module in self.modules.items():
+            module_lora = lora_model.get_lora(module_name)
+            if module_lora:
+                module_lora.optimize()
+                module.set_lora(index, module_lora.lora_a, module_lora.lora_b,
+                                module_lora.embeddings_tensor)
+            else:
+                module.reset_lora(index)
+        return True
 ```
+
+将LoRA部署到GPU，set_lora和reset_lora就是把A、B权重放到module中
+
+#### Set_LoRA_Mapping部分
+
+```python
+# models.py
+    def set_lora_mapping(self, lora_mapping: LoRAMapping) -> None:
+        if self._last_mapping != lora_mapping:
+            self._set_lora_mapping(lora_mapping)
+        self._last_mapping = lora_mapping
+
+    def _set_lora_mapping(self, mapping: LoRAMapping) -> None:
+        (base_indices, sampler_indices, sampler_indices_padded,
+         embeddings_indices, long_lora_offsets_tensor,
+         indices_len) = convert_mapping(mapping, self.lora_index_to_id,
+                                        self.lora_slots + 1, self.vocab_size,
+                                        self.lora_config.lora_extra_vocab_size,
+                                        self.long_lora_context)
+        self.base_indices[:base_indices.shape[0]].copy_(base_indices)
+        self.sampler_indices[:sampler_indices.shape[0]].copy_(sampler_indices)
+        self.sampler_indices_padded[:sampler_indices_padded.shape[0]].copy_(
+            sampler_indices_padded)
+        self.embeddings_indices[:embeddings_indices.
+                                shape[0], :embeddings_indices.shape[1]].copy_(
+                                    embeddings_indices)
+        if long_lora_offsets_tensor is not None:
+            self.long_lora_indices[:long_lora_offsets_tensor.shape[0]].copy_(
+                long_lora_offsets_tensor)
+        else:
+            self.long_lora_indices.zero_()
+        # Maintain the reference
+        self.indices_len[:] = indices_len
+        
+def convert_mapping(
+    mapping: LoRAMapping,
+    lora_index_to_id: List[Optional[int]],
+    max_loras: int,
+    vocab_size: int,
+    extra_vocab_size: int,
+    long_lora_context: Optional[LongContextLoRAContext] = None,
+) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor,
+           Optional[torch.Tensor], List[int]]:
+    """Converts LoRAMapping to index tensors.
+
+    Args:
+        mapping: LoRAMapping mapping rows in a batch to LoRA ids.
+        lora_index_to_id: List mapping LoRA ids to LoRA indices.
+        max_loras: Maximum number of LoRAs.
+        vocab_size: Model vocab size.
+        extra_vocab_size: Extra vocab size each LoRA can have.
+        long_lora_context: Passed if there are long context lora in a batch.
+
+    Returns:
+        A tuple of tensors:
+            base_indices: Tensor of shape [batch_size] mapping batch rows to
+                LoRA indices.
+            sampler_indices: Tensor of shape [batch_size] mapping requests to
+                LoRA indices for sampler. For generation, this will be the
+                same as base_indicies. For prefill, this will map requests
+                to LoRA indices.
+            sampler_indices_padded: Tensor of shape [batch_size] mapping
+                requests to LoRA indices for sampler with padding.
+                Same as sampler_indicies, but -1 is replaced with
+                max_loras.
+            embeddings_indices: Tensor of shape [2, batch_size] mapping
+                requests to embedding indices. First row is for embeddings
+                added by the LoRAs, second row is for the LoRA.lora_a
+                embeddings.
+            long_lora_indices: Tensor of shape [batch_size] mapping
+                requests to RoPE offsets and rot dims for long LoRAs.
+                None if long context lora doesn't exist.
+            indices_len: List of lengths of the above tensors.
+                Used to index into each tensor. It contains length for
+                (base_indices, sampler_indices, sampler_indices_padded,
+                embeddings_indices, long_lora_indices). If long_lora doesn't
+                exist, it only contains first 4 entries.
+    """
+```
+
+
+
+#### 总结
+
+总结出来，则是：
+
+* model_runner调用set_active_loras
+  * WorkerLoRAManager调用self的_apply_loras
+    * LRUCacheWorkerLoRAManager先确定对应的是否在CPU cache上了
+    * 再将LoRA weight从CPU上activate，即存在GPU中，并更新LoRA的最后activate时间，以备LRU使用。
+  * WorkerLoRAManager调用_lora_manager的set_lora_mapping
+    * 这一步把lora推理过程中的lora索引准备好了
 
 ### LoRA的推理过程
 
@@ -472,3 +646,15 @@ def from_layer(layer: nn.Module,
 ---
 
 目前观测结果是：所有都使用了LoRA层
+
+---
+
+**to be confirmed**
+
+* LoRA Mapping是处理推理部分的映射的？
+  * 那这种set_lora的方法不应该会覆盖？
+* scheduler是否有将LoRA和非LoRA的一起计算？
+
+* s-lora
+  * https://github.com/vllm-project/vllm/pull/1804
+  * https://github.com/vllm-project/vllm/issues/1610
