@@ -53,3 +53,9 @@ BlockManager这个class下又维护着两个重要属性：
     * 释放掉旧的物理块
     * 记录到seq的block_table中
 
+---
+
+# 逻辑块与物理块
+
+逻辑块保存在Sequence里面，且逻辑块在初始化的时候就定义好了
+

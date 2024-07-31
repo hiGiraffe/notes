@@ -111,7 +111,7 @@ UCB，Standford团队，比如vLLM团队中的Ying Sheng和Ion Stoica
 
 * 统一分页机制，把vLLM的移过来
 
-​		![image-20240710154929617](\gitbook\images\s-lora\2.png)
+​		![image-20240710154929617](\images\s-lora\2.png)
 
 * 预取Adapter使得通信和计算重叠
 
@@ -136,8 +136,5 @@ to be continue
 
 
 
-## 待确认问题
+## Q&A
 
-* 同一个batch里面有多个lora是如何进行计算？
-  * 应该不是直接替换参数？那样进行另外一个lora岂不是要替换多一次？
-  * 猜测是一个adapter对应一个层

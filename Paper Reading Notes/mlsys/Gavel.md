@@ -1,5 +1,9 @@
 # Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads
 
+> Deepak Narayanan , Keshav Santhanam, Fiodar Kazhamiaka, Amar Phanishayee, Matei Zaharia
+>
+> Microsoft Research, Standford University
+
 [Deepak Narayanan](https://deepakn94.github.io/#about)在OSDI 2020发表的一篇工作，先前其在Stanford，现在在Nvidia
 
 ## 总结概述
@@ -26,4 +30,147 @@
 
 ## 解决方案
 
-在pdf中，To be continue
+### System Overview
+
+1. 仲裁（arbitrate）各个资源
+
+2. 根据用户要求的策略进行分配
+
+3. Gavel调度机制收到分配结果，然后如实模拟
+
+---
+
+**Heterogeneity-Aware Policies**
+
+1. 提出了分配矩阵X和吞吐量矩阵T
+
+   ![](C:\Data Files\github repo\github blog\gitbook\images\gavel\1.png)
+
+   X的一列加起来为100%
+
+   ![image-20240712143455453](C:\Data Files\github repo\github blog\gitbook\images\gavel\2.png)
+
+2. 有效吞吐量的计算就是X和T对应位置的积的和
+
+   ![image-20240712143634263](C:\Data Files\github repo\github blog\gitbook\images\gavel\3.png)
+
+3. 共享空间的（SS）可以通过加2个job并行的组到X
+
+   ![image-20240712143731403](C:\Data Files\github repo\github blog\gitbook\images\gavel\4.png)
+
+4. 位置敏感性考虑consolidated和unconsolidated
+
+   consolidated意思尽可能将任务计算过程中涉及的加速器尽可能放在同一台服务器上，unconsolidated意思是任务的加速器没有位置要求的约束
+
+---
+
+**Round-based Scheduling Mechanism**
+
+按轮次进行对应的调度，在每一轮，先按优先级进行分配，并保证一个任务不会分配在多个机器上。
+
+---
+
+**Throughput Estimator**
+
+将job映射到预先进行的相关job中，取结果最接近的相关job的吞吐量
+
+---
+
+**Limitations and Non-Goals**
+
+本文的局限是提供了调度，但没有提出新的调度方式，但提供了api接口
+
+---
+
+### Scheduling Policies
+
+**Max-Min Fairness as an Optimization Problem**
+
+> The classical Least Attained Service (LAS) policy
+
+![image-20240712144619979](C:\Data Files\github repo\github blog\gitbook\images\gavel\5.png)
+
+但这种传统的LAS策略在异构机器上不适用，因为每台机器的性能是不一样的。所以引入一个时间平均分配的$X^{equal}_{m}$来作为中间量，采用下面的公式，使得不同工作在异构机器上有可比性。
+
+![image-20240712144836677](C:\Data Files\github repo\github blog\gitbook\images\gavel\6.png)
+
+一个调整的例子：
+
+![image-20240712145209818](C:\Data Files\github repo\github blog\gitbook\images\gavel\7.png)
+
+---
+
+**Minimize Makespan**
+
+最小化makespan：最小化持续时间/吞吐量最大值 = 所有任务持续时间都不长
+
+![image-20240712145314142](C:\Data Files\github repo\github blog\gitbook\images\gavel\8.png)
+
+---
+
+**Minimize Finish-Time Fairness (Themis)**
+
+最小化完成时间：和独享1/n资源完成时间的比率。模拟的是n个用户在同时使用。
+
+![image-20240712145414204](C:\Data Files\github repo\github blog\gitbook\images\gavel\9.png)
+
+---
+
+**FIFO**
+
+![image-20240712145458533](C:\Data Files\github repo\github blog\gitbook\images\gavel\10.png)
+
+---
+
+**Shortest Job First**
+
+![image-20240712145553135](C:\Data Files\github repo\github blog\gitbook\images\gavel\11.png)
+
+---
+
+**Minimizing Total Cost and Cost subject to SLOs**
+
+![image-20240712145626153](C:\Data Files\github repo\github blog\gitbook\images\gavel\12.png)
+
+---
+
+### Hierarchical Scheduling Policies
+
+采用water filling的方法，有点像循环加水，然后明显多的那杯就是bottlenecked job，那先加其他杯
+
+### Properties of Policies
+
+**Sharing Incentive**
+
+至少要和平均分配资源性能一样好
+
+---
+
+**Colocation**
+
+有托管的解决方案至少和没有托管的一样好
+
+---
+
+**Pareto Efficiency**
+
+> Allocations of max-min fairness policies with water filling are Pareto efficient: that is, the allocation for a particular job cannot be increased without decreasing the allocation for another job
+
+---
+
+**问题**
+
+实现了 Sharing Incentive和Pareto Efficiency的情况下，无法证明其strategy proofness。
+
+### Scheduling Mechanism
+
+和之前工作的不同
+
+* 调度是异构的
+* 实际的资源调度需要尊重分配策略
+* 需要保证一个job的多个组合不会在同一时间运行
+
+资源不足的情况下如何进行
+
+* 更好的调度资源不足很容易带来长时间的饥饿。
+* 本文解决方案是降低每一次的粒度

@@ -304,3 +304,76 @@
 llm_emgine到executor到worker。GPU的是Worker，CPU的是CPUWorker。
 
 然后Wroker执行Swap Cache操作后，通过model_runner进行计算。
+
+### 
+
+## budget机制
+
+* 定义了一个SchedulingBudget
+  * 维护的变量
+    * token_budget：最大支持的token数目
+    * max_num_seqs：最大支持的seqs数目
+    * _requeset_ids_num_batched_tokens：标记同一个req已被登记过
+    * _requeset_ids_num_curr_seqs：标记同一个req已被登记过
+    * _num_batched_tokens：目前的tokens数目
+    * _num_curr_seqs：目前的seqs数目
+  * 维护的函数
+    * can_schedule
+      * 保证新增tokens和seqs后，_num_batched_tokens不超过token_budget和 _num_curr_seqs不超过max_num_seqs
+    * remaining_token_budget
+      * 获取剩余的token budget空间
+    * add_num_batched_tokens
+      * 将某一req的batch token加入到当前token数目中
+    * subtract_num_batched_tokens
+      * 将某一req的token标记和token数目都去除
+    * add_num_seqs
+      * 将某一req的seq加入到当前seq数目中
+    * subtract_num_seqs
+      * 将某一req的seq标记和seq数目都去除
+
+总而言之，budget负责的就是维护token和seq不超过限定最大值
+
+---
+
+具体调度逻辑中
+
+* 在running阶段
+  * 通过budget获取最大num_running_tokens数目
+    * **注意，这里running_queue是先来先服务的！实现控制chunked长度后，在之前的sort部分有可能prefill在decode前！导致后面的decode无法继续。**
+  * 如果没位置了，需要swap出去，则删除该req的batch token和seqs
+  * 如果可以推理
+    * 通过add batch tokens添加添加req的当前token，但同一个req不会重复添加
+      * **那么，假如chunk prefill后呢，会调整回1吗？貌似这里有点问题**
+    * 假如会使用chunked prefill，才考虑num seqs，添加req对应的seqs
+      * **这里说之前添加过了**
+* 在swapped阶段和prefill阶段
+  * 通过budget获取最大num_new_tokens数目
+  * 利用budget的can_schedule判断
+  * 新增换入的req的seq和token到budget中
+
+需要注意的是，这里是通过每次调度新开一个Budget来实现更新！
+
+
+
+## Output机制
+
+1. _schedule做的是，输出SchedulerOutputs
+
+其中，调度结果包含
+
+* scheduled_seq_groups（参与调度所有seq）
+* num_prefill_groups（prefill的数量）
+* 当前batch包含的token数目
+* 逻辑block的变化（swap in，swap out和copy）
+* num_lookahead_slots（to be continued）
+* running队列的大小
+* preempted的大小
+
+---
+
+2. schedule在获取schedule后，用SchedulerOutputs的结果生成seq_group_metadata_lsit
+
+* 把真正运行出来的中间变量弄出来
+* sample的用处
+
+---
