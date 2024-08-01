@@ -79,8 +79,9 @@ curl http://localhost:8000/v1/chat/completions \
     * 假如没开启backgroud loop，则调用start_background_loop来使得后端运行
     * 调用self.engine.process_model_inputs_async函数来进行计算
   * 调用self._request_tracker.add_request更新stream
-    * 返回stream
-
+    
+* 返回stream
+    
   * start_background_loop是关键，启动后台的循环处理run_engine_loop
   
     ```python
@@ -114,3 +115,4 @@ curl http://localhost:8000/v1/chat/completions \
     * 根据是否使用ray，运行step.remote()或step_async()
     * 调用process_request_output处理输出
 
+简而言之，这部分通过add request，然后异步地获取其输出，有输出就激活await，继续操作。写的比较巧妙，对于不熟悉异步逻辑的人来说还是有点难度的。

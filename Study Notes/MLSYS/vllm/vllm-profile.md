@@ -1,0 +1,8 @@
+# vLLM profile部分机制
+
+这部分在原始代码中主要是worker的determine_num_available_blocks机制，其通过执行model runner的profile_run来模拟空的执行，通过使用的cuda内存来判断可以支持gpu blocks和cpu blocks的数目。
+
+通过add dumpy的数据到seq中，然后调用execute_model模拟执行。
+
+假如我们想要实现一个类似的profile机制，只要模仿determine_num_available_blocks函数。
+

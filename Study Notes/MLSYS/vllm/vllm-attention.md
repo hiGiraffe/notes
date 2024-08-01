@@ -18,5 +18,3 @@ x代表的是一个向量化的大小
 * CUDA设置
   * ``gird: shape (num_heads, num_seqs, num_partition)`` 其中num_partition在不采用的时候为1
   * ``block: shape (NUM_THREADS)``
-
-啃不动了，明天啃。
