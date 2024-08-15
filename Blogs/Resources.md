@@ -202,3 +202,10 @@ to be continue
 - [ ] **[CUDA C++ Programming Guide ](https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf)**
 - [ ] **[Optimizing Matrix Transpose in CUDA ](https://developer.download.nvidia.com/assets/cuda/files/MatrixTranspose.pdf)**
 
+---
+
+**升学**
+
+- [ ] [Home - Open CS Application](https://opencs.app/)
+
+- [ ] [Transformer性能分析理论基础](https://github.com/HarleysZhang/dl_note/blob/main/6-llm_note/llm_inference/Transformer%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md)

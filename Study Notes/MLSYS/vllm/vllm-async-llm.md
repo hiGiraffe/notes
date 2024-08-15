@@ -28,7 +28,6 @@ python entrypoints/openai/api_server.py \
  --trust-remote-code \
  --enforce-eager \
  --max-num-batched-tokens 512 \
- --gpu-memory-utilization 0.02 \
  --enable-chunked-prefill 
 ```
 
@@ -79,9 +78,9 @@ curl http://localhost:8000/v1/chat/completions \
     * 假如没开启backgroud loop，则调用start_background_loop来使得后端运行
     * 调用self.engine.process_model_inputs_async函数来进行计算
   * 调用self._request_tracker.add_request更新stream
-    
+  
 * 返回stream
-    
+  
   * start_background_loop是关键，启动后台的循环处理run_engine_loop
   
     ```python

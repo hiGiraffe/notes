@@ -14,6 +14,12 @@
   * 为了高的吞吐率，需要加大batch size
   * 加大batch size会导致某些request的latency很大
 
+
+
+> * 一系列ML的早期退出机制
+
+
+
 ## 先前工作存在的问题
 
 * 目前的工作只是把latency分解到批处理中，来做判断

@@ -10,11 +10,12 @@
 ### Paper Reading Notes
 
 * [Machine Learning System](Paper Reading Notes\mlsys\index.md) 
-  *  [【Arxiv 2024】【在读中】Splitwise: Efficient generative LLM inference using phase splitting](Paper Reading Notes\mlsys\Splitwise.md) 
+  * [【SOSP 2024】Apparate: Rethinking Early Exits to Tame Latency-Throughput Tensions in ML Serving](Paper Reading Notes\mlsys\Apparate.md) 
+  * [【Arxiv 2024】【在读中】Splitwise: Efficient generative LLM inference using phase splitting](Paper Reading Notes\mlsys\Splitwise.md) 
   * [【ASPLOS 2024】【在读中】ExeGPT: Constraint-Aware Resource Scheduling for LLM Inference](Paper Reading Notes\mlsys\ExeGPT.md) 
-  * [【OSDI 2024】【在读中】Llumnix: Dynamic Scheduling for Large Language Model Serving](Paper Reading Notes\mlsys\Llumnix.md) 
-  *  [【Arxiv 2024】【在读中】Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving](Paper Reading Notes\mlsys\Mooncake.md) 
-  *   [【NSDI 2023】【在读中】Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning](Paper Reading Notes\mlsys\Shockwave.md) 
+  * [【OSDI 2024】Llumnix: Dynamic Scheduling for Large Language Model Serving](Paper Reading Notes\mlsys\Llumnix.md) 
+  * [【Arxiv 2024】【在读中】Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving](Paper Reading Notes\mlsys\Mooncake.md) 
+  * [【NSDI 2023】【在读中】Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning](Paper Reading Notes\mlsys\Shockwave.md) 
   * [【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU](Paper Reading Notes\mlsys\FlexGen.md)  
   * [【OSDI 2020】Orca: A Distributed Serving System for Transformer-Based Generative Models](Paper Reading Notes\mlsys\Orca.md) 
   * [【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention(vLLM) ](Paper Reading Notes\mlsys\vllm.md) 
@@ -75,7 +76,10 @@
 
 * [CUDA](Study Notes\CUDA\index.md) 
 
-  -  [Chapter 5 in CUDA C++ Programming Guide](Study Notes\CUDA\cuda-1.md) 
+  -  [Chapter 5 in CUDA C++ Programming Guide](Study Notes\CUDA\cuda-1.md)
+  -  [cuda-partition-camping.md](Study Notes\CUDA\cuda-partition-camping.md)
+  -  [CUDA-Warp-Level.md](Study Notes\CUDA\CUDA-Warp-Level.md)
+  -  
 
 * [OpenMp](Study Notes\OPENMP\index.md) 
 

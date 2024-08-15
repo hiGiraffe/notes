@@ -1,13 +1,11 @@
 # To Read List
 
 - [x] [Gavel：把Gavel的解决方案总结到博客中(Stanford)](Gavel.md) 
-- [ ] [Apparate：cluster scheduling方向，提前退出，改变推理的颗粒度(普林斯顿)](Apparate.md) 
-- [ ] [Shockwave：cluster scheduling方向，动态自适应情况下维持公平性(普林斯顿)](Shockwave.md)  
 - [ ] [TinyQuanta：cluster scheduling方向，微秒级高效盲调度系统(UCB)](TinyQuanta.md) 
 - [ ] [ExeGPT：LLM推理的调度(Hanyang University)](ExeGPT.md)  
-- [ ] [Llumnix：LLM推理的动态调度系统，在处理tail latencies上有很大优势(Alibaba)](Llumnix.md) 
-- [ ] [Sia：DL混合并行弹性作业调度系统(UCB)](Sia.md) 
-- [ ] [SCLS：切片级调度，可以理解为Orca Pro(NJU)](SCLS.md) 
+- [ ] [Optimizing Speculative Decoding for Serving Large Language Models Using Goodput](https://arxiv.org/abs/2406.14066)
+- [x] [Llumnix：LLM推理的动态调度系统，在处理tail latencies上有很大优势(Alibaba)](Llumnix.md) 
+- [ ] [Sia：DL混合并行弹性作业调度系统(UCB)](Sia.md)
 - [ ] Mooncake
 
 # A guide to LLM inference and performance
@@ -45,6 +43,12 @@ to be continued
 [KV Cache 量化blog](https://zhuanlan.zhihu.com/p/691537237)
 
 to be continued
+
+
+
+# Speculative Decoding
+
+[LLM推理加速新范式！推测解码（Speculative Decoding）最新综述 - 知乎](https://zhuanlan.zhihu.com/p/678404136?utm_medium=social&utm_psn=1805015633122947072&utm_source=wechat_session)
 
 
 
