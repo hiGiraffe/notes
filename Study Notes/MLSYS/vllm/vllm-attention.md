@@ -1,4 +1,4 @@
-# vLLM Paged Attention
+#  vLLM Paged Attention
 
 ## paged_attention_v1
 
@@ -69,4 +69,14 @@ num_prefills=0, num_prefill_tokens=0, num_decode_tokens=2, slot_mapping=tensor([
 如果对应一个剩下的prefill，block table照旧，slot mapping代表需要传进去的数据。
 
 
+
+forward:
+
+```
+
+# decode部分
+decode_query： [query decode的token数量, num_heads, head_size]
+key_cache： [总的num_blocks, block_size, num_heads, head_size]
+value_cache： [总的num_blocks, block_size, num_heads, head_size]
+```
 
