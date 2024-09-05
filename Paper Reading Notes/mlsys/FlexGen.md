@@ -125,7 +125,7 @@
 
 ## Ofﬂoading Strategy
 
-> ![image-20240415154650143](C:\Data Files\github repo\github blog\post存放\images\hpc-ai-3\1)
+> ![image-20240415154650143](\images\hpc-ai-3\1)
 
 **定义了以下约束**
 
@@ -147,7 +147,7 @@
 
 **计算调度**
 
-> ![image-20240415155137311](C:\Data Files\github repo\github blog\post存放\images\hpc-ai-3\2)
+> ![image-20240415155137311](\images\hpc-ai-3\2)
 >
 > 以往的是一行一行的，本论文提出的是一列一列的计算，就可以避免了重复加载model。
 >
@@ -157,7 +157,7 @@
 >
 > 提出了另一种更先进的IO优化调度，但仅实现了block的调度，且在文章中没有详细说明。
 >
-> ![image-20240416123651909](C:\Data Files\github repo\github blog\post存放\images\hpc-ai-3\3)
+> ![image-20240416123651909](\images\hpc-ai-3\3)
 >
 > 通过异步传输+计算，实现计算和通信重叠。
 
@@ -201,7 +201,7 @@
 >
 > 设置一个线性规划问题
 >
-> ![image-20240416125212093](C:\Data Files\github repo\github blog\post存放\images\hpc-ai-3\4)
+> ![image-20240416125212093](\images\hpc-ai-3\4)
 >
 > 考虑了内存峰值，峰值超过的时候手动调整
 

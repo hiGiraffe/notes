@@ -8,3 +8,19 @@
 
 该blog主要用来便于对LLM的计算量进行分析，从而选取合适的优化角度。
 
+
+
+> [请问大模型在GPU进行上的推理时，核心计算是使用的tensor core 还是cuda core？ - 知乎](https://www.zhihu.com/question/636533414/answer/3577468768)
+>
+> 答案是既有tensor core又有cuda core，下面详细分析一下什么时候用tensor core，什么时候用cuda core。
+>
+> 首先大模型推理有如下几种类型的算子 Attention、FFN阶段的矩阵乘、RoPE、LayerNorm等。大模型推理又分为prefill阶段和decode阶段。
+>
+> RoPE、LayerNorm等用不到矩阵乘法的采用的是cuda core。
+>
+> Attention比较特殊，prefill阶段采用的是FlashAttention，底层q乘k、qk的结果乘v都用了tensor core。
+>
+> Attention decode阶段的由于每条query是1个token，目前主流的优化技术是PagedAttention，暂时没有使用tensor core，使用的是cuda core，
+>
+> 目前对于一些共享前缀的优化，decode阶段进行了优化，采用 tensor core + cuda core的方式。
+

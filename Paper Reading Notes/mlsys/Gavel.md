@@ -44,19 +44,19 @@
 
 1. 提出了分配矩阵X和吞吐量矩阵T
 
-   ![](C:\Data Files\github repo\github blog\gitbook\images\gavel\1.png)
+   ![](\images\gavel\1.png)
 
    X的一列加起来为100%
 
-   ![image-20240712143455453](C:\Data Files\github repo\github blog\gitbook\images\gavel\2.png)
+   ![image-20240712143455453](\images\gavel\2.png)
 
 2. 有效吞吐量的计算就是X和T对应位置的积的和
 
-   ![image-20240712143634263](C:\Data Files\github repo\github blog\gitbook\images\gavel\3.png)
+   ![image-20240712143634263](\images\gavel\3.png)
 
 3. 共享空间的（SS）可以通过加2个job并行的组到X
 
-   ![image-20240712143731403](C:\Data Files\github repo\github blog\gitbook\images\gavel\4.png)
+   ![image-20240712143731403](\images\gavel\4.png)
 
 4. 位置敏感性考虑consolidated和unconsolidated
 
@@ -88,15 +88,15 @@
 
 > The classical Least Attained Service (LAS) policy
 
-![image-20240712144619979](C:\Data Files\github repo\github blog\gitbook\images\gavel\5.png)
+![image-20240712144619979](\images\gavel\5.png)
 
 但这种传统的LAS策略在异构机器上不适用，因为每台机器的性能是不一样的。所以引入一个时间平均分配的$X^{equal}_{m}$来作为中间量，采用下面的公式，使得不同工作在异构机器上有可比性。
 
-![image-20240712144836677](C:\Data Files\github repo\github blog\gitbook\images\gavel\6.png)
+![image-20240712144836677](\images\gavel\6.png)
 
 一个调整的例子：
 
-![image-20240712145209818](C:\Data Files\github repo\github blog\gitbook\images\gavel\7.png)
+![image-20240712145209818](\images\gavel\7.png)
 
 ---
 
@@ -104,7 +104,7 @@
 
 最小化makespan：最小化持续时间/吞吐量最大值 = 所有任务持续时间都不长
 
-![image-20240712145314142](C:\Data Files\github repo\github blog\gitbook\images\gavel\8.png)
+![image-20240712145314142](\images\gavel\8.png)
 
 ---
 
@@ -112,25 +112,25 @@
 
 最小化完成时间：和独享1/n资源完成时间的比率。模拟的是n个用户在同时使用。
 
-![image-20240712145414204](C:\Data Files\github repo\github blog\gitbook\images\gavel\9.png)
+![image-20240712145414204](\images\gavel\9.png)
 
 ---
 
 **FIFO**
 
-![image-20240712145458533](C:\Data Files\github repo\github blog\gitbook\images\gavel\10.png)
+![image-20240712145458533](\images\gavel\10.png)
 
 ---
 
 **Shortest Job First**
 
-![image-20240712145553135](C:\Data Files\github repo\github blog\gitbook\images\gavel\11.png)
+![image-20240712145553135](\images\gavel\11.png)
 
 ---
 
 **Minimizing Total Cost and Cost subject to SLOs**
 
-![image-20240712145626153](C:\Data Files\github repo\github blog\gitbook\images\gavel\12.png)
+![image-20240712145626153](\images\gavel\12.png)
 
 ---
 

@@ -32,7 +32,7 @@ Alibaba在OSDI 2024的一篇工作
 
 
 
-![](C:\Users\user\Nutstore\1\Nutstore\gitbook\images\Llumnix\1.png)
+![](\images\Llumnix\1.png)
 
 1. 图a的负载均衡(*load balancing*)，通过减少请求的动态不确定的影响。但会带来新的问题： higher **memory fragmentation** and longer **queuing delays** of long inputs probably.
 2. 图b的去碎片化(*de-fragmentation*)，通过去碎片化获得更完整的内存空间，使得长请求可以被调度。
@@ -43,7 +43,7 @@ Alibaba在OSDI 2024的一篇工作
 * 虚拟内存利于调度的启发式方法：逐渐增加其虚拟内存，直到达到真正的内存需求。我的理解是，逐渐分配内存，比如chunked prefill等情况，一步步分配内存。而Llumnix采用的是queue头的内存需求直接转化为虚拟内存，这得益于其灵活的migration调度。
 * 为了保证请求的优先级差异，Llumnix通过提供一个Headroom给高优先级请求，这使得高优先级请求有预留的充足空间来进行推理。
 
-![image-20240808213642195](C:\Users\user\Nutstore\1\Nutstore\gitbook\images\Llumnix\4.png)
+![image-20240808213642195](\images\Llumnix\4.png)
 
 伪代码：
 
@@ -56,7 +56,7 @@ Alibaba在OSDI 2024的一篇工作
 
 ---
 
-![image-20240808200000718](C:\Users\user\Nutstore\1\Nutstore\gitbook\images\Llumnix\3.png)
+![image-20240808200000718](\images\Llumnix\3.png)
 
 假如需要开始Migration
 
@@ -67,7 +67,7 @@ Alibaba在OSDI 2024的一篇工作
 
 这里引入了**虚拟机实时迁移**的概念，但也会带来新的挑战：可能在迁移过程中两边出现内存满了 或 推理完成了。【异常处理问题】
 
-![image-20240808201311256](C:\Users\user\Nutstore\1\Nutstore\gitbook\images\Llumnix\2.png)
+![image-20240808201311256](\images\Llumnix\2.png)
 
 1. 在每一个Stage迁移前，原instance会发送疫情PRE-ALLOC或ABORT请求，前者包含需要的块信息。如果在新的round中，
 2. 在每一个Stage迁移后，目标instance会发送一个ACK或ABORT请求。
@@ -84,3 +84,5 @@ Alibaba在OSDI 2024的一篇工作
 ## Q&A
 
 Q：自由度是什么？它的Batch Size是对应是目前推理的Batch Size还是可支持的最大Batch Size。
+
+* 是目前推理的Batch Size，自由度就是对于该节点的这个batch，可以增长的空间的一个评估。

@@ -11,3 +11,7 @@
 [Transformer第九章：vllm并行化/分布式配置parallel\_config - 知乎](https://zhuanlan.zhihu.com/p/671660453)
 
 [Ray分布式计算框架详解 - 知乎](https://zhuanlan.zhihu.com/p/460600694)
+
+
+
+> 

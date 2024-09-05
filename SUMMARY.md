@@ -9,9 +9,9 @@
 
 ### Paper Reading Notes
 
-* [Machine Learning System](Paper Reading Notes\mlsys\index.md) 
-  * [【SOSP 2024】Apparate: Rethinking Early Exits to Tame Latency-Throughput Tensions in ML Serving](Paper Reading Notes\mlsys\Apparate.md) 
-  * [【Arxiv 2024】【在读中】Splitwise: Efficient generative LLM inference using phase splitting](Paper Reading Notes\mlsys\Splitwise.md) 
+* [Machine Learning System](Paper Reading Notes\mlsys\index.md)  
+  * [【ASPLOS 2024】【在读中】SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification](Paper Reading Notes\mlsys\SpecInfer.md) 
+  * [【SOSP 2024】【在读中】Apparate: Rethinking Early Exits to Tame Latency-Throughput Tensions in ML Serving](Paper Reading Notes\mlsys\Apparate.md) 
   * [【ASPLOS 2024】【在读中】ExeGPT: Constraint-Aware Resource Scheduling for LLM Inference](Paper Reading Notes\mlsys\ExeGPT.md) 
   * [【OSDI 2024】Llumnix: Dynamic Scheduling for Large Language Model Serving](Paper Reading Notes\mlsys\Llumnix.md) 
   * [【Arxiv 2024】【在读中】Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving](Paper Reading Notes\mlsys\Mooncake.md) 
@@ -22,6 +22,7 @@
   * [【OSDI 2020】Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads(Gavel))](Paper Reading Notes\mlsys\Gavel.md)  
   * [【Arxiv 2023】 S-LORA: SERVING THOUSANDS OF CONCURRENT LORA ADAPTERS](Paper Reading Notes\mlsys\S-LoRA.md) 
   * [【SC 2022】CoGNN: efficient scheduling for concurrent GNN training on GPUs](Paper Reading Notes\mlsys\CoGNN.md) 
+  
 * [High Performance Computing](Paper Reading Notes\hpc\index.md) 
   * [【SC 2023】Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines](Paper Reading Notes\hpc\AutoMap.md) 
 * [Graph](Paper Reading Notes\graph\index.md) 
@@ -45,6 +46,7 @@
     - [vllm ray](Study Notes\MLSYS\vllm\vllm-ray.md) 
     - [vllm profile](Study Notes\MLSYS\vllm\vllm-profile.md) 
     - [vllm llama](Study Notes\MLSYS\vllm\vllm-llama.md) 
+    -  [vllm-metadata](Study Notes\MLSYS\vllm\vllm-metadata.md) 
   - [ML Refresher / Softmax Regression](Study Notes\MLSYS\mlsys-1.md)
   - [Automatic differentiation](Study Notes\MLSYS\mlsys-2.md) 
   - [llama2部署记录](Study Notes\MLSYS\llm-3.md) 
@@ -54,6 +56,9 @@
   - [大模型训练：数据并行](Study Notes\MLSYS\llm-2.md) 
   - [大模型训练：流水线并行](Study Notes\MLSYS\llm-5.md) 
   - [大模型训练：张量并行](Study Notes\MLSYS\llm-9.md) 
+  -  [计算量统计](Study Notes\MLSYS\calculation.md) 
+  -  [【正在进行】llumnix代码解读](Study Notes\MLSYS\llumnix.md) 
+  -  [【正在进行】speculative_decode相关笔记](Study Notes\MLSYS\spec_decode.md) 
 - [NLP](Study Notes\NLP\index.md) 
   * [如何从头实现一个神经网络](Study Notes\NLP\nlp-1.md) 
   * [史上最详细循环神经网络讲解（RNN/LSTM/GRU）](Study Notes\NLP\nlp-2.md) 
@@ -79,10 +84,13 @@
   -  [Chapter 5 in CUDA C++ Programming Guide](Study Notes\CUDA\cuda-1.md)
   -  [cuda-partition-camping.md](Study Notes\CUDA\cuda-partition-camping.md)
   -  [CUDA-Warp-Level.md](Study Notes\CUDA\CUDA-Warp-Level.md)
-  -  
 
 * [OpenMp](Study Notes\OPENMP\index.md) 
 
   -  [OpenMp Notes](Study Notes\OPENMP\openmp.md) 
+
+* [Pytorch](Study Notes\Pytorch\index.md) 
+
+  *  [torch multiprocessing](Study Notes\Pytorch\multiprocessing.md) 
 
   

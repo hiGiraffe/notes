@@ -355,25 +355,3 @@ llm_emgine到executor到worker。GPU的是Worker，CPU的是CPUWorker。
 
 
 
-## Output机制
-
-1. _schedule做的是，输出SchedulerOutputs
-
-其中，调度结果包含
-
-* scheduled_seq_groups（参与调度所有seq）
-* num_prefill_groups（prefill的数量）
-* 当前batch包含的token数目
-* 逻辑block的变化（swap in，swap out和copy）
-* num_lookahead_slots（to be continued）
-* running队列的大小
-* preempted的大小
-
----
-
-2. schedule在获取schedule后，用SchedulerOutputs的结果生成seq_group_metadata_lsit
-
-* 把真正运行出来的中间变量弄出来
-* sample的用处
-
----

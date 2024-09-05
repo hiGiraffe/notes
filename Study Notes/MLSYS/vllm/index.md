@@ -2,6 +2,8 @@
 
 [vLLM Blog](https://docs.vllm.ai/en/latest/index.html)
 
+[vllm代码思维导图总结](..\..\..\inference.pdf)
+
 ---
 
 vLLM代码架构：
