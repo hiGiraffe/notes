@@ -59,3 +59,62 @@ BlockManager这个class下又维护着两个重要属性：
 
 逻辑块保存在Sequence里面，且逻辑块在初始化的时候就定义好了
 
+```
+class LogicalTokenBlock:
+    """A block that stores a contiguous chunk of tokens from left to right.
+
+    Logical blocks are used to represent the states of the corresponding
+    physical blocks in the KV cache.
+    """
+    def __init__(
+        self,
+        block_number: int,
+        block_size: int,
+    ) -> None:
+        self.block_number = block_number
+        self.block_size = block_size
+
+        self.token_ids = [_BLANK_TOKEN_ID] * block_size
+        self.num_tokens = 0
+```
+
+虚拟block是记录有多少个token， token id是什么
+
+```
+class PhysicalTokenBlock:
+    """Represents the state of a block in the KV cache."""
+
+    def __init__(
+        self,
+        device: Device,
+        block_number: int,
+        block_size: int,
+        block_hash: int,
+        num_hashed_tokens: int,
+    ) -> None:
+        self.device = device
+        self.block_number = block_number
+        self.block_size = block_size
+        self.block_hash = block_hash
+        self.num_hashed_tokens = num_hashed_tokens
+
+        self.ref_count = 0
+        self.last_accessed = DEFAULT_LAST_ACCESSED_TIME
+
+        self.computed = False #为prefix caching使用的
+```
+
+物理block则是管理kv cache
+
+---
+
+sequence类中的_append_tokens_to_blocks： 将token记录到block中，涉及新开一个虚拟block的机制。这部分是在推理一个token结束后触发的。
+
+同时，append slot中会有_maybe_promote_last_block机制。会检查物理block和虚拟block的数量差距，检查是否要新开一个block。
+
+* 假如不用新开一个block的情况下
+  * 做prefix caching需要动那个物理block
+  * 有涉及copy and write的机制需要动那个物理block
+  * 否则也不动最后一个物理物理block
+
+vLLM先给scheduler分配逻辑块，然后在append slot的时候会检查物理块和逻辑块的数量差距，加入物理块+1=逻辑块，就开多一个新的物理块。

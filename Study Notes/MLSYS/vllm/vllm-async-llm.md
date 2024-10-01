@@ -12,7 +12,21 @@ python -m vllm.entrypoints.openai.api_server \
  --trust-remote-code \
  --enforce-eager \
  --max-num-batched-tokens 512 \
+ --enable-chunked-prefill 
+ 
+ 
  --gpu-memory-utilization 0.02 \
+ 
+```
+
+```
+python ~/coserving/entrypoints/openai/api_server.py \
+ --model facebook/opt-125m \
+ --tensor-parallel-size 1 \
+ --max-num-seqs 500 \
+ --trust-remote-code \
+ --enforce-eager \
+ --max-num-batched-tokens 512 \
  --enable-chunked-prefill 
 ```
 

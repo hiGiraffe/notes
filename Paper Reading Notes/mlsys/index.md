@@ -6,7 +6,9 @@
 - [ ] [Optimizing Speculative Decoding for Serving Large Language Models Using Goodput](https://arxiv.org/abs/2406.14066)
 - [x] [Llumnix：LLM推理的动态调度系统，在处理tail latencies上有很大优势(Alibaba)](Llumnix.md) 
 - [ ] [Sia：DL混合并行弹性作业调度系统(UCB)](Sia.md)
-- [ ] Mooncake
+- [ ] Mooncake 
+- [ ] [[2404.14294] A Survey on Efficient Inference for Large Language Models](https://arxiv.org/abs/2404.14294)
+- [ ]  [test.md](test.md) 
 
 # A guide to LLM inference and performance
 

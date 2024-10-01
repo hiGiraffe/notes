@@ -24,3 +24,10 @@
 >
 > 目前对于一些共享前缀的优化，decode阶段进行了优化，采用 tensor core + cuda core的方式。
 
+[Transformer中QKV的矩阵运算 - 知乎](https://zhuanlan.zhihu.com/p/699573342)
+
+[【LLM指北】五、参数量、计算量FLOPS推导 - 知乎](https://zhuanlan.zhihu.com/p/676113501)
+
+[LLM训练指南(二):模型参数、计算量、显存、计算时间计算 - 知乎](https://zhuanlan.zhihu.com/p/639872915)
+
+[learn-nlp-with-transformers/docs/篇章2-Transformer相关原理/2.4-图解GPT.md at main · datawhalechina/learn-nlp-with-transformers](https://github.com/datawhalechina/learn-nlp-with-transformers/blob/main/docs/%E7%AF%87%E7%AB%A02-Transformer%E7%9B%B8%E5%85%B3%E5%8E%9F%E7%90%86/2.4-%E5%9B%BE%E8%A7%A3GPT.md)
