@@ -1,3 +1,2 @@
 # Academic Writing Notes
 
-## 
