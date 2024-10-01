@@ -21,11 +21,11 @@
 
 将模型隔成不同的层，每一层放到一块GPU上
 
->  ![img](images/llm-1/1)
+>  ![img](/images/llm-1/1)
 
 此时模型前向传输和后向传输
 
->  ![img](images/llm-1/2)
+>  ![img](/images/llm-1/2)
 
 > 其中下标表示batch编号，这里只有一个batch，因此下标都是0。每一行表示一个GPU。每一列表示timestep。
 >
@@ -44,14 +44,14 @@
 
 > **在模型并行的基础上，进一步引入数据并行的办法，即把原先的数据再划分成若干个batch，送入GPU进行训练**。未划分前的数据，叫**mini-batch**。在mini-batch上再划分的数据，叫**micro-batch**。
 >
-> ![img](images/llm-1/3)
+> ![img](/images/llm-1/3)
 
 ### 2.re-materialization（active checkpoint）
 
 > Gpipe采用了一种非常简单粗暴但有效的办法：**用时间换空间，在论文里，这种方法被命名为re-materalization，后人也称其为active checkpoint**。
 > 具体来说，就是**几乎不存中间结果，等到backward的时候，再重新算一遍forward**
 >
-> ![img](images/llm-1/4)
+> ![img](/images/llm-1/4)
 >
 > 每块GPU上，我们只保存来自上一块的最后一层输入z，其余的中间结果我们算完就废。等到backward的时候再由保存下来的z重新进行forward来算出。
 >

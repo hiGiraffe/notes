@@ -192,7 +192,7 @@ to be continue
 
 **有意思的系列**
 
-- [ ] [**优雅玩转实验室服务器（七）优雅地使用ssh或者http访问内网服务器——frp内网穿透教程](https://zhuanlan.zhihu.com/p/688161704)**
+- [ ] [**优雅玩转实验室服务器（七）优雅地使用ssh或者http访问内网服务器——frp内网穿透教程**](https://zhuanlan.zhihu.com/p/688161704)
 
 ---
 
@@ -207,5 +207,3 @@ to be continue
 **升学**
 
 - [ ] [Home - Open CS Application](https://opencs.app/)
-
-- [ ] [Transformer性能分析理论基础](https://github.com/HarleysZhang/dl_note/blob/main/6-llm_note/llm_inference/Transformer%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md)

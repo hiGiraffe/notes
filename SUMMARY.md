@@ -4,7 +4,6 @@
 
 ### Blogs
 
-* [Resources](Blogs\Resources.md) 
 * [Scientific Research Drawing Tools](Blogs\tool-1.md) 
 
 ### Paper Reading Notes
