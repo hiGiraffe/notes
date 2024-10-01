@@ -1,0 +1,1313 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>【NSDI 2023】【在读中】Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="FlexGen.html" />
+    
+    
+    <link rel="prev" href="Mooncake.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/tool-1.html">
+            
+                <a href="../../Blogs/tool-1.html">
+            
+                    
+                    Scientific Research Drawing Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="SpecInfer.html">
+            
+                <a href="SpecInfer.html">
+            
+                    
+                    【ASPLOS 2024】【在读中】SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="Apparate.html">
+            
+                <a href="Apparate.html">
+            
+                    
+                    【SOSP 2024】【在读中】Apparate: Rethinking Early Exits to Tame Latency-Throughput Tensions in ML Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="ExeGPT.html">
+            
+                <a href="ExeGPT.html">
+            
+                    
+                    【ASPLOS 2024】【在读中】ExeGPT: Constraint-Aware Resource Scheduling for LLM Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="Llumnix.html">
+            
+                <a href="Llumnix.html">
+            
+                    
+                    【OSDI 2024】Llumnix: Dynamic Scheduling for Large Language Model Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="Mooncake.html">
+            
+                <a href="Mooncake.html">
+            
+                    
+                    【Arxiv 2024】【在读中】Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.6" data-path="Shockwave.html">
+            
+                <a href="Shockwave.html">
+            
+                    
+                    【NSDI 2023】【在读中】Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="FlexGen.html">
+            
+                <a href="FlexGen.html">
+            
+                    
+                    【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="Orca.html">
+            
+                <a href="Orca.html">
+            
+                    
+                    【OSDI 2020】Orca: A Distributed Serving System for Transformer-Based Generative Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="vllm.html">
+            
+                <a href="vllm.html">
+            
+                    
+                    【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention(vLLM) 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="Gavel.html">
+            
+                <a href="Gavel.html">
+            
+                    
+                    【OSDI 2020】Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads(Gavel))
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="S-LoRA.html">
+            
+                <a href="S-LoRA.html">
+            
+                    
+                    【Arxiv 2023】 S-LORA: SERVING THOUSANDS OF CONCURRENT LORA ADAPTERS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.12" data-path="CoGNN.html">
+            
+                <a href="CoGNN.html">
+            
+                    
+                    【SC 2022】CoGNN: efficient scheduling for concurrent GNN training on GPUs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../hpc/">
+            
+                <a href="../hpc/">
+            
+                    
+                    High Performance Computing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../hpc/AutoMap.html">
+            
+                <a href="../hpc/AutoMap.html">
+            
+                    
+                    【SC 2023】Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../graph/">
+            
+                <a href="../graph/">
+            
+                    
+                    Graph
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../graph/graph-2.html">
+            
+                <a href="../graph/graph-2.html">
+            
+                    
+                    【SIGMOD 2020】GPU-Accelerated Subgraph Enumeration on Partitioned Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../graph/graph.html">
+            
+                <a href="../graph/graph.html">
+            
+                    
+                    【SC 2022】VSGM: View-Based GPU-Accelerated Subgraph Matching on Large Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../graph/ICDE 2023 work stealing.html">
+            
+                <a href="../graph/ICDE 2023 work stealing.html">
+            
+                    
+                    【ICDE 2023】Efﬁcient Multi-GPU Graph Processing with Remote Work Stealing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../Study Notes/MLSYS/">
+            
+                <a href="../../Study Notes/MLSYS/">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../Study Notes/MLSYS/vllm/">
+            
+                <a href="../../Study Notes/MLSYS/vllm/">
+            
+                    
+                    vllm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="../../Study Notes/MLSYS/vllm/vllm-schedule.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-schedule.html">
+            
+                    
+                    vLLM Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="../../Study Notes/MLSYS/vllm/vllm-block.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-block.html">
+            
+                    
+                    Detailed explanation of vllm block mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="../../Study Notes/MLSYS/vllm/vllm-attention.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-attention.html">
+            
+                    
+                    vllm gpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.4" data-path="../../Study Notes/MLSYS/vllm/vllm-cpu.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-cpu.html">
+            
+                    
+                    vLLM cpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.5" data-path="../../Study Notes/MLSYS/vllm/vllm-cache.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-cache.html">
+            
+                    
+                    vLLM cache engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.6" data-path="../../Study Notes/MLSYS/vllm/vllm-LoRA.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-LoRA.html">
+            
+                    
+                    vllm LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.7" data-path="../../Study Notes/MLSYS/vllm/vllm-async-llm.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-async-llm.html">
+            
+                    
+                    vllm async llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.8" data-path="../../Study Notes/MLSYS/vllm/vllm-chunked-prefill.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-chunked-prefill.html">
+            
+                    
+                    vllm chunked prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.9" data-path="../../Study Notes/MLSYS/vllm/vllm-ray.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-ray.html">
+            
+                    
+                    vllm ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.10" data-path="../../Study Notes/MLSYS/vllm/vllm-profile.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-profile.html">
+            
+                    
+                    vllm profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.11" data-path="../../Study Notes/MLSYS/vllm/vllm-llama.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-llama.html">
+            
+                    
+                    vllm llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.12" data-path="../../Study Notes/MLSYS/vllm/vllm-metadata.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-metadata.html">
+            
+                    
+                    vllm-metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../Study Notes/MLSYS/mlsys-1.html">
+            
+                <a href="../../Study Notes/MLSYS/mlsys-1.html">
+            
+                    
+                    ML Refresher / Softmax Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../Study Notes/MLSYS/mlsys-2.html">
+            
+                <a href="../../Study Notes/MLSYS/mlsys-2.html">
+            
+                    
+                    Automatic differentiation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../Study Notes/MLSYS/llm-3.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-3.html">
+            
+                    
+                    llama2部署记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../Study Notes/MLSYS/llm-6.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-6.html">
+            
+                    
+                    LLM Inference Series
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../Study Notes/MLSYS/llm-8.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-8.html">
+            
+                    
+                    Llama Model's decoder computing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../Study Notes/MLSYS/llm-1.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-1.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../../Study Notes/MLSYS/llm-2.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-2.html">
+            
+                    
+                    大模型训练：数据并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../../Study Notes/MLSYS/llm-5.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-5.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../../Study Notes/MLSYS/llm-9.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-9.html">
+            
+                    
+                    大模型训练：张量并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="../../Study Notes/MLSYS/calculation.html">
+            
+                <a href="../../Study Notes/MLSYS/calculation.html">
+            
+                    
+                    计算量统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.12" data-path="../../Study Notes/MLSYS/llumnix.html">
+            
+                <a href="../../Study Notes/MLSYS/llumnix.html">
+            
+                    
+                    【正在进行】llumnix代码解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.13" data-path="../../Study Notes/MLSYS/spec_decode.html">
+            
+                <a href="../../Study Notes/MLSYS/spec_decode.html">
+            
+                    
+                    【正在进行】speculative_decode相关笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../Study Notes/NLP/">
+            
+                <a href="../../Study Notes/NLP/">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../Study Notes/NLP/nlp-1.html">
+            
+                <a href="../../Study Notes/NLP/nlp-1.html">
+            
+                    
+                    如何从头实现一个神经网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../Study Notes/NLP/nlp-2.html">
+            
+                <a href="../../Study Notes/NLP/nlp-2.html">
+            
+                    
+                    史上最详细循环神经网络讲解（RNN/LSTM/GRU）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../../Study Notes/NLP/nlp-3.html">
+            
+                <a href="../../Study Notes/NLP/nlp-3.html">
+            
+                    
+                    完全图解RNN、RNN变体、Seq2Seq、Attention机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../../Study Notes/NLP/nlp-4.html">
+            
+                <a href="../../Study Notes/NLP/nlp-4.html">
+            
+                    
+                    从零开始实现循环神经网络（无框架）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../../Study Notes/NLP/nlp-5.html">
+            
+                <a href="../../Study Notes/NLP/nlp-5.html">
+            
+                    
+                    损失函数（Loss Function）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../../Study Notes/NLP/nlp-6.html">
+            
+                <a href="../../Study Notes/NLP/nlp-6.html">
+            
+                    
+                    自回归模型和GPT 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../Study Notes/Resource Schedule/">
+            
+                <a href="../../Study Notes/Resource Schedule/">
+            
+                    
+                    Resource Schedule
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../Study Notes/Resource Schedule/新型计算机.html">
+            
+                <a href="../../Study Notes/Resource Schedule/新型计算机.html">
+            
+                    
+                    新型计算机系统设计与性能优化课程笔记-AI4Sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../Study Notes/CME 213/">
+            
+                <a href="../../Study Notes/CME 213/">
+            
+                    
+                    CME213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../../Study Notes/CME 213/note1.html">
+            
+                <a href="../../Study Notes/CME 213/note1.html">
+            
+                    
+                    C++ notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../../Study Notes/CUDA/cuda-2.html">
+            
+                <a href="../../Study Notes/CUDA/cuda-2.html">
+            
+                    
+                    CUDA Notes in HW3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../../Study Notes/MIT 6.172/">
+            
+                <a href="../../Study Notes/MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../../Study Notes/MIT 6.172/">
+            
+                <a href="../../Study Notes/MIT 6.172/">
+            
+                    
+                    Introduction and Matrix Multiplication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../../Study Notes/MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Bentley Rules for Optimizing Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../../Study Notes/MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Bit Hacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../../Study Notes/MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Parallel Storage Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.5" data-path="../../Study Notes/MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    HW:Profiling Serial MergeSort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../../Study Notes/CUDA/">
+            
+                <a href="../../Study Notes/CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../../Study Notes/CUDA/cuda-1.html">
+            
+                <a href="../../Study Notes/CUDA/cuda-1.html">
+            
+                    
+                    Chapter 5 in CUDA C++ Programming Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../../Study Notes/CUDA/cuda-partition-camping.html">
+            
+                <a href="../../Study Notes/CUDA/cuda-partition-camping.html">
+            
+                    
+                    cuda-partition-camping.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../../Study Notes/CUDA/CUDA-Warp-Level.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA-Warp-Level.html">
+            
+                    
+                    CUDA-Warp-Level.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../../Study Notes/OPENMP/">
+            
+                <a href="../../Study Notes/OPENMP/">
+            
+                    
+                    OpenMp
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../../Study Notes/OPENMP/openmp.html">
+            
+                <a href="../../Study Notes/OPENMP/openmp.html">
+            
+                    
+                    OpenMp Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../../Study Notes/Pytorch/">
+            
+                <a href="../../Study Notes/Pytorch/">
+            
+                    
+                    Pytorch
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.8.1" data-path="../../Study Notes/Pytorch/multiprocessing.html">
+            
+                <a href="../../Study Notes/Pytorch/multiprocessing.html">
+            
+                    
+                    torch multiprocessing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >【NSDI 2023】【在读中】Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="shockwave-fair-and-efficient-cluster-scheduling-for-dynamic-adaptation-in-machine-learning"><a href="https://www.usenix.org/conference/nsdi23/presentation/zheng" target="_blank">Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning</a></h1>
+<blockquote>
+<p>Pengfei Zheng and Rui Pan, University of Wisconsin-Madison; Tarannum Khan, The University of Texas at Austin; Shivaram Venkataraman, University of Wisconsin-Madison; Aditya Akella, The University of Texas at Austin</p>
+</blockquote>
+<p>nsdi 2023</p>
+<h2 id="&#x4E00;&#x53E5;&#x8BDD;&#x603B;&#x7ED3;&#x6982;&#x62EC;">&#x4E00;&#x53E5;&#x8BDD;&#x603B;&#x7ED3;&#x6982;&#x62EC;</h2>
+<h2 id="&#x80CC;&#x666F;">&#x80CC;&#x666F;</h2>
+<h2 id="&#x5148;&#x524D;&#x5DE5;&#x4F5C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;">&#x5148;&#x524D;&#x5DE5;&#x4F5C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;</h2>
+<h2 id="&#x96BE;&#x70B9;">&#x96BE;&#x70B9;</h2>
+<h2 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2>
+<h2 id="&#x521B;&#x65B0;&#x70B9;">&#x521B;&#x65B0;&#x70B9;</h2>
+<h2 id="&#x5B9E;&#x9A8C;&#x8BC4;&#x4F30;">&#x5B9E;&#x9A8C;&#x8BC4;&#x4F30;</h2>
+<h2 id="qa">Q&amp;A</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Mooncake.html" class="navigation navigation-prev " aria-label="Previous page: 【Arxiv 2024】【在读中】Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="FlexGen.html" class="navigation navigation-next " aria-label="Next page: 【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"【NSDI 2023】【在读中】Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning","level":"3.1.6","depth":2,"next":{"title":"【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU","level":"3.1.7","depth":2,"path":"Paper Reading Notes/mlsys/FlexGen.md","ref":"Paper Reading Notes/mlsys/FlexGen.md","articles":[]},"previous":{"title":"【Arxiv 2024】【在读中】Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving","level":"3.1.5","depth":2,"path":"Paper Reading Notes/mlsys/Mooncake.md","ref":"Paper Reading Notes/mlsys/Mooncake.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Paper Reading Notes/mlsys/Shockwave.md","mtime":"2024-10-01T12:53:41.668Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-10-01T12:54:17.928Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

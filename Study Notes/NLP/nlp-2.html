@@ -1,0 +1,1375 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>史上最详细循环神经网络讲解（RNN/LSTM/GRU） · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="nlp-3.html" />
+    
+    
+    <link rel="prev" href="nlp-1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/tool-1.html">
+            
+                <a href="../../Blogs/tool-1.html">
+            
+                    
+                    Scientific Research Drawing Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../Paper Reading Notes/mlsys/">
+            
+                <a href="../../Paper Reading Notes/mlsys/">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../Paper Reading Notes/mlsys/SpecInfer.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/SpecInfer.html">
+            
+                    
+                    【ASPLOS 2024】【在读中】SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../Paper Reading Notes/mlsys/Apparate.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/Apparate.html">
+            
+                    
+                    【SOSP 2024】【在读中】Apparate: Rethinking Early Exits to Tame Latency-Throughput Tensions in ML Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../Paper Reading Notes/mlsys/ExeGPT.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/ExeGPT.html">
+            
+                    
+                    【ASPLOS 2024】【在读中】ExeGPT: Constraint-Aware Resource Scheduling for LLM Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../Paper Reading Notes/mlsys/Llumnix.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/Llumnix.html">
+            
+                    
+                    【OSDI 2024】Llumnix: Dynamic Scheduling for Large Language Model Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../Paper Reading Notes/mlsys/Mooncake.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/Mooncake.html">
+            
+                    
+                    【Arxiv 2024】【在读中】Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../Paper Reading Notes/mlsys/Shockwave.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/Shockwave.html">
+            
+                    
+                    【NSDI 2023】【在读中】Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../../Paper Reading Notes/mlsys/FlexGen.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/FlexGen.html">
+            
+                    
+                    【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../../Paper Reading Notes/mlsys/Orca.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/Orca.html">
+            
+                    
+                    【OSDI 2020】Orca: A Distributed Serving System for Transformer-Based Generative Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../../Paper Reading Notes/mlsys/vllm.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/vllm.html">
+            
+                    
+                    【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention(vLLM) 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="../../Paper Reading Notes/mlsys/Gavel.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/Gavel.html">
+            
+                    
+                    【OSDI 2020】Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads(Gavel))
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="../../Paper Reading Notes/mlsys/S-LoRA.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/S-LoRA.html">
+            
+                    
+                    【Arxiv 2023】 S-LORA: SERVING THOUSANDS OF CONCURRENT LORA ADAPTERS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.12" data-path="../../Paper Reading Notes/mlsys/CoGNN.html">
+            
+                <a href="../../Paper Reading Notes/mlsys/CoGNN.html">
+            
+                    
+                    【SC 2022】CoGNN: efficient scheduling for concurrent GNN training on GPUs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../Paper Reading Notes/hpc/">
+            
+                <a href="../../Paper Reading Notes/hpc/">
+            
+                    
+                    High Performance Computing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../Paper Reading Notes/hpc/AutoMap.html">
+            
+                <a href="../../Paper Reading Notes/hpc/AutoMap.html">
+            
+                    
+                    【SC 2023】Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../Paper Reading Notes/graph/">
+            
+                <a href="../../Paper Reading Notes/graph/">
+            
+                    
+                    Graph
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../Paper Reading Notes/graph/graph-2.html">
+            
+                <a href="../../Paper Reading Notes/graph/graph-2.html">
+            
+                    
+                    【SIGMOD 2020】GPU-Accelerated Subgraph Enumeration on Partitioned Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../Paper Reading Notes/graph/graph.html">
+            
+                <a href="../../Paper Reading Notes/graph/graph.html">
+            
+                    
+                    【SC 2022】VSGM: View-Based GPU-Accelerated Subgraph Matching on Large Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../Paper Reading Notes/graph/ICDE 2023 work stealing.html">
+            
+                <a href="../../Paper Reading Notes/graph/ICDE 2023 work stealing.html">
+            
+                    
+                    【ICDE 2023】Efﬁcient Multi-GPU Graph Processing with Remote Work Stealing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../MLSYS/">
+            
+                <a href="../MLSYS/">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../MLSYS/vllm/">
+            
+                <a href="../MLSYS/vllm/">
+            
+                    
+                    vllm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="../MLSYS/vllm/vllm-schedule.html">
+            
+                <a href="../MLSYS/vllm/vllm-schedule.html">
+            
+                    
+                    vLLM Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="../MLSYS/vllm/vllm-block.html">
+            
+                <a href="../MLSYS/vllm/vllm-block.html">
+            
+                    
+                    Detailed explanation of vllm block mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="../MLSYS/vllm/vllm-attention.html">
+            
+                <a href="../MLSYS/vllm/vllm-attention.html">
+            
+                    
+                    vllm gpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.4" data-path="../MLSYS/vllm/vllm-cpu.html">
+            
+                <a href="../MLSYS/vllm/vllm-cpu.html">
+            
+                    
+                    vLLM cpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.5" data-path="../MLSYS/vllm/vllm-cache.html">
+            
+                <a href="../MLSYS/vllm/vllm-cache.html">
+            
+                    
+                    vLLM cache engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.6" data-path="../MLSYS/vllm/vllm-LoRA.html">
+            
+                <a href="../MLSYS/vllm/vllm-LoRA.html">
+            
+                    
+                    vllm LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.7" data-path="../MLSYS/vllm/vllm-async-llm.html">
+            
+                <a href="../MLSYS/vllm/vllm-async-llm.html">
+            
+                    
+                    vllm async llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.8" data-path="../MLSYS/vllm/vllm-chunked-prefill.html">
+            
+                <a href="../MLSYS/vllm/vllm-chunked-prefill.html">
+            
+                    
+                    vllm chunked prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.9" data-path="../MLSYS/vllm/vllm-ray.html">
+            
+                <a href="../MLSYS/vllm/vllm-ray.html">
+            
+                    
+                    vllm ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.10" data-path="../MLSYS/vllm/vllm-profile.html">
+            
+                <a href="../MLSYS/vllm/vllm-profile.html">
+            
+                    
+                    vllm profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.11" data-path="../MLSYS/vllm/vllm-llama.html">
+            
+                <a href="../MLSYS/vllm/vllm-llama.html">
+            
+                    
+                    vllm llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.12" data-path="../MLSYS/vllm/vllm-metadata.html">
+            
+                <a href="../MLSYS/vllm/vllm-metadata.html">
+            
+                    
+                    vllm-metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../MLSYS/mlsys-1.html">
+            
+                <a href="../MLSYS/mlsys-1.html">
+            
+                    
+                    ML Refresher / Softmax Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../MLSYS/mlsys-2.html">
+            
+                <a href="../MLSYS/mlsys-2.html">
+            
+                    
+                    Automatic differentiation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../MLSYS/llm-3.html">
+            
+                <a href="../MLSYS/llm-3.html">
+            
+                    
+                    llama2部署记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../MLSYS/llm-6.html">
+            
+                <a href="../MLSYS/llm-6.html">
+            
+                    
+                    LLM Inference Series
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../MLSYS/llm-8.html">
+            
+                <a href="../MLSYS/llm-8.html">
+            
+                    
+                    Llama Model's decoder computing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../MLSYS/llm-1.html">
+            
+                <a href="../MLSYS/llm-1.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../MLSYS/llm-2.html">
+            
+                <a href="../MLSYS/llm-2.html">
+            
+                    
+                    大模型训练：数据并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../MLSYS/llm-5.html">
+            
+                <a href="../MLSYS/llm-5.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../MLSYS/llm-9.html">
+            
+                <a href="../MLSYS/llm-9.html">
+            
+                    
+                    大模型训练：张量并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="../MLSYS/calculation.html">
+            
+                <a href="../MLSYS/calculation.html">
+            
+                    
+                    计算量统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.12" data-path="../MLSYS/llumnix.html">
+            
+                <a href="../MLSYS/llumnix.html">
+            
+                    
+                    【正在进行】llumnix代码解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.13" data-path="../MLSYS/spec_decode.html">
+            
+                <a href="../MLSYS/spec_decode.html">
+            
+                    
+                    【正在进行】speculative_decode相关笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="nlp-1.html">
+            
+                <a href="nlp-1.html">
+            
+                    
+                    如何从头实现一个神经网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.2.2" data-path="nlp-2.html">
+            
+                <a href="nlp-2.html">
+            
+                    
+                    史上最详细循环神经网络讲解（RNN/LSTM/GRU）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="nlp-3.html">
+            
+                <a href="nlp-3.html">
+            
+                    
+                    完全图解RNN、RNN变体、Seq2Seq、Attention机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="nlp-4.html">
+            
+                <a href="nlp-4.html">
+            
+                    
+                    从零开始实现循环神经网络（无框架）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="nlp-5.html">
+            
+                <a href="nlp-5.html">
+            
+                    
+                    损失函数（Loss Function）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="nlp-6.html">
+            
+                <a href="nlp-6.html">
+            
+                    
+                    自回归模型和GPT 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../Resource Schedule/">
+            
+                <a href="../Resource Schedule/">
+            
+                    
+                    Resource Schedule
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../Resource Schedule/新型计算机.html">
+            
+                <a href="../Resource Schedule/新型计算机.html">
+            
+                    
+                    新型计算机系统设计与性能优化课程笔记-AI4Sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../CME 213/">
+            
+                <a href="../CME 213/">
+            
+                    
+                    CME213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../CME 213/note1.html">
+            
+                <a href="../CME 213/note1.html">
+            
+                    
+                    C++ notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../CUDA/cuda-2.html">
+            
+                <a href="../CUDA/cuda-2.html">
+            
+                    
+                    CUDA Notes in HW3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    Introduction and Matrix Multiplication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Bentley Rules for Optimizing Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Bit Hacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Parallel Storage Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.5" data-path="../MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    HW:Profiling Serial MergeSort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../CUDA/">
+            
+                <a href="../CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../CUDA/cuda-1.html">
+            
+                <a href="../CUDA/cuda-1.html">
+            
+                    
+                    Chapter 5 in CUDA C++ Programming Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../CUDA/cuda-partition-camping.html">
+            
+                <a href="../CUDA/cuda-partition-camping.html">
+            
+                    
+                    cuda-partition-camping.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../CUDA/CUDA-Warp-Level.html">
+            
+                <a href="../CUDA/CUDA-Warp-Level.html">
+            
+                    
+                    CUDA-Warp-Level.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../OPENMP/">
+            
+                <a href="../OPENMP/">
+            
+                    
+                    OpenMp
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../OPENMP/openmp.html">
+            
+                <a href="../OPENMP/openmp.html">
+            
+                    
+                    OpenMp Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../Pytorch/">
+            
+                <a href="../Pytorch/">
+            
+                    
+                    Pytorch
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.8.1" data-path="../Pytorch/multiprocessing.html">
+            
+                <a href="../Pytorch/multiprocessing.html">
+            
+                    
+                    torch multiprocessing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >史上最详细循环神经网络讲解（RNN/LSTM/GRU）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x53F2;&#x4E0A;&#x6700;&#x8BE6;&#x7EC6;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8BB2;&#x89E3;&#xFF08;rnnlstmgru&#xFF09;">&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x53F2;&#x4E0A;&#x6700;&#x8BE6;&#x7EC6;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8BB2;&#x89E3;&#xFF08;RNN/LSTM/GRU&#xFF09;</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/123211148" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+<ul>
+<li><h1 id="&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;rnn&#xFF09;">&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;RNN&#xFF09;</h1>
+<ul>
+<li><h2 id="&#x4EC0;&#x4E48;&#x662F;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">&#x4EC0;&#x4E48;&#x662F;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h2>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;Rerrent Neural Network, RNN&#xFF09;</strong>&#x5BF9;&#x5177;&#x6709;<strong>&#x5E8F;&#x5217;&#x7279;&#x6027;</strong>&#x7684;&#x6570;&#x636E;&#x975E;&#x5E38;&#x6709;&#x6548;&#xFF0C;&#x5B83;&#x80FD;&#x6316;&#x6398;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x65F6;&#x5E8F;&#x4FE1;&#x606F;&#x4EE5;&#x53CA;&#x8BED;&#x4E49;&#x4FE1;&#x606F;&#xFF0C;&#x5229;&#x7528;&#x4E86;RNN&#x7684;&#x8FD9;&#x79CD;&#x80FD;&#x529B;&#xFF0C;&#x4F7F;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x5728;&#x89E3;&#x51B3;&#x8BED;&#x97F3;&#x8BC6;&#x522B;&#x3001;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#x3001;&#x673A;&#x5668;&#x7FFB;&#x8BD1;&#x4EE5;&#x53CA;&#x65F6;&#x5E8F;&#x5206;&#x6790;&#x7B49;NLP&#x9886;&#x57DF;&#x7684;&#x95EE;&#x9898;&#x65F6;&#x6709;&#x6240;&#x7A81;&#x7834;&#x3002;</p>
+</blockquote>
+<ul>
+<li><h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x53D1;&#x5C55;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x53D1;&#x5C55;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h2>
+</li>
+</ul>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E2A;NLP&#x5F88;&#x5E38;&#x89C1;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x547D;&#x540D;&#x5B9E;&#x4F53;&#x8BC6;&#x522B;&#xFF0C;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x73B0;&#x5728;&#x6709;&#x4E24;&#x53E5;&#x8BDD;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x53E5;&#x8BDD;&#xFF1A;I like eating apple&#xFF01;&#xFF08;&#x6211;&#x559C;&#x6B22;&#x5403;&#x82F9;&#x679C;&#xFF01;&#xFF09;</p>
+<p>&#x7B2C;&#x4E8C;&#x53E5;&#x8BDD;&#xFF1A;The Apple is a great company&#xFF01;&#xFF08;&#x82F9;&#x679C;&#x771F;&#x662F;&#x4E00;&#x5BB6;&#x5F88;&#x68D2;&#x7684;&#x516C;&#x53F8;&#xFF01;&#xFF09;</p>
+<p>&#x73B0;&#x5728;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x8981;&#x7ED9;apple&#x6253;Label&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#x7B2C;&#x4E00;&#x4E2A;apple&#x662F;&#x4E00;&#x79CD;&#x6C34;&#x679C;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;apple&#x662F;&#x82F9;&#x679C;&#x516C;&#x53F8;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x6709;&#x5927;&#x91CF;&#x7684;&#x5DF2;&#x7ECF;&#x6807;&#x8BB0;&#x597D;&#x7684;&#x6570;&#x636E;&#x4EE5;&#x4F9B;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<strong>&#x5168;&#x8FDE;&#x63A5;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</strong>&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x505A;&#x6CD5;&#x662F;&#x628A;apple&#x8FD9;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x8F93;&#x5165;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x5728;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x65F6;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x7684;label&#x91CC;&#xFF0C;&#x6B63;&#x786E;&#x7684;label&#x6982;&#x7387;&#x6700;&#x5927;&#xFF0C;&#x6765;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x7684;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#xFF0C;&#x6709;&#x7684;apple&#x7684;label&#x662F;&#x6C34;&#x679C;&#xFF0C;&#x6709;&#x7684;label&#x662F;&#x516C;&#x53F8;&#xFF0C;&#x8FD9;&#x5C06;&#x5BFC;&#x81F4;&#xFF0C;&#x6A21;&#x578B;&#x5728;&#x8BAD;&#x7EC3;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9884;&#x6D4B;&#x7684;&#x51C6;&#x786E;&#x7A0B;&#x5EA6;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x8BAD;&#x7EC3;&#x96C6;&#x4E2D;&#x54EA;&#x4E2A;label&#x591A;&#x4E00;&#x4E9B;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x6A21;&#x578B;&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x6765;&#x8BF4;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x4F5C;&#x7528;&#x3002;<strong>&#x95EE;&#x9898;&#x5C31;&#x51FA;&#x5728;&#x4E86;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x7ED3;&#x5408;&#x4E0A;&#x4E0B;&#x6587;&#x53BB;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x800C;&#x662F;&#x5355;&#x72EC;&#x7684;&#x5728;&#x8BAD;&#x7EC3;apple&#x8FD9;&#x4E2A;&#x5355;&#x8BCD;&#x7684;label&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x5168;&#x8FDE;&#x63A5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x6240;&#x4E0D;&#x80FD;&#x505A;&#x5230;&#x7684;&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x6709;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x3002;</strong></p>
+</blockquote>
+<ul>
+<li><h2 id="&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x7ED3;&#x6784;&#x53CA;&#x539F;&#x7406;">&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x7ED3;&#x6784;&#x53CA;&#x539F;&#x7406;</h2>
+</li>
+</ul>
+<blockquote>
+<p><img src="../../images/nlp-2/1" alt=""></p>
+<p>&#x5148;&#x4E0D;&#x7BA1;&#x53F3;&#x8FB9;&#x7684;W&#xFF0C;&#x53EA;&#x770B;X,U,S,V,O&#xFF0C;&#x8FD9;&#x5E45;&#x56FE;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="../../images/nlp-2/2" alt="img"></p>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x7684;<strong>&#x5168;&#x8FDE;&#x63A5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;</strong>&#x3002;</p>
+<p>&#x628A;&#x8FD9;&#x5E45;&#x56FE;&#x6253;&#x5F00;&#xFF0C;&#x5C31;&#x662F;RNN&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x5E8F;&#x5217;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;&#xFF1A;<strong>&#x53EF;&#x4EE5;&#x8BB0;&#x4F4F;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x4E0D;&#x4EC5;&#x7531;&#x8BE5;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165;&#x5C42;&#x51B3;&#x5B9A;&#xFF0C;&#x8FD8;&#x7531;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x51B3;&#x5B9A;</strong></p>
+<p><img src="../../images/nlp-2/3" alt="img"></p>
+<p>&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF0C;$O_t&#x4EE3;&#x8868;t&#x65F6;&#x523B;&#x7684;&#x8F93;&#x51FA;&#xFF0C;S_t&#x4EE3;&#x8868;t&#x65F6;&#x523B;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x503C;$&#xFF1A;</p>
+<p><img src="../../images/nlp-2/4" alt="img"></p>
+<p><strong>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;&#x5728;&#x6574;&#x4E2A;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x6240;&#x7528;&#x7684;&#x90FD;&#x662F;&#x540C;&#x6837;&#x7684;W&#x3002;</strong></p>
+</blockquote>
+<ul>
+<li><h1 id="lstm&#xFF08;long-short-term-memory&#xFF09;">LSTM&#xFF08;Long short-term memory&#xFF09;</h1>
+<ul>
+<li><h2 id="&#x57FA;&#x7840;&#x7248;&#x672C;rnn&#x7684;&#x95EE;&#x9898;">&#x57FA;&#x7840;&#x7248;&#x672C;RNN&#x7684;&#x95EE;&#x9898;</h2>
+<blockquote>
+<p>&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x90FD;&#x4E0D;&#x4EC5;&#x7531;&#x8BE5;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165;&#x51B3;&#x5B9A;&#xFF0C;&#x8FD8;&#x53D6;&#x51B3;&#x4E8E;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;&#x5F88;&#x957F;&#xFF0C;&#x5230;&#x53E5;&#x5B50;&#x672B;&#x5C3E;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x8BB0;&#x4E0D;&#x4F4F;&#x8FD9;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x5F00;&#x5934;&#x7684;&#x5185;&#x5BB9;&#x8BE6;&#x7EC6;&#x5185;&#x5BB9;&#x3002;&#xFF08;&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x6216;&#x7206;&#x70B8;&#xFF09;</p>
+</blockquote>
+</li>
+<li><h2 id="lstm">LSTM</h2>
+<blockquote>
+<p>&#x6253;&#x4E2A;&#x6BD4;&#x55BB;&#x5427;&#xFF0C;&#x666E;&#x901A;RNN&#x5C31;&#x50CF;&#x4E00;&#x4E2A;&#x4E5E;&#x4E10;&#xFF0C;&#x8DEF;&#x8FB9;&#x6361;&#x7684;&#xFF0C;&#x522B;&#x4EBA;&#x4E22;&#x7684;&#xFF0C;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#x4ED6;&#x90FD;&#x60F3;&#x8981;&#xFF0C;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#x4ED6;&#x90FD;&#x4E0D;&#x5ACC;&#x5F03;&#xFF0C;LSTM&#x5C31;&#x50CF;&#x4E00;&#x4E2A;&#x8D35;&#x65CF;&#xFF0C;&#x6CA1;&#x6709;&#x8EAB;&#x4EFD;&#x7684;&#x4E1C;&#x897F;&#x4ED6;&#x4E0D;&#x8981;&#xFF0C;&#x4ED6;&#x4F1A;&#x7CBE;&#x5FC3;&#x6311;&#x9009;&#x7B26;&#x5408;&#x81EA;&#x5DF1;&#x8EAB;&#x4EFD;&#x7684;&#x7269;&#x54C1;&#x3002;</p>
+<p><img src="../../images/nlp-2/5" alt="img"></p>
+<p>&#x666E;&#x901A;RNN&#x53EA;&#x6709;&#x4E2D;&#x95F4;&#x7684;Memory Cell&#x7528;&#x6765;&#x5B58;&#x6240;&#x6709;&#x7684;&#x4FE1;&#x606F;</p>
+<p><strong>&#x4F9D;&#x6B21;&#x6765;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#x8FD9;&#x4E09;&#x4E2A;&#x95E8;&#xFF1A;</strong></p>
+<ol>
+<li>Input Gate&#xFF1A;&#x4E2D;&#x6587;&#x662F;&#x8F93;&#x5165;&#x95E8;&#xFF0C;&#x5728;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x4ECE;&#x8F93;&#x5165;&#x5C42;&#x8F93;&#x5165;&#x7684;&#x4FE1;&#x606F;&#x4F1A;&#x9996;&#x5148;&#x7ECF;&#x8FC7;&#x8F93;&#x5165;&#x95E8;&#xFF0C;&#x8F93;&#x5165;&#x95E8;&#x7684;&#x5F00;&#x5173;&#x4F1A;&#x51B3;&#x5B9A;&#x8FD9;&#x4E00;&#x65F6;&#x523B;&#x662F;&#x5426;&#x4F1A;&#x6709;&#x4FE1;&#x606F;&#x8F93;&#x5165;&#x5230;Memory Cell&#x3002;</li>
+<li>Output Gate&#xFF1A;&#x4E2D;&#x6587;&#x662F;&#x8F93;&#x51FA;&#x95E8;&#xFF0C;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x662F;&#x5426;&#x6709;&#x4FE1;&#x606F;&#x4ECE;Memory Cell&#x8F93;&#x51FA;&#x53D6;&#x51B3;&#x4E8E;&#x8FD9;&#x4E00;&#x9053;&#x95E8;&#x3002;</li>
+<li>Forget Gate&#xFF1A;&#x4E2D;&#x6587;&#x662F;&#x9057;&#x5FD8;&#x95E8;&#xFF0C;&#x6BCF;&#x4E00;&#x65F6;&#x523B;Memory Cell&#x91CC;&#x7684;&#x503C;&#x90FD;&#x4F1A;&#x7ECF;&#x5386;&#x4E00;&#x4E2A;&#x662F;&#x5426;&#x88AB;&#x9057;&#x5FD8;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x5C31;&#x662F;&#x7531;&#x8BE5;&#x95E8;&#x63A7;&#x5236;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6253;&#x5361;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x628A;Memory Cell&#x91CC;&#x7684;&#x503C;&#x6E05;&#x9664;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x9057;&#x5FD8;&#x6389;&#x3002;</li>
+</ol>
+<p>LSTM&#x5185;&#x90E8;&#x7ED3;&#x6784;&#xFF1A;</p>
+<p><img src="../../images/nlp-2/6" alt="img"></p>
+<p>&#x56FE;&#x4E2D;&#x6700;&#x4E2D;&#x95F4;&#x7684;&#x5730;&#x65B9;&#xFF0C;Cell&#xFF0C;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x4E5F;&#x8BB2;&#x5230;&#x4E86;memory cell&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8BB0;&#x5FC6;&#x5B58;&#x50A8;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x7C7B;&#x4F3C;&#x4E8E;&#x666E;&#x901A;RNN&#x7684; $S_t$ &#xFF0C;&#x90FD;&#x662F;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x9762;&#x7684;&#x4FE1;&#x606F;&#x90FD;&#x4F1A;&#x4FDD;&#x5B58;&#x5230;&#x4E0B;&#x4E00;&#x65F6;&#x523B;&#xFF0C;&#x5176;&#x5B9E;&#x6807;&#x51C6;&#x7684;&#x53EB;&#x6CD5;&#x5E94;&#x8BE5;&#x662F;$h_t$&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x91CC;&#x5BF9;&#x5E94;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x91CC;&#x7684;&#x9690;&#x85CF;&#x5C42;&#xFF0C;&#x6240;&#x4EE5;&#x662F;hidden&#x7684;&#x7F29;&#x5199;&#xFF0C;&#x65E0;&#x8BBA;&#x666E;&#x901A;RNN&#x8FD8;&#x662F;LSTM&#x5176;&#x5B9E;t&#x65F6;&#x523B;&#x7684;&#x8BB0;&#x5FC6;&#x7EC6;&#x80DE;&#x91CC;&#x5B58;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x90FD;&#x5E94;&#x8BE5;&#x88AB;&#x79F0;&#x4E3A; $h_t$ &#x3002;&#x518D;&#x770B;&#x6700;&#x4E0A;&#x9762;&#x7684; $a$ &#xFF0C;&#x662F;&#x8FD9;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x7C7B;&#x4F3C;&#x4E8E;&#x666E;&#x901A;RNN&#x91CC;&#x7684;$O_t$&#x200B; &#x3002;&#x666E;&#x901A;RNN&#x91CC;&#x6709;&#x4E2A; $X_t$&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#xFF0C;&#x90A3;LSTM&#x7684;&#x8F93;&#x5165;&#x5728;&#x54EA;&#xFF1F;$Z$,$Z_i$,$Z_f$,$Z_o$&#x90FD;&#x6709;&#x8F93;&#x5165;&#x5411;&#x91CF;$X_t$&#x7684;&#x53C2;&#x4E0E;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x518D;&#x89E3;&#x91CA;&#x56FE;&#x4E2D;&#x7684;&#x7B26;&#x53F7;</p>
+<p><img src="../../images/nlp-2/7" alt="img"></p>
+<p>&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7B26;&#x53F7;&#xFF0C;LSTM&#x91CC;&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;tanh&#xFF0C;&#x4E00;&#x4E2A;&#x662F;sigmoid</p>
+<p><img src="../../images/nlp-2/8" alt="img"></p>
+<p><img src="../../images/nlp-2/9" alt="image-20240322100629833"></p>
+<p>&#x5176;&#x4E2D;$Z$&#x662F;&#x6700;&#x4E3A;&#x666E;&#x901A;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x4E0A;&#x56FE;&#x4E2D;&#x770B;&#x5230;&#xFF0C;$Z$&#x662F;&#x901A;&#x8FC7;&#x8BE5;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165;$X<em>t$&#x548C;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x5B58;&#x5728;memory cell&#x91CC;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x4FE1;&#x606F;$h</em>{t-1}$&#x5411;&#x91CF;&#x62FC;&#x63A5;&#xFF0C;&#x518D;&#x4E0E;&#x6743;&#x91CD;&#x53C2;&#x6570;&#x5411;&#x91CF;$W$&#x70B9;&#x79EF;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x503C;&#x7ECF;&#x8FC7;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;tanh&#x6700;&#x7EC8;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;$Z$&#xFF0C;&#x6CE8;&#x610F;&#x53EA;&#x6709;$Z$&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x662F;tanh&#xFF0C;&#x56E0;&#x4E3A;$Z$&#x662F;&#x771F;&#x6B63;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x7684;&#xFF0C;&#x5176;&#x4ED6;&#x4E09;&#x4E2A;&#x90FD;&#x662F;&#x95E8;&#x63A7;&#x88C5;&#x7F6E;&#x3002;</p>
+<p>$Z<em>i$ &#xFF0C;input gate&#x7684;&#x7F29;&#x5199;i&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x95E8;&#x7684;&#x95E8;&#x63A7;&#x88C5;&#x7F6E;&#xFF0C; $Z_i$&#x540C;&#x6837;&#x4E5F;&#x662F;&#x901A;&#x8FC7;&#x8BE5;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165; $X_t$&#x548C;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x9690;&#x85CF;&#x72B6;&#x6001;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x5B58;&#x4E0B;&#x6765;&#x7684;&#x4FE1;&#x606F;$h</em>{t-1}$ &#x5411;&#x91CF;&#x62FC;&#x63A5;&#xFF0C;&#x5728;&#x4E0E;&#x6743;&#x91CD;&#x53C2;&#x6570;&#x5411;&#x91CF;$W_i$&#x70B9;&#x79EF;&#xFF08;&#x6CE8;&#x610F;&#x6BCF;&#x4E2A;&#x95E8;&#x7684;&#x6743;&#x91CD;&#x5411;&#x91CF;&#x90FD;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x4E0B;&#x6807;i&#x4EE3;&#x8868;input&#x7684;&#x610F;&#x601D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x95E8;&#xFF09;&#x3002;&#x5F97;&#x5230;&#x7684;&#x503C;&#x7ECF;&#x8FC7;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;sigmoid&#x7684;&#x6700;&#x7EC8;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;0-1&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#xFF0C;&#x7528;&#x6765;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x95E8;&#x7684;&#x63A7;&#x5236;&#x4FE1;&#x53F7;&#x3002;</p>
+<p>$Z_f$&#x548C;$Z_o$&#x540C;&#x7406;&#xFF0C;&#x5206;&#x522B;&#x4EE3;&#x8868;forget&#x548C;output&#x7684;&#x95E8;&#x63A7;&#x88C5;&#x7F6E;&#x3002;</p>
+<p>&#x7ECF;&#x8FC7;&#x8FD9;&#x4E2A;sigmod&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x540E;&#xFF0C;&#x5F97;&#x5230;&#x7684;$Z_i$,$Z_f$,$Z_o$&#x90FD;&#x662F;&#x5728;0&#x5230;1&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x503C;&#xFF0C;1&#x8868;&#x793A;&#x8BE5;&#x95E8;&#x5B8C;&#x5168;&#x6253;&#x5F00;&#xFF0C;0&#x8868;&#x793A;&#x8BE5;&#x95E8;&#x5B8C;&#x5168;&#x5173;&#x95ED;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>&#x200B;    </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="nlp-1.html" class="navigation navigation-prev " aria-label="Previous page: 如何从头实现一个神经网络">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="nlp-3.html" class="navigation navigation-next " aria-label="Next page: 完全图解RNN、RNN变体、Seq2Seq、Attention机制">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"史上最详细循环神经网络讲解（RNN/LSTM/GRU）","level":"4.2.2","depth":2,"next":{"title":"完全图解RNN、RNN变体、Seq2Seq、Attention机制","level":"4.2.3","depth":2,"path":"Study Notes/NLP/nlp-3.md","ref":"Study Notes/NLP/nlp-3.md","articles":[]},"previous":{"title":"如何从头实现一个神经网络","level":"4.2.1","depth":2,"path":"Study Notes/NLP/nlp-1.md","ref":"Study Notes/NLP/nlp-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Study Notes/NLP/nlp-2.md","mtime":"2024-10-01T12:53:41.671Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-10-01T12:54:17.928Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

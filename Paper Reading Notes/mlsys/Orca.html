@@ -1,0 +1,1488 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>【OSDI 2020】Orca: A Distributed Serving System for Transformer-Based Generative Models · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="vllm.html" />
+    
+    
+    <link rel="prev" href="FlexGen.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/tool-1.html">
+            
+                <a href="../../Blogs/tool-1.html">
+            
+                    
+                    Scientific Research Drawing Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="SpecInfer.html">
+            
+                <a href="SpecInfer.html">
+            
+                    
+                    【ASPLOS 2024】【在读中】SpecInfer: Accelerating Large Language Model Serving with Tree-based Speculative Inference and Verification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="Apparate.html">
+            
+                <a href="Apparate.html">
+            
+                    
+                    【SOSP 2024】【在读中】Apparate: Rethinking Early Exits to Tame Latency-Throughput Tensions in ML Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="ExeGPT.html">
+            
+                <a href="ExeGPT.html">
+            
+                    
+                    【ASPLOS 2024】【在读中】ExeGPT: Constraint-Aware Resource Scheduling for LLM Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="Llumnix.html">
+            
+                <a href="Llumnix.html">
+            
+                    
+                    【OSDI 2024】Llumnix: Dynamic Scheduling for Large Language Model Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="Mooncake.html">
+            
+                <a href="Mooncake.html">
+            
+                    
+                    【Arxiv 2024】【在读中】Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="Shockwave.html">
+            
+                <a href="Shockwave.html">
+            
+                    
+                    【NSDI 2023】【在读中】Shockwave: Fair and Efficient Cluster Scheduling for Dynamic Adaptation in Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="FlexGen.html">
+            
+                <a href="FlexGen.html">
+            
+                    
+                    【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.8" data-path="Orca.html">
+            
+                <a href="Orca.html">
+            
+                    
+                    【OSDI 2020】Orca: A Distributed Serving System for Transformer-Based Generative Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="vllm.html">
+            
+                <a href="vllm.html">
+            
+                    
+                    【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention(vLLM) 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="Gavel.html">
+            
+                <a href="Gavel.html">
+            
+                    
+                    【OSDI 2020】Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads(Gavel))
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="S-LoRA.html">
+            
+                <a href="S-LoRA.html">
+            
+                    
+                    【Arxiv 2023】 S-LORA: SERVING THOUSANDS OF CONCURRENT LORA ADAPTERS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.12" data-path="CoGNN.html">
+            
+                <a href="CoGNN.html">
+            
+                    
+                    【SC 2022】CoGNN: efficient scheduling for concurrent GNN training on GPUs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../hpc/">
+            
+                <a href="../hpc/">
+            
+                    
+                    High Performance Computing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../hpc/AutoMap.html">
+            
+                <a href="../hpc/AutoMap.html">
+            
+                    
+                    【SC 2023】Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../graph/">
+            
+                <a href="../graph/">
+            
+                    
+                    Graph
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../graph/graph-2.html">
+            
+                <a href="../graph/graph-2.html">
+            
+                    
+                    【SIGMOD 2020】GPU-Accelerated Subgraph Enumeration on Partitioned Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../graph/graph.html">
+            
+                <a href="../graph/graph.html">
+            
+                    
+                    【SC 2022】VSGM: View-Based GPU-Accelerated Subgraph Matching on Large Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../graph/ICDE 2023 work stealing.html">
+            
+                <a href="../graph/ICDE 2023 work stealing.html">
+            
+                    
+                    【ICDE 2023】Efﬁcient Multi-GPU Graph Processing with Remote Work Stealing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../Study Notes/MLSYS/">
+            
+                <a href="../../Study Notes/MLSYS/">
+            
+                    
+                    Machine Learning System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../Study Notes/MLSYS/vllm/">
+            
+                <a href="../../Study Notes/MLSYS/vllm/">
+            
+                    
+                    vllm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="../../Study Notes/MLSYS/vllm/vllm-schedule.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-schedule.html">
+            
+                    
+                    vLLM Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="../../Study Notes/MLSYS/vllm/vllm-block.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-block.html">
+            
+                    
+                    Detailed explanation of vllm block mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="../../Study Notes/MLSYS/vllm/vllm-attention.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-attention.html">
+            
+                    
+                    vllm gpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.4" data-path="../../Study Notes/MLSYS/vllm/vllm-cpu.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-cpu.html">
+            
+                    
+                    vLLM cpu paged attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.5" data-path="../../Study Notes/MLSYS/vllm/vllm-cache.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-cache.html">
+            
+                    
+                    vLLM cache engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.6" data-path="../../Study Notes/MLSYS/vllm/vllm-LoRA.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-LoRA.html">
+            
+                    
+                    vllm LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.7" data-path="../../Study Notes/MLSYS/vllm/vllm-async-llm.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-async-llm.html">
+            
+                    
+                    vllm async llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.8" data-path="../../Study Notes/MLSYS/vllm/vllm-chunked-prefill.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-chunked-prefill.html">
+            
+                    
+                    vllm chunked prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.9" data-path="../../Study Notes/MLSYS/vllm/vllm-ray.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-ray.html">
+            
+                    
+                    vllm ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.10" data-path="../../Study Notes/MLSYS/vllm/vllm-profile.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-profile.html">
+            
+                    
+                    vllm profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.11" data-path="../../Study Notes/MLSYS/vllm/vllm-llama.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-llama.html">
+            
+                    
+                    vllm llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.12" data-path="../../Study Notes/MLSYS/vllm/vllm-metadata.html">
+            
+                <a href="../../Study Notes/MLSYS/vllm/vllm-metadata.html">
+            
+                    
+                    vllm-metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../Study Notes/MLSYS/mlsys-1.html">
+            
+                <a href="../../Study Notes/MLSYS/mlsys-1.html">
+            
+                    
+                    ML Refresher / Softmax Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../Study Notes/MLSYS/mlsys-2.html">
+            
+                <a href="../../Study Notes/MLSYS/mlsys-2.html">
+            
+                    
+                    Automatic differentiation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../Study Notes/MLSYS/llm-3.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-3.html">
+            
+                    
+                    llama2部署记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../Study Notes/MLSYS/llm-6.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-6.html">
+            
+                    
+                    LLM Inference Series
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../Study Notes/MLSYS/llm-8.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-8.html">
+            
+                    
+                    Llama Model's decoder computing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../Study Notes/MLSYS/llm-1.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-1.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../../Study Notes/MLSYS/llm-2.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-2.html">
+            
+                    
+                    大模型训练：数据并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../../Study Notes/MLSYS/llm-5.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-5.html">
+            
+                    
+                    大模型训练：流水线并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../../Study Notes/MLSYS/llm-9.html">
+            
+                <a href="../../Study Notes/MLSYS/llm-9.html">
+            
+                    
+                    大模型训练：张量并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="../../Study Notes/MLSYS/calculation.html">
+            
+                <a href="../../Study Notes/MLSYS/calculation.html">
+            
+                    
+                    计算量统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.12" data-path="../../Study Notes/MLSYS/llumnix.html">
+            
+                <a href="../../Study Notes/MLSYS/llumnix.html">
+            
+                    
+                    【正在进行】llumnix代码解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.13" data-path="../../Study Notes/MLSYS/spec_decode.html">
+            
+                <a href="../../Study Notes/MLSYS/spec_decode.html">
+            
+                    
+                    【正在进行】speculative_decode相关笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../Study Notes/NLP/">
+            
+                <a href="../../Study Notes/NLP/">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../Study Notes/NLP/nlp-1.html">
+            
+                <a href="../../Study Notes/NLP/nlp-1.html">
+            
+                    
+                    如何从头实现一个神经网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../Study Notes/NLP/nlp-2.html">
+            
+                <a href="../../Study Notes/NLP/nlp-2.html">
+            
+                    
+                    史上最详细循环神经网络讲解（RNN/LSTM/GRU）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../../Study Notes/NLP/nlp-3.html">
+            
+                <a href="../../Study Notes/NLP/nlp-3.html">
+            
+                    
+                    完全图解RNN、RNN变体、Seq2Seq、Attention机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../../Study Notes/NLP/nlp-4.html">
+            
+                <a href="../../Study Notes/NLP/nlp-4.html">
+            
+                    
+                    从零开始实现循环神经网络（无框架）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../../Study Notes/NLP/nlp-5.html">
+            
+                <a href="../../Study Notes/NLP/nlp-5.html">
+            
+                    
+                    损失函数（Loss Function）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../../Study Notes/NLP/nlp-6.html">
+            
+                <a href="../../Study Notes/NLP/nlp-6.html">
+            
+                    
+                    自回归模型和GPT 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../Study Notes/Resource Schedule/">
+            
+                <a href="../../Study Notes/Resource Schedule/">
+            
+                    
+                    Resource Schedule
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../Study Notes/Resource Schedule/新型计算机.html">
+            
+                <a href="../../Study Notes/Resource Schedule/新型计算机.html">
+            
+                    
+                    新型计算机系统设计与性能优化课程笔记-AI4Sys
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../Study Notes/CME 213/">
+            
+                <a href="../../Study Notes/CME 213/">
+            
+                    
+                    CME213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../../Study Notes/CME 213/note1.html">
+            
+                <a href="../../Study Notes/CME 213/note1.html">
+            
+                    
+                    C++ notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../../Study Notes/CUDA/cuda-2.html">
+            
+                <a href="../../Study Notes/CUDA/cuda-2.html">
+            
+                    
+                    CUDA Notes in HW3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../../Study Notes/MIT 6.172/">
+            
+                <a href="../../Study Notes/MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../../Study Notes/MIT 6.172/">
+            
+                <a href="../../Study Notes/MIT 6.172/">
+            
+                    
+                    Introduction and Matrix Multiplication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../../Study Notes/MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Bentley Rules for Optimizing Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../../Study Notes/MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Bit Hacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../../Study Notes/MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Parallel Storage Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.5" data-path="../../Study Notes/MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    HW:Profiling Serial MergeSort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../../Study Notes/CUDA/">
+            
+                <a href="../../Study Notes/CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../../Study Notes/CUDA/cuda-1.html">
+            
+                <a href="../../Study Notes/CUDA/cuda-1.html">
+            
+                    
+                    Chapter 5 in CUDA C++ Programming Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../../Study Notes/CUDA/cuda-partition-camping.html">
+            
+                <a href="../../Study Notes/CUDA/cuda-partition-camping.html">
+            
+                    
+                    cuda-partition-camping.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../../Study Notes/CUDA/CUDA-Warp-Level.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA-Warp-Level.html">
+            
+                    
+                    CUDA-Warp-Level.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../../Study Notes/OPENMP/">
+            
+                <a href="../../Study Notes/OPENMP/">
+            
+                    
+                    OpenMp
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../../Study Notes/OPENMP/openmp.html">
+            
+                <a href="../../Study Notes/OPENMP/openmp.html">
+            
+                    
+                    OpenMp Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../../Study Notes/Pytorch/">
+            
+                <a href="../../Study Notes/Pytorch/">
+            
+                    
+                    Pytorch
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.8.1" data-path="../../Study Notes/Pytorch/multiprocessing.html">
+            
+                <a href="../../Study Notes/Pytorch/multiprocessing.html">
+            
+                    
+                    torch multiprocessing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >【OSDI 2020】Orca: A Distributed Serving System for Transformer-Based Generative Models</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="orca-a-distributed-serving-system-for-transformer-based-generative-models">Orca, A Distributed Serving System for Transformer-Based Generative Models</h1>
+<p><a href="https://www.usenix.org/conference/osdi22/presentation/yu" target="_blank">ORCA OSDI22&#x8BBA;&#x6587;</a></p>
+<h1 id="&#x6311;&#x6218;">&#x6311;&#x6218;</h1>
+<p>&#x5F53;&#x524D;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x662F;&#x6309;&#x6279;&#x6B21;&#x7684;&#xFF0C;&#x5B58;&#x5728;&#x65F6;&#x95F4;&#x6D6A;&#x8D39;&#x7684;&#x73B0;&#x8C61;&#x3002;</p>
+<ul>
+<li>&#x4E00;&#x6279;&#x8BF7;&#x6C42;&#x8F93;&#x5165;&#xFF0C;&#x5373;&#x4F7F;&#x67D0;&#x4E00;&#x8BF7;&#x6C42;&#x7684;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x540C;&#x4E00;&#x6279;&#x6B21;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x624D;&#x80FD;&#x8F93;&#x51FA;&#x3002;</li>
+<li>&#x4E00;&#x6279;&#x65B0;&#x7684;&#x8BF7;&#x6C42;&#x5728;&#x6279;&#x6B21;&#x786E;&#x5B9A;&#x540E;&#x8FDB;&#x5165;&#xFF0C;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x5C31;&#x80FD;&#x8FDB;&#x5165;&#x3002;</li>
+</ul>
+<h1 id="&#x521B;&#x65B0;&#x70B9;">&#x521B;&#x65B0;&#x70B9;</h1>
+<p>&#x91C7;&#x7528;&#x8FED;&#x4EE3;&#x7EA7;&#x522B;&#x7684;&#x8C03;&#x5EA6;&#xFF0C;&#x66F4;&#x7EC6;&#x7C92;&#x5EA6;&#x3002;&#x65B0;&#x7684;&#x6A21;&#x578B;&#x53EA;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x5C31;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<p><strong>&#x4F1A;&#x5E26;&#x6765;&#x65B0;&#x7684;&#x6311;&#x6218;&#xFF1A;</strong></p>
+<ul>
+<li>&#x5F20;&#x91CF;&#x53EF;&#x53D8;&#xFF0C;&#x5BF9;transformer&#x6A21;&#x578B;&#x7684;&#x8BF7;&#x6C42;&#x65E0;&#x6CD5;&#x4EE5;&#x6279;&#x5904;&#x7406;&#x5F62;&#x5F0F;&#x5904;&#x7406;&#x3002;</li>
+</ul>
+<p>&#x6240;&#x4EE5;&#x91C7;&#x7528;selective batching&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x90E8;&#x5206;&#x5355;&#x72EC;&#x5904;&#x7406;&#xFF0C;&#x5176;&#x4ED6;&#x90FD;&#x91C7;&#x7528;&#x6279;&#x5904;&#x7406;&#x3002;</p>
+<h1 id="&#x80CC;&#x666F;&#x77E5;&#x8BC6;">&#x80CC;&#x666F;&#x77E5;&#x8BC6;</h1>
+<h2 id="gpt&#x63A8;&#x7406;&#x8FC7;&#x7A0B;">GPT&#x63A8;&#x7406;&#x8FC7;&#x7A0B;</h2>
+<blockquote>
+<p><img src="../../images/hpc-ai-1/1" alt="image-20240401225416690"></p>
+<p>&#x5C31;&#x662F;&#x4E4B;&#x524D;&#x6587;&#x7AE0;&#x7684;&#x81EA;&#x56DE;&#x5F52;&#x90E8;&#x5206;</p>
+<p>At a high level, the Attention operation computes a weighted average of the tokens of interest so that each token in the sequence is aware of the other. It takes three inputs, query, key, and value, computes dot products of the query (for the current token) with all keys (for the tokens of interest), applies Softmax on the dot products to get weights, and conducts weighted average of all values associated with the weights.</p>
+<p><img src="../../images/hpc-ai-1/3" alt="image-20240402235301243"></p>
+<p>Prior to the Attention operation, there are the layer normalization operation (LayerNorm) and the QKV Linear (linear and split operations to get the query, key and value). Operations performed after Attention are, in order, a linear operation (Attn Out Linear), an add operation for residual connection (Add), layer normalization operation (LayerNorm), the multilayer perceptron (MLP) operations, and the other residual connection operation (Add).</p>
+<p><img src="../../images/hpc-ai-1/2" alt="image-20240402235135695"></p>
+<p>Transformer layer&#x7684;&#x8F93;&#x5165;&#x662F;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#xFF0C;1&#xFF1A;t&#x7684;&#xFF1B;LSTM&#x7684;&#x8F93;&#x5165;&#x957F;&#x5EA6;&#x662F;&#x4E0D;&#x53D8;&#x7684;&#x3002;</p>
+</blockquote>
+<h2 id="ml-inference-serving-systems">ML inference serving systems</h2>
+<p>&#x5B9E;&#x73B0;&#x9AD8;&#x7684;&#x52A0;&#x901F;&#x5668;&#x5229;&#x7528;&#x7387;&#xFF0C;&#x4E3B;&#x8981;&#x4F9D;&#x9760;&#x6279;&#x5904;&#x7406;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x5C06;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;&#x7684;&#x8F93;&#x5165;&#x5F20;&#x91CF;&#x5408;&#x5E76;&#x6210;&#x5927;&#x7684;&#x8F93;&#x5165;&#x5F20;&#x91CF;</li>
+<li>&#x53EF;&#x4EE5;&#x91CD;&#x7528;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x578B;&#x53C2;&#x6570;</li>
+</ul>
+<blockquote>
+<p>The main component of the serving system (e.g., Tri- ton [7]) is the scheduler, which is responsible for (1) creating a batch of requests by retrieving requests from a queue and (2)scheduling the execution engine (e.g., FasterTransformer [4]) to process the batch. The execution engine (3) processes the received batch by running multiple iterations of the model being served and (4) returns the generated text back to the serving system.</p>
+</blockquote>
+<p>&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x4E3B;&#x8981;&#x4F9D;&#x9760;&#x8C03;&#x5EA6;&#x5668;&#xFF0C;&#x8C03;&#x5EA6;&#x5668;&#x5219;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;</p>
+<ul>
+<li>&#x4ECE;&#x961F;&#x5217;&#x4E2D;&#x68C0;&#x7D22;&#x8BF7;&#x6C42;&#xFF0C;&#x521B;&#x5EFA;1&#x4E2A;&#x6279;&#x6B21;&#x7684;&#x8BF7;&#x6C42;</li>
+<li>&#x8C03;&#x5EA6;&#x5904;&#x7406;&#x5F15;&#x64CE;&#x53BB;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x6279;&#x6B21;&#x8BF7;&#x6C42;</li>
+</ul>
+<p>&#x5904;&#x7406;&#x5F15;&#x64CE;</p>
+<ul>
+<li>&#x8FD0;&#x884C;&#x670D;&#x52A1;&#x6A21;&#x578B;&#x7684;&#x591A;&#x6B21;&#x8FED;&#x4EE3;&#x6765;&#x5904;&#x7406;&#x63A5;&#x6536;&#x5230;&#x7684;&#x6279;&#x6B21;</li>
+<li>&#x5C06;&#x751F;&#x6210;&#x7684;&#x6587;&#x672C;&#x8FD4;&#x56DE;&#x5230;&#x670D;&#x52A1;&#x7CFB;&#x7EDF;</li>
+</ul>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;</p>
+<blockquote>
+<p><img src="../../images/hpc-ai-1/4" alt="image-20240403001200945"></p>
+</blockquote>
+<h1 id="&#x6311;&#x6218;">&#x6311;&#x6218;</h1>
+<h2 id="&#x5BF9;&#x4E8E;&#x63D0;&#x524D;&#x5B8C;&#x6210;&#x548C;&#x665A;&#x52A0;&#x5165;&#x7684;&#x8BF7;&#x6C42;">&#x5BF9;&#x4E8E;&#x63D0;&#x524D;&#x5B8C;&#x6210;&#x548C;&#x665A;&#x52A0;&#x5165;&#x7684;&#x8BF7;&#x6C42;</h2>
+<p>&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x548C;&#x6267;&#x884C;&#x5F15;&#x64CE;&#x53EA;&#x5728;&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;&#x4EA4;&#x4E92;&#x4FE1;&#x606F;</p>
+<ul>
+<li>&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x8C03;&#x5EA6;&#x4E0B;&#x4E00;&#x6279;&#x6B21;&#x7684;&#x8BF7;&#x6C42;&#x5230;&#x7A7A;&#x95F2;&#x7684;&#x5F15;&#x64CE;&#x4E0A;</li>
+<li>&#x5F15;&#x64CE;&#x5B8C;&#x6210;&#x5F53;&#x524D;&#x6279;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x5904;&#x7406;</li>
+</ul>
+<p>&#x6240;&#x4EE5;&#x5C31;&#x4F1A;&#x9762;&#x4E34;</p>
+<blockquote>
+<p><img src="../../images/hpc-ai-1/5" alt="image-20240403001606876"></p>
+<p>&#x95EE;&#x9898;1&#xFF1A;&#x540C;&#x4E00;&#x6279;&#x6B21;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x5F88;&#x65E9;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x4F46;&#x4ECD;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x624D;&#x80FD;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>&#x95EE;&#x9898;2&#xFF1A;&#x8FD9;&#x65F6;&#x5019;&#x65B0;&#x7684;&#x8BF7;&#x6C42;&#x8FDB;&#x6765;&#x4E86;&#xFF0C;&#x4E5F;&#x65E0;&#x6CD5;&#x8C03;&#x5EA6;&#x7ED9;&#x5F15;&#x64CE;&#x5904;&#x7406;&#xFF0C;&#x5373;&#x4F7F;&#x5F53;&#x524D;&#x5F15;&#x64CE;&#x662F;&#x6709;&#x80FD;&#x529B;&#x5904;&#x7406;&#x7684;&#x3002;</p>
+</blockquote>
+<p>&#x63D0;&#x51FA;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;<strong>Iteration-level scheduling</strong>&#xFF08;&#x8FED;&#x4EE3;&#x7EA7;&#x8C03;&#x5EA6;&#xFF09;</p>
+<blockquote>
+<p>At high level, the scheduler repeats the follow- ing procedure: </p>
+<p>(1) selects requests to run next; </p>
+<p>(2) invokes the engine to execute one iteration for the selected requests; </p>
+<p>(3) receives execution results for the scheduled iteration.</p>
+<p><img src="../../images/hpc-ai-1/6" alt="image-20240403120215279"></p>
+<p>&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;token&#x3002;</p>
+</blockquote>
+<h2 id="&#x5728;&#x8FED;&#x4EE3;&#x6B21;&#x8C03;&#x5EA6;&#xFF0C;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x6279;&#x5904;&#x7406;">&#x5728;&#x8FED;&#x4EE3;&#x6B21;&#x8C03;&#x5EA6;&#xFF0C;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x6279;&#x5904;&#x7406;</h2>
+<p>&#x6279;&#x5904;&#x7406;&#x9700;&#x8981;</p>
+<ul>
+<li>&#x64CD;&#x4F5C;&#x662F;&#x76F8;&#x540C;&#x7684;</li>
+<li>&#x8F93;&#x5165;&#x7684;tensors&#x4E5F;&#x662F;&#x76F8;&#x540C;&#x7684;</li>
+</ul>
+<p>&#x65E0;&#x6CD5;&#x6279;&#x5904;&#x7406;&#x7684;&#x60C5;&#x51B5;</p>
+<ul>
+<li>&#x5982;Figure&#x56FE;4&#x4E2D;&#x7684;$x_3$&#x548C;$x_4$&#xFF0C;&#x4E24;&#x4E2A;&#x8BF7;&#x6C42;&#x90FD;&#x5904;&#x4E8E;&#x542F;&#x52A8;&#x9636;&#x6BB5;&#xFF0C;&#x4E14;&#x8F93;&#x5165;&#x7684;token&#x957F;&#x5EA6;&#x4E0D;&#x4E00;&#x6837;&#x3002;</li>
+<li>&#x5982;Figure&#x56FE;4&#x4E2D;&#x7684;$x_1$&#x548C;$x_2$&#xFF0C;&#x4E24;&#x4E2A;&#x8BF7;&#x6C42;&#x90FD;&#x5728;&#x589E;&#x957F;&#x9636;&#x6BB5;&#xFF0C;&#x4E14;&#x8981;&#x751F;&#x6210;&#x7684;token&#x7D22;&#x5F15;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x6BD4;&#x5982;$x_1$&#x662F;&#x7B2C;&#x4E09;&#x4E2A;token&#xFF0C;$x_2$&#x662F;&#x7B2C;&#x4E8C;&#x4E2A;token&#x3002;</li>
+<li>&#x5982;Figure&#x56FE;4&#x4E2D;&#x7684;$x_1$&#x548C;$x_3$&#xFF0C;&#x4E24;&#x4E2A;&#x8BF7;&#x6C42;&#x5206;&#x522B;&#x5904;&#x4E8E;&#x542F;&#x52A8;&#x9636;&#x6BB5;&#x548C;&#x589E;&#x957F;&#x9636;&#x6BB5;</li>
+</ul>
+<p>&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x5B58;&#x5728;&#x5F88;&#x591A;&#x65E0;&#x6CD5;&#x6279;&#x5904;&#x7406;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4E14;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x968F;&#x7740;&#x6570;&#x636E;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#xFF0C;&#x5C31;&#x8D8A;&#x6765;&#x8D8A;&#x5C0F;&#x53EF;&#x80FD;&#x53EF;&#x4EE5;&#x6279;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x63D0;&#x51FA;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;<strong>Selective batching</strong>&#xFF08;&#x9009;&#x62E9;&#x6027;&#x6279;&#x5904;&#x7406;&#xFF09;</p>
+<blockquote>
+<p>In the canonical batching mechanism, at each iteration, a Transformer layer takes a 3-dimensional input tensor of shape <strong>[B, L, H]</strong> generated by concatenating multiple <strong>[L, H]</strong> in- put tensors of requests in a batch, where <strong>B</strong> is the batch size, <strong>L</strong> is the number of tokens processed together, and <strong>H</strong> is the hidden size of the model.</p>
+<p>For example, in Figure 3, &#x201C;iter 1&#x201D; (initiation phase) takes an input tensor of shape [2, 2, H] and &#x201C;iter 2&#x201D; (increment phase) takes a tensor of shape [2, 1, H]. However, when the scheduler decides to run an iteration on batch (x1, x2, x3, x4) in Figure 4, the inputs for requests in the initiation phase (x3 : [2, H] and x4 : [3, H]) cannot coalesce into a single tensor of shape [B, L, H] because x3 and x4 have different number of input tokens, 2 and 3.</p>
+</blockquote>
+<p>&#x4E8E;&#x662F;&#xFF0C;&#x5176;&#x63D0;&#x51FA;&#xFF0C;&#x5C06;Figure&#x56FE;4&#x4E2D;&#x7684;3&#x548C;4&#x5408;&#x5E76;&#x3002;&#x800C;&#x5176;&#x4E2D;&#x6D89;&#x53CA;&#x5230;&#x533A;&#x5206;3&#x3001;4&#x7684;&#x6CE8;&#x610F;&#x529B;&#x8BA1;&#x7B97;&#xFF0C;&#x672C;&#x6587;&#x91C7;&#x7528;&#x4E86;cuBLAS&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<blockquote>
+<p>For instance, the aforementioned input tensors for x3 and x4 can compose a 2-dimensional tensor of shape [$&#x2211;$ L, H] = [5, H] without an explicit batch dimension.</p>
+</blockquote>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x3002;&#x5148;&#x91C7;&#x7528;Split&#x5206;&#x6210;&#x56DB;&#x5757;&#xFF0C;&#x5728;&#x6BCF;&#x4E00;&#x5757;tensor&#x4E2D;&#x72EC;&#x7ACB;&#x5730;&#x8BA1;&#x7B97;Attention&#x8F93;&#x51FA;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5408;&#x5E76;&#x3002;</p>
+<p>&#x5E76;&#x4F7F;&#x7528;Attention K/V manager&#x4FDD;&#x7559;keys&#x548C;value&#xFF0C;&#x76F4;&#x5230;scheduler&#x8BA9;&#x5176;&#x6E05;&#x695A;&#x6570;&#x636E;&#x3002;</p>
+<blockquote>
+<p><img src="../../images/hpc-ai-1/7" alt="image-20240403135404704"></p>
+</blockquote>
+<h1 id="orca-design">ORCA design</h1>
+<h3 id="distributed-architecture">Distributed Architecture</h3>
+<blockquote>
+<p>parallelization</p>
+<ul>
+<li>intra-layer parallelism<ul>
+<li>splits matrix multiplications (i.e., Linear and Attention operations) and their associated parameters over multiple GPUs</li>
+</ul>
+</li>
+<li>inter-layer parallelism<ul>
+<li>splits Transformer layers over multiple GPUs</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../images/hpc-ai-1/8" alt="image-20240403163515889"></p>
+<p>&#x4E0A;&#x56FE;&#x662F;&#x4E00;&#x4E2A;&#x5C42;&#x95F4;&#x548C;&#x5C42;&#x5185;&#x5E76;&#x884C;&#x7684;&#x6837;&#x4F8B;&#xFF0C;&#x4F7F;&#x5F97;&#x6A21;&#x578B;&#x5728;&#x516D;&#x4E2A;GPU&#x4E0A;&#x5E76;&#x884C;&#x3002;</p>
+<p><img src="../../images/hpc-ai-1/9" alt="image-20240403163751394"></p>
+<p>&#x6BCF;&#x4E2A;Worker&#x4EE3;&#x8868;inter-layer parallelism&#x7684;&#x4E00;&#x4E2A;&#x90E8;&#x5206;&#x3002;&#x4F8B;&#x5982;worker1&#x4EE3;&#x8868;GPU 1&#x3001;2&#x3001;3&#xFF0C;&#x4EE3;&#x8868;&#x7740;&#x56FE;6&#x4E2D;&#x5904;&#x7406;&#x7740;Layer1&#x548C;2&#x7684;&#x90E8;&#x5206;&#x3002;</p>
+<ul>
+<li>Engine Master&#x4F1A;&#x5148;&#x628A;token&#x548C;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#x53D1;&#x9001;&#x7ED9;Worker1</li>
+<li>&#x4E2D;&#x95F4;&#x7684;Worker(Worker1) Controller<ul>
+<li>&#x4F1A;&#x53D1;&#x9001;&#x9002;&#x5F53;&#x7684;kenels&#x51FD;&#x6570;&#x7ED9;&#x5BF9;&#x5E94;&#x7684;GPU&#xFF0C;&#x6BD4;&#x5982;&#x83B7;&#x53D6;&#x4E4B;&#x524D;&#x4FDD;&#x5B58;&#x7684;&#x5BF9;&#x5E94;&#x8BE5;request&#x7684;KV Cache&#x5730;&#x5740;</li>
+<li>&#x4E5F;&#x4F1A;&#x4E0D;&#x7B49;&#x5F85;Worker1&#x5B8C;&#x6210;&#x4EFB;&#x52A1;&#xFF0C;<strong>&#x76F4;&#x63A5;</strong>&#x53D1;&#x9001;&#x63A7;&#x5236;&#x4FE1;&#x606F;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;Worker&#xFF08;Worker2&#xFF09;</li>
+</ul>
+</li>
+<li>&#x6700;&#x540E;&#x7684;Worker(Worker2) Controller<ul>
+<li>&#x7B49;&#x5F85;&#x5DF2;&#x53D1;&#x9001;&#x7684;GPU&#x5185;&#x6838;&#x5B8C;&#x6210;&#xFF0C;&#x83B7;&#x53D6;token&#x5E76;&#x8FD4;&#x56DE;&#x5230;Engine</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>&#x4E14;&#x5F53;&#x524D;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x63A8;&#x7406;&#x7CFB;&#x7EDF;&#xFF0C;&#x90FD;&#x4F1A;&#x7528;&#x5230;CPU-GPU&#x901A;&#x9053;-NCCL&#x6765;&#x4EA4;&#x6362;&#x4FE1;&#x606F;&#xFF0C;&#x4F1A;&#x6709;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x3002;</p>
+<p>OCRA&#x5C06;&#x63A7;&#x5236;&#x4FE1;&#x606F;&#x548C;&#x5F20;&#x91CF;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x5206;&#x5F00;&#xFF0C;&#x5229;&#x7528;NCCL&#x6765;&#x4F20;&#x8F93;&#x4E2D;&#x95F4;&#x5F20;&#x91CF;&#x6570;&#x636E;&#xFF08;&#x56FE;7&#x4E2D;&#x7684;&#x865A;&#x7EBF;&#xFF09;&#xFF1B;&#x5229;&#x7528;&#x4E0D;&#x6D89;&#x53CA;GPU&#x7684;&#x901A;&#x9053;gRPC&#x6765;&#x4F20;&#x8F93;&#x63A7;&#x5236;&#x4FE1;&#x606F;&#x3002;</p>
+<h3 id="scheduling-algorithm">Scheduling Algorithm</h3>
+<ul>
+<li><p>ensure iteration-level &#xFB01;rst-come-&#xFB01;rst-served (FCFS) property</p>
+</li>
+<li><p>diminishing returns to increasing the batch size and GPU memory constraint</p>
+<p>batch size &#x589E;&#x52A0;+GPU memory &#x9650;&#x5236;&#x4F1A;&#x5BFC;&#x81F4;returns&#x7684;&#x51CF;&#x5C0F;&#x3002;</p>
+<ul>
+<li><p>has a notion of a max batch size: the largest possible number of requests within a batch</p>
+<p>&#x9650;&#x5B9A;&#x4E86;1&#x4E2A;batch&#x4E2D;&#x53EF;&#x80FD;&#x5BB9;&#x7EB3;&#x7684;&#x6700;&#x591A;request&#x6570;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x7ED9;&#x7CFB;&#x7EDF;&#x64CD;&#x4F5C;&#x8005;&#x8C03;&#x6574;&#x3002;</p>
+</li>
+<li><p>requires the ORCA scheduler to be aware of the remaining size of pre-allocated memory regions for the manager</p>
+<p>ORCA&#x8C03;&#x5EA6;&#x5668;&#x9700;&#x8981;&#x77E5;&#x9053;&#x9884;&#x5206;&#x914D;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x7684;&#x5269;&#x4F59;&#x5927;&#x5C0F;&#x3002;</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><img src="../../images/hpc-ai-1/10" alt="image-20240403191340925"></p>
+<p><img src="../../images/hpc-ai-1/11" alt="image-20240403192012489"></p>
+<table>
+<thead>
+<tr>
+<th>&#x7F29;&#x5199;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n_scheduled</td>
+<td>the number of currently scheduled batche</td>
+</tr>
+<tr>
+<td>n_rsrv</td>
+<td>the number of currently reserved slots</td>
+</tr>
+<tr>
+<td>max_tokens</td>
+<td>the maximum number of tokens that a request can have after processing</td>
+</tr>
+<tr>
+<td>n_slots</td>
+<td>the size of memory region (in terms of slots) allocated to the Attention K/V manager</td>
+</tr>
+</tbody>
+</table>
+<p>23-25&#x884C;&#x662F;&#x8003;&#x8651;GPU&#x5185;&#x5B58;&#x9650;&#x5236;</p>
+<p>max_tokens&#x5C31;&#x662F;&#x9650;&#x5B9A;&#x8F93;&#x51FA;&#x7684;&#x957F;&#x5EA6;</p>
+<p>&#x7136;&#x540E;&#x5047;&#x5982;&#x52A0;&#x4E0A;&#x8FD9;&#x4E2A;request&#x8D85;&#x51FA;&#x4E86;&#x5F53;&#x524D;&#x80FD;&#x5BB9;&#x7EB3;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x5C31;&#x4E0D;&#x8BA9;&#x8BE5;request&#x8FDB;</p>
+</blockquote>
+<h3 id="pipeline-parallelism">Pipeline parallelism</h3>
+<p>9-10&#x884C;&#xFF0C;&#x8C03;&#x5EA6;&#x5668;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x591F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6BCF;&#x4E2A;worker&#x90FD;&#x5728;&#x5DE5;&#x4F5C;&#x3002;</p>
+<blockquote>
+<p><img src="../../images/hpc-ai-1/12" alt="image-20240403194231561"></p>
+<p>&#x548C;&#x4EE5;&#x524D;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x533A;&#x522B;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;batch&#x548C;batch&#x4E4B;&#x95F4;&#x7684;&#x6D41;&#x6C34;&#x7EBF;&#xFF0C;&#x800C;&#x4E4B;&#x524D;&#x4E0D;&#x80FD;&#x3002;</p>
+<p>&#x4E4B;&#x524D;&#x4E00;&#x4E2A;Batch AB&#x4F20;&#x5165;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x5B8C;&#x6210;AB&#x8BA1;&#x7B97;&#x540E;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x4E2A;Batch&#x3002;</p>
+<p>&#x4F46;ORCA&#x8FD9;&#x6837;&#x662F;&#x4E0D;&#x662F;&#x4E5F;&#x4F1A;&#x6536;&#x5230;GPU Memory&#x7684;&#x9650;&#x5236;&#xFF1F;</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="FlexGen.html" class="navigation navigation-prev " aria-label="Previous page: 【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="vllm.html" class="navigation navigation-next " aria-label="Next page: 【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention(vLLM) ">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"【OSDI 2020】Orca: A Distributed Serving System for Transformer-Based Generative Models","level":"3.1.8","depth":2,"next":{"title":"【SOSP 2023】Efficient Memory Management for Large Language Model Serving with PagedAttention(vLLM) ","level":"3.1.9","depth":2,"path":"Paper Reading Notes/mlsys/vllm.md","ref":"Paper Reading Notes/mlsys/vllm.md","articles":[]},"previous":{"title":"【ICML 2023】FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU","level":"3.1.7","depth":2,"path":"Paper Reading Notes/mlsys/FlexGen.md","ref":"Paper Reading Notes/mlsys/FlexGen.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Paper Reading Notes/mlsys/Orca.md","mtime":"2024-10-01T12:53:41.665Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-10-01T12:54:17.928Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
