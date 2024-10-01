@@ -15,7 +15,7 @@ LLM inference：
 
 
 
-![image-20240812211800285](C:\Users\user\Nutstore\1\Nutstore\gitbook\images\ExeGPT\1.png)
+![image-20240812211800285](..\..\images\ExeGPT\1.png)
 
 > 蓝色是encode，橙色是decode
 
