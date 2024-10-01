@@ -50,7 +50,7 @@ ExeGPT：给定了一个latency constraint，实现推理的最大throughput。
 
 架构设计
 
-![image-20240812220429433](..\..\images\ExeGPT\2.png)
+![image-20240812220429433](images\ExeGPT\2.png)
 
 * XProfiler
   * 计算每层的attention kernel时间和其他函数的时间
