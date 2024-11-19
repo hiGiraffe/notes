@@ -8,7 +8,8 @@
         "chapter-fold",
         "code",
         "splitter",
-        "katex"
+        "katex",
+        "expandable-chapters-small"
     ],
     "pluginsConfig": {
         "hide-element": {
