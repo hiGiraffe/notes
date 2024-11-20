@@ -1,8 +1,10 @@
-# Paper Title
+# Ray: A Distributed Framework for Emerging AI Applications
 
-> 作者信息
+> 作者信息：
 >
-> 链接：
+> UCB Ion Stoica实验室
+>
+> 链接：[[1712.05889] Ray: A Distributed Framework for Emerging AI Applications](https://arxiv.org/abs/1712.05889)
 
 ## 一句话总结概括
 
