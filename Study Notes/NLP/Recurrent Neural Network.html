@@ -1,0 +1,2101 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Recurrent Neural Network · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Seq2Seq and Attention.html" />
+    
+    
+    <link rel="prev" href="Loss Function.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Academic Writing/">
+            
+                <a href="../../Blogs/Academic Writing/">
+            
+                    
+                    Academic Writing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../Blogs/Academic Writing/design of system.html">
+            
+                <a href="../../Blogs/Academic Writing/design of system.html">
+            
+                    
+                    Design Of System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/academic reading.html">
+            
+                <a href="../../Blogs/academic reading.html">
+            
+                    
+                    Academic Reading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Blogs/how to express.html">
+            
+                <a href="../../Blogs/how to express.html">
+            
+                    
+                    How To Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../Paper Reading Notes/Arxiv/">
+            
+                <a href="../../Paper Reading Notes/Arxiv/">
+            
+                    
+                    Arxiv
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                    
+                    Mooncake
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                    
+                    S-LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../Paper Reading Notes/Arxiv/MemServe.md">
+            
+                <span>
+            
+                    
+                    MemServe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                    
+                    ASPLOS 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                    
+                    Exe GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                    
+                    Spec Infer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../Paper Reading Notes/OSDI 2024/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/">
+            
+                    
+                    OSDI 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                    
+                    Serverless LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../Paper Reading Notes/OSDI 2024/Fairness in Serving LLM.md">
+            
+                <span>
+            
+                    
+                    Fairness in Serving LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../Paper Reading Notes/SOSP 2024/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/">
+            
+                    
+                    SOSP 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                    
+                    Apparate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                    
+                    Loong Serve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../Paper Reading Notes/FAST 2023/">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/">
+            
+                    
+                    FAST 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                    
+                    Resource Scheduling For LC Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../../Paper Reading Notes/ICML 2023/">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/">
+            
+                    
+                    ICML 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                    
+                    Flex Gen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../../Paper Reading Notes/NSDI 2023/">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/">
+            
+                    
+                    NSDI 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                    
+                    Shockwave
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../../Paper Reading Notes/SC 2023/">
+            
+                <a href="../../Paper Reading Notes/SC 2023/">
+            
+                    
+                    SC 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                <a href="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                    
+                    Auto Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../../Paper Reading Notes/SOSP 2023/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/">
+            
+                    
+                    SOSP 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.9.1" data-path="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                    
+                    Vllm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../../Paper Reading Notes/OSDI 2022/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/">
+            
+                    
+                    OSDI 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.10.1" data-path="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                    
+                    Orca
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../../Paper Reading Notes/SC 2022/">
+            
+                <a href="../../Paper Reading Notes/SC 2022/">
+            
+                    
+                    SC 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.11.1" data-path="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                    
+                    Co GNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11.2" data-path="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                    
+                    VSGM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../../Paper Reading Notes/OSDI 2020/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/">
+            
+                    
+                    OSDI 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.12.1" data-path="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                    
+                    Gavel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                    
+                    SIGMOD 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.13.1" data-path="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                    
+                    GPU Based Subgraph Enumerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../../Paper Reading Notes/OSDI 2018/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/">
+            
+                    
+                    OSDI 2018
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.14.1" data-path="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../CME 213/">
+            
+                <a href="../CME 213/">
+            
+                    
+                    CME 213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../CME 213/C++.html">
+            
+                <a href="../CME 213/C++.html">
+            
+                    
+                    C
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../CUDA/">
+            
+                <a href="../CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../CUDA/CUDA Warp Level.html">
+            
+                <a href="../CUDA/CUDA Warp Level.html">
+            
+                    
+                    CUDA Warp Level
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../CUDA/CUDA1 Basic.html">
+            
+                <a href="../CUDA/CUDA1 Basic.html">
+            
+                    
+                    CUDA 1 Basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../CUDA/CUDA2 Brief Summary.html">
+            
+                <a href="../CUDA/CUDA2 Brief Summary.html">
+            
+                    
+                    CUDA 2 Brief Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../CUDA/CUDA3 Kernels.html">
+            
+                <a href="../CUDA/CUDA3 Kernels.html">
+            
+                    
+                    CUDA 3 Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../CUDA/Nsight System.html">
+            
+                <a href="../CUDA/Nsight System.html">
+            
+                    
+                    Nsight System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../LLM Parallelism/">
+            
+                <a href="../LLM Parallelism/">
+            
+                    
+                    LLM Parallelism
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../LLM Parallelism/Data Parallelism.html">
+            
+                <a href="../LLM Parallelism/Data Parallelism.html">
+            
+                    
+                    Data Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../LLM Parallelism/Pipe Parallelism.html">
+            
+                <a href="../LLM Parallelism/Pipe Parallelism.html">
+            
+                    
+                    Pipe Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../LLM Parallelism/Tensor Parallelism.html">
+            
+                <a href="../LLM Parallelism/Tensor Parallelism.html">
+            
+                    
+                    Tensor Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../MIT 6.172/mit-6-172-1.html">
+            
+                <a href="../MIT 6.172/mit-6-172-1.html">
+            
+                    
+                    Mit 6 172 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Mit 6 172 12
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Mit 6 172 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Mit 6 172 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    Mit 6 172 Hw 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../MLSYS/">
+            
+                <a href="../MLSYS/">
+            
+                    
+                    MLSYS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../MLSYS/Llama Model's Decoder Code.html">
+            
+                <a href="../MLSYS/Llama Model's Decoder Code.html">
+            
+                    
+                    Llama Model S Decoder Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../MLSYS/LLM Calculation.html">
+            
+                <a href="../MLSYS/LLM Calculation.html">
+            
+                    
+                    LLM Calculation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../MLSYS/LLM Deployment Record.html">
+            
+                <a href="../MLSYS/LLM Deployment Record.html">
+            
+                    
+                    LLM Deployment Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../MLSYS/Sepculative Decoding.html">
+            
+                <a href="../MLSYS/Sepculative Decoding.html">
+            
+                    
+                    Sepculative Decoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="Basics of Machine Learning.html">
+            
+                <a href="Basics of Machine Learning.html">
+            
+                    
+                    Basics Of Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="GPT.html">
+            
+                <a href="GPT.html">
+            
+                    
+                    GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="Implementation Neural Network.html">
+            
+                <a href="Implementation Neural Network.html">
+            
+                    
+                    Implementation Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="Loss Function.html">
+            
+                <a href="Loss Function.html">
+            
+                    
+                    Loss Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.6.5" data-path="Recurrent Neural Network.html">
+            
+                <a href="Recurrent Neural Network.html">
+            
+                    
+                    Recurrent Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.6" data-path="Seq2Seq and Attention.html">
+            
+                <a href="Seq2Seq and Attention.html">
+            
+                    
+                    Seq 2 Seq And Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../OPENMP/">
+            
+                <a href="../OPENMP/">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../OPENMP/openmp.html">
+            
+                <a href="../OPENMP/openmp.html">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../Triton/">
+            
+                <a href="../Triton/">
+            
+                    
+                    Triton
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../Ray/index.md">
+            
+                <span>
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../vLLM Code/">
+            
+                <a href="../vLLM Code/">
+            
+                    
+                    VLLM Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.10.1" data-path="../vLLM Code/vllm-async-llm.html">
+            
+                <a href="../vLLM Code/vllm-async-llm.html">
+            
+                    
+                    Vllm Async Llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.2" data-path="../vLLM Code/vllm-attention.html">
+            
+                <a href="../vLLM Code/vllm-attention.html">
+            
+                    
+                    Vllm Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.3" data-path="../vLLM Code/vllm-block.html">
+            
+                <a href="../vLLM Code/vllm-block.html">
+            
+                    
+                    Vllm Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.4" data-path="../vLLM Code/vllm-cache.html">
+            
+                <a href="../vLLM Code/vllm-cache.html">
+            
+                    
+                    Vllm Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.5" data-path="../vLLM Code/vllm-chunked-prefill.html">
+            
+                <a href="../vLLM Code/vllm-chunked-prefill.html">
+            
+                    
+                    Vllm Chunked Prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.6" data-path="../vLLM Code/vllm-cpu.html">
+            
+                <a href="../vLLM Code/vllm-cpu.html">
+            
+                    
+                    Vllm Cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.7" data-path="../vLLM Code/vllm-llama.html">
+            
+                <a href="../vLLM Code/vllm-llama.html">
+            
+                    
+                    Vllm Llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.8" data-path="../vLLM Code/vllm-LoRA.html">
+            
+                <a href="../vLLM Code/vllm-LoRA.html">
+            
+                    
+                    Vllm Lo RA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.9" data-path="../vLLM Code/vllm-metadata.html">
+            
+                <a href="../vLLM Code/vllm-metadata.html">
+            
+                    
+                    Vllm Metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.10" data-path="../vLLM Code/vllm-profile.html">
+            
+                <a href="../vLLM Code/vllm-profile.html">
+            
+                    
+                    Vllm Profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.11" data-path="../vLLM Code/vllm-ray.html">
+            
+                <a href="../vLLM Code/vllm-ray.html">
+            
+                    
+                    Vllm Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.12" data-path="../vLLM Code/vllm-schedule.html">
+            
+                <a href="../vLLM Code/vllm-schedule.html">
+            
+                    
+                    Vllm Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../Llumnix Code/">
+            
+                <a href="../Llumnix Code/">
+            
+                    
+                    Llumnix Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.11.1" data-path="../Llumnix Code/llumnix.html">
+            
+                <a href="../Llumnix Code/llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../LoongServe Code/">
+            
+                <a href="../LoongServe Code/">
+            
+                    
+                    LoongServe Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Recurrent Neural Network</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h1>
+<h2 id="&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x53F2;&#x4E0A;&#x6700;&#x8BE6;&#x7EC6;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8BB2;&#x89E3;&#xFF08;rnnlstmgru&#xFF09;">&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x53F2;&#x4E0A;&#x6700;&#x8BE6;&#x7EC6;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x8BB2;&#x89E3;&#xFF08;RNN/LSTM/GRU&#xFF09;</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/123211148" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+<ul>
+<li><h3 id="&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;rnn&#xFF09;">&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;RNN&#xFF09;</h3>
+<ul>
+<li><h4 id="&#x4EC0;&#x4E48;&#x662F;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">&#x4EC0;&#x4E48;&#x662F;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h4>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;Rerrent Neural Network, RNN&#xFF09;</strong>&#x5BF9;&#x5177;&#x6709;<strong>&#x5E8F;&#x5217;&#x7279;&#x6027;</strong>&#x7684;&#x6570;&#x636E;&#x975E;&#x5E38;&#x6709;&#x6548;&#xFF0C;&#x5B83;&#x80FD;&#x6316;&#x6398;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x65F6;&#x5E8F;&#x4FE1;&#x606F;&#x4EE5;&#x53CA;&#x8BED;&#x4E49;&#x4FE1;&#x606F;&#xFF0C;&#x5229;&#x7528;&#x4E86;RNN&#x7684;&#x8FD9;&#x79CD;&#x80FD;&#x529B;&#xFF0C;&#x4F7F;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x5728;&#x89E3;&#x51B3;&#x8BED;&#x97F3;&#x8BC6;&#x522B;&#x3001;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#x3001;&#x673A;&#x5668;&#x7FFB;&#x8BD1;&#x4EE5;&#x53CA;&#x65F6;&#x5E8F;&#x5206;&#x6790;&#x7B49;NLP&#x9886;&#x57DF;&#x7684;&#x95EE;&#x9898;&#x65F6;&#x6709;&#x6240;&#x7A81;&#x7834;&#x3002;</p>
+</blockquote>
+<ul>
+<li><h4 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x53D1;&#x5C55;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x53D1;&#x5C55;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h4>
+</li>
+</ul>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E2A;NLP&#x5F88;&#x5E38;&#x89C1;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x547D;&#x540D;&#x5B9E;&#x4F53;&#x8BC6;&#x522B;&#xFF0C;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x73B0;&#x5728;&#x6709;&#x4E24;&#x53E5;&#x8BDD;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x53E5;&#x8BDD;&#xFF1A;I like eating apple&#xFF01;&#xFF08;&#x6211;&#x559C;&#x6B22;&#x5403;&#x82F9;&#x679C;&#xFF01;&#xFF09;</p>
+<p>&#x7B2C;&#x4E8C;&#x53E5;&#x8BDD;&#xFF1A;The Apple is a great company&#xFF01;&#xFF08;&#x82F9;&#x679C;&#x771F;&#x662F;&#x4E00;&#x5BB6;&#x5F88;&#x68D2;&#x7684;&#x516C;&#x53F8;&#xFF01;&#xFF09;</p>
+<p>&#x73B0;&#x5728;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x8981;&#x7ED9;apple&#x6253;Label&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#x7B2C;&#x4E00;&#x4E2A;apple&#x662F;&#x4E00;&#x79CD;&#x6C34;&#x679C;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;apple&#x662F;&#x82F9;&#x679C;&#x516C;&#x53F8;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x6709;&#x5927;&#x91CF;&#x7684;&#x5DF2;&#x7ECF;&#x6807;&#x8BB0;&#x597D;&#x7684;&#x6570;&#x636E;&#x4EE5;&#x4F9B;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<strong>&#x5168;&#x8FDE;&#x63A5;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</strong>&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x505A;&#x6CD5;&#x662F;&#x628A;apple&#x8FD9;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x8F93;&#x5165;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x5728;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x65F6;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x7684;label&#x91CC;&#xFF0C;&#x6B63;&#x786E;&#x7684;label&#x6982;&#x7387;&#x6700;&#x5927;&#xFF0C;&#x6765;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x7684;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#xFF0C;&#x6709;&#x7684;apple&#x7684;label&#x662F;&#x6C34;&#x679C;&#xFF0C;&#x6709;&#x7684;label&#x662F;&#x516C;&#x53F8;&#xFF0C;&#x8FD9;&#x5C06;&#x5BFC;&#x81F4;&#xFF0C;&#x6A21;&#x578B;&#x5728;&#x8BAD;&#x7EC3;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9884;&#x6D4B;&#x7684;&#x51C6;&#x786E;&#x7A0B;&#x5EA6;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x8BAD;&#x7EC3;&#x96C6;&#x4E2D;&#x54EA;&#x4E2A;label&#x591A;&#x4E00;&#x4E9B;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x6A21;&#x578B;&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x6765;&#x8BF4;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x4F5C;&#x7528;&#x3002;<strong>&#x95EE;&#x9898;&#x5C31;&#x51FA;&#x5728;&#x4E86;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x7ED3;&#x5408;&#x4E0A;&#x4E0B;&#x6587;&#x53BB;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x800C;&#x662F;&#x5355;&#x72EC;&#x7684;&#x5728;&#x8BAD;&#x7EC3;apple&#x8FD9;&#x4E2A;&#x5355;&#x8BCD;&#x7684;label&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x5168;&#x8FDE;&#x63A5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#x6240;&#x4E0D;&#x80FD;&#x505A;&#x5230;&#x7684;&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x6709;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x3002;</strong></p>
+</blockquote>
+<ul>
+<li><h4 id="&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x7ED3;&#x6784;&#x53CA;&#x539F;&#x7406;">&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x7ED3;&#x6784;&#x53CA;&#x539F;&#x7406;</h4>
+</li>
+</ul>
+<blockquote>
+<p><img src="Recurrent Neural Network.assets/1.png" alt="1"></p>
+<p>&#x5148;&#x4E0D;&#x7BA1;&#x53F3;&#x8FB9;&#x7684;W&#xFF0C;&#x53EA;&#x770B;X,U,S,V,O&#xFF0C;&#x8FD9;&#x5E45;&#x56FE;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="Recurrent Neural Network.assets/2.png" alt="2"></p>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x7684;<strong>&#x5168;&#x8FDE;&#x63A5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;</strong>&#x3002;</p>
+<p>&#x628A;&#x8FD9;&#x5E45;&#x56FE;&#x6253;&#x5F00;&#xFF0C;&#x5C31;&#x662F;RNN&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x5E8F;&#x5217;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;&#xFF1A;<strong>&#x53EF;&#x4EE5;&#x8BB0;&#x4F4F;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x4E0D;&#x4EC5;&#x7531;&#x8BE5;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165;&#x5C42;&#x51B3;&#x5B9A;&#xFF0C;&#x8FD8;&#x7531;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x51B3;&#x5B9A;</strong></p>
+<p><img src="Recurrent Neural Network.assets/3.png" alt="3"></p>
+<p>&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF0C;$O_t&#x4EE3;&#x8868;t&#x65F6;&#x523B;&#x7684;&#x8F93;&#x51FA;&#xFF0C;S_t&#x4EE3;&#x8868;t&#x65F6;&#x523B;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x503C;$&#xFF1A;</p>
+<p><img src="Recurrent Neural Network.assets/4.png" alt="4"></p>
+<p><strong>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;&#x5728;&#x6574;&#x4E2A;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x6240;&#x7528;&#x7684;&#x90FD;&#x662F;&#x540C;&#x6837;&#x7684;W&#x3002;</strong></p>
+</blockquote>
+<ul>
+<li><h3 id="lstm&#xFF08;long-short-term-memory&#xFF09;">LSTM&#xFF08;Long short-term memory&#xFF09;</h3>
+<ul>
+<li><h4 id="&#x57FA;&#x7840;&#x7248;&#x672C;rnn&#x7684;&#x95EE;&#x9898;">&#x57FA;&#x7840;&#x7248;&#x672C;RNN&#x7684;&#x95EE;&#x9898;</h4>
+<blockquote>
+<p>&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x90FD;&#x4E0D;&#x4EC5;&#x7531;&#x8BE5;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165;&#x51B3;&#x5B9A;&#xFF0C;&#x8FD8;&#x53D6;&#x51B3;&#x4E8E;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;&#x5F88;&#x957F;&#xFF0C;&#x5230;&#x53E5;&#x5B50;&#x672B;&#x5C3E;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x8BB0;&#x4E0D;&#x4F4F;&#x8FD9;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x5F00;&#x5934;&#x7684;&#x5185;&#x5BB9;&#x8BE6;&#x7EC6;&#x5185;&#x5BB9;&#x3002;&#xFF08;&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x6216;&#x7206;&#x70B8;&#xFF09;</p>
+</blockquote>
+</li>
+<li><h4 id="lstm">LSTM</h4>
+<blockquote>
+<p>&#x6253;&#x4E2A;&#x6BD4;&#x55BB;&#x5427;&#xFF0C;&#x666E;&#x901A;RNN&#x5C31;&#x50CF;&#x4E00;&#x4E2A;&#x4E5E;&#x4E10;&#xFF0C;&#x8DEF;&#x8FB9;&#x6361;&#x7684;&#xFF0C;&#x522B;&#x4EBA;&#x4E22;&#x7684;&#xFF0C;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#x4ED6;&#x90FD;&#x60F3;&#x8981;&#xFF0C;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#x4ED6;&#x90FD;&#x4E0D;&#x5ACC;&#x5F03;&#xFF0C;LSTM&#x5C31;&#x50CF;&#x4E00;&#x4E2A;&#x8D35;&#x65CF;&#xFF0C;&#x6CA1;&#x6709;&#x8EAB;&#x4EFD;&#x7684;&#x4E1C;&#x897F;&#x4ED6;&#x4E0D;&#x8981;&#xFF0C;&#x4ED6;&#x4F1A;&#x7CBE;&#x5FC3;&#x6311;&#x9009;&#x7B26;&#x5408;&#x81EA;&#x5DF1;&#x8EAB;&#x4EFD;&#x7684;&#x7269;&#x54C1;&#x3002;</p>
+<p><img src="Recurrent Neural Network.assets/5.png" alt="5"></p>
+<p>&#x666E;&#x901A;RNN&#x53EA;&#x6709;&#x4E2D;&#x95F4;&#x7684;Memory Cell&#x7528;&#x6765;&#x5B58;&#x6240;&#x6709;&#x7684;&#x4FE1;&#x606F;</p>
+<p><strong>&#x4F9D;&#x6B21;&#x6765;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#x8FD9;&#x4E09;&#x4E2A;&#x95E8;&#xFF1A;</strong></p>
+<ol>
+<li>Input Gate&#xFF1A;&#x4E2D;&#x6587;&#x662F;&#x8F93;&#x5165;&#x95E8;&#xFF0C;&#x5728;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x4ECE;&#x8F93;&#x5165;&#x5C42;&#x8F93;&#x5165;&#x7684;&#x4FE1;&#x606F;&#x4F1A;&#x9996;&#x5148;&#x7ECF;&#x8FC7;&#x8F93;&#x5165;&#x95E8;&#xFF0C;&#x8F93;&#x5165;&#x95E8;&#x7684;&#x5F00;&#x5173;&#x4F1A;&#x51B3;&#x5B9A;&#x8FD9;&#x4E00;&#x65F6;&#x523B;&#x662F;&#x5426;&#x4F1A;&#x6709;&#x4FE1;&#x606F;&#x8F93;&#x5165;&#x5230;Memory Cell&#x3002;</li>
+<li>Output Gate&#xFF1A;&#x4E2D;&#x6587;&#x662F;&#x8F93;&#x51FA;&#x95E8;&#xFF0C;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x662F;&#x5426;&#x6709;&#x4FE1;&#x606F;&#x4ECE;Memory Cell&#x8F93;&#x51FA;&#x53D6;&#x51B3;&#x4E8E;&#x8FD9;&#x4E00;&#x9053;&#x95E8;&#x3002;</li>
+<li>Forget Gate&#xFF1A;&#x4E2D;&#x6587;&#x662F;&#x9057;&#x5FD8;&#x95E8;&#xFF0C;&#x6BCF;&#x4E00;&#x65F6;&#x523B;Memory Cell&#x91CC;&#x7684;&#x503C;&#x90FD;&#x4F1A;&#x7ECF;&#x5386;&#x4E00;&#x4E2A;&#x662F;&#x5426;&#x88AB;&#x9057;&#x5FD8;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x5C31;&#x662F;&#x7531;&#x8BE5;&#x95E8;&#x63A7;&#x5236;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6253;&#x5361;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x628A;Memory Cell&#x91CC;&#x7684;&#x503C;&#x6E05;&#x9664;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x9057;&#x5FD8;&#x6389;&#x3002;</li>
+</ol>
+<p>LSTM&#x5185;&#x90E8;&#x7ED3;&#x6784;&#xFF1A;</p>
+<p><img src="Recurrent Neural Network.assets/6.png" alt="6"></p>
+<p>&#x56FE;&#x4E2D;&#x6700;&#x4E2D;&#x95F4;&#x7684;&#x5730;&#x65B9;&#xFF0C;Cell&#xFF0C;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x4E5F;&#x8BB2;&#x5230;&#x4E86;memory cell&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8BB0;&#x5FC6;&#x5B58;&#x50A8;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x7C7B;&#x4F3C;&#x4E8E;&#x666E;&#x901A;RNN&#x7684; $S_t$ &#xFF0C;&#x90FD;&#x662F;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x9762;&#x7684;&#x4FE1;&#x606F;&#x90FD;&#x4F1A;&#x4FDD;&#x5B58;&#x5230;&#x4E0B;&#x4E00;&#x65F6;&#x523B;&#xFF0C;&#x5176;&#x5B9E;&#x6807;&#x51C6;&#x7684;&#x53EB;&#x6CD5;&#x5E94;&#x8BE5;&#x662F;$h_t$&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x91CC;&#x5BF9;&#x5E94;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x91CC;&#x7684;&#x9690;&#x85CF;&#x5C42;&#xFF0C;&#x6240;&#x4EE5;&#x662F;hidden&#x7684;&#x7F29;&#x5199;&#xFF0C;&#x65E0;&#x8BBA;&#x666E;&#x901A;RNN&#x8FD8;&#x662F;LSTM&#x5176;&#x5B9E;t&#x65F6;&#x523B;&#x7684;&#x8BB0;&#x5FC6;&#x7EC6;&#x80DE;&#x91CC;&#x5B58;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x90FD;&#x5E94;&#x8BE5;&#x88AB;&#x79F0;&#x4E3A; $h_t$ &#x3002;&#x518D;&#x770B;&#x6700;&#x4E0A;&#x9762;&#x7684; $a$ &#xFF0C;&#x662F;&#x8FD9;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x7C7B;&#x4F3C;&#x4E8E;&#x666E;&#x901A;RNN&#x91CC;&#x7684;$O_t$&#x200B; &#x3002;&#x666E;&#x901A;RNN&#x91CC;&#x6709;&#x4E2A; $X_t$&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#xFF0C;&#x90A3;LSTM&#x7684;&#x8F93;&#x5165;&#x5728;&#x54EA;&#xFF1F;$Z$,$Z_i$,$Z_f$,$Z_o$&#x90FD;&#x6709;&#x8F93;&#x5165;&#x5411;&#x91CF;$X_t$&#x7684;&#x53C2;&#x4E0E;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x518D;&#x89E3;&#x91CA;&#x56FE;&#x4E2D;&#x7684;&#x7B26;&#x53F7;</p>
+<p><img src="Recurrent Neural Network.assets/7.png" alt="7"></p>
+<p>&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7B26;&#x53F7;&#xFF0C;LSTM&#x91CC;&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;tanh&#xFF0C;&#x4E00;&#x4E2A;&#x662F;sigmoid</p>
+<p><img src="Recurrent Neural Network.assets/8.png" alt="8"></p>
+<p><img src="Recurrent Neural Network.assets/9.png" alt="9"></p>
+<p>&#x5176;&#x4E2D;$Z$&#x662F;&#x6700;&#x4E3A;&#x666E;&#x901A;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x4E0A;&#x56FE;&#x4E2D;&#x770B;&#x5230;&#xFF0C;$Z$&#x662F;&#x901A;&#x8FC7;&#x8BE5;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165;$X<em>t$&#x548C;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x5B58;&#x5728;memory cell&#x91CC;&#x7684;&#x9690;&#x85CF;&#x5C42;&#x4FE1;&#x606F;$h</em>{t-1}$&#x5411;&#x91CF;&#x62FC;&#x63A5;&#xFF0C;&#x518D;&#x4E0E;&#x6743;&#x91CD;&#x53C2;&#x6570;&#x5411;&#x91CF;$W$&#x70B9;&#x79EF;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x503C;&#x7ECF;&#x8FC7;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;tanh&#x6700;&#x7EC8;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;$Z$&#xFF0C;&#x6CE8;&#x610F;&#x53EA;&#x6709;$Z$&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x662F;tanh&#xFF0C;&#x56E0;&#x4E3A;$Z$&#x662F;&#x771F;&#x6B63;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x7684;&#xFF0C;&#x5176;&#x4ED6;&#x4E09;&#x4E2A;&#x90FD;&#x662F;&#x95E8;&#x63A7;&#x88C5;&#x7F6E;&#x3002;</p>
+<p>$Z<em>i$ &#xFF0C;input gate&#x7684;&#x7F29;&#x5199;i&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x95E8;&#x7684;&#x95E8;&#x63A7;&#x88C5;&#x7F6E;&#xFF0C; $Z_i$&#x540C;&#x6837;&#x4E5F;&#x662F;&#x901A;&#x8FC7;&#x8BE5;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165; $X_t$&#x548C;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x9690;&#x85CF;&#x72B6;&#x6001;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x5B58;&#x4E0B;&#x6765;&#x7684;&#x4FE1;&#x606F;$h</em>{t-1}$ &#x5411;&#x91CF;&#x62FC;&#x63A5;&#xFF0C;&#x5728;&#x4E0E;&#x6743;&#x91CD;&#x53C2;&#x6570;&#x5411;&#x91CF;$W_i$&#x70B9;&#x79EF;&#xFF08;&#x6CE8;&#x610F;&#x6BCF;&#x4E2A;&#x95E8;&#x7684;&#x6743;&#x91CD;&#x5411;&#x91CF;&#x90FD;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x4E0B;&#x6807;i&#x4EE3;&#x8868;input&#x7684;&#x610F;&#x601D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x95E8;&#xFF09;&#x3002;&#x5F97;&#x5230;&#x7684;&#x503C;&#x7ECF;&#x8FC7;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;sigmoid&#x7684;&#x6700;&#x7EC8;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;0-1&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#xFF0C;&#x7528;&#x6765;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x95E8;&#x7684;&#x63A7;&#x5236;&#x4FE1;&#x53F7;&#x3002;</p>
+<p>$Z_f$&#x548C;$Z_o$&#x540C;&#x7406;&#xFF0C;&#x5206;&#x522B;&#x4EE3;&#x8868;forget&#x548C;output&#x7684;&#x95E8;&#x63A7;&#x88C5;&#x7F6E;&#x3002;</p>
+<p>&#x7ECF;&#x8FC7;&#x8FD9;&#x4E2A;sigmod&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x540E;&#xFF0C;&#x5F97;&#x5230;&#x7684;$Z_i$,$Z_f$,$Z_o$&#x90FD;&#x662F;&#x5728;0&#x5230;1&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x503C;&#xFF0C;1&#x8868;&#x793A;&#x8BE5;&#x95E8;&#x5B8C;&#x5168;&#x6253;&#x5F00;&#xFF0C;0&#x8868;&#x793A;&#x8BE5;&#x95E8;&#x5B8C;&#x5168;&#x5173;&#x95ED;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>&#x200B;    </p>
+<h2 id="&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x5B9E;&#x73B0;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;&#x65E0;&#x6846;&#x67B6;&#xFF09;">&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x5B9E;&#x73B0;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;&#x65E0;&#x6846;&#x67B6;&#xFF09;</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/226048698" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+<ul>
+<li><h3 id="&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h3>
+<blockquote>
+<p><img src="Recurrent Neural Network.assets/1-1731941251452.png" alt="1"></p>
+<ul>
+<li><p>x&#x4E3A;&#x5E8F;&#x5217;&#x8F93;&#x5165;</p>
+</li>
+<li><p>U &#x4E3A;&#x8FDE;&#x63A5;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x8F93;&#x5165;&#x5C42;&#x4E0E;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;</p>
+</li>
+<li>V&#x4E3A;&#x8FDE;&#x63A5;&#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x4E0E;&#x4E0B;&#x4E00;&#x65F6;&#x523B;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;</li>
+<li>U&#x4E3A;&#x8FDE;&#x63A5;&#x6BCF;&#x4E00;&#x65F6;&#x523B;&#x9690;&#x85CF;&#x5C42;&#x4E0E;&#x8F93;&#x51FA;&#x5C42;&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;</li>
+<li>h&#x4E3A;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x5355;&#x5143;</li>
+<li>o&#x4E3A;&#x8F93;&#x51FA;&#x72B6;&#x6001;&#x5355;&#x5143;</li>
+</ul>
+<p>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x65F6;&#x523B;</p>
+<ul>
+<li>$h<em>t=f(Ux_t+Vh</em>{t-1})$&#xFF0C;&#x5176;&#x4E2D;f&#x4E3A;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#xFF0C;&#x5982;tanh</li>
+<li>$o_t=softmax(Wh_t)$</li>
+</ul>
+</blockquote>
+<ul>
+<li><h3 id="&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;">&#x51FD;&#x6570;&#x521D;&#x59CB;&#x5316;</h3>
+<pre><code class="lang-python">hidden_size = <span class="hljs-number">50</span> <span class="hljs-comment"># &#x9690;&#x85CF;&#x5C42;&#x795E;&#x7ECF;&#x5143;&#x4E2A;&#x6570;</span>
+vocab_size  = <span class="hljs-number">4</span> <span class="hljs-comment"># &#x8BCD;&#x6C47;&#x8868;&#x5927;&#x5C0F;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_orthogonal</span><span class="hljs-params">(param)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x6B63;&#x4EA4;&#x521D;&#x59CB;&#x5316;.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">if</span> param.ndim &lt; <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&quot;&#x53C2;&#x6570;&#x7EF4;&#x5EA6;&#x5FC5;&#x987B;&#x5927;&#x4E8E;2.&quot;</span>)
+    rows, cols = param.shape
+    <span class="hljs-comment"># &#x751F;&#x6210;&#x6307;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x670D;&#x4ECE;&#x6807;&#x51C6;&#x6B63;&#x6001;&#x5206;&#x5E03;&#xFF08;&#x5747;&#x503C;&#x4E3A;0&#xFF0C;&#x65B9;&#x5DEE;&#x4E3A;1&#xFF09;&#x7684;&#x968F;&#x673A;&#x6570;&#x77E9;&#x9635;</span>
+    new_param = np.random.randn(rows, cols) 
+    <span class="hljs-keyword">if</span> rows &lt; cols:
+        new_param = new_param.T 
+    <span class="hljs-comment"># QR &#x77E9;&#x9635;&#x5206;&#x89E3;&#xFF0C; q&#x4E3A;&#x6B63;&#x4EA4;&#x77E9;&#x9635;&#xFF0C;r&#x4E3A;&#x4E0A;&#x4E09;&#x89D2;&#x77E9;&#x9635;</span>
+    q, r = np.linalg.qr(new_param)
+    <span class="hljs-comment"># &#x8BA9;q&#x5747;&#x5300;&#x5206;&#x5E03;&#xFF0C;https://arxiv.org/pdf/math-ph/0609050.pdf</span>
+        <span class="hljs-comment"># &#x4ECE;&#x4E0A;&#x4E09;&#x89D2;&#x77E9;&#x9635;R&#x4E2D;&#x63D0;&#x53D6;&#x5BF9;&#x89D2;&#x7EBF;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x5B58;&#x50A8;&#x5728;&#x4E00;&#x4E2A;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;d&#x4E2D;&#x3002;&#x53C2;&#x6570;0&#x8868;&#x793A;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x63D0;&#x53D6;&#x7684;&#x5BF9;&#x89D2;&#x7EBF;&#x4F4D;&#x4E8E;R&#x7684;&#x4E3B;&#x5BF9;&#x89D2;&#x7EBF;&#x4E0A;&#x3002;</span>
+    d = np.diag(r, <span class="hljs-number">0</span>)
+        <span class="hljs-comment"># &#x8FD9;&#x884C;&#x4EE3;&#x7801;&#x5BF9;d&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x53D6;&#x7B26;&#x53F7;&#xFF0C;&#x5373;&#x5C06;&#x6B63;&#x6570;&#x6620;&#x5C04;&#x4E3A;+1&#xFF0C;&#x8D1F;&#x6570;&#x6620;&#x5C04;&#x4E3A;-1&#xFF0C;&#x96F6;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#x3002;</span>
+        <span class="hljs-comment"># &#x8FD9;&#x6837;&#x505A;&#x662F;&#x4E3A;&#x4E86;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x4E0E;d&#x76F8;&#x540C;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x7EC4;ph&#xFF0C;&#x5176;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x503C;&#x53EA;&#x80FD;&#x4E3A;+1&#x3001;-1&#x6216;0&#x3002;</span>
+    ph = np.sign(d)
+        <span class="hljs-comment"># &#x5C06;&#x6B63;&#x4EA4;&#x77E9;&#x9635;Q&#x7684;&#x6BCF;&#x4E00;&#x5217;&#x90FD;&#x4E58;&#x4EE5;&#x5BF9;&#x5E94;&#x7684;ph&#x6570;&#x7EC4;&#x5143;&#x7D20;&#xFF0C;&#x4ECE;&#x800C;&#x8C03;&#x6574;&#x4E86;Q&#x7684;&#x65B9;&#x5411;&#x3002;</span>
+        <span class="hljs-comment"># &#x4E58;&#x4EE5;-1&#x7684;&#x5217;&#x610F;&#x5473;&#x7740;&#x5BF9;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x5728;QR&#x5206;&#x89E3;&#x4E2D;&#x88AB;&#x53CD;&#x8F6C;&#x4E86;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x8C03;&#x6574;&#xFF0C;&#x786E;&#x4FDD;&#x4E86;Q&#x77E9;&#x9635;&#x7684;&#x5BF9;&#x89D2;&#x7EBF;&#x5143;&#x7D20;&#x4E3A;&#x6B63;&#x6570;&#x3002;</span>
+    q *= ph
+    <span class="hljs-keyword">if</span> rows &lt; cols:
+        q = q.T
+    new_param = q
+    <span class="hljs-keyword">return</span> new_param
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_rnn</span><span class="hljs-params">(hidden_size, vocab_size)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x521D;&#x59CB;&#x5316;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x53C2;&#x6570;.
+    Args:
+    hidden_size: &#x9690;&#x85CF;&#x5C42;&#x795E;&#x7ECF;&#x5143;&#x4E2A;&#x6570;
+    vocab_size: &#x8BCD;&#x6C47;&#x8868;&#x5927;&#x5C0F;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># &#x8F93;&#x5165;&#x5230;&#x9690;&#x85CF;&#x5C42;&#x6743;&#x91CD;&#x77E9;&#x9635;</span>
+    U = np.zeros((hidden_size, vocab_size))
+    <span class="hljs-comment"># &#x9690;&#x85CF;&#x5C42;&#x5230;&#x9690;&#x85CF;&#x5C42;&#x6743;&#x91CD;&#x77E9;&#x9635;</span>
+    V = np.zeros((hidden_size, hidden_size))
+    <span class="hljs-comment"># &#x9690;&#x85CF;&#x5C42;&#x5230;&#x8F93;&#x51FA;&#x5C42;&#x6743;&#x91CD;&#x77E9;&#x9635;</span>
+    W = np.zeros((vocab_size, hidden_size))
+    <span class="hljs-comment"># &#x9690;&#x5C42;bias</span>
+    b_hidden = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x8F93;&#x51FA;&#x5C42;bias</span>
+    b_out = np.zeros((vocab_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x6743;&#x91CD;&#x521D;&#x59CB;&#x5316;</span>
+    U = init_orthogonal(U)
+    V = init_orthogonal(V)
+    W = init_orthogonal(W)   
+    <span class="hljs-keyword">return</span> U, V, W, b_hidden, b_out
+</code></pre>
+</li>
+<li><h3 id="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;">&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</h3>
+<blockquote>
+<p><img src="Recurrent Neural Network.assets/2-1731941258041.png" alt="2"></p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sigmoid</span><span class="hljs-params">(x, derivative=False)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Args:
+    x: &#x8F93;&#x5165;&#x6570;&#x636E;x
+    derivative: &#x5982;&#x679C;&#x4E3A;True&#x5219;&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;
+    &quot;&quot;&quot;</span>
+    x_safe = x + <span class="hljs-number">1e-12</span>
+    f = <span class="hljs-number">1</span> / (<span class="hljs-number">1</span> + np.exp(-x_safe))
+    <span class="hljs-keyword">if</span> derivative: 
+        <span class="hljs-keyword">return</span> f * (<span class="hljs-number">1</span> - f)
+    <span class="hljs-keyword">else</span>: 
+        <span class="hljs-keyword">return</span> f
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tanh</span><span class="hljs-params">(x, derivative=False)</span>:</span>
+    x_safe = x + <span class="hljs-number">1e-12</span>
+    f = (np.exp(x_safe)-np.exp(-x_safe))/(np.exp(x_safe)+np.exp(-x_safe))
+    <span class="hljs-keyword">if</span> derivative: 
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>-f**<span class="hljs-number">2</span>
+    <span class="hljs-keyword">else</span>: 
+        <span class="hljs-keyword">return</span> f
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">softmax</span><span class="hljs-params">(x, derivative=False)</span>:</span>
+    x_safe = x + <span class="hljs-number">1e-12</span>
+    f = np.exp(x_safe) / np.sum(np.exp(x_safe))
+
+    <span class="hljs-keyword">if</span> derivative:
+        <span class="hljs-keyword">pass</span> <span class="hljs-comment"># &#x672C;&#x6587;&#x4E0D;&#x8BA1;&#x7B97;softmax&#x51FD;&#x6570;&#x5BFC;&#x6570;</span>
+    <span class="hljs-keyword">else</span>: 
+        <span class="hljs-keyword">return</span> f
+</code></pre>
+</li>
+<li><h3 id="rnn&#x524D;&#x5411;&#x4F20;&#x64AD;">RNN&#x524D;&#x5411;&#x4F20;&#x64AD;</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward_pass</span><span class="hljs-params">(inputs, hidden_state, params)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    RNN&#x524D;&#x5411;&#x4F20;&#x64AD;&#x8BA1;&#x7B97;
+    Args:
+    inputs: &#x8F93;&#x5165;&#x5E8F;&#x5217;
+    hidden_state: &#x521D;&#x59CB;&#x5316;&#x540E;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x53C2;&#x6570;
+    params: RNN&#x53C2;&#x6570;
+    &quot;&quot;&quot;</span>
+    U, V, W, b_hidden, b_out = params
+    outputs, hidden_states = [], []
+
+    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(len(inputs)):
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x9690;&#x85CF;&#x72B6;&#x6001;</span>
+        hidden_state = tanh(np.dot(U, inputs[t]) + np.dot(V, hidden_state) + b_hidden)
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x8F93;&#x51FA;</span>
+        out = softmax(np.dot(W, hidden_state) + b_out)
+        <span class="hljs-comment"># &#x4FDD;&#x5B58;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;</span>
+        outputs.append(out)
+        hidden_states.append(hidden_state.copy())
+    <span class="hljs-keyword">return</span> outputs, hidden_states
+</code></pre>
+</li>
+<li><h2 id="rnn&#x540E;&#x5411;&#x4F20;&#x64AD;">RNN&#x540E;&#x5411;&#x4F20;&#x64AD;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">clip_gradient_norm</span><span class="hljs-params">(grads, max_norm=<span class="hljs-number">0.25</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x68AF;&#x5EA6;&#x526A;&#x88C1;&#x9632;&#x6B62;&#x68AF;&#x5EA6;&#x7206;&#x70B8;
+    &quot;&quot;&quot;</span> 
+    max_norm = float(max_norm)
+    total_norm = <span class="hljs-number">0</span>
+    <span class="hljs-comment"># &#x5BF9;&#x68AF;&#x5EA6;&#x5217;&#x8868;&#x8FDB;&#x884C;&#x904D;&#x5386;</span>
+    <span class="hljs-keyword">for</span> grad <span class="hljs-keyword">in</span> grads:
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5F53;&#x524D;&#x68AF;&#x5EA6;&#x7684;&#x5E73;&#x65B9;&#x8303;&#x6570;</span>
+        grad_norm = np.sum(np.power(grad, <span class="hljs-number">2</span>))
+        total_norm += grad_norm
+    <span class="hljs-comment"># &#x6240;&#x6709;&#x68AF;&#x5EA6;&#x7684;&#x603B;&#x8303;&#x6570;</span>
+    total_norm = np.sqrt(total_norm)
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x526A;&#x88C1;&#x7CFB;&#x6570;</span>
+    clip_coef = max_norm / (total_norm + <span class="hljs-number">1e-6</span>)
+    <span class="hljs-comment"># &#x526A;&#x88C1;&#x68AF;&#x5EA6;</span>
+    <span class="hljs-keyword">if</span> clip_coef &lt; <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">for</span> grad <span class="hljs-keyword">in</span> grads:
+            grad *= clip_coef
+    <span class="hljs-keyword">return</span> grads
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backward_pass</span><span class="hljs-params">(inputs, outputs, hidden_states, targets, params)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x540E;&#x5411;&#x4F20;&#x64AD;
+    Args:
+     inputs: &#x5E8F;&#x5217;&#x8F93;&#x5165;
+     outputs: &#x8F93;&#x51FA;
+     hidden_states: &#x9690;&#x85CF;&#x72B6;&#x6001;
+     targets: &#x9884;&#x6D4B;&#x76EE;&#x6807;
+     params: RNN&#x53C2;&#x6570;
+    &quot;&quot;&quot;</span>
+    U, V, W, b_hidden, b_out = params
+    d_U, d_V, d_W = np.zeros_like(U), np.zeros_like(V), np.zeros_like(W)
+    d_b_hidden, d_b_out = np.zeros_like(b_hidden), np.zeros_like(b_out)
+    <span class="hljs-comment"># &#x8DDF;&#x8E2A;&#x9690;&#x85CF;&#x5C42;&#x504F;&#x5BFC;&#x53CA;&#x635F;&#x5931;</span>
+    d_h_next = np.zeros_like(hidden_states[<span class="hljs-number">0</span>])
+    loss = <span class="hljs-number">0</span>
+    <span class="hljs-comment"># &#x5BF9;&#x4E8E;&#x8F93;&#x51FA;&#x5E8F;&#x5217;&#x5F53;&#x4E2D;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x53CD;&#x5411;&#x904D;&#x5386; s.t. t = N, N-1, ... 1, 0</span>
+    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> reversed(range(len(outputs))):
+        <span class="hljs-comment"># &#x4EA4;&#x53C9;&#x71B5;&#x635F;&#x5931;</span>
+        loss += -np.mean(np.log(outputs[t]+<span class="hljs-number">1e-12</span>) * targets[t])
+        <span class="hljs-comment"># d_loss/d_o</span>
+        d_o = outputs[t].copy()
+        d_o[np.argmax(targets[t])] -= <span class="hljs-number">1</span>  
+        <span class="hljs-comment"># d_o/d_w</span>
+        d_W += np.dot(d_o, hidden_states[t].T)
+        d_b_out += d_o   
+        <span class="hljs-comment"># d_o/d_h</span>
+        d_h = np.dot(W.T, d_o) + d_h_next
+        <span class="hljs-comment"># Backpropagate through non-linearity</span>
+        d_f = tanh(hidden_states[t], derivative=<span class="hljs-keyword">True</span>) * d_h
+        d_b_hidden += d_f  
+        <span class="hljs-comment"># d_f/d_u</span>
+        d_U += np.dot(d_f, inputs[t].T)
+        <span class="hljs-comment"># d_f/d_v</span>
+        d_V += np.dot(d_f, hidden_states[t<span class="hljs-number">-1</span>].T)
+        d_h_next = np.dot(V.T, d_f)
+    grads = d_U, d_V, d_W, d_b_hidden, d_b_out    
+    <span class="hljs-comment"># &#x68AF;&#x5EA6;&#x88C1;&#x526A;</span>
+    grads = clip_gradient_norm(grads)
+    <span class="hljs-keyword">return</span> loss, grads
+</code></pre>
+</li>
+<li><h3 id="&#x68AF;&#x5EA6;&#x4F18;&#x5316;">&#x68AF;&#x5EA6;&#x4F18;&#x5316;</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_parameters</span><span class="hljs-params">(params, grads, lr=<span class="hljs-number">1e-3</span>)</span>:</span>
+    <span class="hljs-comment"># lr&#xFF0C; learning rate&#xFF0C; &#x5B66;&#x4E60;&#x7387;</span>
+    <span class="hljs-keyword">for</span> param, grad <span class="hljs-keyword">in</span> zip(params, grads):
+        param -= lr * grad
+    <span class="hljs-keyword">return</span> params
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>LSTM</p>
+<blockquote>
+<p><img src="Recurrent Neural Network.assets/3-1731941267863.png" alt="3"></p>
+<p><img src="Recurrent Neural Network.assets/4-1731941273069.png" alt="4"></p>
+<p>&#x5305;&#x542B;5&#x4E2A;&#x57FA;&#x672C;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B83;&#x4EEC;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x5355;&#x5143;&#x72B6;&#x6001;&#xFF08;cell_state&#xFF09;-&#x50A8;&#x5B58;&#x77ED;&#x671F;&#x8BB0;&#x5FC6;&#x548C;&#x957F;&#x671F;&#x8BB0;&#x5FC6;&#x7684;&#x50A8;&#x5B58;&#x5355;&#x5143;</li>
+<li>&#x9690;&#x85CF;&#x72B6;&#x6001;(hidden_state) -&#x6839;&#x636E;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x3001;&#x5148;&#x524D;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x548C;&#x5F53;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7684;&#x8F93;&#x51FA;&#x72B6;&#x6001;&#x4FE1;&#x606F;</li>
+<li>&#x8F93;&#x5165;&#x95E8;&#xFF08;input_gate&#xFF09;-&#x63A7;&#x5236;&#x4ECE;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x6D41;&#x5230;&#x5355;&#x5143;&#x72B6;&#x6001;&#x7684;&#x4FE1;&#x606F;&#x91CF;</li>
+<li>&#x9057;&#x5FD8;&#x95E8;&#xFF08;forget_gate&#xFF09;-&#x63A7;&#x5236;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x548C;&#x5148;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;&#x4E2D;&#x6709;&#x591A;&#x5C11;&#x4FE1;&#x606F;&#x6D41;&#x5165;&#x5F53;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;</li>
+<li>&#x8F93;&#x51FA;&#x95E8;&#xFF08;output_gate&#xFF09;-&#x63A7;&#x5236;&#x6709;&#x591A;&#x5C11;&#x4FE1;&#x606F;&#x4ECE;&#x5F53;&#x524D;&#x5355;&#x5143;&#x72B6;&#x6001;&#x8FDB;&#x5165;&#x9690;&#x85CF;&#x72B6;&#x6001;</li>
+</ul>
+<p><img src="Recurrent Neural Network.assets/5-1731941278309.png" alt="5"></p>
+<p>&#x4E09;&#x4E2A;&#x95E8;&#x63A7;&#x5355;&#x5143;&#x53CA;&#x4E00;&#x4E2A;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x5355;&#x5143;&#x7684;&#x8F93;&#x5165;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x90FD;&#x662F;&#x5F53;&#x524D;&#x65F6;&#x523B;&#x7684;&#x8F93;&#x5165;$x<em>t$&#x4EE5;&#x53CA;&#x4E0A;&#x4E00;&#x4E2A;&#x9690;&#x85CF;&#x72B6;&#x6001;$h</em>{t-1}$, &#x4F46;&#x662F;&#x4ED6;&#x4EEC;&#x7684;&#x53C2;&#x6570;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x540C;&#x65F6;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x5355;&#x5143;&#x4F7F;&#x7528;&#x7684;&#x662F;$tanh$&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x9057;&#x5FD8;&#x95E8;$f<em>t$&#xFF0C;&#x4E0A;&#x4E00;&#x7EC6;&#x80DE;&#x72B6;&#x6001;$c</em>{t-1}$, &#x8BB0;&#x5FC6;&#x95E8;$i_t$ &#x53CA;&#x5F53;&#x524D;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x4E00;&#x8D77;&#x51B3;&#x5B9A;&#x8F93;&#x51FA;&#x7EC6;&#x80DE;&#x72B6;&#x6001; $c_t$&#x3002;</p>
+<p>&#x8F93;&#x51FA;&#x95E8; $o_t$&#x53CA; $c_t$&#x5171;&#x540C;&#x51B3;&#x5B9A;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x8F93;&#x51FA; $h_t$&#x3002;</p>
+</blockquote>
+<ul>
+<li><h2 id="&#x53C2;&#x6570;&#x521D;&#x59CB;&#x5316;">&#x53C2;&#x6570;&#x521D;&#x59CB;&#x5316;</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x8F93;&#x5165;&#x5355;&#x5143; + &#x9690;&#x85CF;&#x5355;&#x5143; &#x62FC;&#x63A5;&#x540E;&#x7684;&#x5927;&#x5C0F;</span>
+z_size = hidden_size + vocab_size 
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_lstm</span><span class="hljs-params">(hidden_size, vocab_size, z_size)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    LSTM&#x7F51;&#x7EDC;&#x521D;&#x59CB;&#x5316;
+    Args:
+     hidden_size: &#x9690;&#x85CF;&#x5355;&#x5143;&#x5927;&#x5C0F;
+     vocab_size: &#x8BCD;&#x6C47;&#x8868;&#x5927;&#x5C0F;
+     z_size: &#x9690;&#x85CF;&#x5355;&#x5143; + &#x8F93;&#x5165;&#x5355;&#x5143;&#x5927;&#x5C0F;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># &#x9057;&#x5FD8;&#x95E8;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_f = np.random.randn(hidden_size, z_size)
+    b_f = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x8BB0;&#x5FC6;&#x95E8;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_i = np.random.randn(hidden_size, z_size)
+    b_i = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_g = np.random.randn(hidden_size, z_size)
+    b_g = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x8F93;&#x51FA;&#x95E8;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_o = np.random.randn(hidden_size, z_size)
+    b_o = np.zeros((hidden_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x8FDE;&#x63A5;&#x9690;&#x85CF;&#x5355;&#x5143;&#x53CA;&#x8F93;&#x51FA;&#x7684;&#x53C2;&#x6570;&#x77E9;&#x9635;&#x53CA;&#x504F;&#x7F6E;</span>
+    W_v = np.random.randn(vocab_size, hidden_size)
+    b_v = np.zeros((vocab_size, <span class="hljs-number">1</span>))
+    <span class="hljs-comment"># &#x6B63;&#x4EA4;&#x53C2;&#x6570;&#x521D;&#x59CB;&#x5316;</span>
+    W_f = init_orthogonal(W_f)
+    W_i = init_orthogonal(W_i)
+    W_g = init_orthogonal(W_g)
+    W_o = init_orthogonal(W_o)
+    W_v = init_orthogonal(W_v)
+    <span class="hljs-keyword">return</span> W_f, W_i, W_g, W_o, W_v, b_f, b_i, b_g, b_o, b_v
+</code></pre>
+</li>
+<li><p>LSTM&#x524D;&#x5411;&#x8BA1;&#x7B97;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(inputs, h_prev, C_prev, p)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Arguments:
+    inputs: [..., x, ...],  x&#x8868;&#x793A;t&#x65F6;&#x523B;&#x7684;&#x6570;&#x636E;,  x&#x7684;&#x7EF4;&#x5EA6;&#x4E3A;(n_x, m).
+    h_prev&#xFF1A; t-1&#x65F6;&#x523B;&#x7684;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF0C;&#x7EF4;&#x5EA6;&#x4E3A; (n_a, m)
+    C_prev&#xFF1A; t-1&#x65F6;&#x523B;&#x7684;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x6570;&#x636E;&#xFF0C;&#x7EF4;&#x5EA6;&#x4E3A; (n_a, m)
+    p&#xFF1A;&#x5217;&#x8868;&#xFF0C;&#x5305;&#x542B;LSTM&#x521D;&#x59CB;&#x5316;&#x5F53;&#x4E2D;&#x6240;&#x6709;&#x53C2;&#x6570;:
+                        W_f&#xFF1A; (n_a, n_a + n_x)
+                        b_f&#xFF1A; (n_a, 1)
+                        W_i&#xFF1A; (n_a, n_a + n_x)
+                        b_i&#xFF1A; (n_a, 1)
+                        W_g&#xFF1A; (n_a, n_a + n_x)
+                        b_g&#xFF1A; (n_a, 1)
+                        W_o&#xFF1A; (n_a, n_a + n_x)
+                        b_o&#xFF1A; (n_a, 1)
+                        W_v&#xFF1A; (n_v, n_a)
+                        b_v&#xFF1A; (n_v, 1)
+    Returns:
+    z_s, f_s, i_s, g_s, C_s, o_s, h_s, v_s&#xFF1A;&#x6BCF;&#x4E00;&#x6B21;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x540E;&#x7684;&#x4E2D;&#x95F4;&#x8F93;&#x51FA;
+    outputs&#xFF1A;t&#x65F6;&#x523B;&#x7684;&#x9884;&#x4F30;&#x503C;&#xFF0C; &#x7EF4;&#x5EA6;&#x4E3A;(n_v, m)
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">assert</span> h_prev.shape == (hidden_size, <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">assert</span> C_prev.shape == (hidden_size, <span class="hljs-number">1</span>)
+    W_f, W_i, W_g, W_o, W_v, b_f, b_i, b_g, b_o, b_v = p
+    <span class="hljs-comment"># &#x4FDD;&#x5B58;&#x5404;&#x4E2A;&#x5355;&#x5143;&#x7684;&#x8BA1;&#x7B97;&#x8F93;&#x51FA;&#x503C;</span>
+    x_s, z_s, f_s, i_s,  = [], [] ,[], []
+    g_s, C_s, o_s, h_s = [], [] ,[], []
+    v_s, output_s =  [], [] 
+    h_s.append(h_prev)
+    C_s.append(C_prev)
+    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> inputs:
+        <span class="hljs-comment"># &#x62FC;&#x63A5;&#x8F93;&#x5165;&#x53CA;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x5355;&#x5143;&#x6570;&#x636E;</span>
+        z = np.row_stack((h_prev, x))
+        z_s.append(z)
+        <span class="hljs-comment"># &#x9057;&#x5FD8;&#x95E8;&#x8BA1;&#x7B97;</span>
+        f = sigmoid(np.dot(W_f, z) + b_f)
+        f_s.append(f)
+        <span class="hljs-comment"># &#x8F93;&#x5165;&#x95E8;&#x8BA1;&#x7B97;</span>
+        i = sigmoid(np.dot(W_i, z) + b_i)
+        i_s.append(i) 
+        <span class="hljs-comment"># &#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x5355;&#x5143;&#x8BA1;&#x7B97;</span>
+        g = tanh(np.dot(W_g, z) + b_g)
+        g_s.append(g)
+        <span class="hljs-comment"># &#x4E0B;&#x4E00;&#x65F6;&#x523B;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x8BA1;&#x7B97;</span>
+        C_prev = f * C_prev + i * g 
+        C_s.append(C_prev)
+        <span class="hljs-comment"># &#x8F93;&#x51FA;&#x95E8;&#x8BA1;&#x7B97;</span>
+        o = sigmoid(np.dot(W_o, z) + b_o)
+        o_s.append(o)
+        <span class="hljs-comment"># &#x9690;&#x85CF;&#x72B6;&#x6001;&#x5355;&#x5143;&#x8BA1;&#x7B97;</span>
+        h_prev = o * tanh(C_prev)
+        h_s.append(h_prev)
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x9884;&#x4F30;&#x503C;</span>
+        v = np.dot(W_v, h_prev) + b_v
+        v_s.append(v)
+        <span class="hljs-comment"># softmax&#x8F6C;&#x6362;</span>
+        output = softmax(v)
+        output_s.append(output)
+    <span class="hljs-keyword">return</span> z_s, f_s, i_s, g_s, C_s, o_s, h_s, v_s, output_s
+</code></pre>
+</li>
+<li><h2 id="lstm&#x540E;&#x5411;&#x4F20;&#x64AD;">LSTM&#x540E;&#x5411;&#x4F20;&#x64AD;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backward</span><span class="hljs-params">(z, f, i, g, C, o, h, v, outputs, targets, p = params)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Arguments:
+    z&#xFF0C;f&#xFF0C;i&#xFF0C;g&#xFF0C;C&#xFF0C;o&#xFF0C;h&#xFF0C;v&#xFF0C;outputs&#xFF1A;&#x5BF9;&#x5E94;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x8F93;&#x51FA;
+    targets&#xFF1A; &#x76EE;&#x6807;&#x503C;
+    p&#xFF1A;W_f&#xFF0C;b_f&#xFF0C;W_i&#xFF0C;b_i&#xFF0C;W_g&#xFF0C;b_g&#xFF0C;W_o&#xFF0C;b_o&#xFF0C;W_v&#xFF0C;b_v&#xFF0C; LSTM&#x53C2;&#x6570;
+    Returns:
+    loss&#xFF1A;&#x4EA4;&#x53C9;&#x71B5;&#x635F;&#x5931;
+    grads&#xFF1A;p&#x4E2D;&#x53C2;&#x6570;&#x7684;&#x68AF;&#x5EA6;
+    &quot;&quot;&quot;</span>
+    W_f, W_i, W_g, W_o, W_v, b_f, b_i, b_g, b_o, b_v = p
+    <span class="hljs-comment"># &#x521D;&#x59CB;&#x5316;&#x68AF;&#x5EA6;&#x4E3A;0</span>
+    W_f_d = np.zeros_like(W_f)
+    b_f_d = np.zeros_like(b_f)
+
+    W_i_d = np.zeros_like(W_i)
+    b_i_d = np.zeros_like(b_i)
+&#x200B;
+    W_g_d = np.zeros_like(W_g)
+    b_g_d = np.zeros_like(b_g)
+&#x200B;
+    W_o_d = np.zeros_like(W_o)
+    b_o_d = np.zeros_like(b_o)
+&#x200B;
+    W_v_d = np.zeros_like(W_v)
+    b_v_d = np.zeros_like(b_v)
+
+    dh_next = np.zeros_like(h[<span class="hljs-number">0</span>])
+    dC_next = np.zeros_like(C[<span class="hljs-number">0</span>])    
+    <span class="hljs-comment"># &#x8BB0;&#x5F55;loss</span>
+    loss = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> reversed(range(len(outputs))):
+        loss += -np.mean(np.log(outputs[t]) * targets[t])
+        C_prev= C[t<span class="hljs-number">-1</span>]
+        <span class="hljs-comment">#&#x8F93;&#x51FA;&#x68AF;&#x5EA6;</span>
+        dv = np.copy(outputs[t])
+        dv[np.argmax(targets[t])] -= <span class="hljs-number">1</span>
+        <span class="hljs-comment">#&#x9690;&#x85CF;&#x5355;&#x5143;&#x72B6;&#x6001;&#x5BF9;&#x8F93;&#x51FA;&#x7684;&#x68AF;&#x5EA6;</span>
+        W_v_d += np.dot(dv, h[t].T)
+        b_v_d += dv
+        <span class="hljs-comment">#&#x9690;&#x85CF;&#x5355;&#x5143;&#x68AF;&#x5EA6;</span>
+        dh = np.dot(W_v.T, dv)        
+        dh += dh_next
+        do = dh * tanh(C[t])
+        do = sigmoid(o[t], derivative=<span class="hljs-keyword">True</span>)*do
+        <span class="hljs-comment">#&#x8F93;&#x5165;&#x5355;&#x5143;&#x68AF;&#x5EA6;</span>
+        W_o_d += np.dot(do, z[t].T)
+        b_o_d += do
+        <span class="hljs-comment">#&#x4E0B;&#x4E00;&#x65F6;&#x523B;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x68AF;&#x5EA6;</span>
+        dC = np.copy(dC_next)
+        dC += dh * o[t] * tanh(tanh(C[t]), derivative=<span class="hljs-keyword">True</span>)
+        dg = dC * i[t]
+        dg = tanh(g[t], derivative=<span class="hljs-keyword">True</span>) * dg 
+        <span class="hljs-comment"># &#x5F53;&#x524D;&#x65F6;&#x523B;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x68AF;&#x5EA6;</span>
+        W_g_d += np.dot(dg, z[t].T)
+        b_g_d += dg
+        <span class="hljs-comment"># &#x8F93;&#x5165;&#x5355;&#x5143;&#x68AF;&#x5EA6;</span>
+        di = dC * g[t]
+        di = sigmoid(i[t], <span class="hljs-keyword">True</span>) * di
+        W_i_d += np.dot(di, z[t].T)
+        b_i_d += di
+        <span class="hljs-comment"># &#x9057;&#x5FD8;&#x5355;&#x5143;&#x68AF;&#x5EA6;</span>
+        df = dC * C_prev
+        df = sigmoid(f[t]) * df
+        W_f_d += np.dot(df, z[t].T)
+        b_f_d += df
+        <span class="hljs-comment"># &#x4E0A;&#x4E00;&#x65F6;&#x523B;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x53CA;&#x7EC6;&#x80DE;&#x72B6;&#x6001;&#x68AF;&#x5EA6;</span>
+        dz = (np.dot(W_f.T, df)
+             + np.dot(W_i.T, di)
+             + np.dot(W_g.T, dg)
+             + np.dot(W_o.T, do))
+        dh_prev = dz[:hidden_size, :]
+        dC_prev = f[t] * dC
+    grads= W_f_d, W_i_d, W_g_d, W_o_d, W_v_d, b_f_d, b_i_d, b_g_d, b_o_d, b_v_d
+    <span class="hljs-comment"># &#x68AF;&#x5EA6;&#x88C1;&#x526A;</span>
+    grads = clip_gradient_norm(grads)
+    <span class="hljs-keyword">return</span> loss, grads
+</code></pre>
+</li>
+<li><p>&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;</p>
+<blockquote>
+<p>RNN&#x548C;LSTM&#x7F51;&#x7EDC;&#x7684;&#x524D;&#x540E;&#x5411;&#x4F20;&#x64AD;&#x90FD;&#x5B9E;&#x73B0;&#x5B8C;&#x6BD5;&#xFF0C;&#x4E24;&#x8005;&#x7684;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E00;&#x81F4;&#xFF0C;&#x6574;&#x4E2A;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x5305;&#x62EC; &#x8F93;&#x5165;&#x6570;&#x636E;-&gt;&#x6570;&#x636E;&#x9884;&#x5904;&#x7406;-&gt;&#x524D;&#x5411;&#x4F20;&#x64AD;-&gt;&#x540E;&#x5411;&#x4F20;&#x64AD;-&gt;&#x66F4;&#x65B0;&#x53C2;&#x6570;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x904D;&#x5386;&#x8BAD;&#x7EC3;&#x96C6;&#x5F53;&#x4E2D;&#x7684;&#x5E8F;&#x5217;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">for</span> inputs, targets <span class="hljs-keyword">in</span> training_set:
+    <span class="hljs-comment"># &#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x9884;&#x5904;&#x7406;</span>
+    inputs_one_hot = one_hot_encode_sequence(inputs, vocab_size)
+    targets_one_hot = one_hot_encode_sequence(targets, vocab_size)
+    <span class="hljs-comment"># &#x9488;&#x5BF9;&#x6BCF;&#x4E2A;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#xFF0C;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x9690;&#x72B6;&#x6001;&#x53C2;&#x6570;</span>
+    hidden_state = np.zeros_like(hidden_state)
+    <span class="hljs-comment"># &#x524D;&#x5411;&#x4F20;&#x64AD;</span>
+    outputs, hidden_states = forward_pass(inputs_one_hot, hidden_state, params)
+    <span class="hljs-comment"># &#x540E;&#x5411;&#x4F20;&#x64AD;</span>
+    loss, grads = backward_pass(inputs_one_hot, outputs, hidden_states, targets_one_hot, params)
+    <span class="hljs-comment"># &#x68AF;&#x5EA6;&#x66F4;&#x65B0;</span>
+    params = update_parameters(params, grads, lr=<span class="hljs-number">3e-4</span>)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Loss Function.html" class="navigation navigation-prev " aria-label="Previous page: Loss Function">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Seq2Seq and Attention.html" class="navigation navigation-next " aria-label="Next page: Seq 2 Seq And Attention">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Recurrent Neural Network","level":"4.6.5","depth":2,"next":{"title":"Seq 2 Seq And Attention","level":"4.6.6","depth":2,"path":"Study Notes/NLP/Seq2Seq and Attention.md","ref":"Study Notes/NLP/Seq2Seq and Attention.md","articles":[]},"previous":{"title":"Loss Function","level":"4.6.4","depth":2,"path":"Study Notes/NLP/Loss Function.md","ref":"Study Notes/NLP/Loss Function.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex","expandable-chapters-small"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Study Notes/NLP/Recurrent Neural Network.md","mtime":"2024-12-02T02:35:31.846Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-02T02:36:07.078Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

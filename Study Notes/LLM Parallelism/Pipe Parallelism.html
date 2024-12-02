@@ -1,0 +1,1736 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Pipe Parallelism · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Tensor Parallelism.html" />
+    
+    
+    <link rel="prev" href="Data Parallelism.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Academic Writing/">
+            
+                <a href="../../Blogs/Academic Writing/">
+            
+                    
+                    Academic Writing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../Blogs/Academic Writing/design of system.html">
+            
+                <a href="../../Blogs/Academic Writing/design of system.html">
+            
+                    
+                    Design Of System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/academic reading.html">
+            
+                <a href="../../Blogs/academic reading.html">
+            
+                    
+                    Academic Reading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Blogs/how to express.html">
+            
+                <a href="../../Blogs/how to express.html">
+            
+                    
+                    How To Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../Paper Reading Notes/Arxiv/">
+            
+                <a href="../../Paper Reading Notes/Arxiv/">
+            
+                    
+                    Arxiv
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                    
+                    Mooncake
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                    
+                    S-LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../Paper Reading Notes/Arxiv/MemServe.md">
+            
+                <span>
+            
+                    
+                    MemServe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                    
+                    ASPLOS 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                    
+                    Exe GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                    
+                    Spec Infer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../Paper Reading Notes/OSDI 2024/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/">
+            
+                    
+                    OSDI 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                    
+                    Serverless LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../Paper Reading Notes/OSDI 2024/Fairness in Serving LLM.md">
+            
+                <span>
+            
+                    
+                    Fairness in Serving LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../Paper Reading Notes/SOSP 2024/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/">
+            
+                    
+                    SOSP 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                    
+                    Apparate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                    
+                    Loong Serve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../Paper Reading Notes/FAST 2023/">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/">
+            
+                    
+                    FAST 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                    
+                    Resource Scheduling For LC Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../../Paper Reading Notes/ICML 2023/">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/">
+            
+                    
+                    ICML 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                    
+                    Flex Gen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../../Paper Reading Notes/NSDI 2023/">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/">
+            
+                    
+                    NSDI 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                    
+                    Shockwave
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../../Paper Reading Notes/SC 2023/">
+            
+                <a href="../../Paper Reading Notes/SC 2023/">
+            
+                    
+                    SC 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                <a href="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                    
+                    Auto Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../../Paper Reading Notes/SOSP 2023/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/">
+            
+                    
+                    SOSP 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.9.1" data-path="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                    
+                    Vllm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../../Paper Reading Notes/OSDI 2022/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/">
+            
+                    
+                    OSDI 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.10.1" data-path="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                    
+                    Orca
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../../Paper Reading Notes/SC 2022/">
+            
+                <a href="../../Paper Reading Notes/SC 2022/">
+            
+                    
+                    SC 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.11.1" data-path="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                    
+                    Co GNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11.2" data-path="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                    
+                    VSGM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../../Paper Reading Notes/OSDI 2020/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/">
+            
+                    
+                    OSDI 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.12.1" data-path="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                    
+                    Gavel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                    
+                    SIGMOD 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.13.1" data-path="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                    
+                    GPU Based Subgraph Enumerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../../Paper Reading Notes/OSDI 2018/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/">
+            
+                    
+                    OSDI 2018
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.14.1" data-path="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../CME 213/">
+            
+                <a href="../CME 213/">
+            
+                    
+                    CME 213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../CME 213/C++.html">
+            
+                <a href="../CME 213/C++.html">
+            
+                    
+                    C
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../CUDA/">
+            
+                <a href="../CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../CUDA/CUDA Warp Level.html">
+            
+                <a href="../CUDA/CUDA Warp Level.html">
+            
+                    
+                    CUDA Warp Level
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../CUDA/CUDA1 Basic.html">
+            
+                <a href="../CUDA/CUDA1 Basic.html">
+            
+                    
+                    CUDA 1 Basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../CUDA/CUDA2 Brief Summary.html">
+            
+                <a href="../CUDA/CUDA2 Brief Summary.html">
+            
+                    
+                    CUDA 2 Brief Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../CUDA/CUDA3 Kernels.html">
+            
+                <a href="../CUDA/CUDA3 Kernels.html">
+            
+                    
+                    CUDA 3 Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../CUDA/Nsight System.html">
+            
+                <a href="../CUDA/Nsight System.html">
+            
+                    
+                    Nsight System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    LLM Parallelism
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="Data Parallelism.html">
+            
+                <a href="Data Parallelism.html">
+            
+                    
+                    Data Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.3.2" data-path="Pipe Parallelism.html">
+            
+                <a href="Pipe Parallelism.html">
+            
+                    
+                    Pipe Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="Tensor Parallelism.html">
+            
+                <a href="Tensor Parallelism.html">
+            
+                    
+                    Tensor Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../MIT 6.172/mit-6-172-1.html">
+            
+                <a href="../MIT 6.172/mit-6-172-1.html">
+            
+                    
+                    Mit 6 172 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Mit 6 172 12
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Mit 6 172 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Mit 6 172 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    Mit 6 172 Hw 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../MLSYS/">
+            
+                <a href="../MLSYS/">
+            
+                    
+                    MLSYS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../MLSYS/Llama Model's Decoder Code.html">
+            
+                <a href="../MLSYS/Llama Model's Decoder Code.html">
+            
+                    
+                    Llama Model S Decoder Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../MLSYS/LLM Calculation.html">
+            
+                <a href="../MLSYS/LLM Calculation.html">
+            
+                    
+                    LLM Calculation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../MLSYS/LLM Deployment Record.html">
+            
+                <a href="../MLSYS/LLM Deployment Record.html">
+            
+                    
+                    LLM Deployment Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../MLSYS/Sepculative Decoding.html">
+            
+                <a href="../MLSYS/Sepculative Decoding.html">
+            
+                    
+                    Sepculative Decoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../NLP/">
+            
+                <a href="../NLP/">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../NLP/Basics of Machine Learning.html">
+            
+                <a href="../NLP/Basics of Machine Learning.html">
+            
+                    
+                    Basics Of Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../NLP/GPT.html">
+            
+                <a href="../NLP/GPT.html">
+            
+                    
+                    GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../NLP/Implementation Neural Network.html">
+            
+                <a href="../NLP/Implementation Neural Network.html">
+            
+                    
+                    Implementation Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="../NLP/Loss Function.html">
+            
+                <a href="../NLP/Loss Function.html">
+            
+                    
+                    Loss Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.5" data-path="../NLP/Recurrent Neural Network.html">
+            
+                <a href="../NLP/Recurrent Neural Network.html">
+            
+                    
+                    Recurrent Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.6" data-path="../NLP/Seq2Seq and Attention.html">
+            
+                <a href="../NLP/Seq2Seq and Attention.html">
+            
+                    
+                    Seq 2 Seq And Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../OPENMP/">
+            
+                <a href="../OPENMP/">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../OPENMP/openmp.html">
+            
+                <a href="../OPENMP/openmp.html">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../Triton/">
+            
+                <a href="../Triton/">
+            
+                    
+                    Triton
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../Ray/index.md">
+            
+                <span>
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../vLLM Code/">
+            
+                <a href="../vLLM Code/">
+            
+                    
+                    VLLM Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.10.1" data-path="../vLLM Code/vllm-async-llm.html">
+            
+                <a href="../vLLM Code/vllm-async-llm.html">
+            
+                    
+                    Vllm Async Llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.2" data-path="../vLLM Code/vllm-attention.html">
+            
+                <a href="../vLLM Code/vllm-attention.html">
+            
+                    
+                    Vllm Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.3" data-path="../vLLM Code/vllm-block.html">
+            
+                <a href="../vLLM Code/vllm-block.html">
+            
+                    
+                    Vllm Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.4" data-path="../vLLM Code/vllm-cache.html">
+            
+                <a href="../vLLM Code/vllm-cache.html">
+            
+                    
+                    Vllm Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.5" data-path="../vLLM Code/vllm-chunked-prefill.html">
+            
+                <a href="../vLLM Code/vllm-chunked-prefill.html">
+            
+                    
+                    Vllm Chunked Prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.6" data-path="../vLLM Code/vllm-cpu.html">
+            
+                <a href="../vLLM Code/vllm-cpu.html">
+            
+                    
+                    Vllm Cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.7" data-path="../vLLM Code/vllm-llama.html">
+            
+                <a href="../vLLM Code/vllm-llama.html">
+            
+                    
+                    Vllm Llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.8" data-path="../vLLM Code/vllm-LoRA.html">
+            
+                <a href="../vLLM Code/vllm-LoRA.html">
+            
+                    
+                    Vllm Lo RA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.9" data-path="../vLLM Code/vllm-metadata.html">
+            
+                <a href="../vLLM Code/vllm-metadata.html">
+            
+                    
+                    Vllm Metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.10" data-path="../vLLM Code/vllm-profile.html">
+            
+                <a href="../vLLM Code/vllm-profile.html">
+            
+                    
+                    Vllm Profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.11" data-path="../vLLM Code/vllm-ray.html">
+            
+                <a href="../vLLM Code/vllm-ray.html">
+            
+                    
+                    Vllm Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.12" data-path="../vLLM Code/vllm-schedule.html">
+            
+                <a href="../vLLM Code/vllm-schedule.html">
+            
+                    
+                    Vllm Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../Llumnix Code/">
+            
+                <a href="../Llumnix Code/">
+            
+                    
+                    Llumnix Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.11.1" data-path="../Llumnix Code/llumnix.html">
+            
+                <a href="../Llumnix Code/llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../LoongServe Code/">
+            
+                <a href="../LoongServe Code/">
+            
+                    
+                    LoongServe Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Pipe Parallelism</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#xFF1A;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;">&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#xFF1A;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/613196255" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+<blockquote>
+<p>&#x7ECF;&#x5178;&#x7684;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x8303;&#x5F0F;&#x6709;Google&#x63A8;&#x51FA;&#x7684;<strong>Gpipe</strong>&#xFF0C;&#x548C;&#x5FAE;&#x8F6F;&#x63A8;&#x51FA;&#x7684;<strong>PipeDream</strong>&#x3002;&#x4E24;&#x8005;&#x7684;&#x63A8;&#x51FA;&#x65F6;&#x95F4;&#x90FD;&#x5728;2019&#x5E74;&#x5DE6;&#x53F3;&#xFF0C;&#x5927;&#x4F53;&#x8BBE;&#x8BA1;&#x6846;&#x67B6;&#x4E00;&#x81F4;&#x3002;&#x4E3B;&#x8981;&#x5DEE;&#x522B;&#x4E3A;&#xFF1A;&#x5728;&#x68AF;&#x5EA6;&#x66F4;&#x65B0;&#x4E0A;&#xFF0C;Gpipe&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;PipeDream&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x964D;&#x4F4E;&#x4E86;GPU&#x7684;&#x7A7A;&#x8F6C;&#x65F6;&#x95F4;&#x6BD4;&#x3002;&#x867D;&#x7136;PipeDream&#x8BBE;&#x8BA1;&#x66F4;&#x7CBE;&#x5999;&#x4E9B;&#xFF0C;&#x4F46;&#x662F;Gpipe&#x56E0;&#x4E3A;&#x5176;&#x201C;&#x591F;&#x7528;&#x201D;&#x548C;&#x6D45;&#x663E;&#x6613;&#x61C2;&#xFF0C;&#x66F4;&#x53D7;&#x5927;&#x4F17;&#x6B22;&#x8FCE;&#xFF08;torch&#x7684;pp&#x63A5;&#x53E3;&#x5C31;&#x57FA;&#x4E8E;Gpipe&#xFF09;&#x3002;&#x56E0;&#x6B64;&#x672C;&#x6587;&#x4EE5;Gpipe&#x4F5C;&#x4E3A;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x7684;&#x8303;&#x4F8B;&#x8FDB;&#x884C;&#x4ECB;&#x7ECD;&#x3002;</p>
+</blockquote>
+<p>&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x7684;&#x603B;&#x4F53;&#x76EE;&#x6807;&#xFF1A;</p>
+<ul>
+<li>&#x8BAD;&#x7EC3;&#x66F4;&#x5927;&#x7684;&#x6A21;&#x578B;</li>
+<li>&#x66F4;&#x5FEB;&#x5730;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;</li>
+</ul>
+<p>&#x96BE;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x6A21;&#x578B;&#x53C2;&#x6570;&#x548C;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x66F4;&#x591A;&#xFF0C;&#x5185;&#x5B58;&#x538B;&#x529B;&#x5927;</li>
+<li>GPU&#x4E4B;&#x95F4;&#x7684;&#x4F20;&#x8F93;&#x589E;&#x5927;&#xFF0C;&#x901A;&#x4FE1;&#x5F00;&#x9500;&#x5927;</li>
+</ul>
+<h2 id="&#x6A21;&#x578B;&#x5E76;&#x884C;">&#x6A21;&#x578B;&#x5E76;&#x884C;</h2>
+<p>&#x5C06;&#x6A21;&#x578B;&#x9694;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x5C42;&#xFF0C;&#x6BCF;&#x4E00;&#x5C42;&#x653E;&#x5230;&#x4E00;&#x5757;GPU&#x4E0A;</p>
+<blockquote>
+<p> <img src="Pipe Parallelism.assets/1.png" alt="1"></p>
+</blockquote>
+<p>&#x6B64;&#x65F6;&#x6A21;&#x578B;&#x524D;&#x5411;&#x4F20;&#x8F93;&#x548C;&#x540E;&#x5411;&#x4F20;&#x8F93;</p>
+<blockquote>
+<p> <img src="Pipe Parallelism.assets/2.png" alt="2"></p>
+<p>&#x5176;&#x4E2D;&#x4E0B;&#x6807;&#x8868;&#x793A;batch&#x7F16;&#x53F7;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x6709;&#x4E00;&#x4E2A;batch&#xFF0C;&#x56E0;&#x6B64;&#x4E0B;&#x6807;&#x90FD;&#x662F;0&#x3002;&#x6BCF;&#x4E00;&#x884C;&#x8868;&#x793A;&#x4E00;&#x4E2A;GPU&#x3002;&#x6BCF;&#x4E00;&#x5217;&#x8868;&#x793A;timestep&#x3002;</p>
+<p>&#x8FD9;&#x5F20;&#x56FE;&#x7684;&#x542B;&#x4E49;&#x662F;&#xFF1A;&#x6211;&#x5728;GPU0&#x4E0A;&#x505A;&#x5B8C;&#x4E00;&#x6B21;forward&#xFF0C;&#x7136;&#x540E;&#x5C06;GPU0&#x4E0A;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x7684;&#x8F93;&#x5165;&#x4F20;&#x7ED9;GPU1&#xFF0C;&#x7EE7;&#x7EED;&#x505A;forward&#xFF0C;&#x76F4;&#x5230;&#x56DB;&#x5757;GPU&#x90FD;&#x505A;&#x5B8C;forward&#x540E;&#xFF0C;&#x6211;&#x518D;&#x4F9D;&#x6B21;&#x505A;backward&#x3002;&#x7B49;&#x628A;&#x56DB;&#x5757;GPU&#x4E0A;&#x7684;backward&#x5168;&#x90E8;&#x505A;&#x5B8C;&#x540E;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x6211;&#x7EDF;&#x4E00;&#x66F4;&#x65B0;&#x6BCF;&#x4E00;&#x5C42;&#x7684;&#x68AF;&#x5EA6;&#x3002;</p>
+</blockquote>
+<p>&#x8FD9;&#x6837;&#x4F1A;&#x5E26;&#x6765;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li>GPU&#x5229;&#x7528;&#x5EA6;&#x4E0D;&#x591F;</li>
+<li>&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x5360;&#x636E;&#x5927;&#x91CF;&#x5185;&#x5B58;</li>
+</ul>
+<h2 id="&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;">&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;</h2>
+<p>&#x9488;&#x5BF9;&#x4E0A;&#x8FF0;&#x95EE;&#x9898;&#xFF0C;Gpipe&#x63D0;&#x51FA;&#x4E86;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x3002;</p>
+<h3 id="1&#x5207;&#x5206;micro-batch">1.&#x5207;&#x5206;micro-batch</h3>
+<blockquote>
+<p><strong>&#x5728;&#x6A21;&#x578B;&#x5E76;&#x884C;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x5F15;&#x5165;&#x6570;&#x636E;&#x5E76;&#x884C;&#x7684;&#x529E;&#x6CD5;&#xFF0C;&#x5373;&#x628A;&#x539F;&#x5148;&#x7684;&#x6570;&#x636E;&#x518D;&#x5212;&#x5206;&#x6210;&#x82E5;&#x5E72;&#x4E2A;batch&#xFF0C;&#x9001;&#x5165;GPU&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;</strong>&#x3002;&#x672A;&#x5212;&#x5206;&#x524D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53EB;<strong>mini-batch</strong>&#x3002;&#x5728;mini-batch&#x4E0A;&#x518D;&#x5212;&#x5206;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53EB;<strong>micro-batch</strong>&#x3002;</p>
+<p><img src="Pipe Parallelism.assets/3.png" alt="3"></p>
+</blockquote>
+<h3 id="2re-materialization&#xFF08;active-checkpoint&#xFF09;">2.re-materialization&#xFF08;active checkpoint&#xFF09;</h3>
+<blockquote>
+<p>Gpipe&#x91C7;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7C97;&#x66B4;&#x4F46;&#x6709;&#x6548;&#x7684;&#x529E;&#x6CD5;&#xFF1A;<strong>&#x7528;&#x65F6;&#x95F4;&#x6362;&#x7A7A;&#x95F4;&#xFF0C;&#x5728;&#x8BBA;&#x6587;&#x91CC;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x88AB;&#x547D;&#x540D;&#x4E3A;re-materalization&#xFF0C;&#x540E;&#x4EBA;&#x4E5F;&#x79F0;&#x5176;&#x4E3A;active checkpoint</strong>&#x3002;
+&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;<strong>&#x51E0;&#x4E4E;&#x4E0D;&#x5B58;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#xFF0C;&#x7B49;&#x5230;backward&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x518D;&#x91CD;&#x65B0;&#x7B97;&#x4E00;&#x904D;forward</strong></p>
+<p><img src="Pipe Parallelism.assets/4.png" alt="4"></p>
+<p>&#x6BCF;&#x5757;GPU&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x4FDD;&#x5B58;&#x6765;&#x81EA;&#x4E0A;&#x4E00;&#x5757;&#x7684;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x8F93;&#x5165;z&#xFF0C;&#x5176;&#x4F59;&#x7684;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x6211;&#x4EEC;&#x7B97;&#x5B8C;&#x5C31;&#x5E9F;&#x3002;&#x7B49;&#x5230;backward&#x7684;&#x65F6;&#x5019;&#x518D;&#x7531;&#x4FDD;&#x5B58;&#x4E0B;&#x6765;&#x7684;z&#x91CD;&#x65B0;&#x8FDB;&#x884C;forward&#x6765;&#x7B97;&#x51FA;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;Pytorch&#x63D0;&#x4F9B;&#x7684;pipeline&#x63A5;&#x53E3;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x53EB;checkpoint&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x6765;&#x505A;&#x8FD9;&#x4E00;&#x9879;&#x7684;&#x3002;</p>
+<p>&#x5728;micro-batch&#x7684;&#x5212;&#x5206;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8BA1;&#x7B97;<strong>Batch Normalization</strong>&#x65F6;&#x4F1A;&#x6709;&#x5F71;&#x54CD;&#x3002;Gpipe&#x7684;&#x65B9;&#x6CD5;&#x662F;&#xFF0C;&#x5728;&#x8BAD;&#x7EC3;&#x65F6;&#x8BA1;&#x7B97;&#x548C;&#x8FD0;&#x7528;&#x7684;&#x662F;micro-batch&#x91CC;&#x7684;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;&#xFF0C;&#x4F46;&#x540C;&#x65F6;&#x6301;&#x7EED;&#x8FFD;&#x8E2A;&#x5168;&#x90E8;mini-batch&#x7684;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x548C;&#x65B9;&#x5DEE;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x6D4B;&#x8BD5;&#x9636;&#x6BB5;&#x8FDB;&#x884C;&#x4F7F;&#x7528;&#x3002;Layer Normalization&#x5219;&#x4E0D;&#x53D7;&#x5F71;&#x54CD;&#x3002;</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/653860567" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;2</a></p>
+<blockquote>
+<p>&#x6240;&#x8C13;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#xFF0C;&#x5C31;&#x662F;&#x7531;&#x4E8E;&#x6A21;&#x578B;&#x592A;&#x5927;&#xFF0C;&#x65E0;&#x6CD5;&#x5C06;&#x6574;&#x4E2A;&#x6A21;&#x578B;&#x653E;&#x7F6E;&#x5230;&#x5355;&#x5F20;GPU&#x5361;&#x4E2D;&#xFF1B;&#x56E0;&#x6B64;&#xFF0C;&#x5C06;&#x6A21;&#x578B;&#x7684;&#x4E0D;&#x540C;&#x5C42;&#x653E;&#x7F6E;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x8BA1;&#x7B97;&#x8BBE;&#x5907;&#xFF0C;&#x964D;&#x4F4E;&#x5355;&#x4E2A;&#x8BA1;&#x7B97;&#x8BBE;&#x5907;&#x7684;&#x663E;&#x5B58;&#x6D88;&#x8017;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x8D85;&#x5927;&#x89C4;&#x6A21;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x6A21;&#x578B;&#x5171;&#x5305;&#x542B;&#x56DB;&#x4E2A;&#x6A21;&#x578B;&#x5C42;&#xFF08;&#x5982;&#xFF1A;Transformer&#x5C42;&#xFF09;&#xFF0C;&#x88AB;&#x5207;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x5206;&#x522B;&#x653E;&#x7F6E;&#x5230;&#x4E09;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x8BA1;&#x7B97;&#x8BBE;&#x5907;&#x3002;&#x5373;&#x7B2C; 1 &#x5C42;&#x653E;&#x7F6E;&#x5230;&#x8BBE;&#x5907; 0&#xFF0C;&#x7B2C; 2 &#x5C42;&#x548C;&#x7B2C;&#x4E09; 3 &#x5C42;&#x653E;&#x7F6E;&#x5230;&#x8BBE;&#x5907; 1&#xFF0C;&#x7B2C; 4 &#x5C42;&#x653E;&#x7F6E;&#x5230;&#x8BBE;&#x5907; 2&#x3002;</p>
+<p><img src="../../../../../../../images/llm-5/1" alt="img"></p>
+<p>&#x76F8;&#x90BB;&#x8BBE;&#x5907;&#x95F4;&#x901A;&#x8FC7;&#x901A;&#x4FE1;&#x94FE;&#x8DEF;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x3002;&#x5177;&#x4F53;&#x5730;&#x8BB2;&#xFF0C;&#x524D;&#x5411;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x8F93;&#x5165;&#x6570;&#x636E;&#x9996;&#x5148;&#x5728;&#x8BBE;&#x5907; 0 &#x4E0A;&#x901A;&#x8FC7;&#x7B2C; 1 &#x5C42;&#x7684;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#xFF0C;&#x5E76;&#x5C06;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x4F20;&#x8F93;&#x5230;&#x8BBE;&#x5907; 1&#xFF0C;&#x7136;&#x540E;&#x5728;&#x8BBE;&#x5907; 1 &#x4E0A;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7B2C; 2 &#x5C42;&#x548C;&#x7B2C; 3 &#x5C42;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x5E76;&#x5C06;&#x6A21;&#x578B;&#x7B2C; 3 &#x5C42;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4F20;&#x8F93;&#x5230;&#x8BBE;&#x5907; 2&#xFF0C;&#x5728;&#x8BBE;&#x5907; 2 &#x4E0A;&#x7ECF;&#x7531;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x7684;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x524D;&#x5411;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x3002;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x5404;&#x4E2A;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x7F51;&#x7EDC;&#x5C42;&#x4F1A;&#x4F7F;&#x7528;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x8FC7;&#x7A0B;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7684;&#x68AF;&#x5EA6;&#x66F4;&#x65B0;&#x53C2;&#x6570;&#x3002;&#x7531;&#x4E8E;&#x5404;&#x4E2A;&#x8BBE;&#x5907;&#x95F4;&#x4F20;&#x8F93;&#x7684;&#x4EC5;&#x662F;&#x76F8;&#x90BB;&#x8BBE;&#x5907;&#x95F4;&#x7684;&#x8F93;&#x51FA;&#x5F20;&#x91CF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x68AF;&#x5EA6;&#x4FE1;&#x606F;&#xFF0C;&#x56E0;&#x6B64;&#x901A;&#x4FE1;&#x91CF;&#x8F83;&#x5C0F;&#x3002;</p>
+</blockquote>
+<h2 id="&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;">&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;</h2>
+<blockquote>
+<p><img src="Pipe Parallelism.assets/2-1731942949747.png" alt="2"></p>
+<p>&#x4E0B;&#x9762;&#x4EE5; 4 &#x5C42;&#x987A;&#x5E8F;&#x6A21;&#x578B;&#x4E3A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-text">output=L4(L3(L2(L1(input))))
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x8BA1;&#x7B97;&#x5206;&#x914D;&#x7ED9;&#x4E24;&#x4E2A; GPU&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<ul>
+<li>GPU1 computes: <code>intermediate=L2(L1(input))</code></li>
+<li>GPU2 computes: <code>output=L4(L3(intermediate))</code></li>
+</ul>
+<p>&#x4E3A;&#x4E86;&#x5B8C;&#x6210;&#x524D;&#x5411;&#x4F20;&#x64AD;&#xFF0C;&#x6211;&#x4EEC;&#x5728; GPU1 &#x4E0A;&#x8BA1;&#x7B97;&#x4E2D;&#x95F4;&#x503C;&#x5E76;&#x5C06;&#x7ED3;&#x679C;&#x5F20;&#x91CF;&#x4F20;&#x8F93;&#x5230; GPU2&#x3002; &#x7136;&#x540E;&#xFF0C; GPU2 &#x8BA1;&#x7B97;&#x6A21;&#x578B;&#x7684;&#x8F93;&#x51FA;&#x5E76;&#x5F00;&#x59CB;&#x8FDB;&#x884C;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x3002; &#x5BF9;&#x4E8E;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE; GPU2 &#x5230; GPU1 &#x7684;&#x4E2D;&#x95F4;&#x53D1;&#x9001;&#x68AF;&#x5EA6;&#x3002; &#x7136;&#x540E;&#xFF0C; GPU1 &#x6839;&#x636E;&#x53D1;&#x9001;&#x7684;&#x68AF;&#x5EA6;&#x5B8C;&#x6210;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x3002; &#x8FD9;&#x6837;&#xFF0C;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x8BAD;&#x7EC3;&#x4F1A;&#x4EA7;&#x751F;&#x4E0E;&#x5355;&#x8282;&#x70B9;&#x8BAD;&#x7EC3;&#x76F8;&#x540C;&#x7684;&#x8F93;&#x51FA;&#x548C;&#x68AF;&#x5EA6;&#x3002; &#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x8BAD;&#x7EC3;&#x76F8;&#x5F53;&#x4E8E;&#x987A;&#x5E8F;&#x8BAD;&#x7EC3;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x8C03;&#x8BD5;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8BF4;&#x660E;&#x4E86;&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x6267;&#x884C;&#x6D41;&#x7A0B;&#x3002; GPU1 &#x6267;&#x884C;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x5E76;&#x7F13;&#x5B58;&#x6FC0;&#x6D3B;&#xFF08;&#x7EA2;&#x8272;&#xFF09;&#x3002; &#x7136;&#x540E;&#xFF0C;&#x5B83;&#x4F7F;&#x7528; MPI &#x5C06; L2 &#x7684;&#x8F93;&#x51FA;&#x53D1;&#x9001;&#x5230; GPU2&#x3002; GPU2 &#x5B8C;&#x6210;&#x524D;&#x5411;&#x4F20;&#x64AD;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x76EE;&#x6807;&#x503C;&#x8BA1;&#x7B97;&#x635F;&#x5931;&#xFF0C;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x5F00;&#x59CB;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x3002; &#x4E00;&#x65E6; GPU2 &#x5B8C;&#x6210;&#xFF0C;&#x68AF;&#x5EA6;&#x7684;&#x8F93;&#x51FA;&#x88AB;&#x53D1;&#x9001;&#x5230; GPU1&#xFF0C;&#x4ECE;&#x800C;&#x5B8C;&#x6210;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x3002;</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x91CC;&#x4EC5;&#x4F7F;&#x7528;&#x4E86;&#x70B9;&#x5230;&#x70B9;&#x901A;&#x4FE1;&#xFF08;MPI.Send &#x548C; MPI.Recv&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x9700;&#x8981;&#x4EFB;&#x4F55;&#x96C6;&#x4F53;&#x901A;&#x4FE1;&#x539F;&#x8BED;&#xFF08;&#x56E0;&#x6B64;&#xFF0C;&#x4E0D;&#x9700;&#x8981; MPI.AllReduce&#xFF09;&#x3002;</p>
+<p><img src="Pipe Parallelism.assets/3-1731942955558.png" alt="3"></p>
+<p>&#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#x8BE5;&#x65B9;&#x6848;&#x5728;&#x4EFB;&#x610F;&#x7ED9;&#x5B9A;&#x65F6;&#x523B;&#xFF0C;&#x9664;&#x4E86;&#x4E00;&#x4E2A; GPU &#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709; GPU &#x90FD;&#x662F;&#x7A7A;&#x95F2;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528; 4 &#x4E2A; GPU&#xFF0C;&#x5219;&#x51E0;&#x4E4E;&#x7B49;&#x540C;&#x4E8E;&#x5C06;&#x5355;&#x4E2A; GPU &#x7684;&#x5185;&#x5B58;&#x91CF;&#x589E;&#x52A0;&#x56DB;&#x500D;&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x8D44;&#x6E90; (&#x5982;&#x8BA1;&#x7B97;) &#x76F8;&#x5F53;&#x4E8E;&#x6CA1;&#x7528;&#x4E0A;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5B58;&#x5728;&#x5F88;&#x591A;&#x7684;Bubble&#x3002;&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x7684; Bubble &#x7684;&#x65F6;&#x95F4;&#x4E3A; $O((k-1)/k)$&#xFF0C;<strong>&#x5F53;K&#x8D8A;&#x5927;&#xFF0C;&#x5373;GPU&#x7684;&#x6570;&#x91CF;&#x8D8A;&#x591A;&#x65F6;&#xFF0C;&#x7A7A;&#x7F6E;&#x7684;&#x6BD4;&#x4F8B;&#x63A5;&#x8FD1;1&#xFF0C;&#x5373;GPU&#x7684;&#x8D44;&#x6E90;&#x90FD;&#x88AB;&#x6D6A;&#x8D39;&#x6389;&#x4E86;</strong>&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x6734;&#x7D20;&#x7684;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;<strong>GPU&#x4F7F;&#x7528;&#x7387;&#x8FC7;&#x4F4E;</strong>&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x52A0;&#x4E0A;&#x5728;<strong>&#x8BBE;&#x5907;&#x4E4B;&#x95F4;&#x590D;&#x5236;&#x6570;&#x636E;&#x7684;&#x901A;&#x4FE1;&#x5F00;&#x9500;</strong>&#xFF1B;&#x6240;&#x4EE5;&#xFF0C; 4 &#x5F20;&#x4F7F;&#x7528;&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x7684; 6GB &#x5361;&#x5C06;&#x80FD;&#x591F;&#x5BB9;&#x7EB3; 1 &#x5F20; 24GB &#x5361;&#x76F8;&#x540C;&#x5927;&#x5C0F;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x800C;&#x540E;&#x8005;&#x8BAD;&#x7EC3;&#x5F97;&#x66F4;&#x5FEB;&#xFF1B;&#x56E0;&#x4E3A;&#xFF0C;&#x5B83;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x5F00;&#x9500;&#x3002;</p>
+<p>&#x8FD8;&#x6709;<strong>&#x901A;&#x4FE1;&#x548C;&#x8BA1;&#x7B97;&#x6CA1;&#x6709;&#x4EA4;&#x9519;</strong>&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x5F53;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x53D1;&#x9001;&#x4E2D;&#x95F4;&#x8F93;&#x51FA; (FWD) &#x548C;&#x68AF;&#x5EA6; (BWD) &#x65F6;&#xFF0C;&#x6CA1;&#x6709; GPU &#x6267;&#x884C;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x5B58;&#x5728;<strong>&#x9AD8;&#x5185;&#x5B58;&#x9700;&#x6C42;</strong>&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x5148;&#x6267;&#x884C;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x7684;GPU&#xFF08;&#x5982;&#xFF1A;GPU1&#xFF09;&#x5C06;&#x4FDD;&#x7559;&#x6574;&#x4E2A;&#x5C0F;&#x6279;&#x91CF;&#x7F13;&#x5B58;&#x7684;&#x6240;&#x6709;&#x6FC0;&#x6D3B;&#xFF0C;&#x76F4;&#x5230;&#x6700;&#x540E;&#x3002;&#x5982;&#x679C;&#x6279;&#x91CF;&#x5927;&#x5C0F;&#x5F88;&#x5927;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x4EA7;&#x751F;&#x5185;&#x5B58;&#x95EE;&#x9898;&#x3002;</p>
+</blockquote>
+<h2 id="&#x5FAE;&#x6279;&#x6B21;&#x6D41;&#x6C34;&#x7EBF;&#x6267;&#x884C;">&#x5FAE;&#x6279;&#x6B21;&#x6D41;&#x6C34;&#x7EBF;&#x6267;&#x884C;</h2>
+<blockquote>
+<p><img src="Pipe Parallelism.assets/4-1731942962033.png" alt="4"></p>
+<p>&#x5FAE;&#x6279;&#x6B21;&#xFF08;MicroBatch&#xFF09;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x4E0E;&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x51E0;&#x4E4E;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5B83;&#x901A;&#x8FC7;&#x5C06;&#x4F20;&#x5165;&#x7684;&#x5C0F;&#x6279;&#x6B21;&#xFF08;minibatch&#xFF09;&#x5206;&#x5757;&#x4E3A;&#x5FAE;&#x6279;&#x6B21;&#xFF08;microbatch&#xFF09;&#xFF0C;&#x5E76;&#x4EBA;&#x4E3A;&#x521B;&#x5EFA;&#x6D41;&#x6C34;&#x7EBF;&#x6765;&#x89E3;&#x51B3; GPU &#x7A7A;&#x95F2;&#x95EE;&#x9898;&#xFF0C;&#x4ECE;&#x800C;&#x5141;&#x8BB8;&#x4E0D;&#x540C;&#x7684; GPU &#x540C;&#x65F6;&#x53C2;&#x4E0E;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x663E;&#x8457;&#x63D0;&#x5347;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x8BBE;&#x5907;&#x5229;&#x7528;&#x7387;&#xFF0C;&#x51CF;&#x5C0F;&#x8BBE;&#x5907;&#x7A7A;&#x95F2;&#x72B6;&#x6001;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x76EE;&#x524D;&#x4E1A;&#x754C;&#x5E38;&#x89C1;&#x7684;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x65B9;&#x6CD5; GPipe &#x548C; PipeDream &#x90FD;&#x91C7;&#x7528;&#x5FAE;&#x6279;&#x6B21;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x65B9;&#x6848;&#x3002;</p>
+</blockquote>
+<h3 id="gpipe"><strong>GPipe</strong></h3>
+<blockquote>
+<p>GPipe&#xFF08;Easy Scaling with Micro-Batch Pipeline Parallelism&#xFF09;&#xFF0C;&#x7531;&#x8C37;&#x6B4C;&#x63D0;&#x51FA;&#x7684;&#x4E00;&#x79CD;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x65B9;&#x6848;&#x3002;&#x6700;&#x65E9;&#xFF0C;&#x8C37;&#x6B4C;&#x5728;Lingvo&#x6846;&#x67B6;&#x4E0B;&#x5F00;&#x6E90;&#x4E86;GPipe&#xFF0C;&#x57FA;&#x4E8E; TensorFlow &#x5E93;&#x8FDB;&#x884C;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x540E;&#x6765;&#xFF0C;Kakao Brain&#x7684;&#x5DE5;&#x7A0B;&#x5E08;&#x7528; PyTorch &#x6765;&#x5B9E;&#x73B0;&#x4E86; GPipe&#xFF0C;&#x5E76;&#x5F00;&#x6E90;&#x51FA;&#x6765;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; torchgpipe&#x3002;&#x4E4B;&#x540E;&#xFF0C;Facebook&#x7684;FairScale&#x5E93;&#x5C06;torchgpipe&#x96C6;&#x6210;&#x5230;&#x9879;&#x76EE;&#x4E2D;&#x3002;&#x518D;&#x540E;&#x6765;&#xFF0C;Facebook&#x53C8;&#x5C06;FairScale&#x5E93;&#x4E2D;&#x5173;&#x4E8E;torchgpipe&#x7684;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x96C6;&#x6210;&#x5230;&#x4E86;PyTorch 1.8.0 &#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#x4E2D;&#x3002;torchgpipe &#x7684;&#x8FD9;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x88AB;&#x5408;&#x5E76;&#x5230; <code>torch/distributed/pipeline/sync</code> &#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x662F;&#x57FA;&#x4E8E;PyTorch&#x4F7F;&#x7528;&#x5305;&#x542B;&#x4E24;&#x4E2A; FC &#x5C42;&#x7684;&#x6A21;&#x578B;&#x8DE8; GPU0 &#x548C; GPU1 &#x8FDB;&#x884C;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-text"># Need to initialize RPC framework first.
+os.environ[&apos;MASTER_ADDR&apos;] = &apos;localhost&apos;
+os.environ[&apos;MASTER_PORT&apos;] = &apos;29500&apos;
+torch.distributed.rpc.init_rpc(&apos;worker&apos;, rank=0, world_size=1)
+
+# &#x6784;&#x5EFA;&#x6A21;&#x578B;
+fc1 = nn.Linear(16, 8).cuda(0)
+fc2 = nn.Linear(8, 4).cuda(1)
+model = nn.Sequential(fc1, fc2)
+
+from torch.distributed.pipeline.sync import Pipe
+
+# chunks&#x8868;&#x793A;micro-batches&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;1
+model = Pipe(model, chunks=8)
+input = torch.rand(16, 16).cuda(0)
+output_rref = model(input)
+</code></pre>
+<p>Gpipe &#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#xFF0C;<strong>&#x63D0;&#x9AD8;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x7684;&#x5E76;&#x884C;&#x5EA6;</strong>&#x3002;Gpipe &#x5728;&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x5229;&#x7528;&#x6570;&#x636E;&#x5E76;&#x884C;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x5C06; mini-batch &#x7EC6;&#x5206;&#x4E3A;&#x591A;&#x4E2A;&#x66F4;&#x5C0F;&#x7684; micro-batch&#xFF0C;&#x9001;&#x5165;GPU&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#xFF0C;&#x6765;&#x63D0;&#x9AD8;&#x5E76;&#x884C;&#x7A0B;&#x5EA6;&#x3002;</p>
+<p><img src="Pipe Parallelism.assets/5.png" alt="5"></p>
+<p>&#x4E0A;&#x56FE;&#x5373;&#x4E3A;&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x4E0E; GPipe &#x5FAE;&#x6279;&#x6B21;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x901A;&#x8FC7; GPipe &#x53EF;&#x4EE5;&#x6709;&#x6548;&#x964D;&#x4F4E;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;bubble &#x7A7A;&#x95F4;&#x7684;&#x6BD4;&#x4F8B;&#x3002;&#x5176;&#x4E2D;&#xFF0C;F&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x4E0B;&#x6807;&#x8868;&#x793A; GPU &#x7F16;&#x53F7;&#xFF0C;F&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x4E0B;&#x6807;&#x8868;&#x793A; micro-batch &#x7F16;&#x53F7;&#x3002;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x5C06; mini-batch &#x5212;&#x5206;&#x4E3A; M &#x4E2A;&#xFF0C;&#x5219; GPipe &#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x4E0B;&#xFF0C; GPipe &#x6D41;&#x6C34;&#x7EBF; Bubble &#x65F6;&#x95F4;&#x4E3A;&#xFF1A; $O((K-1)/(K+M-1))$&#x3002;&#x5176;&#x4E2D;&#xFF0C;K&#x4E3A;&#x8BBE;&#x5907;&#xFF0C;M&#x4E3A;&#x5C06;mini-batch&#x5207;&#x6210;&#x591A;&#x5C11;&#x4E2A;micro-batch&#x3002;&#x5F53;M&gt;&gt;K&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x4E0D;&#x8BA1;&#x3002;</p>
+<p>&#x4F46;&#x8FD9;&#x6837;&#x505A;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;&#x574F;&#x5904;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x628A; batch &#x62C6;&#x5C0F;&#x4E86;&#x4E4B;&#x540E;&#xFF0C;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x9700;&#x8981;&#x7EDF;&#x8BA1;&#x91CF;&#x7684;&#x5C42;&#xFF08;&#x5982;&#xFF1A;Batch Normalization&#xFF09;&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x8BA1;&#x7B97;&#x53D8;&#x5F97;&#x9EBB;&#x70E6;&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x3002;&#x5728;Gpipe&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#xFF0C;&#x5728;&#x8BAD;&#x7EC3;&#x65F6;&#x8BA1;&#x7B97;&#x548C;&#x8FD0;&#x7528;&#x7684;&#x662F;micro-batch&#x91CC;&#x7684;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;&#xFF0C;&#x540C;&#x65F6;&#x6301;&#x7EED;&#x8FFD;&#x8E2A;&#x5168;&#x90E8;mini-batch&#x7684;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x548C;&#x65B9;&#x5DEE;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x6D4B;&#x8BD5;&#x9636;&#x6BB5;&#x8FDB;&#x884C;&#x4F7F;&#x7528;&#x3002;&#x8FD9;&#x6837; Layer Normalization &#x5219;&#x4E0D;&#x53D7;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#xFF0C;<strong>&#x901A;&#x8FC7;&#x91CD;&#x8BA1;&#x7B97;&#xFF08;Re-materialization&#xFF09;&#x964D;&#x4F4E;&#x663E;&#x5B58;&#x6D88;&#x8017;</strong>&#x3002;&#x5728;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x65F6;&#xFF0C;&#x4F1A;&#x8BB0;&#x5F55;&#x6BCF;&#x4E00;&#x4E2A;&#x7B97;&#x5B50;&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x7528;&#x4E8E;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x65F6;&#x7684;&#x68AF;&#x5EA6;&#x8BA1;&#x7B97;&#x3002;</p>
+<p><img src="Pipe Parallelism.assets/6.png" alt="6"></p>
+<p>&#x800C; Re-materialization &#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x4FDD;&#x5B58;&#x4E2D;&#x95F4;&#x5C42;&#x8F93;&#x51FA;&#x7684;&#x6FC0;&#x6D3B;&#x503C;&#xFF0C;&#x5728;&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x8FD9;&#x4E9B;&#x6FC0;&#x6D3B;&#x503C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;&#x3002;&#x5728; GPipe &#x4E2D;&#xFF0C;&#x5E94;&#x7528;&#x4E86;&#x8FD9;&#x4E2A;&#x6280;&#x672F;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;&#x4E0A;&#x6709;&#x591A;&#x5C42;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;<strong>&#x53EA;&#x4FDD;&#x5B58;&#x591A;&#x5C42;&#x4E2D;&#x7684;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x7684;&#x8F93;&#x51FA;&#x503C;</strong>&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x964D;&#x4F4E;&#x4E86;&#x6BCF;&#x4E2A;&#x8BBE;&#x5907;&#x4E0A;&#x5185;&#x5B58;&#x5360;&#x7528;&#x5CF0;&#x503C;&#xFF0C;&#x540C;&#x6837;&#x7684;&#x6A21;&#x578B;&#x5C3A;&#x5BF8;&#x9700;&#x8981;&#x7684;&#x663E;&#x5B58;&#x5C31;&#x5C11;&#x4E86;&#x3002;</p>
+<p><strong>Re-materialization&#x5E76;&#x975E;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#xFF0C;&#x800C;&#x662F;&#x6709;&#x529E;&#x6CD5;&#x5728;&#x6C42;&#x5BFC;&#x8FC7;&#x7A0B;&#x4E2D;&#x5B9E;&#x65F6;&#x7684;&#x8BA1;&#x7B97;&#x51FA;&#x4E4B;&#x524D;&#x88AB;&#x820D;&#x5F03;&#x6389;&#x7684;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;</strong>&#x3002;</p>
+<p>&#x7B80;&#x800C;&#x8A00;&#x4E4B;&#xFF0C;GPipe &#x901A;&#x8FC7;&#x7EB5;&#x5411;&#x5BF9;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x5207;&#x5206;&#x89E3;&#x51B3;&#x4E86;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x65E0;&#x6CD5;&#x8BAD;&#x7EC3;&#x5927;&#x6A21;&#x578B;&#x7684;&#x95EE;&#x9898;&#xFF1B;&#x540C;&#x65F6;&#xFF0C;&#x53C8;&#x901A;&#x8FC7;&#x5FAE;&#x6279;&#x91CF;&#x6D41;&#x6C34;&#x7EBF;&#x589E;&#x52A0;&#x4E86;&#x591A;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x5E76;&#x884C;&#x7A0B;&#x5EA6;&#xFF0C;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x4F7F;&#x7528;re-materialization&#x964D;&#x4F4E;&#x4E86;&#x5355;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x663E;&#x5B58;&#x5CF0;&#x503C;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x8BB2;&#x8FF0;&#x4E86; GPipe &#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x65B9;&#x6848;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8BB2;&#x8FF0;&#x4E00;&#x4E0B; PipeDream &#x3002;&#x8BB2;&#x8FF0; PipeDream&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x7B56;&#x7565;&#x3002;</p>
+</blockquote>
+<h2 id="&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x7B56;&#x7565;">&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x7B56;&#x7565;</h2>
+<h3 id="f-then-b-&#x7B56;&#x7565;">F-then-B &#x7B56;&#x7565;</h3>
+<blockquote>
+<p>F-then-B &#x6A21;&#x5F0F;&#xFF0C;&#x5148;&#x8FDB;&#x884C;&#x524D;&#x5411;&#x8BA1;&#x7B97;&#xFF0C;&#x518D;&#x8FDB;&#x884C;&#x53CD;&#x5411;&#x8BA1;&#x7B97;&#x3002;</p>
+<p>F-then-B &#x6A21;&#x5F0F;&#x7531;&#x4E8E;&#x7F13;&#x5B58;&#x4E86;&#x591A;&#x4E2A; micro-batch &#x7684;&#x4E2D;&#x95F4;&#x53D8;&#x91CF;&#x548C;&#x68AF;&#x5EA6;&#xFF0C;&#x663E;&#x5B58;&#x7684;&#x5B9E;&#x9645;&#x5229;&#x7528;&#x7387;&#x5E76;&#x4E0D;&#x9AD8;&#x3002;</p>
+<p><img src="Pipe Parallelism.assets/7.png" alt="7"></p>
+</blockquote>
+<h3 id="1f1b-&#x7B56;&#x7565;">1F1B &#x7B56;&#x7565;</h3>
+<blockquote>
+<p>1F1B&#xFF08;One Forward pass followed by One Backward pass&#xFF09;&#x6A21;&#x5F0F;&#xFF0C;&#x4E00;&#x79CD;&#x524D;&#x5411;&#x8BA1;&#x7B97;&#x548C;&#x53CD;&#x5411;&#x8BA1;&#x7B97;&#x4EA4;&#x53C9;&#x8FDB;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x5728; 1F1B &#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x524D;&#x5411;&#x8BA1;&#x7B97;&#x548C;&#x53CD;&#x5411;&#x8BA1;&#x7B97;&#x4EA4;&#x53C9;&#x8FDB;&#x884C;&#xFF0C;&#x53EF;&#x4EE5;&#x53CA;&#x65F6;&#x91CA;&#x653E;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x4E2D;&#x95F4;&#x53D8;&#x91CF;&#x3002;</p>
+<p><img src="Pipe Parallelism.assets/8.png" alt="8"></p>
+<p>1F1B &#x793A;&#x4F8B;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x4EE5; stage4 &#x7684; F42&#xFF08;<strong>stage4 &#x7684;&#x7B2C; 2 &#x4E2A; micro-batch &#x7684;&#x524D;&#x5411;&#x8BA1;&#x7B97;</strong>&#xFF09;&#x4E3A;&#x4F8B;&#xFF0C;F42 &#x5728;&#x8BA1;&#x7B97;&#x524D;&#xFF0C;F41 &#x7684;&#x53CD;&#x5411; B41&#xFF08;stage4 &#x7684;&#x7B2C; 1 &#x4E2A; micro-batch &#x7684;&#x53CD;&#x5411;&#x8BA1;&#x7B97;&#xFF09;&#x5DF2;&#x7ECF;&#x8BA1;&#x7B97;&#x7ED3;&#x675F;&#xFF0C;&#x5373;&#x53EF;&#x91CA;&#x653E; F41 &#x7684;&#x4E2D;&#x95F4;&#x53D8;&#x91CF;&#xFF0C;&#x4ECE;&#x800C; F42 &#x53EF;&#x4EE5;<strong>&#x590D;&#x7528;</strong> F41 &#x4E2D;&#x95F4;&#x53D8;&#x91CF;&#x7684;&#x663E;&#x5B58;&#x3002;</p>
+<p>&#x7814;&#x7A76;&#x8868;&#x660E;&#xFF0C;1F1B &#x65B9;&#x5F0F;&#x76F8;&#x6BD4;&#x4E8E; F-then-B &#x65B9;&#x5F0F;&#xFF0C;&#x5CF0;&#x503C;&#x663E;&#x5B58;&#x53EF;&#x4EE5;&#x8282;&#x7701; 37.5%&#xFF0C;&#x5BF9;&#x6BD4;&#x6734;&#x7D20;&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x5CF0;&#x503C;&#x663E;&#x5B58;&#x660E;&#x663E;&#x4E0B;&#x964D;&#xFF0C;&#x8BBE;&#x5907;&#x8D44;&#x6E90;&#x5229;&#x7528;&#x7387;&#x663E;&#x8457;&#x63D0;&#x5347;&#x3002;</p>
+</blockquote>
+<h2 id="pipedream&#xFF08;&#x975E;&#x4EA4;&#x9519;&#x5F0F;1f1b&#xFF09;-deepspeed">PipeDream&#xFF08;&#x975E;&#x4EA4;&#x9519;&#x5F0F;1F1B&#xFF09;-DeepSpeed</h2>
+<blockquote>
+<p>&#x5FAE;&#x8F6F; DeepSpeed &#x63D0;&#x51FA;&#x7684; PipeDream &#xFF0C;&#x9488;&#x5BF9;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x7684;&#x6539;&#x8FDB;&#x65B9;&#x6CD5;&#x5C31;&#x662F; 1F1B &#x7B56;&#x7565;&#x3002;&#x8FD9;&#x79CD;&#x6539;&#x8FDB;&#x7B56;&#x7565;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x7F13;&#x5B58; activation &#x7684;&#x4EFD;&#x6570;&#x95EE;&#x9898;&#xFF0C;&#x4F7F;&#x5F97; activation &#x7684;&#x7F13;&#x5B58;&#x6570;&#x91CF;&#x53EA;&#x8DDF; stage &#x6570;&#x76F8;&#x5173;&#xFF0C;&#x4ECE;&#x800C;&#x8FDB;&#x4E00;&#x6B65;&#x8282;&#x7701;&#x663E;&#x5B58;&#xFF0C;&#x8BAD;&#x7EC3;&#x66F4;&#x5927;&#x7684;&#x6A21;&#x578B;&#x3002;&#x5176;&#x89E3;&#x51B3;&#x601D;&#x8DEF;&#x5C31;&#x662F;&#x52AA;&#x529B;&#x51CF;&#x5C11;&#x6BCF;&#x4E2A; activation &#x7684;&#x4FDD;&#x5B58;&#x65F6;&#x95F4;&#xFF0C;&#x5373;&#x8FD9;&#x5C31;&#x9700;&#x8981;&#x6BCF;&#x4E2A;&#x5FAE;&#x6279;&#x6B21;&#x6570;&#x636E;&#x5C3D;&#x53EF;&#x80FD;&#x65E9;&#x7684;&#x5B8C;&#x6210;&#x540E;&#x5411;&#x8BA1;&#x7B97;&#xFF0C;&#x4ECE;&#x800C;&#x8BA9;&#x6BCF;&#x4E2A; activation &#x5C3D;&#x53EF;&#x80FD;&#x65E9;&#x91CA;&#x653E;&#x3002;</p>
+<p><img src="Pipe Parallelism.assets/9.png" alt="9"></p>
+</blockquote>
+<p>to be continue</p>
+<hr>
+<p><strong>Todo</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/665993846" target="_blank">pytorch&#x6D41;&#x6C34;&#x7EBF;&#x5E76;&#x884C;&#x6E90;&#x7801;&#x89E3;&#x6790;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Data Parallelism.html" class="navigation navigation-prev " aria-label="Previous page: Data Parallelism">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Tensor Parallelism.html" class="navigation navigation-next " aria-label="Next page: Tensor Parallelism">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Pipe Parallelism","level":"4.3.2","depth":2,"next":{"title":"Tensor Parallelism","level":"4.3.3","depth":2,"path":"Study Notes/LLM Parallelism/Tensor Parallelism.md","ref":"Study Notes/LLM Parallelism/Tensor Parallelism.md","articles":[]},"previous":{"title":"Data Parallelism","level":"4.3.1","depth":2,"path":"Study Notes/LLM Parallelism/Data Parallelism.md","ref":"Study Notes/LLM Parallelism/Data Parallelism.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex","expandable-chapters-small"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Study Notes/LLM Parallelism/Pipe Parallelism.md","mtime":"2024-12-02T02:35:31.794Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-02T02:36:07.078Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

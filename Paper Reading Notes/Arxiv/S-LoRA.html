@@ -1,0 +1,1740 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>S-LoRA · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="MemServe.md" />
+    
+    
+    <link rel="prev" href="Mooncake.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Academic Writing/">
+            
+                <a href="../../Blogs/Academic Writing/">
+            
+                    
+                    Academic Writing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../Blogs/Academic Writing/design of system.html">
+            
+                <a href="../../Blogs/Academic Writing/design of system.html">
+            
+                    
+                    Design Of System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/academic reading.html">
+            
+                <a href="../../Blogs/academic reading.html">
+            
+                    
+                    Academic Reading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Blogs/how to express.html">
+            
+                <a href="../../Blogs/how to express.html">
+            
+                    
+                    How To Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Arxiv
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="Mooncake.html">
+            
+                <a href="Mooncake.html">
+            
+                    
+                    Mooncake
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.2" data-path="S-LoRA.html">
+            
+                <a href="S-LoRA.html">
+            
+                    
+                    S-LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="MemServe.md">
+            
+                <span>
+            
+                    
+                    MemServe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../ASPLOS 2024/">
+            
+                <a href="../ASPLOS 2024/">
+            
+                    
+                    ASPLOS 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../ASPLOS 2024/ExeGPT.html">
+            
+                <a href="../ASPLOS 2024/ExeGPT.html">
+            
+                    
+                    Exe GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../ASPLOS 2024/SpecInfer.html">
+            
+                <a href="../ASPLOS 2024/SpecInfer.html">
+            
+                    
+                    Spec Infer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../OSDI 2024/">
+            
+                <a href="../OSDI 2024/">
+            
+                    
+                    OSDI 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../OSDI 2024/Llumnix.html">
+            
+                <a href="../OSDI 2024/Llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../OSDI 2024/ServerlessLLM.html">
+            
+                <a href="../OSDI 2024/ServerlessLLM.html">
+            
+                    
+                    Serverless LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../OSDI 2024/Fairness in Serving LLM.md">
+            
+                <span>
+            
+                    
+                    Fairness in Serving LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../SOSP 2024/">
+            
+                <a href="../SOSP 2024/">
+            
+                    
+                    SOSP 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../SOSP 2024/Apparate.html">
+            
+                <a href="../SOSP 2024/Apparate.html">
+            
+                    
+                    Apparate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../SOSP 2024/LoongServe.html">
+            
+                <a href="../SOSP 2024/LoongServe.html">
+            
+                    
+                    Loong Serve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../FAST 2023/">
+            
+                <a href="../FAST 2023/">
+            
+                    
+                    FAST 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../FAST 2023/Resource Scheduling for LC Services.html">
+            
+                <a href="../FAST 2023/Resource Scheduling for LC Services.html">
+            
+                    
+                    Resource Scheduling For LC Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../ICML 2023/">
+            
+                <a href="../ICML 2023/">
+            
+                    
+                    ICML 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../ICML 2023/FlexGen.html">
+            
+                <a href="../ICML 2023/FlexGen.html">
+            
+                    
+                    Flex Gen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../NSDI 2023/">
+            
+                <a href="../NSDI 2023/">
+            
+                    
+                    NSDI 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../NSDI 2023/Shockwave.html">
+            
+                <a href="../NSDI 2023/Shockwave.html">
+            
+                    
+                    Shockwave
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../SC 2023/">
+            
+                <a href="../SC 2023/">
+            
+                    
+                    SC 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="../SC 2023/AutoMap.html">
+            
+                <a href="../SC 2023/AutoMap.html">
+            
+                    
+                    Auto Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../SOSP 2023/">
+            
+                <a href="../SOSP 2023/">
+            
+                    
+                    SOSP 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.9.1" data-path="../SOSP 2023/vllm.html">
+            
+                <a href="../SOSP 2023/vllm.html">
+            
+                    
+                    Vllm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../OSDI 2022/">
+            
+                <a href="../OSDI 2022/">
+            
+                    
+                    OSDI 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.10.1" data-path="../OSDI 2022/Orca.html">
+            
+                <a href="../OSDI 2022/Orca.html">
+            
+                    
+                    Orca
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../SC 2022/">
+            
+                <a href="../SC 2022/">
+            
+                    
+                    SC 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.11.1" data-path="../SC 2022/CoGNN.html">
+            
+                <a href="../SC 2022/CoGNN.html">
+            
+                    
+                    Co GNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11.2" data-path="../SC 2022/VSGM.html">
+            
+                <a href="../SC 2022/VSGM.html">
+            
+                    
+                    VSGM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../OSDI 2020/">
+            
+                <a href="../OSDI 2020/">
+            
+                    
+                    OSDI 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.12.1" data-path="../OSDI 2020/Gavel.html">
+            
+                <a href="../OSDI 2020/Gavel.html">
+            
+                    
+                    Gavel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../SIGMOD 2020/">
+            
+                <a href="../SIGMOD 2020/">
+            
+                    
+                    SIGMOD 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.13.1" data-path="../SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                <a href="../SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                    
+                    GPU Based Subgraph Enumerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../OSDI 2018/">
+            
+                <a href="../OSDI 2018/">
+            
+                    
+                    OSDI 2018
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.14.1" data-path="../OSDI 2018/Ray.html">
+            
+                <a href="../OSDI 2018/Ray.html">
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../Study Notes/CME 213/">
+            
+                <a href="../../Study Notes/CME 213/">
+            
+                    
+                    CME 213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../Study Notes/CME 213/C++.html">
+            
+                <a href="../../Study Notes/CME 213/C++.html">
+            
+                    
+                    C
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../Study Notes/CUDA/">
+            
+                <a href="../../Study Notes/CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../Study Notes/CUDA/CUDA Warp Level.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA Warp Level.html">
+            
+                    
+                    CUDA Warp Level
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../Study Notes/CUDA/CUDA1 Basic.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA1 Basic.html">
+            
+                    
+                    CUDA 1 Basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../../Study Notes/CUDA/CUDA2 Brief Summary.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA2 Brief Summary.html">
+            
+                    
+                    CUDA 2 Brief Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../../Study Notes/CUDA/CUDA3 Kernels.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA3 Kernels.html">
+            
+                    
+                    CUDA 3 Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../../Study Notes/CUDA/Nsight System.html">
+            
+                <a href="../../Study Notes/CUDA/Nsight System.html">
+            
+                    
+                    Nsight System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../Study Notes/LLM Parallelism/">
+            
+                <a href="../../Study Notes/LLM Parallelism/">
+            
+                    
+                    LLM Parallelism
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../Study Notes/LLM Parallelism/Data Parallelism.html">
+            
+                <a href="../../Study Notes/LLM Parallelism/Data Parallelism.html">
+            
+                    
+                    Data Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../../Study Notes/LLM Parallelism/Pipe Parallelism.html">
+            
+                <a href="../../Study Notes/LLM Parallelism/Pipe Parallelism.html">
+            
+                    
+                    Pipe Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../../Study Notes/LLM Parallelism/Tensor Parallelism.html">
+            
+                <a href="../../Study Notes/LLM Parallelism/Tensor Parallelism.html">
+            
+                    
+                    Tensor Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../Study Notes/MIT 6.172/">
+            
+                <a href="../../Study Notes/MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../../Study Notes/MIT 6.172/mit-6-172-1.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-1.html">
+            
+                    
+                    Mit 6 172 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../../Study Notes/MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Mit 6 172 12
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../../Study Notes/MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Mit 6 172 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../../Study Notes/MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Mit 6 172 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../../Study Notes/MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    Mit 6 172 Hw 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../../Study Notes/MLSYS/">
+            
+                <a href="../../Study Notes/MLSYS/">
+            
+                    
+                    MLSYS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../../Study Notes/MLSYS/Llama Model's Decoder Code.html">
+            
+                <a href="../../Study Notes/MLSYS/Llama Model's Decoder Code.html">
+            
+                    
+                    Llama Model S Decoder Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../../Study Notes/MLSYS/LLM Calculation.html">
+            
+                <a href="../../Study Notes/MLSYS/LLM Calculation.html">
+            
+                    
+                    LLM Calculation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../../Study Notes/MLSYS/LLM Deployment Record.html">
+            
+                <a href="../../Study Notes/MLSYS/LLM Deployment Record.html">
+            
+                    
+                    LLM Deployment Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../../Study Notes/MLSYS/Sepculative Decoding.html">
+            
+                <a href="../../Study Notes/MLSYS/Sepculative Decoding.html">
+            
+                    
+                    Sepculative Decoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../../Study Notes/NLP/">
+            
+                <a href="../../Study Notes/NLP/">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../../Study Notes/NLP/Basics of Machine Learning.html">
+            
+                <a href="../../Study Notes/NLP/Basics of Machine Learning.html">
+            
+                    
+                    Basics Of Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../../Study Notes/NLP/GPT.html">
+            
+                <a href="../../Study Notes/NLP/GPT.html">
+            
+                    
+                    GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../../Study Notes/NLP/Implementation Neural Network.html">
+            
+                <a href="../../Study Notes/NLP/Implementation Neural Network.html">
+            
+                    
+                    Implementation Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="../../Study Notes/NLP/Loss Function.html">
+            
+                <a href="../../Study Notes/NLP/Loss Function.html">
+            
+                    
+                    Loss Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.5" data-path="../../Study Notes/NLP/Recurrent Neural Network.html">
+            
+                <a href="../../Study Notes/NLP/Recurrent Neural Network.html">
+            
+                    
+                    Recurrent Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.6" data-path="../../Study Notes/NLP/Seq2Seq and Attention.html">
+            
+                <a href="../../Study Notes/NLP/Seq2Seq and Attention.html">
+            
+                    
+                    Seq 2 Seq And Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../../Study Notes/OPENMP/">
+            
+                <a href="../../Study Notes/OPENMP/">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../../Study Notes/OPENMP/openmp.html">
+            
+                <a href="../../Study Notes/OPENMP/openmp.html">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../../Study Notes/Triton/">
+            
+                <a href="../../Study Notes/Triton/">
+            
+                    
+                    Triton
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../../Study Notes/Ray/index.md">
+            
+                <span>
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../../Study Notes/vLLM Code/">
+            
+                <a href="../../Study Notes/vLLM Code/">
+            
+                    
+                    VLLM Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.10.1" data-path="../../Study Notes/vLLM Code/vllm-async-llm.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-async-llm.html">
+            
+                    
+                    Vllm Async Llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.2" data-path="../../Study Notes/vLLM Code/vllm-attention.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-attention.html">
+            
+                    
+                    Vllm Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.3" data-path="../../Study Notes/vLLM Code/vllm-block.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-block.html">
+            
+                    
+                    Vllm Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.4" data-path="../../Study Notes/vLLM Code/vllm-cache.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-cache.html">
+            
+                    
+                    Vllm Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.5" data-path="../../Study Notes/vLLM Code/vllm-chunked-prefill.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-chunked-prefill.html">
+            
+                    
+                    Vllm Chunked Prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.6" data-path="../../Study Notes/vLLM Code/vllm-cpu.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-cpu.html">
+            
+                    
+                    Vllm Cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.7" data-path="../../Study Notes/vLLM Code/vllm-llama.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-llama.html">
+            
+                    
+                    Vllm Llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.8" data-path="../../Study Notes/vLLM Code/vllm-LoRA.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-LoRA.html">
+            
+                    
+                    Vllm Lo RA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.9" data-path="../../Study Notes/vLLM Code/vllm-metadata.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-metadata.html">
+            
+                    
+                    Vllm Metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.10" data-path="../../Study Notes/vLLM Code/vllm-profile.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-profile.html">
+            
+                    
+                    Vllm Profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.11" data-path="../../Study Notes/vLLM Code/vllm-ray.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-ray.html">
+            
+                    
+                    Vllm Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.12" data-path="../../Study Notes/vLLM Code/vllm-schedule.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-schedule.html">
+            
+                    
+                    Vllm Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../../Study Notes/Llumnix Code/">
+            
+                <a href="../../Study Notes/Llumnix Code/">
+            
+                    
+                    Llumnix Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.11.1" data-path="../../Study Notes/Llumnix Code/llumnix.html">
+            
+                <a href="../../Study Notes/Llumnix Code/llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../../Study Notes/LoongServe Code/">
+            
+                <a href="../../Study Notes/LoongServe Code/">
+            
+                    
+                    LoongServe Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >S-LoRA</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="s-lora-serving-thousands-of-concurrent-lora-adapters"><a href="https://arxiv.org/abs/2311.03285" target="_blank">S-LORA: SERVING THOUSANDS OF CONCURRENT LORA ADAPTERS</a></h1>
+<p>UCB&#xFF0C;Standford&#x56E2;&#x961F;&#xFF0C;&#x6BD4;&#x5982;vLLM&#x56E2;&#x961F;&#x4E2D;&#x7684;Ying Sheng&#x548C;Ion Stoica</p>
+<h2 id="&#x80CC;&#x666F;">&#x80CC;&#x666F;</h2>
+<p><strong>LoRA</strong></p>
+<ul>
+<li><p>One of the key innovations in the LoRA paper was the elimination of adapter inference latency by directly merging the adapter with the model parameters</p>
+</li>
+<li><p>&#x4E00;&#x4E2A;model&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x591A;&#x4E2A;LoRA adapters&#x6765;&#x8FDB;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x63A8;&#x7406;</p>
+</li>
+</ul>
+<p><img src="S-LoRA.assets/1.png" alt="1"></p>
+<hr>
+<p><strong>Serving Large Language Models</strong></p>
+<ul>
+<li>Background</li>
+<li>Orca: iteration-level scheduling</li>
+<li>vLLM: PagedAttention</li>
+<li>model parallelism<ul>
+<li>tensor</li>
+<li>sequence</li>
+<li>pipeline</li>
+<li>and their combinations</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x5148;&#x524D;&#x5DE5;&#x4F5C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;">&#x5148;&#x524D;&#x5DE5;&#x4F5C;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;</h2>
+<ul>
+<li>&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;LoRA&#x63A8;&#x7406;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x5BF9;&#x4E8E;base model &#x8FDB;&#x884C;add or subtract LoRA&#x6743;&#x91CD;&#x64CD;&#x4F5C;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x670D;&#x52A1;&#x7684;&#x541E;&#x5410;&#x7387;&#xFF0C;&#x4E5F;&#x589E;&#x52A0;&#x4E86;&#x603B;&#x5EF6;&#x8FDF;</li>
+<li>&#x5E76;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x5229;&#x7528;main memory&#x6765;&#x589E;&#x52A0;&#x6258;&#x7BA1;&#x7684;Adapter&#x6570;&#x91CF;&#x7684;&#x673A;&#x4F1A;</li>
+</ul>
+<h2 id="&#x521B;&#x65B0;&#x70B9;">&#x521B;&#x65B0;&#x70B9;</h2>
+<ul>
+<li>Unified Paging<ul>
+<li>&#x901A;&#x8FC7;&#x7EDF;&#x4E00;&#x5206;&#x9875;&#x673A;&#x5236;&#x6765;&#x7BA1;&#x7406;adapter&#x7684;&#x6743;&#x91CD;&#x548C;KV cache</li>
+</ul>
+</li>
+<li>Heterogeneous Batching<ul>
+<li>&#x9AD8;&#x5EA6;&#x4F18;&#x5316;&#x7684;&#x5728;&#x975E;&#x8FDE;&#x7EED;&#x5185;&#x5B58;&#x4E0A;&#x7684;CUDA kernel&#xFF0C;&#x53EF;&#x4EE5;&#x4FC3;&#x8FDB;LoRA&#x7684;&#x9AD8;&#x6548;&#x6279;&#x5904;&#x7406;</li>
+</ul>
+</li>
+<li>S-LoRA TP<ul>
+<li>&#x5B9A;&#x5236;&#x4E86;&#x4E00;&#x4E2A;Tensor Parallelism&#x673A;&#x5236;&#xFF0C;&#x6700;&#x5C0F;&#x5316;add LoRA weight&#x7684;&#x5EF6;&#x8FDF;</li>
+<li>&#x5728;&#x5C0F;tensor&#x4E0A;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;&#x901A;&#x4FE1;&#xFF0C;&#x5927;tensor&#x548C;base model&#x4E00;&#x8D77;&#x8FDB;&#x884C;&#x901A;&#x4FE1;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x96BE;&#x70B9;">&#x96BE;&#x70B9;</h2>
+<ul>
+<li>&#x5982;&#x4F55;&#x5728;&#x4F7F;&#x7528;&#x591A;&#x79CD;LoRA Adapter&#x7684;&#x60C5;&#x51B5;&#x8FDB;&#x884C;batching<ul>
+<li>&#x9700;&#x8981;&#x6709;&#x6548;&#x7684;&#x5185;&#x5B58;&#x7BA1;&#x7406;</li>
+<li>Adapter&#x7684;rank&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5360;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x4E0D;&#x4E00;&#xFF1B;req&#x7684;kv cache&#x4E5F;&#x9700;&#x8981;&#x52A8;&#x6001;&#x8FDB;&#x884C;&#x5206;&#x914D;&#x548C;&#x91CA;&#x653E;&#x3002;&#x6240;&#x4EE5;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#x5185;&#x5B58;&#x788E;&#x7247;&#x548C;I/O&#x5F00;&#x9500;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5982;&#x4F55;&#x5728;&#x975E;&#x8FDE;&#x7EED;&#x5185;&#x5B58;&#x4E2D;&#x8FDB;&#x884C;&#x4E0D;&#x540C;rank&#x7684;adapters&#x7684;&#x5206;&#x79BB;&#x8BA1;&#x7B97;<ul>
+<li>&#x9700;&#x8981;&#x91CD;&#x5199;kernel&#x51FD;&#x6570;</li>
+</ul>
+</li>
+<li>&#x591A;GPU&#x673A;&#x5668;&#x4E0A;&#x4E5F;&#x9700;&#x8981;&#x65B0;&#x7684;&#x5E76;&#x884C;&#x7B56;&#x7565;</li>
+</ul>
+<h2 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2>
+<h3 id="4-batching-and-scheduling">4 BATCHING AND SCHEDULING</h3>
+<p><strong>Batching</strong></p>
+<p>&#x8FC7;&#x53BB;&#x5904;&#x7406;LoRA Adapter&#x7684;&#x53D1;&#x5C55;&#xFF1A; </p>
+<ol>
+<li>&#x76F4;&#x63A5;&#x5C06;adapter merge&#x5230;base model&#x91CC;&#x9762;<ul>
+<li>&#x4E0D;&#x9002;&#x5408;&#x591A;adapter&#x80CC;&#x666F;</li>
+</ul>
+</li>
+<li>&#x52A8;&#x6001;&#x7684;add&#x548C;subtract LoRA weights<ul>
+<li>&#x53EA;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x5355;&#x4E2A;adapter&#x8BA1;&#x7B97;</li>
+</ul>
+</li>
+</ol>
+<p>&#x672C;&#x6587;&#x63D0;&#x51FA;&#x4E86;&#x5B9E;&#x65F6;&#x8FDB;&#x884C;$xAB$&#x8BA1;&#x7B97;&#x7684;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>&#x4F1A;&#x5E26;&#x6765;&#x8BA1;&#x7B97;AB&#x7684;&#x989D;&#x5916;&#x5F00;&#x9500;</li>
+<li>&#x4F46;&#x6279;&#x5904;&#x7406;&#x4E5F;&#x4F1A;&#x5E26;&#x6765;&#x989D;&#x5916;&#x7684;&#x8282;&#x7701;</li>
+<li>&#x8282;&#x7701;&gt;&#x5F00;&#x9500;</li>
+</ul>
+<p>&#x5B9E;&#x73B0;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li>&#x4F7F;&#x7528;BLAS &#x5E93;&#x4E2D;&#x7684;GEMM kernel&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x673A;&#x5236;&#x4F1A;&#x56E0;&#x4E3A; seq&#x7684;&#x957F;&#x5EA6;&#x548C;adapter&#x7684;rank&#x7684;&#x5F02;&#x8D28;&#x6027; &#x800C;&#x9020;&#x6210;&#x9700;&#x8981;padding&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x786C;&#x4EF6;&#x5229;&#x7528;&#x7387;&#x8F83;&#x5DEE;</li>
+</ul>
+<p>&#x5B9E;&#x73B0;&#xFF1A;</p>
+<ul>
+<li>&#x91C7;&#x7528;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684;CUDA kernel&#x6765;&#x5C06;&#x8FDB;&#x884C;$xAB$&#x8BA1;&#x7B97;</li>
+<li>&#x5C06;LoRA Adapter&#x5148;&#x5B58;&#x5230;CPU&#x4E3B;&#x5B58;&#x4E0A;&#xFF0C;&#x7136;&#x540E;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x518D;&#x79FB;&#x52A8;&#x5230;GPU&#x4E2D;</li>
+<li>&#x91C7;&#x7528;&#x4E86;Orca&#x7684;&#x8FED;&#x4EE3;&#x7EA7;&#x8C03;&#x5EA6;&#x7B56;&#x7565;</li>
+</ul>
+<hr>
+<p><strong>Adapter Clustering</strong></p>
+<p>&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;batching efficiency&#xFF0C;&#x4E00;&#x4E2A;&#x6F5C;&#x5728;&#x7684;&#x7B56;&#x7565;&#x662F;</p>
+<ul>
+<li>&#x51CF;&#x5C11;active adapters&#x5728;running batch&#x4E2D;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6709;&#x66F4;&#x591A;&#x7A7A;&#x95F4;&#x7528;&#x4E8E;KV cache</li>
+<li>&#x66F4;&#x591A;&#x7684;KV cache&#x4F1A;&#x53EF;&#x4EE5;&#x6709;&#x66F4;&#x5927;&#x7684;batch size&#xFF0C;&#x4E14;&#x5728;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;decoding&#x9636;&#x6BB5;&#x4E2D;GPU&#x5185;&#x5B58;&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x5145;&#x5206;&#x5229;&#x7528;&#xFF0C;&#x4F1A;&#x6709;&#x66F4;&#x9AD8;&#x7684;&#x541E;&#x5410;&#x91CF;</li>
+</ul>
+<blockquote>
+<p> [fixme] &#x8FD9;&#x91CC;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x5662;&#xFF01;</p>
+</blockquote>
+<p>&#x4E3A;&#x4E86;&#x51CF;&#x5C11;activate adapter</p>
+<ul>
+<li>&#x5BF9;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;adapter&#x7684;req&#x8FDB;&#x884C;&#x4F18;&#x5148;&#x7EA7;&#x6392;&#x5E8F;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;adapter&#x7684;&#x5C31;&#x79F0;&#x4E3A;&#x4E00;&#x4E2A;adapter clustering</li>
+<li>&#x4F46;&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x635F;&#x5BB3;adapter&#x4E4B;&#x95F4;&#x7684;&#x5E73;&#x5747;&#x5EF6;&#x8FDF;&#x548C;&#x516C;&#x5E73;&#x6027;&#xFF0C;&#x5728;&#x9644;&#x5F55;A&#x63D0;&#x4F9B;&#x4E86;&#x6D88;&#x878D;&#x5B9E;&#x9A8C;&#xFF01;</li>
+</ul>
+<hr>
+<p> <strong>Admission Control</strong></p>
+<p>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x65E9;&#x671F;&#x7684;&#x51C6;&#x5165;&#x673A;&#x5236;&#xFF0C;&#x4F30;&#x8BA1;&#x53EF;&#x4EE5;&#x5728;SLO&#x4E2D;&#x53EF;&#x4EE5;&#x670D;&#x52A1;&#x7684;adapter clusters&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6309;&#x5230;&#x8FBE;&#x65F6;&#x95F4;&#x9001;&#x8FBE;&#x3002;</p>
+<h3 id="5-memory-management">5 MEMORY MANAGEMENT</h3>
+<p>&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x95EE;&#x9898;</p>
+<ul>
+<li>&#x52A8;&#x6001;&#x6027;&#x9020;&#x6210;&#x7684;&#x5185;&#x5B58;&#x788E;&#x7247;</li>
+<li>&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x5230;GPU&#x4E0A;&#x7684;Latency</li>
+</ul>
+<p>&#x63D0;&#x51FA;&#x4E86;</p>
+<ul>
+<li>&#x7EDF;&#x4E00;&#x5206;&#x9875;&#x673A;&#x5236;&#xFF0C;&#x628A;vLLM&#x7684;&#x79FB;&#x8FC7;&#x6765;</li>
+</ul>
+<p>&#x200B;        <img src="S-LoRA.assets/2.png" alt="2"></p>
+<ul>
+<li>&#x9884;&#x53D6;Adapter&#x4F7F;&#x5F97;&#x901A;&#x4FE1;&#x548C;&#x8BA1;&#x7B97;&#x91CD;&#x53E0;</li>
+</ul>
+<p>&#x200B;        &#x52A8;&#x6001;&#x9884;&#x6D4B;&#x4E0B;&#x4E00;&#x4E2A;&#x6279;&#x5904;&#x7406;&#x9700;&#x8981;&#x7684;Adapter&#xFF0C;&#x63D0;&#x524D;&#x79FB;&#x52A8;&#x5230;GPU&#x4E0A;&#xFF0C;&#x51CF;&#x5C11;&#x4E86;&#x4E3A;&#x4E86;swap adapter&#x7684;I/O&#x65F6;&#x95F4;</p>
+<ul>
+<li>&#x9488;&#x5BF9;&#x4E8E;&#x975E;&#x8FDE;&#x7EED;&#x5185;&#x5B58;&#x5206;&#x5E03;&#x7684;&#x81EA;&#x5B9A;&#x4E49;CUDA&#x8BA1;&#x7B97;&#x5185;&#x6838;<ul>
+<li>Triton&#x5B9E;&#x73B0;&#x7684;&#x7248;&#x672C;</li>
+<li>&#x65E9;&#x671F;Punica&#x5B9E;&#x73B0;&#x7684;&#x7248;&#x672C;</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-tensor-parallelism">6 TENSOR PARALLELISM</h3>
+<p>&#x5B9E;&#x73B0;&#x4E86;&#x65B0;&#x7684;&#x5F20;&#x91CF;&#x5E76;&#x884C;&#x65B9;&#x6CD5;</p>
+<p><img src="S-LoRA.assets/3.png" alt="3"></p>
+<p>to be continue</p>
+<h2 id="&#x603B;&#x7ED3;&#x6982;&#x62EC;">&#x603B;&#x7ED3;&#x6982;&#x62EC;</h2>
+<ul>
+<li>&#x52A8;&#x6001;&#x6362;&#x5165;&#x6362;&#x51FA;lora adapter&#x6765;&#x5B9E;&#x73B0;base model&#x7684;&#x590D;&#x7528;</li>
+<li>&#x5305;&#x542B;&#x4E86;KV cache&#x548C;Adapter weights&#x7684;&#x7EDF;&#x4E00;&#x5206;&#x9875;&#x673A;&#x5236;</li>
+</ul>
+<h2 id="qa">Q&amp;A</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Mooncake.html" class="navigation navigation-prev " aria-label="Previous page: Mooncake">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="MemServe.md" class="navigation navigation-next " aria-label="Next page: MemServe">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"S-LoRA","level":"3.1.2","depth":2,"next":{"title":"MemServe","level":"3.1.3","depth":2,"path":"Paper Reading Notes/Arxiv/MemServe.md","ref":"Paper Reading Notes/Arxiv/MemServe.md","articles":[]},"previous":{"title":"Mooncake","level":"3.1.1","depth":2,"path":"Paper Reading Notes/Arxiv/Mooncake.md","ref":"Paper Reading Notes/Arxiv/Mooncake.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex","expandable-chapters-small"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Paper Reading Notes/Arxiv/S-LoRA.md","mtime":"2024-12-02T02:35:31.762Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-02T02:36:07.078Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

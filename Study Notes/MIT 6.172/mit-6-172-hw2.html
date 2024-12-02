@@ -1,0 +1,2241 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Mit 6 172 Hw 2 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../MLSYS/" />
+    
+    
+    <link rel="prev" href="mit-6-172-3.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Academic Writing/">
+            
+                <a href="../../Blogs/Academic Writing/">
+            
+                    
+                    Academic Writing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../Blogs/Academic Writing/design of system.html">
+            
+                <a href="../../Blogs/Academic Writing/design of system.html">
+            
+                    
+                    Design Of System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/academic reading.html">
+            
+                <a href="../../Blogs/academic reading.html">
+            
+                    
+                    Academic Reading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Blogs/how to express.html">
+            
+                <a href="../../Blogs/how to express.html">
+            
+                    
+                    How To Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../Paper Reading Notes/Arxiv/">
+            
+                <a href="../../Paper Reading Notes/Arxiv/">
+            
+                    
+                    Arxiv
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                    
+                    Mooncake
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                    
+                    S-LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../Paper Reading Notes/Arxiv/MemServe.md">
+            
+                <span>
+            
+                    
+                    MemServe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                    
+                    ASPLOS 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                    
+                    Exe GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                    
+                    Spec Infer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../Paper Reading Notes/OSDI 2024/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/">
+            
+                    
+                    OSDI 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                    
+                    Serverless LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../Paper Reading Notes/OSDI 2024/Fairness in Serving LLM.md">
+            
+                <span>
+            
+                    
+                    Fairness in Serving LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../Paper Reading Notes/SOSP 2024/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/">
+            
+                    
+                    SOSP 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                    
+                    Apparate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                    
+                    Loong Serve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../Paper Reading Notes/FAST 2023/">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/">
+            
+                    
+                    FAST 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                    
+                    Resource Scheduling For LC Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../../Paper Reading Notes/ICML 2023/">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/">
+            
+                    
+                    ICML 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                    
+                    Flex Gen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../../Paper Reading Notes/NSDI 2023/">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/">
+            
+                    
+                    NSDI 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                    
+                    Shockwave
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../../Paper Reading Notes/SC 2023/">
+            
+                <a href="../../Paper Reading Notes/SC 2023/">
+            
+                    
+                    SC 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                <a href="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                    
+                    Auto Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../../Paper Reading Notes/SOSP 2023/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/">
+            
+                    
+                    SOSP 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.9.1" data-path="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                    
+                    Vllm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../../Paper Reading Notes/OSDI 2022/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/">
+            
+                    
+                    OSDI 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.10.1" data-path="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                    
+                    Orca
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../../Paper Reading Notes/SC 2022/">
+            
+                <a href="../../Paper Reading Notes/SC 2022/">
+            
+                    
+                    SC 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.11.1" data-path="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                    
+                    Co GNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11.2" data-path="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                    
+                    VSGM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../../Paper Reading Notes/OSDI 2020/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/">
+            
+                    
+                    OSDI 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.12.1" data-path="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                    
+                    Gavel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                    
+                    SIGMOD 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.13.1" data-path="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                    
+                    GPU Based Subgraph Enumerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../../Paper Reading Notes/OSDI 2018/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/">
+            
+                    
+                    OSDI 2018
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.14.1" data-path="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../CME 213/">
+            
+                <a href="../CME 213/">
+            
+                    
+                    CME 213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../CME 213/C++.html">
+            
+                <a href="../CME 213/C++.html">
+            
+                    
+                    C
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../CUDA/">
+            
+                <a href="../CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../CUDA/CUDA Warp Level.html">
+            
+                <a href="../CUDA/CUDA Warp Level.html">
+            
+                    
+                    CUDA Warp Level
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../CUDA/CUDA1 Basic.html">
+            
+                <a href="../CUDA/CUDA1 Basic.html">
+            
+                    
+                    CUDA 1 Basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../CUDA/CUDA2 Brief Summary.html">
+            
+                <a href="../CUDA/CUDA2 Brief Summary.html">
+            
+                    
+                    CUDA 2 Brief Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../CUDA/CUDA3 Kernels.html">
+            
+                <a href="../CUDA/CUDA3 Kernels.html">
+            
+                    
+                    CUDA 3 Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../CUDA/Nsight System.html">
+            
+                <a href="../CUDA/Nsight System.html">
+            
+                    
+                    Nsight System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../LLM Parallelism/">
+            
+                <a href="../LLM Parallelism/">
+            
+                    
+                    LLM Parallelism
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../LLM Parallelism/Data Parallelism.html">
+            
+                <a href="../LLM Parallelism/Data Parallelism.html">
+            
+                    
+                    Data Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../LLM Parallelism/Pipe Parallelism.html">
+            
+                <a href="../LLM Parallelism/Pipe Parallelism.html">
+            
+                    
+                    Pipe Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../LLM Parallelism/Tensor Parallelism.html">
+            
+                <a href="../LLM Parallelism/Tensor Parallelism.html">
+            
+                    
+                    Tensor Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="mit-6-172-1.html">
+            
+                <a href="mit-6-172-1.html">
+            
+                    
+                    Mit 6 172 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="mit-6-172-12.html">
+            
+                <a href="mit-6-172-12.html">
+            
+                    
+                    Mit 6 172 12
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="mit-6-172-2.html">
+            
+                <a href="mit-6-172-2.html">
+            
+                    
+                    Mit 6 172 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="mit-6-172-3.html">
+            
+                <a href="mit-6-172-3.html">
+            
+                    
+                    Mit 6 172 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.4.5" data-path="mit-6-172-hw2.html">
+            
+                <a href="mit-6-172-hw2.html">
+            
+                    
+                    Mit 6 172 Hw 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../MLSYS/">
+            
+                <a href="../MLSYS/">
+            
+                    
+                    MLSYS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../MLSYS/Llama Model's Decoder Code.html">
+            
+                <a href="../MLSYS/Llama Model's Decoder Code.html">
+            
+                    
+                    Llama Model S Decoder Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../MLSYS/LLM Calculation.html">
+            
+                <a href="../MLSYS/LLM Calculation.html">
+            
+                    
+                    LLM Calculation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../MLSYS/LLM Deployment Record.html">
+            
+                <a href="../MLSYS/LLM Deployment Record.html">
+            
+                    
+                    LLM Deployment Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../MLSYS/Sepculative Decoding.html">
+            
+                <a href="../MLSYS/Sepculative Decoding.html">
+            
+                    
+                    Sepculative Decoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../NLP/">
+            
+                <a href="../NLP/">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../NLP/Basics of Machine Learning.html">
+            
+                <a href="../NLP/Basics of Machine Learning.html">
+            
+                    
+                    Basics Of Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../NLP/GPT.html">
+            
+                <a href="../NLP/GPT.html">
+            
+                    
+                    GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../NLP/Implementation Neural Network.html">
+            
+                <a href="../NLP/Implementation Neural Network.html">
+            
+                    
+                    Implementation Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="../NLP/Loss Function.html">
+            
+                <a href="../NLP/Loss Function.html">
+            
+                    
+                    Loss Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.5" data-path="../NLP/Recurrent Neural Network.html">
+            
+                <a href="../NLP/Recurrent Neural Network.html">
+            
+                    
+                    Recurrent Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.6" data-path="../NLP/Seq2Seq and Attention.html">
+            
+                <a href="../NLP/Seq2Seq and Attention.html">
+            
+                    
+                    Seq 2 Seq And Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../OPENMP/">
+            
+                <a href="../OPENMP/">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../OPENMP/openmp.html">
+            
+                <a href="../OPENMP/openmp.html">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../Triton/">
+            
+                <a href="../Triton/">
+            
+                    
+                    Triton
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../Ray/index.md">
+            
+                <span>
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../vLLM Code/">
+            
+                <a href="../vLLM Code/">
+            
+                    
+                    VLLM Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.10.1" data-path="../vLLM Code/vllm-async-llm.html">
+            
+                <a href="../vLLM Code/vllm-async-llm.html">
+            
+                    
+                    Vllm Async Llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.2" data-path="../vLLM Code/vllm-attention.html">
+            
+                <a href="../vLLM Code/vllm-attention.html">
+            
+                    
+                    Vllm Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.3" data-path="../vLLM Code/vllm-block.html">
+            
+                <a href="../vLLM Code/vllm-block.html">
+            
+                    
+                    Vllm Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.4" data-path="../vLLM Code/vllm-cache.html">
+            
+                <a href="../vLLM Code/vllm-cache.html">
+            
+                    
+                    Vllm Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.5" data-path="../vLLM Code/vllm-chunked-prefill.html">
+            
+                <a href="../vLLM Code/vllm-chunked-prefill.html">
+            
+                    
+                    Vllm Chunked Prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.6" data-path="../vLLM Code/vllm-cpu.html">
+            
+                <a href="../vLLM Code/vllm-cpu.html">
+            
+                    
+                    Vllm Cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.7" data-path="../vLLM Code/vllm-llama.html">
+            
+                <a href="../vLLM Code/vllm-llama.html">
+            
+                    
+                    Vllm Llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.8" data-path="../vLLM Code/vllm-LoRA.html">
+            
+                <a href="../vLLM Code/vllm-LoRA.html">
+            
+                    
+                    Vllm Lo RA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.9" data-path="../vLLM Code/vllm-metadata.html">
+            
+                <a href="../vLLM Code/vllm-metadata.html">
+            
+                    
+                    Vllm Metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.10" data-path="../vLLM Code/vllm-profile.html">
+            
+                <a href="../vLLM Code/vllm-profile.html">
+            
+                    
+                    Vllm Profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.11" data-path="../vLLM Code/vllm-ray.html">
+            
+                <a href="../vLLM Code/vllm-ray.html">
+            
+                    
+                    Vllm Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.12" data-path="../vLLM Code/vllm-schedule.html">
+            
+                <a href="../vLLM Code/vllm-schedule.html">
+            
+                    
+                    Vllm Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../Llumnix Code/">
+            
+                <a href="../Llumnix Code/">
+            
+                    
+                    Llumnix Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.11.1" data-path="../Llumnix Code/llumnix.html">
+            
+                <a href="../Llumnix Code/llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../LoongServe Code/">
+            
+                <a href="../LoongServe Code/">
+            
+                    
+                    LoongServe Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Mit 6 172 Hw 2</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="getting-started">Getting Started</h1>
+<ul>
+<li>&#x4F5C;&#x4E1A;&#x4ECB;&#x7ECD;<ul>
+<li>recitation-&#x6D4B;&#x8BD5;</li>
+<li>homework-&#x6539;&#x8FDB;&#x4EE3;&#x7801;</li>
+</ul>
+</li>
+<li>&#x63D0;&#x524D;&#x8BBE;&#x7F6E;<pre><code>make &lt;target&gt; DEBUG=1
+</code></pre></li>
+</ul>
+<h1 id="recitation-perf-and-cachegrind">Recitation: Perf and Cachegrind</h1>
+<h2 id="perf">Perf</h2>
+<h3 id="&#x5B89;&#x88C5;-perf">&#x5B89;&#x88C5; Perf</h3>
+<p>&#x51FA;&#x73B0;&#x4E86;&#x95EE;&#x9898;&#xFF0C;&#x5DF2;&#x89E3;&#x51B3;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x8BB0;&#x5F55;</p>
+<h3 id="perf-&#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x901F;&#x67E5;">Perf &#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x901F;&#x67E5;</h3>
+<pre><code>perf record
+&#x7528;&#x6CD5;&#xFF1A;
+$ perf record &lt;program_name&gt; &lt;program_arguments&gt;
+</code></pre><p>running ./isort n k will sort an array of n elements k times.</p>
+<pre><code>$ sudo perf record ./isort 10000 10
+Sorting 10000 values...
+Done!
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.035 MB perf.data (887 samples) ]
+</code></pre><pre><code>perf report
+&#x7528;&#x6CD5;&#xFF1A;&#x76F4;&#x63A5;perf report
+</code></pre><pre><code>$ sudo perf report
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 887  of event &apos;cpu-clock:pppH&apos;
+# Event count (approx.): 221750000
+#
+# Overhead  Command  Shared Object      Symbol
+# ........  .......  .................  .................
+#
+    99.44%  isort    isort              [.] isort
+     0.23%  isort    libc-2.27.so       [.] rand_r
+     0.11%  isort    [kernel.kallsyms]  [k] queue_work_on
+     0.11%  isort    [kernel.kallsyms]  [k] release_pages
+     0.11%  isort    isort              [.] main
+</code></pre><p>&#x8FD9;&#x91CC;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230; isort &#x5360;&#x636E;&#x4E86;&#x5F88;&#x5927;&#x4E00;&#x90E8;&#x5206;&#x65F6;&#x95F4;</p>
+<h2 id="cachegrind">Cachegrind</h2>
+<p>Cachegrind (a Valgrind tool) is a cache and branch-prediction profiler
+On virtual environments like those on AWS, hardware events providing information about branches and cache misses are often unavailable, so perf may not be helpful.</p>
+<pre><code>valgrind
+&#x4F7F;&#x7528;&#xFF1A;
+$ valgrind --tool=cachegrind --branch-sim=yes &lt;program_name&gt; &lt;program_arguments&gt;
+&#x8F93;&#x51FA;&#x89E3;&#x91CA;&#xFF1A;
+D1 represents the lowest-level cache (L1)
+LL represents the last (highest) level data cache (on most machines, L3)
+</code></pre><p>&#x4F8B;&#x5B50;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-c">// Copyright (c) 2012 MIT License by 6.172 Staff
+
+#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef uint32_t data_t;
+const int U = 10000000;   // size of the array. 10 million vals ~= 40MB
+const int N = 100000000;  // number of searches to perform
+
+int main() {
+  data_t* data = (data_t*) malloc(U * sizeof(data_t));
+  if (data == NULL) {
+    free(data);
+    printf(&quot;Error: not enough memory\n&quot;);
+    exit(-1);
+  }
+
+  // fill up the array with sequential (sorted) values.
+  int i;
+  for (i = 0; i &lt; U; i++) {
+    data[i] = i;
+  }
+
+  printf(&quot;Allocated array of size %d\n&quot;, U);
+  printf(&quot;Summing %d random values...\n&quot;, N);
+
+  data_t val = 0;
+  data_t seed = 42;
+  for (i = 0; i &lt; N; i++) {
+    int l = rand_r(&amp;seed) % U;
+    val = (val + data[l]);
+  }
+
+  free(data);
+  printf(&quot;Done. Value = %d\n&quot;, val);
+  return 0;
+}
+</code></pre>
+<p>&#x7F16;&#x8BD1;</p>
+<pre><code>$ make sum
+</code></pre><p>&#x5256;&#x6790;</p>
+<pre><code>$ valgrind --tool=cachegrind --branch-sim=yes ./sum
+</code></pre><p>&#x8F93;&#x51FA;</p>
+<pre><code>==125== Cachegrind, a cache and branch-prediction profiler
+==125== Copyright (C) 2002-2017, and GNU GPL&apos;d, by Nicholas Nethercote et al.
+==125== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==125== Command: ./sum
+==125==
+--125-- warning: L3 cache found, using its data for the LL simulation.
+Allocated array of size 10000000
+Summing 100000000 random values...
+Done. Value = 938895920
+==125==
+==125== I   refs:      3,440,227,630
+==125== I1  misses:            1,195
+==125== LLi misses:            1,180
+==125== I1  miss rate:          0.00%
+==125== LLi miss rate:          0.00%
+==125==
+==125== D   refs:        610,074,405  (400,058,343 rd   + 210,016,062 wr)
+==125== D1  misses:      100,507,416  ( 99,881,550 rd   +     625,866 wr)
+==125== LLd misses:       37,859,997  ( 37,234,195 rd   +     625,802 wr)
+==125== D1  miss rate:          16.5% (       25.0%     +         0.3%  )
+==125== LLd miss rate:           6.2% (        9.3%     +         0.3%  )
+==125==
+==125== LL refs:         100,508,611  ( 99,882,745 rd   +     625,866 wr)
+==125== LL misses:        37,861,177  ( 37,235,375 rd   +     625,802 wr)
+==125== LL miss rate:            0.9% (        1.0%     +         0.3%  )
+==125==
+==125== Branches:        210,043,840  (110,043,336 cond + 100,000,504 ind)
+==125== Mispredicts:           5,456  (      5,248 cond +         208 ind)
+==125== Mispred rate:            0.0% (        0.0%     +         0.0%   )
+</code></pre><p>&#x67E5;&#x627E; Cache &#x4FE1;&#x606F;</p>
+<pre><code>lscpu
+&#x7528;&#x6CD5;&#xFF1A;
+$ lscpu
+&#x4F5C;&#x7528;&#xFF1A;
+find information about your CPU and its caches
+</code></pre><pre><code>$ lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              20
+On-line CPU(s) list: 0-19
+Thread(s) per core:  2
+Core(s) per socket:  10
+Socket(s):           1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               154
+Model name:          12th Gen Intel(R) Core(TM) i7-12700H
+Stepping:            3
+CPU MHz:             2687.998
+BogoMIPS:            5375.99
+Virtualization:      VT-x
+Hypervisor vendor:   Microsoft
+Virtualization type: full
+L1d cache:           48K
+L1i cache:           32K
+L2 cache:            1280K
+L3 cache:            24576K
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm serialize flush_l1d arch_capabilities
+</code></pre><p>&#x5728;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230; L1&#x3001;L2 &#x548C; L3 &#x7684; Cache &#x4FE1;&#x606F;&#x4E86;</p>
+<p>&#x518D;&#x89C2;&#x5BDF;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5199; Cache miss &#x5C11;&#xFF08;&#x4EE3;&#x7801;&#x987A;&#x5E8F;&#x5199;&#xFF09;&#x548C;&#x8BFB; Cache miss &#x591A;&#xFF08;&#x4EE3;&#x7801;&#x968F;&#x673A;&#x8BFB;&#xFF09;
+&#x7136;&#x540E;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x6539;&#x53D8; U &#x548C; N&#xFF0C;&#x63A7;&#x5236; U &#x5C0F;&#x4E8E; L1&#x3001;L2&#x3001;L3 Cache &#x7B49;&#x60C5;&#x51B5;&#xFF0C;&#x5C31;&#x80FD;&#x770B;&#x51FA; N&#x3001;U &#x5927;&#x5C0F;&#x548C; D&#x3001;L&#x3001;LLD Cache miss &#x7684;&#x5173;&#x7CFB;</p>
+<h1 id="homework-sorting">Homework: Sorting</h1>
+<h3 id="write-up-1">Write-up 1:</h3>
+<blockquote>
+<p>Compare the <strong>Cachegrind</strong> output on the DEBUG=1 code versus DEBUG=0 compiler optimized code. Explain the advantages and disadvantages of using instruction count as a substitute for time when you compare the performance of different versions of this program</p>
+</blockquote>
+<pre><code>$ make
+clang main.c tests.c util.c isort.c sort_a.c sort_c.c sort_i.c sort_p.c sort_m.c sort_f.c -O3 -DNDEBUG -g -Wall -std=gnu99 -gdwarf-3 -always-inline -lrt -lm  -o sort
+clang: warning: argument unused during compilation: &apos;-always-inline&apos; [-Wunused-command-line-argument]
+
+$ valgrind --tool=cachegrind --branch-sim=yes ./sort 10000 10
+==184== Cachegrind, a cache and branch-prediction profiler
+==184== Copyright (C) 2002-2017, and GNU GPL&apos;d, by Nicholas Nethercote et al.
+==184== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==184== Command: ./sort 10000 10
+==184==
+--184-- warning: L3 cache found, using its data for the LL simulation.
+
+Running test #0...
+Generating random array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_a          : Elapsed execution time: 0.014364 sec
+sort_a repeated : Elapsed execution time: 0.013956 sec
+Generating inverted array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_a          : Elapsed execution time: 0.027513 sec
+sort_a repeated : Elapsed execution time: 0.027134 sec
+
+Running test #1...
+ --&gt; test_zero_element at line 245: PASS
+
+Running test #2...
+ --&gt; test_one_element at line 266: PASS
+Done testing.
+==184==
+==184== I   refs:      235,925,874
+==184== I1  misses:          1,586
+==184== LLi misses:          1,467
+==184== I1  miss rate:        0.00%
+==184== LLi miss rate:        0.00%
+==184==
+==184== D   refs:       87,546,459  (52,667,725 rd   + 34,878,734 wr)
+==184== D1  misses:        228,442  (   127,084 rd   +    101,358 wr)
+==184== LLd misses:          5,123  (     2,420 rd   +      2,703 wr)
+==184== D1  miss rate:         0.3% (       0.2%     +        0.3%  )
+==184== LLd miss rate:         0.0% (       0.0%     +        0.0%  )
+==184==
+==184== LL refs:           230,028  (   128,670 rd   +    101,358 wr)
+==184== LL misses:           6,590  (     3,887 rd   +      2,703 wr)
+==184== LL miss rate:          0.0% (       0.0%     +        0.0%  )
+==184==
+==184== Branches:       40,474,926  (38,773,975 cond +  1,700,951 ind)
+==184== Mispredicts:     2,484,878  ( 2,484,522 cond +        356 ind)
+==184== Mispred rate:          6.1% (       6.4%     +        0.0%   )
+
+$ make clean
+rm -f ./sort *.std* *.gcov *.gcda *.gcno default.profraw
+
+$ make DEBUG=1
+clang main.c tests.c util.c isort.c sort_a.c sort_c.c sort_i.c sort_p.c sort_m.c sort_f.c -DDEBUG -O0 -g -Wall -std=gnu99 -gdwarf-3 -always-inline -lrt -lm  -o sort
+clang: warning: argument unused during compilation: &apos;-always-inline&apos; [-Wunused-command-line-argument]
+
+$  valgrind --tool=cachegrind --
+ranch-sim=yes ./sort 10000 10valgrind: no program specified
+valgrind: Use --help for more information.
+cjl@ChenJulian:~/solution/mit6.172/Homework/HW2/homework$  valgrind --tool=cachegrind --branch-sim=yes ./sort 10000 10
+==206== Cachegrind, a cache and branch-prediction profiler
+==206== Copyright (C) 2002-2017, and GNU GPL&apos;d, by Nicholas Nethercote et al.
+==206== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==206== Command: ./sort 10000 10
+==206==
+--206-- warning: L3 cache found, using its data for the LL simulation.
+
+Running test #0...
+Generating random array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_a          : Elapsed execution time: 0.025243 sec
+sort_a repeated : Elapsed execution time: 0.025381 sec
+Generating inverted array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_a          : Elapsed execution time: 0.049681 sec
+sort_a repeated : Elapsed execution time: 0.049848 sec
+
+Running test #1...
+ --&gt; test_zero_element at line 245: PASS
+
+Running test #2...
+ --&gt; test_one_element at line 266: PASS
+Done testing.
+==206==
+==206== I   refs:      408,412,706
+==206== I1  misses:          1,553
+==206== LLi misses:          1,457
+==206== I1  miss rate:        0.00%
+==206== LLi miss rate:        0.00%
+==206==
+==206== D   refs:      260,697,695  (194,384,270 rd   + 66,313,425 wr)
+==206== D1  misses:        228,025  (    126,767 rd   +    101,258 wr)
+==206== LLd misses:          5,115  (      2,411 rd   +      2,704 wr)
+==206== D1  miss rate:         0.1% (        0.1%     +        0.2%  )
+==206== LLd miss rate:         0.0% (        0.0%     +        0.0%  )
+==206==
+==206== LL refs:           229,578  (    128,320 rd   +    101,258 wr)
+==206== LL misses:           6,572  (      3,868 rd   +      2,704 wr)
+==206== LL miss rate:          0.0% (        0.0%     +        0.0%  )
+==206==
+==206== Branches:       45,174,708  ( 43,473,813 cond +  1,700,895 ind)
+==206== Mispredicts:     3,109,490  (  3,109,160 cond +        330 ind)
+==206== Mispred rate:          6.9% (        7.2%     +        0.0%   )
+</code></pre><p>&#x5F97;&#x51FA;&#x7ED3;&#x679C;</p>
+<table>
+<thead>
+<tr>
+<th>DEBUG</th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x65F6;&#x95F4;</td>
+<td>&#x5FEB;</td>
+<td>&#x6162;</td>
+</tr>
+<tr>
+<td>&#x6307;&#x4EE4;&#x6570;</td>
+<td>&#x5C11;</td>
+<td>&#x591A;</td>
+</tr>
+<tr>
+<td>Cache Misses &#x7387;</td>
+<td>&#x5927;</td>
+<td>&#x5C0F;</td>
+</tr>
+<tr>
+<td>MISpredicts &#x7387;</td>
+<td>&#x5C0F;</td>
+<td>&#x5927;</td>
+</tr>
+</tbody>
+</table>
+<p>O0 &#x727A;&#x7272;&#x4E86; cache &#x547D;&#x4E2D;&#x7387;&#xFF0C;&#x4F46;&#x662F;&#x6307;&#x4EE4;&#x6570;&#x5C11;&#xFF0C;&#x65F6;&#x95F4;&#x5FEB;</p>
+<h2 id="inlining">inlining</h2>
+<blockquote>
+<p>You would like to see how much inline functions can help. Copy over the code from sort_a.c into sort_i.c, and change all the routine names from <function>_a to <function>_i. Using the inline keyword, inline one or more of the functions in sort_i.c and util.c. To add the sort_i routine to the testing suite, uncomment the line in main.c, under testFunc, that specifies sort_i. Profile and annotate the inlined program.</function></function></p>
+</blockquote>
+<h3 id="write-up-2">Write-up 2:</h3>
+<blockquote>
+<p>Explain which functions you chose to inline and report the performance differences you observed between the inlined and uninlined sorting routines.</p>
+</blockquote>
+<p>&#x5982;&#x9898;&#xFF0C;&#x5C06; sort_i &#x4E2D;&#x7684; merge_i &#x548C; copy_i &#x8BBE;&#x7F6E;&#x4E3A; inline&#x3002;&#x5E76;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</p>
+<p>&#x7F16;&#x8BD1;&#x548C; perf record &#x7684;&#x8FC7;&#x7A0B;&#x4E0D;&#x518D;&#x7ED9;&#x51FA;</p>
+<ul>
+<li>no use inlining &amp; DEBUG=1</li>
+</ul>
+<pre><code class="lang-c">cjl@ChenJulian:/mnt/c/Data Files/mit6<span class="hljs-number">.172</span>/Homework/HW2/homework$ perf record ./sort <span class="hljs-number">10000</span> <span class="hljs-number">10</span>
+
+Running test <span class="hljs-meta">#0...</span>
+Generating random <span class="hljs-built_in">array</span> of <span class="hljs-number">10000</span> elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line <span class="hljs-number">217</span>: PASS
+sort_a          : Elapsed execution time: <span class="hljs-number">0.000694</span> sec
+sort_a repeated : Elapsed execution time: <span class="hljs-number">0.000679</span> sec
+sort_i          : Elapsed execution time: <span class="hljs-number">0.000679</span> sec
+Generating inverted <span class="hljs-built_in">array</span> of <span class="hljs-number">10000</span> elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line <span class="hljs-number">217</span>: PASS
+sort_a          : Elapsed execution time: <span class="hljs-number">0.000950</span> sec
+sort_a repeated : Elapsed execution time: <span class="hljs-number">0.000989</span> sec
+sort_i          : Elapsed execution time: <span class="hljs-number">0.000942</span> sec
+
+Running test <span class="hljs-meta">#1...</span>
+ --&gt; test_zero_element at line <span class="hljs-number">245</span>: PASS
+
+Running test <span class="hljs-meta">#2...</span>
+ --&gt; test_one_element at line <span class="hljs-number">266</span>: PASS
+Done testing.
+[ perf record: Woken up <span class="hljs-number">1</span> times to write data ]
+[ perf record: Captured and wrote <span class="hljs-number">0.006</span> MB perf.data (<span class="hljs-number">116</span> samples) ]
+</code></pre>
+<pre><code>cjl@ChenJulian:/mnt/c/Data Files/mit6.172/Homework/HW2/homework$ perf report
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 116  of event &apos;cpu-clock:uhpppH&apos;
+# Event count (approx.): 29000000
+#
+# Overhead  Command  Shared Object  Symbol
+# ........  .......  .............  ...........................
+#
+    43.10%  sort     sort           [.] sort_a
+    17.24%  sort     libc-2.27.so   [.] cfree@GLIBC_2.2.5
+    16.38%  sort     libc-2.27.so   [.] malloc
+    15.52%  sort     sort           [.] sort_i
+     2.59%  sort     sort           [.] mem_alloc
+     1.72%  sort     sort           [.] mem_free
+     0.86%  sort     libc-2.27.so   [.] intel_check_word.isra.0
+     0.86%  sort     libc-2.27.so   [.] rand_r
+     0.86%  sort     sort           [.] free@plt
+     0.86%  sort     sort           [.] malloc@plt
+
+
+#
+# (Tip: Show current config key-value pairs: perf config --list)
+#
+</code></pre><pre><code>cjl@ChenJulian:/mnt/c/Data Files/mit6.172/Homework/HW2/homework$ valgrind --tool=cachegrind --branch-sim=yes ./sort 10000 10
+==698== Cachegrind, a cache and branch-prediction profiler
+==698== Copyright (C) 2002-2017, and GNU GPL&apos;d, by Nicholas Nethercote et al.
+==698== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==698== Command: ./sort 10000 10
+==698==
+--698-- warning: L3 cache found, using its data for the LL simulation.
+
+Running test #0...
+Generating random array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_a          : Elapsed execution time: 0.014621 sec
+sort_a repeated : Elapsed execution time: 0.014605 sec
+sort_i          : Elapsed execution time: 0.014851 sec
+Generating inverted array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_a          : Elapsed execution time: 0.028227 sec
+sort_a repeated : Elapsed execution time: 0.028304 sec
+sort_i          : Elapsed execution time: 0.028753 sec
+
+Running test #1...
+ --&gt; test_zero_element at line 245: PASS
+
+Running test #2...
+ --&gt; test_one_element at line 266: PASS
+Done testing.
+==698==
+==698== I   refs:      351,917,014
+==698== I1  misses:          1,624
+==698== LLi misses:          1,494
+==698== I1  miss rate:        0.00%
+==698== LLi miss rate:        0.00%
+==698==
+==698== D   refs:      130,160,086  (78,415,144 rd   + 51,744,942 wr)
+==698== D1  misses:        324,704  (   184,171 rd   +    140,533 wr)
+==698== LLd misses:          5,123  (     2,421 rd   +      2,702 wr)
+==698== D1  miss rate:         0.2% (       0.2%     +        0.3%  )
+==698== LLd miss rate:         0.0% (       0.0%     +        0.0%  )
+==698==
+==698== LL refs:           326,328  (   185,795 rd   +    140,533 wr)
+==698== LL misses:           6,617  (     3,915 rd   +      2,702 wr)
+==698== LL miss rate:          0.0% (       0.0%     +        0.0%  )
+==698==
+==698== Branches:       60,182,795  (57,681,766 cond +  2,501,029 ind)
+==698== Mispredicts:     3,703,747  ( 3,703,346 cond +        401 ind)
+==698== Mispred rate:          6.2% (       6.4%     +        0.0%   )
+</code></pre><ul>
+<li>use inlining &amp; DEBUG=1</li>
+</ul>
+<pre><code class="lang-c">$ cjl@ChenJulian:/mnt/c/Data Files/mit6<span class="hljs-number">.172</span>/Homework/HW2/homework$ perf record ./sort <span class="hljs-number">10000</span> <span class="hljs-number">10</span>
+
+Running test <span class="hljs-meta">#0...</span>
+Generating random <span class="hljs-built_in">array</span> of <span class="hljs-number">10000</span> elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line <span class="hljs-number">217</span>: PASS
+sort_a          : Elapsed execution time: <span class="hljs-number">0.001043</span> sec
+sort_a repeated : Elapsed execution time: <span class="hljs-number">0.001049</span> sec
+sort_i          : Elapsed execution time: <span class="hljs-number">0.001048</span> sec
+Generating inverted <span class="hljs-built_in">array</span> of <span class="hljs-number">10000</span> elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line <span class="hljs-number">217</span>: PASS
+sort_a          : Elapsed execution time: <span class="hljs-number">0.001652</span> sec
+sort_a repeated : Elapsed execution time: <span class="hljs-number">0.001609</span> sec
+sort_i          : Elapsed execution time: <span class="hljs-number">0.001595</span> sec
+
+Running test <span class="hljs-meta">#1...</span>
+ --&gt; test_zero_element at line <span class="hljs-number">245</span>: PASS
+
+Running test <span class="hljs-meta">#2...</span>
+ --&gt; test_one_element at line <span class="hljs-number">266</span>: PASS
+Done testing.
+[ perf record: Woken up <span class="hljs-number">1</span> times to write data ]
+[ perf record: Captured and wrote <span class="hljs-number">0.009</span> MB perf.data (<span class="hljs-number">203</span> samples) ]
+</code></pre>
+<pre><code>cjl@ChenJulian:/mnt/c/Data Files/mit6.172/Homework/HW2/homework$ perf report
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 203  of event &apos;cpu-clock:uhpppH&apos;
+# Event count (approx.): 50750000
+#
+# Overhead  Command  Shared Object  Symbol
+# ........  .......  .............  ................................
+#
+    34.98%  sort     sort           [.] merge_a
+    15.27%  sort     sort           [.] merge_i
+    12.32%  sort     sort           [.] copy_a
+     9.85%  sort     libc-2.27.so   [.] cfree@GLIBC_2.2.5
+     8.87%  sort     sort           [.] copy_i
+     5.42%  sort     sort           [.] sort_a
+     3.45%  sort     libc-2.27.so   [.] malloc
+     1.97%  sort     sort           [.] copy_data
+     1.97%  sort     sort           [.] mem_alloc
+     1.97%  sort     sort           [.] sort_i
+     0.99%  sort     sort           [.] init_data
+     0.99%  sort     sort           [.] mem_free
+     0.49%  sort     ld-2.27.so     [.] strcmp
+     0.49%  sort     libc-2.27.so   [.] __fxstat64
+     0.49%  sort     libc-2.27.so   [.] __memmove_avx_unaligned_erms
+     0.49%  sort     sort           [.] malloc@plt
+
+
+#
+# (Tip: Customize output of perf script with: perf script -F event,ip,sym)
+#
+</code></pre><pre><code>cjl@ChenJulian:/mnt/c/Data Files/mit6.172/Homework/HW2/homework$ valgrind --tool=cachegrind --branch-sim=yes ./sort 10000 10
+==758== Cachegrind, a cache and branch-prediction profiler
+==758== Copyright (C) 2002-2017, and GNU GPL&apos;d, by Nicholas Nethercote et al.
+==758== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==758== Command: ./sort 10000 10
+==758==
+--758-- warning: L3 cache found, using its data for the LL simulation.
+
+Running test #0...
+Generating random array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_a          : Elapsed execution time: 0.025676 sec
+sort_a repeated : Elapsed execution time: 0.025433 sec
+sort_i          : Elapsed execution time: 0.025869 sec
+Generating inverted array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_a          : Elapsed execution time: 0.050344 sec
+sort_a repeated : Elapsed execution time: 0.050162 sec
+sort_i          : Elapsed execution time: 0.050949 sec
+
+Running test #1...
+ --&gt; test_zero_element at line 245: PASS
+
+Running test #2...
+ --&gt; test_one_element at line 266: PASS
+Done testing.
+==758==
+==758== I   refs:      608,332,662
+==758== I1  misses:          1,574
+==758== LLi misses:          1,481
+==758== I1  miss rate:        0.00%
+==758== LLi miss rate:        0.00%
+==758==
+==758== D   refs:      388,800,501  (289,890,848 rd   + 98,909,653 wr)
+==758== D1  misses:        323,971  (    183,785 rd   +    140,186 wr)
+==758== LLd misses:          5,122  (      2,419 rd   +      2,703 wr)
+==758== D1  miss rate:         0.1% (        0.1%     +        0.1%  )
+==758== LLd miss rate:         0.0% (        0.0%     +        0.0%  )
+==758==
+==758== LL refs:           325,545  (    185,359 rd   +    140,186 wr)
+==758== LL misses:           6,603  (      3,900 rd   +      2,703 wr)
+==758== LL miss rate:          0.0% (        0.0%     +        0.0%  )
+==758==
+==758== Branches:       67,436,323  ( 64,935,328 cond +  2,500,995 ind)
+==758== Mispredicts:     4,682,231  (  4,681,844 cond +        387 ind)
+==758== Mispred rate:          6.9% (        7.2%     +        0.0%   )
+</code></pre><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5185;&#x8054;&#x51FD;&#x6570;&#x4F1A;&#x5BFC;&#x81F4;&#x65F6;&#x95F4;&#x82B1;&#x8D39;&#x66F4;&#x957F;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x5199;&#x4F5C;&#x4EFB;&#x52A1;&#x4E2D;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x89E3;&#x91CA;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x5185;&#x8054;&#x5316;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x7684;&#x6027;&#x80FD;&#x4E0B;&#x964D;&#xFF0C;&#x5E76;&#x8BF4;&#x660E;&#x4F7F;&#x7528; Cachegrind &#x6536;&#x96C6;&#x7684;&#x5206;&#x6790;&#x6570;&#x636E;&#x5982;&#x4F55;&#x5E2E;&#x52A9;&#x4F60;&#x6D4B;&#x91CF;&#x8FD9;&#x4E9B;&#x8D1F;&#x9762;&#x6027;&#x80FD;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x9012;&#x5F52;&#x51FD;&#x6570;&#x5185;&#x8054;&#x5316;&#x7684;&#x6F5C;&#x5728;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li><strong>&#x4EE3;&#x7801;&#x81A8;&#x80C0;</strong>&#xFF1A;&#x5185;&#x8054;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x4F1A;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x81A8;&#x80C0;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x5C55;&#x5F00;&#x4E3A;&#x76F8;&#x5E94;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x751F;&#x6210;&#x66F4;&#x591A;&#x7684;&#x6307;&#x4EE4;&#x3002;&#x4EE3;&#x7801;&#x81A8;&#x80C0;&#x53EF;&#x80FD;&#x4F1A;&#x589E;&#x52A0;&#x6307;&#x4EE4;&#x7F13;&#x5B58;&#x7684;&#x538B;&#x529B;&#xFF0C;&#x964D;&#x4F4E;&#x7F13;&#x5B58;&#x547D;&#x4E2D;&#x7387;&#x3002;</li>
+<li><strong>&#x6808;&#x6D88;&#x8017;</strong>&#xFF1A;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6808;&#x6765;&#x4FDD;&#x5B58;&#x6BCF;&#x4E2A;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5185;&#x8054;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6808;&#x6D88;&#x8017;&#x8FC7;&#x5927;&#xFF0C;&#x5C24;&#x5176;&#x5728;&#x9012;&#x5F52;&#x6DF1;&#x5EA6;&#x8F83;&#x5927;&#x65F6;&#x3002;&#x8F83;&#x5927;&#x7684;&#x6808;&#x6D88;&#x8017;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6808;&#x6EA2;&#x51FA;&#x6216;&#x8005;&#x51CF;&#x6162;&#x7A0B;&#x5E8F;&#x7684;&#x6267;&#x884C;&#x901F;&#x5EA6;&#x3002;</li>
+<li><strong>&#x5197;&#x4F59;&#x8BA1;&#x7B97;</strong>&#xFF1A;&#x5185;&#x8054;&#x5C55;&#x5F00;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x5197;&#x4F59;&#x8BA1;&#x7B97;&#xFF0C;&#x56E0;&#x4E3A;&#x76F8;&#x540C;&#x7684;&#x8BA1;&#x7B97;&#x53EF;&#x80FD;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5C55;&#x5F00;&#x4EE3;&#x7801;&#x4E2D;&#x591A;&#x6B21;&#x51FA;&#x73B0;&#x3002;&#x8FD9;&#x4F1A;&#x589E;&#x52A0;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x7684;&#x5F00;&#x9500;&#xFF0C;&#x964D;&#x4F4E;&#x7A0B;&#x5E8F;&#x7684;&#x6548;&#x7387;&#x3002;</li>
+</ol>
+<h2 id="pointers-vs-arrays">Pointers vs Arrays</h2>
+<h3 id="write-up-4">Write-up 4</h3>
+<blockquote>
+<p> Give a reason why using pointers may improve performance. Report on any performance differences you observed in your implementation.</p>
+</blockquote>
+<p>&#x6307;&#x9488;</p>
+<h2 id="coarsening">Coarsening</h2>
+<h3 id="write-up-5">Write-up 5</h3>
+<blockquote>
+<p> Explain what sorting algorithm you used and how you chose the number of elements to be sorted in the base case. Report on the performance differences you observed.</p>
+</blockquote>
+<ul>
+<li>&#x672A;&#x4F18;&#x5316;</li>
+</ul>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code>static inline void merge_m(data_t *A, int p, int q, int r)
+{
+  assert(A);
+  assert(p &lt;= q);
+  assert((q + 1) &lt;= r);
+  int n1 = q - p + 1;
+  int n2 = r - q;
+
+  data_t *left = 0, *right = 0;
+  mem_alloc(&amp;left, n1 + 1);
+  mem_alloc(&amp;right, n2 + 1);
+  if (left == NULL || right == NULL)
+  {
+    mem_free(&amp;left);
+    mem_free(&amp;right);
+    return;
+  }
+
+  copy_m(&amp;(A[p]), left, n1);
+  copy_m(&amp;(A[q + 1]), right, n2);
+  left[n1] = UINT_MAX;
+  right[n2] = UINT_MAX;
+
+  int i = 0;
+  int j = 0;
+
+  for (int k = p; k &lt;= r; k++)
+  {
+    if (left[i] &lt;= right[j])
+    {
+      A[k] = left[i];
+      i++;
+    }
+    else
+    {
+      A[k] = right[j];
+      j++;
+    }
+  }
+  mem_free(&amp;left);
+  mem_free(&amp;right);
+}
+</code></pre><pre><code>cjl@ChenJulian:/mnt/c/Data Files/mit6.172/Homework/HW2/homework$ valgrind --tool=cachegrind --branch-sim=yes ./sort 10000 10
+==41== Cachegrind, a cache and branch-prediction profiler
+==41== Copyright (C) 2002-2017, and GNU GPL&apos;d, by Nicholas Nethercote et al.
+==41== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==41== Command: ./sort 10000 10
+==41==
+--41-- warning: L3 cache found, using its data for the LL simulation.
+
+Running test #0...
+Generating random array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_m          : Elapsed execution time: 0.031639 sec
+Generating inverted array of 10000 elements
+Arrays are sorted: yes
+ --&gt; test_correctness at line 217: PASS
+sort_m          : Elapsed execution time: 0.062058 sec
+
+Running test #1...
+ --&gt; test_zero_element at line 245: PASS
+
+Running test #2...
+ --&gt; test_one_element at line 266: PASS
+Done testing.
+==41==
+==41== I   refs:      208,493,318
+==41== I1  misses:          1,554
+==41== LLi misses:          1,458
+==41== I1  miss rate:        0.00%
+==41== LLi miss rate:        0.00%
+==41==
+==41== D   refs:      132,595,246  (98,877,918 rd   + 33,717,328 wr)
+==41== D1  misses:        131,781  (    69,494 rd   +     62,287 wr)
+==41== LLd misses:          5,116  (     2,413 rd   +      2,703 wr)
+==41== D1  miss rate:         0.1% (       0.1%     +        0.2%  )
+==41== LLd miss rate:         0.0% (       0.0%     +        0.0%  )
+==41==
+==41== LL refs:           133,335  (    71,048 rd   +     62,287 wr)
+==41== LL misses:           6,574  (     3,871 rd   +      2,703 wr)
+==41== LL miss rate:          0.0% (       0.0%     +        0.0%  )
+==41==
+==41== Branches:       22,912,991  (22,012,175 cond +    900,816 ind)
+==41== Mispredicts:     1,558,061  ( 1,557,736 cond +        325 ind)
+==41== Mispred rate:          6.8% (       7.1%     +        0.0%   )
+</code></pre><ul>
+<li>&#x4F18;&#x5316;&#x540E;&#xFF1A;</li>
+</ul>
+<p>&#x62A5;&#x9519;,&#x611F;&#x89C9;&#x6709;&#x70B9;&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x3002;&#x5148;&#x4E0D;&#x7EC6;&#x7A76;&#x4E86;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mit-6-172-3.html" class="navigation navigation-prev " aria-label="Previous page: Mit 6 172 3">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../MLSYS/" class="navigation navigation-next " aria-label="Next page: MLSYS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Mit 6 172 Hw 2","level":"4.4.5","depth":2,"next":{"title":"MLSYS","level":"4.5","depth":1,"path":"Study Notes/MLSYS/index.md","ref":"Study Notes/MLSYS/index.md","articles":[{"title":"Llama Model S Decoder Code","level":"4.5.1","depth":2,"path":"Study Notes/MLSYS/Llama Model's Decoder Code.md","ref":"Study Notes/MLSYS/Llama Model's Decoder Code.md","articles":[]},{"title":"LLM Calculation","level":"4.5.2","depth":2,"path":"Study Notes/MLSYS/LLM Calculation.md","ref":"Study Notes/MLSYS/LLM Calculation.md","articles":[]},{"title":"LLM Deployment Record","level":"4.5.3","depth":2,"path":"Study Notes/MLSYS/LLM Deployment Record.md","ref":"Study Notes/MLSYS/LLM Deployment Record.md","articles":[]},{"title":"Sepculative Decoding","level":"4.5.4","depth":2,"path":"Study Notes/MLSYS/Sepculative Decoding.md","ref":"Study Notes/MLSYS/Sepculative Decoding.md","articles":[]}]},"previous":{"title":"Mit 6 172 3","level":"4.4.4","depth":2,"path":"Study Notes/MIT 6.172/mit-6-172-3.md","ref":"Study Notes/MIT 6.172/mit-6-172-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex","expandable-chapters-small"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Study Notes/MIT 6.172/mit-6-172-hw2.md","mtime":"2024-12-02T02:35:31.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-02T02:36:07.078Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

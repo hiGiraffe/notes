@@ -1,0 +1,1807 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GPT · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Implementation Neural Network.html" />
+    
+    
+    <link rel="prev" href="Basics of Machine Learning.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Academic Writing/">
+            
+                <a href="../../Blogs/Academic Writing/">
+            
+                    
+                    Academic Writing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../Blogs/Academic Writing/design of system.html">
+            
+                <a href="../../Blogs/Academic Writing/design of system.html">
+            
+                    
+                    Design Of System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/academic reading.html">
+            
+                <a href="../../Blogs/academic reading.html">
+            
+                    
+                    Academic Reading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Blogs/how to express.html">
+            
+                <a href="../../Blogs/how to express.html">
+            
+                    
+                    How To Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../Paper Reading Notes/Arxiv/">
+            
+                <a href="../../Paper Reading Notes/Arxiv/">
+            
+                    
+                    Arxiv
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                    
+                    Mooncake
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                    
+                    S-LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../Paper Reading Notes/Arxiv/MemServe.md">
+            
+                <span>
+            
+                    
+                    MemServe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                    
+                    ASPLOS 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                    
+                    Exe GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                    
+                    Spec Infer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../Paper Reading Notes/OSDI 2024/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/">
+            
+                    
+                    OSDI 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                    
+                    Serverless LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../Paper Reading Notes/OSDI 2024/Fairness in Serving LLM.md">
+            
+                <span>
+            
+                    
+                    Fairness in Serving LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../Paper Reading Notes/SOSP 2024/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/">
+            
+                    
+                    SOSP 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                    
+                    Apparate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                    
+                    Loong Serve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../Paper Reading Notes/FAST 2023/">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/">
+            
+                    
+                    FAST 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                    
+                    Resource Scheduling For LC Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../../Paper Reading Notes/ICML 2023/">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/">
+            
+                    
+                    ICML 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                    
+                    Flex Gen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../../Paper Reading Notes/NSDI 2023/">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/">
+            
+                    
+                    NSDI 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                    
+                    Shockwave
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../../Paper Reading Notes/SC 2023/">
+            
+                <a href="../../Paper Reading Notes/SC 2023/">
+            
+                    
+                    SC 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                <a href="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                    
+                    Auto Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../../Paper Reading Notes/SOSP 2023/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/">
+            
+                    
+                    SOSP 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.9.1" data-path="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                    
+                    Vllm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../../Paper Reading Notes/OSDI 2022/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/">
+            
+                    
+                    OSDI 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.10.1" data-path="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                    
+                    Orca
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../../Paper Reading Notes/SC 2022/">
+            
+                <a href="../../Paper Reading Notes/SC 2022/">
+            
+                    
+                    SC 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.11.1" data-path="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                    
+                    Co GNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11.2" data-path="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                    
+                    VSGM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../../Paper Reading Notes/OSDI 2020/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/">
+            
+                    
+                    OSDI 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.12.1" data-path="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                    
+                    Gavel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                    
+                    SIGMOD 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.13.1" data-path="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                    
+                    GPU Based Subgraph Enumerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../../Paper Reading Notes/OSDI 2018/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/">
+            
+                    
+                    OSDI 2018
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.14.1" data-path="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../CME 213/">
+            
+                <a href="../CME 213/">
+            
+                    
+                    CME 213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../CME 213/C++.html">
+            
+                <a href="../CME 213/C++.html">
+            
+                    
+                    C
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../CUDA/">
+            
+                <a href="../CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../CUDA/CUDA Warp Level.html">
+            
+                <a href="../CUDA/CUDA Warp Level.html">
+            
+                    
+                    CUDA Warp Level
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../CUDA/CUDA1 Basic.html">
+            
+                <a href="../CUDA/CUDA1 Basic.html">
+            
+                    
+                    CUDA 1 Basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../CUDA/CUDA2 Brief Summary.html">
+            
+                <a href="../CUDA/CUDA2 Brief Summary.html">
+            
+                    
+                    CUDA 2 Brief Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../CUDA/CUDA3 Kernels.html">
+            
+                <a href="../CUDA/CUDA3 Kernels.html">
+            
+                    
+                    CUDA 3 Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../CUDA/Nsight System.html">
+            
+                <a href="../CUDA/Nsight System.html">
+            
+                    
+                    Nsight System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../LLM Parallelism/">
+            
+                <a href="../LLM Parallelism/">
+            
+                    
+                    LLM Parallelism
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../LLM Parallelism/Data Parallelism.html">
+            
+                <a href="../LLM Parallelism/Data Parallelism.html">
+            
+                    
+                    Data Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../LLM Parallelism/Pipe Parallelism.html">
+            
+                <a href="../LLM Parallelism/Pipe Parallelism.html">
+            
+                    
+                    Pipe Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../LLM Parallelism/Tensor Parallelism.html">
+            
+                <a href="../LLM Parallelism/Tensor Parallelism.html">
+            
+                    
+                    Tensor Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../MIT 6.172/mit-6-172-1.html">
+            
+                <a href="../MIT 6.172/mit-6-172-1.html">
+            
+                    
+                    Mit 6 172 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Mit 6 172 12
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Mit 6 172 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Mit 6 172 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    Mit 6 172 Hw 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../MLSYS/">
+            
+                <a href="../MLSYS/">
+            
+                    
+                    MLSYS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../MLSYS/Llama Model's Decoder Code.html">
+            
+                <a href="../MLSYS/Llama Model's Decoder Code.html">
+            
+                    
+                    Llama Model S Decoder Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../MLSYS/LLM Calculation.html">
+            
+                <a href="../MLSYS/LLM Calculation.html">
+            
+                    
+                    LLM Calculation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../MLSYS/LLM Deployment Record.html">
+            
+                <a href="../MLSYS/LLM Deployment Record.html">
+            
+                    
+                    LLM Deployment Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../MLSYS/Sepculative Decoding.html">
+            
+                <a href="../MLSYS/Sepculative Decoding.html">
+            
+                    
+                    Sepculative Decoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="Basics of Machine Learning.html">
+            
+                <a href="Basics of Machine Learning.html">
+            
+                    
+                    Basics Of Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.6.2" data-path="GPT.html">
+            
+                <a href="GPT.html">
+            
+                    
+                    GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="Implementation Neural Network.html">
+            
+                <a href="Implementation Neural Network.html">
+            
+                    
+                    Implementation Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="Loss Function.html">
+            
+                <a href="Loss Function.html">
+            
+                    
+                    Loss Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.5" data-path="Recurrent Neural Network.html">
+            
+                <a href="Recurrent Neural Network.html">
+            
+                    
+                    Recurrent Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.6" data-path="Seq2Seq and Attention.html">
+            
+                <a href="Seq2Seq and Attention.html">
+            
+                    
+                    Seq 2 Seq And Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../OPENMP/">
+            
+                <a href="../OPENMP/">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../OPENMP/openmp.html">
+            
+                <a href="../OPENMP/openmp.html">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../Triton/">
+            
+                <a href="../Triton/">
+            
+                    
+                    Triton
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../Ray/index.md">
+            
+                <span>
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../vLLM Code/">
+            
+                <a href="../vLLM Code/">
+            
+                    
+                    VLLM Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.10.1" data-path="../vLLM Code/vllm-async-llm.html">
+            
+                <a href="../vLLM Code/vllm-async-llm.html">
+            
+                    
+                    Vllm Async Llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.2" data-path="../vLLM Code/vllm-attention.html">
+            
+                <a href="../vLLM Code/vllm-attention.html">
+            
+                    
+                    Vllm Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.3" data-path="../vLLM Code/vllm-block.html">
+            
+                <a href="../vLLM Code/vllm-block.html">
+            
+                    
+                    Vllm Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.4" data-path="../vLLM Code/vllm-cache.html">
+            
+                <a href="../vLLM Code/vllm-cache.html">
+            
+                    
+                    Vllm Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.5" data-path="../vLLM Code/vllm-chunked-prefill.html">
+            
+                <a href="../vLLM Code/vllm-chunked-prefill.html">
+            
+                    
+                    Vllm Chunked Prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.6" data-path="../vLLM Code/vllm-cpu.html">
+            
+                <a href="../vLLM Code/vllm-cpu.html">
+            
+                    
+                    Vllm Cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.7" data-path="../vLLM Code/vllm-llama.html">
+            
+                <a href="../vLLM Code/vllm-llama.html">
+            
+                    
+                    Vllm Llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.8" data-path="../vLLM Code/vllm-LoRA.html">
+            
+                <a href="../vLLM Code/vllm-LoRA.html">
+            
+                    
+                    Vllm Lo RA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.9" data-path="../vLLM Code/vllm-metadata.html">
+            
+                <a href="../vLLM Code/vllm-metadata.html">
+            
+                    
+                    Vllm Metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.10" data-path="../vLLM Code/vllm-profile.html">
+            
+                <a href="../vLLM Code/vllm-profile.html">
+            
+                    
+                    Vllm Profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.11" data-path="../vLLM Code/vllm-ray.html">
+            
+                <a href="../vLLM Code/vllm-ray.html">
+            
+                    
+                    Vllm Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.12" data-path="../vLLM Code/vllm-schedule.html">
+            
+                <a href="../vLLM Code/vllm-schedule.html">
+            
+                    
+                    Vllm Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../Llumnix Code/">
+            
+                <a href="../Llumnix Code/">
+            
+                    
+                    Llumnix Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.11.1" data-path="../Llumnix Code/llumnix.html">
+            
+                <a href="../Llumnix Code/llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../LoongServe Code/">
+            
+                <a href="../LoongServe Code/">
+            
+                    
+                    LoongServe Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >GPT</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x548C;gpt">&#x3010;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x3011;&#x81EA;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x548C;GPT</h1>
+<p><a href="https://medium.com/@sntaus/understanding-self-attention-gpt-models-80ec894eebf0" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
+<h2 id="&#x57FA;&#x7840;&#x77E5;&#x8BC6;">&#x57FA;&#x7840;&#x77E5;&#x8BC6;</h2>
+<h3 id="&#x8F93;&#x5165;&#x6570;&#x636E;">&#x8F93;&#x5165;&#x6570;&#x636E;</h3>
+<ol>
+<li>&#x8BCD;&#x5D4C;&#x5165;&#x3002;&#x5C06;&#x8BCD;&#x53D8;&#x6210;&#x5411;&#x91CF;&#xFF0C;&#x53E5;&#x5B50;&#x53D8;&#x6210;&#x5411;&#x91CF;&#x96C6;&#x5408;&#x3002;</li>
+<li>&#x901A;&#x8FC7;&#x6570;&#x5B66;&#x65B9;&#x6CD5;&#x5C06;&#x4F4D;&#x7F6E;&#x7F16;&#x7801;&#x5D4C;&#x5165;&#x5230;&#x8BCD;&#x5411;&#x91CF;&#x4E2D;&#x3002;</li>
+</ol>
+<h3 id="query-key-value">Query, Key, Value</h3>
+<blockquote>
+<ol>
+<li><p>Use the vector to create a <em>query vector</em> for that word in that position &#x2014; this just means the input position encoded vector goes through a mathematical function (whose parameters are trained during training) to produce a new vector that is referred to as the <em>query</em> vector.</p>
+<p>&#x8F93;&#x5165;&#x5411;&#x91CF;&#x901A;&#x8FC7;&#x6570;&#x5B66;&#x65B9;&#x5F0F;&#x751F;&#x6210;query&#x5411;&#x91CF;</p>
+</li>
+<li><p>Use the vector to create a <em>key vector</em> for that word in that position &#x2014;i.e. the input position encoded vector goes through <em>another</em> (different) mathematical function to produce another new vector that is referred to as the <em>key</em> vector.</p>
+<p>&#x8F93;&#x5165;&#x5411;&#x91CF;&#x901A;&#x8FC7;&#x53E6;&#x4E00;&#x79CD;&#x6570;&#x5B66;&#x65B9;&#x5F0F;&#x751F;&#x6210;key&#x5411;&#x91CF;</p>
+</li>
+<li><p>Use the vector to create a <em>value vector</em> for that word in that position &#x2014; i.e. the vector goes through <em>yet another</em> mathematical function to produce yet another new vector that is referred to as the <em>value</em> vector.</p>
+<p>&#x8F93;&#x5165;&#x5411;&#x91CF;&#x901A;&#x8FC7;&#x53E6;&#x4E00;&#x79CD;&#x6570;&#x5B66;&#x65B9;&#x5F0F;&#x751F;&#x6210;value&#x5411;&#x91CF;</p>
+</li>
+</ol>
+<p><img src="GPT.assets/1.png" alt="1"></p>
+<p>&#x6570;&#x5B66;&#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x662F;&#x6743;&#x91CD;&#x77E9;&#x9635;</p>
+<p><img src="GPT.assets/2.png" alt="2"></p>
+<p>&#x5E76;&#x5728;&#x540E;&#x7EED;&#x4F7F;&#x7528;softmax&#x4FDD;&#x8BC1;&#x5206;&#x6570;&#x6CA1;&#x592A;&#x5927;&#x533A;&#x522B;&#x3002;</p>
+<p><img src="GPT.assets/3.png" alt="3"></p>
+</blockquote>
+<h3 id="&#x8FDB;&#x4E00;&#x6B65;&#x6D41;&#x7A0B;">&#x8FDB;&#x4E00;&#x6B65;&#x6D41;&#x7A0B;</h3>
+<blockquote>
+<p><img src="GPT.assets/4.png" alt="4"></p>
+</blockquote>
+<h2 id="how-does-all-of-it-happen-so-fast-so-many-times">How does all of it happen so fast so many times?</h2>
+<blockquote>
+<p>First, the model does not have to recompute query, key, value vectors each time for the words preceding the last output word since it already did it in previous stages and can re-use those values.</p>
+<p>&#x4E0D;&#x9700;&#x8981;&#x6BCF;&#x6B21;&#x90FD;&#x8BA1;&#x7B97;KQV</p>
+<p>Secondly, most of the steps in the self-attention layer can be parallelized.</p>
+<p>&#x81EA;&#x6CE8;&#x610F;&#x529B;&#x5C42;&#x53EF;&#x4EE5;&#x5E76;&#x884C;</p>
+<p>Lastly, there&#x2019;s likely various optimizations both within the network like pruning and at the hardware level that can be leveraged to speed up inference time even more.</p>
+<p>&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x4FEE;&#x526A;&#x6216;&#x5404;&#x65B9;&#x9762;&#x7684;&#x786C;&#x4EF6;&#x4F18;&#x5316;</p>
+</blockquote>
+<h2 id="how-does-the-model-learn">how does the model learn?</h2>
+<p>&#x91C7;&#x7528;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;</p>
+<blockquote>
+<ol>
+<li><p>The model is given an input sequence and it predicts the next word using self-attention.</p>
+<p>&#x6839;&#x636E;&#x81EA;&#x6CE8;&#x610F;&#x529B;&#x9884;&#x6D4B;&#x4E0B;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;</p>
+</li>
+<li><p>If the predicted next word is not the same as the expected next word, the model parameters are updated using gradient descent.</p>
+<p>&#x8DDF;&#x771F;&#x5B9E;&#x60C5;&#x51B5;&#x6709;&#x5DEE;&#x8DDD;&#x7684;&#x8BDD;&#x5C31;&#x4F7F;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x66F4;&#x65B0;&#x6A21;&#x578B;&#x53C2;&#x6570;</p>
+</li>
+<li><p>This process is repeated for numerous times using a large training dataset (with labelled input and expected output).</p>
+<p>&#x4F7F;&#x7528;&#x5927;&#x578B;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x96C6;&#x4E0D;&#x65AD;&#x91CD;&#x590D;&#x8BE5;&#x8FC7;&#x7A0B;</p>
+</li>
+</ol>
+</blockquote>
+<p>&#x4E14;&#x8FD9;&#x79CD;&#x5927;&#x6A21;&#x578B;&#x4E0E;transformer&#x4E0D;&#x540C;&#x7684;&#x8BDD;&#x662F;&#x5176;&#x4EC5;&#x4F7F;&#x7528;decoder&#x3002;</p>
+<h3 id="&#x4EE3;&#x7801;&#x7EC6;&#x8282;">&#x4EE3;&#x7801;&#x7EC6;&#x8282;</h3>
+<p><a href="https://github.com/vllm-project/vllm/blob/v0.2.7/vllm/model_executor/models/llama.py" target="_blank">&#x4EE3;&#x7801;&#x5730;&#x5740;</a></p>
+<hr>
+<p>LlamaForCausalLM&#x5F00;&#x59CB;forward&#xFF0C;&#x8C03;&#x7528;LlamaModel&#x7684;forward&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x9690;&#x85CF;&#x5C42;&#x8F93;&#x51FA;&#x72B6;&#x6001;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LlamaForCausalLM</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-comment">#&#x901A;&#x8FC7;LlamaModel&#x5F97;&#x5230;&#x8F93;&#x51FA;&#x72B6;&#x6001;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(
+        self,
+        input_ids: torch.Tensor,
+        positions: torch.Tensor,
+        kv_caches: List[KVCache],
+        input_metadata: InputMetadata,
+    )</span> -&gt; torch.Tensor:</span>
+        hidden_states = self.model(input_ids, positions, kv_caches,
+                                   input_metadata)
+        <span class="hljs-keyword">return</span> hidden_states
+</code></pre>
+<hr>
+<p>&#x8FD9;&#x91CC;&#x5148;&#x4ECB;&#x7ECD;RmsNorm&#xFF0C;&#x5747;&#x65B9;&#x6839;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x540E;&#x6587;&#x591A;&#x6B21;&#x7528;&#x5230;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RMSNorm</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Root mean square normalization.
+
+    Computes x -&gt; w * x / sqrt(E[x^2] + eps) where w is the learned weight.
+    Refer to https://arxiv.org/abs/1910.07467
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(
+        self,
+        x: torch.Tensor,
+        residual: Optional[torch.Tensor] = None,
+    )</span> -&gt; Union[torch.Tensor, Tuple[torch.Tensor, torch.Tensor]]:</span>
+        <span class="hljs-comment"># &#x5982;&#x679C;&#x6709;&#x6B8B;&#x5DEE;&#x5411;&#x91CF;&#xFF0C;&#x8C03;&#x7528;&#x52A0;&#x901F;&#xFF0C;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;</span>
+        <span class="hljs-keyword">if</span> residual <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            ops.fused_add_rms_norm(
+                x,
+                residual,
+                self.weight.data,
+                self.variance_epsilon,
+            )
+            <span class="hljs-keyword">return</span> x, residual
+        <span class="hljs-comment"># &#x5982;&#x679C;&#x6CA1;&#x6709;&#x6B8B;&#x5DEE;&#x5411;&#x91CF;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x548C;x&#x4E00;&#x6837;&#x7684;out&#x8FDB;&#x884C;&#x8BA1;&#x7B97;</span>
+        out = torch.empty_like(x)
+        ops.rms_norm(
+            out,
+            x,
+            self.weight.data,
+            self.variance_epsilon,
+        )
+        <span class="hljs-keyword">return</span> out
+</code></pre>
+<hr>
+<p>LlamaModel forward&#x5148;&#x8FDB;&#x884C;&#x8BCD;&#x5D4C;&#x5165;&#xFF0C;&#x518D;&#x5FAA;&#x73AF;&#x8FDB;&#x884C;N&#x6B21;decoder&#x64CD;&#x4F5C;&#xFF08;&#x8C03;&#x7528;LlamaDecoderLayer&#x7684;forward&#xFF09;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LlamaModel</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(
+        self,
+        input_ids: torch.Tensor,
+        positions: torch.Tensor,
+        kv_caches: List[KVCache],
+        input_metadata: InputMetadata,
+    )</span> -&gt; torch.Tensor:</span>
+        hidden_states = self.embed_tokens(input_ids)    <span class="hljs-comment">#&#x8BCD;&#x5D4C;&#x5165;</span>
+        residual = <span class="hljs-keyword">None</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(self.layers)):    <span class="hljs-comment">#&#x5FAA;&#x73AF;&#x6BCF;&#x4E00;&#x5C42;&#xFF0C;&#x6BCF;&#x6B21;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;decoder&#x5904;&#x7406;</span>
+            layer = self.layers[i]            
+            hidden_states, residual = layer(
+                positions,
+                hidden_states,
+                kv_caches[i],
+                input_metadata,
+                residual,
+            )
+        hidden_states, _ = self.norm(hidden_states, residual) <span class="hljs-comment">#RMSNorm&#x5F52;&#x4E00;&#x5316;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;</span>
+        <span class="hljs-keyword">return</span> hidden_states
+</code></pre>
+<hr>
+<p>LlamaDecoderLayer</p>
+<p>&#x5148;&#x6839;&#x636E;&#x6B8B;&#x5DEE;&#x5411;&#x91CF;&#x8BA1;&#x7B97;&#xFF08;&#x8C03;&#x7528;ResNorm&#x5B9E;&#x73B0;&#x5F52;&#x4E00;&#x5316;&#xFF09;</p>
+<p>&#x7136;&#x540E;&#x8C03;&#x7528;&#x6CE8;&#x610F;&#x529B;&#x673A;&#x5236;&#x7684;forward&#x8BA1;&#x7B97;attention</p>
+<p>&#x7136;&#x540E;&#x8C03;&#x7528;ResNorm&#x518D;&#x8FDB;&#x884C;&#x5F52;&#x4E00;&#x5316;</p>
+<p>&#x6700;&#x540E;&#x8C03;&#x7528;mlp&#x7EBF;&#x6027;&#x5C42;</p>
+<p><strong>&#x90A3;&#x4E48;&#xFF0C;</strong></p>
+<p><strong>1. &#x524D;&#x9762;hidden_states &#x5BF9;&#x5E94;&#x7684;residual&#x8BA1;&#x7B97;&#x90E8;&#x5206;&#x5BF9;&#x5E94;&#x7684;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x5728;&#x54EA;&#x91CC;&#x67E5;&#x9605;&#x5230;&#xFF1F;</strong></p>
+<p><strong>2. &#x6211;&#x7684;&#x7406;&#x89E3;&#x662F;&#x8FD9;&#x91CC;&#x8DDF;resnet&#x76F8;&#x4F3C;&#xFF0C;&#x90A3;&#x4E0D;&#x9700;&#x8981;&#x6700;&#x540E;add&#x6B8B;&#x5DEE;&#x5411;&#x91CF;&#x5417;&#xFF1F;</strong></p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LlamaDecoderLayer</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(
+        self,
+        positions: torch.Tensor,
+        hidden_states: torch.Tensor,
+        kv_cache: KVCache,
+        input_metadata: InputMetadata,
+        residual: Optional[torch.Tensor],
+    )</span> -&gt; Tuple[torch.Tensor, torch.Tensor]:</span>
+        <span class="hljs-comment"># Self Attention</span>
+        <span class="hljs-comment"># &#x6839;&#x636E;&#x6B8B;&#x5DEE;&#x5411;&#x91CF;&#x8BA1;&#x7B97;&#x9690;&#x85CF;&#x5C42;</span>
+        <span class="hljs-keyword">if</span> residual <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            residual = hidden_states
+            hidden_states = self.input_layernorm(hidden_states) <span class="hljs-comment"># ResNorm</span>
+        <span class="hljs-keyword">else</span>:
+            hidden_states, residual = self.input_layernorm( <span class="hljs-comment"># ResNorm</span>
+                hidden_states, residual)
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;attention</span>
+        hidden_states = self.self_attn(
+            positions=positions,
+            hidden_states=hidden_states,
+            kv_cache=kv_cache,
+            input_metadata=input_metadata,
+        )
+
+        <span class="hljs-comment"># Fully Connected</span>
+        hidden_states, residual = self.post_attention_layernorm( <span class="hljs-comment"># ResNorm</span>
+            hidden_states, residual)
+        hidden_states = self.mlp(hidden_states) <span class="hljs-comment"># mlp&#x7EBF;&#x6027;&#x5C42;</span>
+        <span class="hljs-keyword">return</span> hidden_states, residual
+</code></pre>
+<hr>
+<p>LlamaAttention&#x5148;&#x8C03;&#x7528;&#x4E86;QKVParallelLinear&#x6765;<strong>&#x8BA1;&#x7B97; <em>_</em>&#xFF1F;</strong>gpt&#x8BF4;&#x662F;&#x5C06;&#x9690;&#x85CF;&#x72B6;&#x6001;&#x5BF9;K&#x3001;Q&#x3001;V&#x6295;&#x5F71;</p>
+<p>&#x518D;&#x8C03;&#x7528;&#x4E86;qkv.split&#xFF0C;<strong>&#x8FD9;&#x662F;&#x54EA;&#x91CC;&#x7684;&#xFF1F;</strong>gpt&#x8BF4;&#x662F;&#x5C06;&#x6295;&#x5F71;&#x7684;&#x5F20;&#x91CF;&#x5206;&#x5272;&#x6210;K&#x3001;Q&#x3001;V</p>
+<p>&#x518D;&#x8C03;&#x7528;rotary_emb&#xFF0C;&#x662F;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x7684;get_rope&#x3002;<strong>&#x4E0D;&#x77E5;&#x9053;&#x5E72;&#x4EC0;&#x4E48;&#x7684;&#x3002;</strong>gpt&#x8BF4;&#x4F7F;&#x7528; <code>rotary_emb</code> &#x5C42;&#x5BF9;&#x67E5;&#x8BE2;&#x548C;&#x952E;&#x8FDB;&#x884C;&#x65CB;&#x8F6C;&#x4F4D;&#x7F6E;&#x7F16;&#x7801;&#x3002;</p>
+<p>&#x8C03;&#x7528;PageAttention&#x8BA1;&#x7B97;attention</p>
+<p>&#x6700;&#x540E;&#x8C03;&#x7528;RowParallelLinear&#x6765;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;<strong>&#x5E72;&#x4EC0;&#x4E48;&#x7684;&#xFF1F;</strong>gpt&#x8BF4;&#x901A;&#x8FC7; <code>o_proj</code> &#x5BF9;&#x6CE8;&#x610F;&#x529B;&#x8BA1;&#x7B97;&#x7684;&#x8F93;&#x51FA;&#x8FDB;&#x884C;&#x6295;&#x5F71;&#xFF0C;&#x5F97;&#x5230;&#x6700;&#x7EC8;&#x7684;&#x8F93;&#x51FA;&#x3002;</p>
+<p><strong>&#x6295;&#x5F71;&#x662F;&#x6307;&#xFF1F;</strong></p>
+<p>&#x603B;&#x800C;&#x8A00;&#x4E4B;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x662F;attention&#x7684;&#x8BA1;&#x7B97;&#x90E8;&#x5206;&#xFF0C;<strong>&#x9700;&#x8981;&#x540E;&#x9762;&#x627E;&#x6587;&#x732E;&#x548C;&#x516C;&#x5F0F;&#x5BF9;&#x5E94;&#x4E00;&#x4E0B;</strong></p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LlamaAttention</span><span class="hljs-params">(nn.Module)</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(
+        self,
+        positions: torch.Tensor, # &#x4F4D;&#x7F6E;&#x5F20;&#x91CF;
+        hidden_states: torch.Tensor, # &#x9690;&#x85CF;&#x72B6;&#x6001;&#x5F20;&#x91CF;
+        kv_cache: KVCache, # &#x952E;&#x503C;&#x7F13;&#x5B58;&#xFF0C;&#x4E3B;&#x8981;&#x662F;vllm&#x7684;&#x4E00;&#x4E2A;&#x7279;&#x8272;&#xFF0C;&#x7528;&#x6765;&#x5B58;QKV&#x7684;
+        input_metadata: InputMetadata, #&#x8F93;&#x5165;&#x7684;&#x5143;&#x6570;&#x636E;&#x4FE1;&#x606F;
+    )</span> -&gt; torch.Tensor:</span>
+        qkv, _ = self.qkv_proj(hidden_states) <span class="hljs-comment"># &#x5206;&#x5757;&#x8BA1;&#x7B97;</span>
+        q, k, v = qkv.split([self.q_size, self.kv_size, self.kv_size], dim=<span class="hljs-number">-1</span>)
+        q, k = self.rotary_emb(positions, q, k)
+        k_cache, v_cache = kv_cache
+        attn_output = self.attn(q, k, v, k_cache, v_cache, input_metadata) <span class="hljs-comment"># pageAttention&#x8BA1;&#x7B97;</span>
+        output, _ = self.o_proj(attn_output) <span class="hljs-comment"># &#x5206;&#x5757;&#x8BA1;&#x7B97;</span>
+        <span class="hljs-keyword">return</span> output
+</code></pre>
+<hr>
+<p>LlamaMLP&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x4E00;&#x4E2A;MLP&#x90E8;&#x5206;</p>
+<p>&#x5148;&#x5C06;&#x8F93;&#x5165;&#x53C2;&#x6570;x&#x8FDB;&#x884C;&#x6295;&#x5F71;&#xFF0C;&#x5F97;&#x5230;gate_up</p>
+<p>&#x4E2D;&#x95F4;&#x5C42;&#x8F93;&#x51FA;&#x7ECF;&#x8FC7;act_fn&#x6FC0;&#x6D3B;</p>
+<p>&#x6700;&#x540E;&#x5C06;&#x6FC0;&#x6D3B;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x6295;&#x5F71;</p>
+<p>&#x5F97;&#x5230;&#x8F93;&#x51FA;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LlamaMLP</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x)</span>:</span>
+        gate_up, _ = self.gate_up_proj(x)
+        x = self.act_fn(gate_up)
+        x, _ = self.down_proj(x)
+        <span class="hljs-keyword">return</span> x
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Basics of Machine Learning.html" class="navigation navigation-prev " aria-label="Previous page: Basics Of Machine Learning">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Implementation Neural Network.html" class="navigation navigation-next " aria-label="Next page: Implementation Neural Network">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GPT","level":"4.6.2","depth":2,"next":{"title":"Implementation Neural Network","level":"4.6.3","depth":2,"path":"Study Notes/NLP/Implementation Neural Network.md","ref":"Study Notes/NLP/Implementation Neural Network.md","articles":[]},"previous":{"title":"Basics Of Machine Learning","level":"4.6.1","depth":2,"path":"Study Notes/NLP/Basics of Machine Learning.md","ref":"Study Notes/NLP/Basics of Machine Learning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex","expandable-chapters-small"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Study Notes/NLP/GPT.md","mtime":"2024-12-02T02:35:31.838Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-02T02:36:07.078Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

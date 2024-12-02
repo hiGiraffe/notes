@@ -1,0 +1,2211 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Vllm Lo RA · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="vllm-metadata.html" />
+    
+    
+    <link rel="prev" href="vllm-llama.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Academic Writing/">
+            
+                <a href="../../Blogs/Academic Writing/">
+            
+                    
+                    Academic Writing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../Blogs/Academic Writing/design of system.html">
+            
+                <a href="../../Blogs/Academic Writing/design of system.html">
+            
+                    
+                    Design Of System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/academic reading.html">
+            
+                <a href="../../Blogs/academic reading.html">
+            
+                    
+                    Academic Reading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Blogs/how to express.html">
+            
+                <a href="../../Blogs/how to express.html">
+            
+                    
+                    How To Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../Paper Reading Notes/Arxiv/">
+            
+                <a href="../../Paper Reading Notes/Arxiv/">
+            
+                    
+                    Arxiv
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/Mooncake.html">
+            
+                    
+                    Mooncake
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                <a href="../../Paper Reading Notes/Arxiv/S-LoRA.html">
+            
+                    
+                    S-LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../Paper Reading Notes/Arxiv/MemServe.md">
+            
+                <span>
+            
+                    
+                    MemServe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/">
+            
+                    
+                    ASPLOS 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/ExeGPT.html">
+            
+                    
+                    Exe GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                <a href="../../Paper Reading Notes/ASPLOS 2024/SpecInfer.html">
+            
+                    
+                    Spec Infer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../Paper Reading Notes/OSDI 2024/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/">
+            
+                    
+                    OSDI 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/Llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2024/ServerlessLLM.html">
+            
+                    
+                    Serverless LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../Paper Reading Notes/OSDI 2024/Fairness in Serving LLM.md">
+            
+                <span>
+            
+                    
+                    Fairness in Serving LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../Paper Reading Notes/SOSP 2024/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/">
+            
+                    
+                    SOSP 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/Apparate.html">
+            
+                    
+                    Apparate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2024/LoongServe.html">
+            
+                    
+                    Loong Serve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../Paper Reading Notes/FAST 2023/">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/">
+            
+                    
+                    FAST 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                <a href="../../Paper Reading Notes/FAST 2023/Resource Scheduling for LC Services.html">
+            
+                    
+                    Resource Scheduling For LC Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../../Paper Reading Notes/ICML 2023/">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/">
+            
+                    
+                    ICML 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                <a href="../../Paper Reading Notes/ICML 2023/FlexGen.html">
+            
+                    
+                    Flex Gen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../../Paper Reading Notes/NSDI 2023/">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/">
+            
+                    
+                    NSDI 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                <a href="../../Paper Reading Notes/NSDI 2023/Shockwave.html">
+            
+                    
+                    Shockwave
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../../Paper Reading Notes/SC 2023/">
+            
+                <a href="../../Paper Reading Notes/SC 2023/">
+            
+                    
+                    SC 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                <a href="../../Paper Reading Notes/SC 2023/AutoMap.html">
+            
+                    
+                    Auto Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../../Paper Reading Notes/SOSP 2023/">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/">
+            
+                    
+                    SOSP 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.9.1" data-path="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                <a href="../../Paper Reading Notes/SOSP 2023/vllm.html">
+            
+                    
+                    Vllm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../../Paper Reading Notes/OSDI 2022/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/">
+            
+                    
+                    OSDI 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.10.1" data-path="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2022/Orca.html">
+            
+                    
+                    Orca
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../../Paper Reading Notes/SC 2022/">
+            
+                <a href="../../Paper Reading Notes/SC 2022/">
+            
+                    
+                    SC 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.11.1" data-path="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/CoGNN.html">
+            
+                    
+                    Co GNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11.2" data-path="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                <a href="../../Paper Reading Notes/SC 2022/VSGM.html">
+            
+                    
+                    VSGM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../../Paper Reading Notes/OSDI 2020/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/">
+            
+                    
+                    OSDI 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.12.1" data-path="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2020/Gavel.html">
+            
+                    
+                    Gavel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/">
+            
+                    
+                    SIGMOD 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.13.1" data-path="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                <a href="../../Paper Reading Notes/SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                    
+                    GPU Based Subgraph Enumerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../../Paper Reading Notes/OSDI 2018/">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/">
+            
+                    
+                    OSDI 2018
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.14.1" data-path="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                <a href="../../Paper Reading Notes/OSDI 2018/Ray.html">
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../CME 213/">
+            
+                <a href="../CME 213/">
+            
+                    
+                    CME 213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../CME 213/C++.html">
+            
+                <a href="../CME 213/C++.html">
+            
+                    
+                    C
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../CUDA/">
+            
+                <a href="../CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../CUDA/CUDA Warp Level.html">
+            
+                <a href="../CUDA/CUDA Warp Level.html">
+            
+                    
+                    CUDA Warp Level
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../CUDA/CUDA1 Basic.html">
+            
+                <a href="../CUDA/CUDA1 Basic.html">
+            
+                    
+                    CUDA 1 Basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../CUDA/CUDA2 Brief Summary.html">
+            
+                <a href="../CUDA/CUDA2 Brief Summary.html">
+            
+                    
+                    CUDA 2 Brief Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../CUDA/CUDA3 Kernels.html">
+            
+                <a href="../CUDA/CUDA3 Kernels.html">
+            
+                    
+                    CUDA 3 Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../CUDA/Nsight System.html">
+            
+                <a href="../CUDA/Nsight System.html">
+            
+                    
+                    Nsight System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../LLM Parallelism/">
+            
+                <a href="../LLM Parallelism/">
+            
+                    
+                    LLM Parallelism
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../LLM Parallelism/Data Parallelism.html">
+            
+                <a href="../LLM Parallelism/Data Parallelism.html">
+            
+                    
+                    Data Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../LLM Parallelism/Pipe Parallelism.html">
+            
+                <a href="../LLM Parallelism/Pipe Parallelism.html">
+            
+                    
+                    Pipe Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../LLM Parallelism/Tensor Parallelism.html">
+            
+                <a href="../LLM Parallelism/Tensor Parallelism.html">
+            
+                    
+                    Tensor Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../MIT 6.172/">
+            
+                <a href="../MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../MIT 6.172/mit-6-172-1.html">
+            
+                <a href="../MIT 6.172/mit-6-172-1.html">
+            
+                    
+                    Mit 6 172 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Mit 6 172 12
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Mit 6 172 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Mit 6 172 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    Mit 6 172 Hw 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../MLSYS/">
+            
+                <a href="../MLSYS/">
+            
+                    
+                    MLSYS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../MLSYS/Llama Model's Decoder Code.html">
+            
+                <a href="../MLSYS/Llama Model's Decoder Code.html">
+            
+                    
+                    Llama Model S Decoder Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../MLSYS/LLM Calculation.html">
+            
+                <a href="../MLSYS/LLM Calculation.html">
+            
+                    
+                    LLM Calculation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../MLSYS/LLM Deployment Record.html">
+            
+                <a href="../MLSYS/LLM Deployment Record.html">
+            
+                    
+                    LLM Deployment Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../MLSYS/Sepculative Decoding.html">
+            
+                <a href="../MLSYS/Sepculative Decoding.html">
+            
+                    
+                    Sepculative Decoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../NLP/">
+            
+                <a href="../NLP/">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../NLP/Basics of Machine Learning.html">
+            
+                <a href="../NLP/Basics of Machine Learning.html">
+            
+                    
+                    Basics Of Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../NLP/GPT.html">
+            
+                <a href="../NLP/GPT.html">
+            
+                    
+                    GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../NLP/Implementation Neural Network.html">
+            
+                <a href="../NLP/Implementation Neural Network.html">
+            
+                    
+                    Implementation Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="../NLP/Loss Function.html">
+            
+                <a href="../NLP/Loss Function.html">
+            
+                    
+                    Loss Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.5" data-path="../NLP/Recurrent Neural Network.html">
+            
+                <a href="../NLP/Recurrent Neural Network.html">
+            
+                    
+                    Recurrent Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.6" data-path="../NLP/Seq2Seq and Attention.html">
+            
+                <a href="../NLP/Seq2Seq and Attention.html">
+            
+                    
+                    Seq 2 Seq And Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../OPENMP/">
+            
+                <a href="../OPENMP/">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../OPENMP/openmp.html">
+            
+                <a href="../OPENMP/openmp.html">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../Triton/">
+            
+                <a href="../Triton/">
+            
+                    
+                    Triton
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../Ray/index.md">
+            
+                <span>
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    VLLM Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.10.1" data-path="vllm-async-llm.html">
+            
+                <a href="vllm-async-llm.html">
+            
+                    
+                    Vllm Async Llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.2" data-path="vllm-attention.html">
+            
+                <a href="vllm-attention.html">
+            
+                    
+                    Vllm Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.3" data-path="vllm-block.html">
+            
+                <a href="vllm-block.html">
+            
+                    
+                    Vllm Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.4" data-path="vllm-cache.html">
+            
+                <a href="vllm-cache.html">
+            
+                    
+                    Vllm Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.5" data-path="vllm-chunked-prefill.html">
+            
+                <a href="vllm-chunked-prefill.html">
+            
+                    
+                    Vllm Chunked Prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.6" data-path="vllm-cpu.html">
+            
+                <a href="vllm-cpu.html">
+            
+                    
+                    Vllm Cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.7" data-path="vllm-llama.html">
+            
+                <a href="vllm-llama.html">
+            
+                    
+                    Vllm Llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.10.8" data-path="vllm-LoRA.html">
+            
+                <a href="vllm-LoRA.html">
+            
+                    
+                    Vllm Lo RA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.9" data-path="vllm-metadata.html">
+            
+                <a href="vllm-metadata.html">
+            
+                    
+                    Vllm Metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.10" data-path="vllm-profile.html">
+            
+                <a href="vllm-profile.html">
+            
+                    
+                    Vllm Profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.11" data-path="vllm-ray.html">
+            
+                <a href="vllm-ray.html">
+            
+                    
+                    Vllm Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.12" data-path="vllm-schedule.html">
+            
+                <a href="vllm-schedule.html">
+            
+                    
+                    Vllm Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../Llumnix Code/">
+            
+                <a href="../Llumnix Code/">
+            
+                    
+                    Llumnix Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.11.1" data-path="../Llumnix Code/llumnix.html">
+            
+                <a href="../Llumnix Code/llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../LoongServe Code/">
+            
+                <a href="../LoongServe Code/">
+            
+                    
+                    LoongServe Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Vllm Lo RA</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vllm-lora">vLLM LoRA</h1>
+<h2 id="&#x57FA;&#x7840;&#x77E5;&#x8BC6;">&#x57FA;&#x7840;&#x77E5;&#x8BC6;</h2>
+<p><a href="https://arxiv.org/abs/2106.09685" target="_blank">LoRA: Low-Rank Adaptation of Large Language Models</a></p>
+<p><a href="https://axk51013.medium.com/llm%E5%B0%88%E6%AC%84-all-about-lora-5bc7e447c234" target="_blank">All about LoRA Blog</a></p>
+<p><strong>Low-Rank Adaptation</strong>, or LoRA, which freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture, greatly reducing the number of trainable parameters for downstream tasks, introducing no inference latency compared to a fully fine-tuned model, by construction.</p>
+<p><img src="vllm-LoRA.assets/1.png" alt="1"></p>
+<p>&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x9690;&#x85CF;&#x5C42;&#xFF08;hidden layer&#xFF09;&#xFF0C;$W$&#x4EE3;&#x8868;&#x8BE5;hidden layer&#x7684;&#x6743;&#x91CD;&#xFF0C;$x$&#x662F;&#x8F93;&#x5165;&#xFF0C;$h$&#x662F;&#x51FA;&#xFF0C;&#x5176;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;&#x4E3A;&#xFF1A;$h=Wx$</li>
+<li>&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;lora&#x7684;hidden layer&#xFF0C;$W_0$&#x4E3A;&#x521D;&#x59CB;&#x6743;&#x91CD;&#xFF0C;$\Delta W$&#x662F;lora&#x8BAD;&#x7EC3;&#x751F;&#x6210;&#x7684;&#x77E9;&#x9635;&#xFF0C;&#x5176;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;&#x4E3A;&#xFF1A;$h=W_0 x+\Delta Wx=W_0 x+BAx$<ul>
+<li>&#x6211;&#x4EEC;&#x5E0C;&#x671B;$\Delta W$&#x53C2;&#x6570;&#x91CF;&#x8FDC;&#x5C0F;&#x4E8E;$W_0$&#xFF0C;&#x5C31;&#x4F7F;&#x7528;&#x4E86;BA&#x8FD9;&#x4E24;&#x4E2A;&#x77E9;&#x9635;&#x6765;&#x5B9E;&#x73B0;&#x4F4E;&#x79E9;&#x6295;&#x5F71;&#xFF08;Low Rank Projection&#xFF09;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a href="https://arxiv.org/pdf/2304.01933v1" target="_blank">LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models</a></p>
+<p><a href="https://blog.csdn.net/lgzlgz3102/article/details/135163995" target="_blank">csdn LoRA&#x4ECB;&#x7ECD;</a></p>
+<p>&#x76F8;&#x6BD4;&#x4E8E;&#x66FF;&#x6362;attention&#x7C7B;&#xFF0C;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x3001;&#x901A;&#x7528;&#x7684;LoRA&#x65B9;&#x6CD5;&#x662F;&#x5B9E;&#x73B0;nn.Linear&#x7684;&#x5305;&#x88C5;&#x5668;&#xFF0C;&#x53EA;&#x68C0;&#x67E5;&#x5BF9;&#x5E94;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x8FDB;&#x884C;&#x76F4;&#x63A5;&#x66FF;&#x6362;&#x3002;vLLM&#x4E5F;&#x662F;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x3002;</p>
+<hr>
+<h2 id="vllm">vLLM</h2>
+<p>llama&#x652F;&#x6301;lora&#xFF0C;vLLM&#x4E2D;opt&#x4E0D;&#x652F;&#x6301;lora&#x3002;</p>
+<hr>
+<p><strong>EmgineArgs</strong></p>
+<ul>
+<li>Arguments<ul>
+<li>enable_lora</li>
+<li>max_loras&#xFF1A;&#x5728;&#x540C;&#x4E00;&#x6279;&#x6B21;&#x4E2D;&#x53EF;&#x4F7F;&#x7528;&#x7684;lora&#x6570;&#x91CF;</li>
+<li>max_lora_rank&#xFF1A;&#x53EF;&#x652F;&#x6301;&#x7684;&#x6700;&#x5927;&#x79E9;&#xFF0C;&#x6211;&#x7406;&#x89E3;&#x662F;&#x7528;&#x4E8E;AB&#x4E4B;&#x4E2D;&#x3002;</li>
+<li>fully_sharded_loras</li>
+<li>lora_extra_vocab_size</li>
+<li>long_lora_scaling_factors</li>
+<li>lora_dtype</li>
+<li>max_cpu_loras&#xFF1A; cpu&#x4E0A;lora cache&#x7A7A;&#x95F4;</li>
+<li>qlora_adapter_name_or_path</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x8FD9;&#x90E8;&#x5206;&#x91C7;&#x7528;&#x4EBA;&#x5DE5;&#x667A;&#x80FD;&#x54A8;&#x8BE2;</p>
+<ol>
+<li><code>max_lora_rank</code>: &#x7528;&#x4E8E;&#x8BBE;&#x7F6E; LoRA &#x5C42;&#x7684;&#x6700;&#x5927;&#x79E9;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x63A7;&#x5236; LoRA &#x5C42;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x3002;&#x8F83;&#x4F4E;&#x7684;&#x79E9;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6A21;&#x578B;&#x6027;&#x80FD;&#x4E0B;&#x964D;,&#x800C;&#x8F83;&#x9AD8;&#x7684;&#x79E9;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6A21;&#x578B;&#x8FC7;&#x62DF;&#x5408;&#x3002;</li>
+<li><code>max_loras</code>: &#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684; LoRA &#x5C42;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x63A7;&#x5236; LoRA &#x5C42;&#x7684;&#x6570;&#x91CF;,&#x4ECE;&#x800C;&#x63A7;&#x5236;&#x6A21;&#x578B;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;</li>
+<li><code>fully_sharded_loras</code>: &#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;,&#x7528;&#x4E8E;&#x6307;&#x793A;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x5B8C;&#x5168;&#x5206;&#x7247;&#x7684; LoRA &#x5C42;&#x3002;&#x5B8C;&#x5168;&#x5206;&#x7247;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x5185;&#x5B58;&#x6548;&#x7387;,&#x4F46;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x3002;</li>
+<li><code>max_cpu_loras</code>: &#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x6574;&#x6570;&#x53C2;&#x6570;,&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x5728; CPU &#x4E0A;&#x4F7F;&#x7528;&#x7684; LoRA &#x5C42;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4F18;&#x5316; CPU &#x6027;&#x80FD;&#x3002;</li>
+<li><code>lora_dtype</code>: &#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684; PyTorch &#x6570;&#x636E;&#x7C7B;&#x578B;&#x53C2;&#x6570;,&#x7528;&#x4E8E;&#x8BBE;&#x7F6E; LoRA &#x5C42;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4F18;&#x5316;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x548C;&#x6027;&#x80FD;&#x3002;</li>
+<li><code>lora_extra_vocab_size</code>: &#x7528;&#x4E8E;&#x8BBE;&#x7F6E; LoRA &#x5C42;&#x7684;&#x989D;&#x5916;&#x8BCD;&#x6C47;&#x8868;&#x5927;&#x5C0F;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x7279;&#x6B8A;&#x7684;&#x8BCD;&#x6C47;&#x9700;&#x6C42;&#x3002;</li>
+<li><code>lora_vocab_padding_size</code>: &#x4E00;&#x4E2A;&#x7C7B;&#x7EA7;&#x522B;&#x7684;&#x5E38;&#x91CF;&#x53C2;&#x6570;,&#x7528;&#x4E8E;&#x8BBE;&#x7F6E; LoRA &#x5C42;&#x7684;&#x8BCD;&#x6C47;&#x8868;&#x586B;&#x5145;&#x5927;&#x5C0F;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x3002;</li>
+<li><code>long_lora_scaling_factors</code>: &#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x5143;&#x7EC4;&#x53C2;&#x6570;,&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x957F;&#x5E8F;&#x5217;&#x4EFB;&#x52A1;&#x7684; LoRA &#x5C42;&#x7F29;&#x653E;&#x56E0;&#x5B50;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4F18;&#x5316;&#x957F;&#x5E8F;&#x5217;&#x4EFB;&#x52A1;&#x7684;&#x6027;&#x80FD;&#x3002;</li>
+</ol>
+</blockquote>
+<ul>
+<li>&#x5728;LoRA Config&#x4E2D;&#x4F1A;&#x89E6;&#x53D1;&#x76F8;&#x5173;&#x7684;model&#x548C;scheduler&#x68C0;&#x67E5;<ul>
+<li>&#x5BF9;lora_dtype&#x7684;&#x68C0;&#x67E5;&#xFF0C;&#x5BF9;&#x4F7F;&#x7528;&#x91CF;&#x5316;&#x7684;&#x68C0;&#x67E5;</li>
+<li>&#x5BF9;max_num_batched_tokens&#x7684;&#x68C0;&#x67E5;&#xFF0C;&#x4E0D;&#x80FD;&#x5927;&#x4E8E;65528</li>
+</ul>
+</li>
+</ul>
+<p><strong>llm_emgine</strong></p>
+<p>&#x8FD9;&#x91CC;&#x628A;lora_config&#x7684;&#x4FE1;&#x606F;&#x4F20;&#x5165;executor&#x548C;scheduler</p>
+<hr>
+<p><strong>Scheduler</strong></p>
+<ul>
+<li><p>curr_loras</p>
+<ul>
+<li>Currently batched lora request ids. The argument is in-place updated when any decodes are preempted.</li>
+<li>&#x8FD1;&#x4F3C;&#x4E8E;running_queue&#xFF0C;&#x670D;&#x52A1;&#x4E8E;lora&#xFF0C;&#x5B58;&#x7684;&#x662F;seq_group&#x7684;lora_id&#x3002;</li>
+</ul>
+</li>
+<li><p>&#x5728;&#x8C03;&#x5EA6;&#x8FC7;&#x7A0B;&#x4E2D;&#x901A;&#x8FC7;&#x4FDD;&#x8BC1;lora&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x5927;&#x4E8E;max_loras&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x89E6;&#x53CA;&#x5173;&#x4E8E;lora&#x7684;preempts&#x3002;</p>
+</li>
+<li>&#x5728;&#x8C03;&#x5EA6;&#x8FC7;&#x7A0B;&#x4E2D;&#x5B9E;&#x65F6;&#x5730;&#x4FDD;&#x8BC1;curr_loras&#x7684;req&#x548C;running_queue&#x4E00;&#x6837;&#x3002;&#x8981;&#x6DFB;&#x52A0;&#x7684;&#x65F6;&#x5019;&#x68C0;&#x67E5;&#x5728;&#x4E0D;&#x5728;&#xFF0C;&#x4E0D;&#x5728;&#x5C31;&#x52A0;&#x8FDB;&#x53BB;&#xFF1B;&#x8981;&#x5220;&#x9664;&#x7684;&#x65F6;&#x5019;&#x68C0;&#x67E5;&#x5728;&#x4E0D;&#x5728;&#xFF0C;&#x5728;&#x5C31;&#x5220;&#x9664;&#x3002;</li>
+<li>prefill&#x9636;&#x6BB5;<ul>
+<li>&#x52A0;&#x5165;lora&#x7684;&#x6570;&#x91CF;&#x8D85;&#x8FC7;max_loras&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x5C31;&#x4E0D;&#x4F1A;&#x8FDB;&#x5165;prefill</li>
+</ul>
+</li>
+<li>swapped&#x9636;&#x6BB5;<ul>
+<li>&#x52A0;&#x5165;lora&#x7684;&#x6570;&#x91CF;&#x8D85;&#x8FC7;max_loras&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x5C31;&#x4E0D;&#x4F1A;&#x8FDB;&#x5165;swapped in</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>model_runner</strong></p>
+<ul>
+<li>lora_manager<ul>
+<li>&#x8FD9;&#x91CC;&#x5148;&#x901A;&#x8FC7;init&#x9650;&#x5B9A;&#x4E86;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E3A;LRUCacheWorkerLoRAManager</li>
+<li>&#x7136;&#x540E;&#x518D;load_model()&#xFF0C;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x652F;&#x6301;lora&#xFF0C;&#x652F;&#x6301;&#x5C31;&#x4F20;&#x5165;lora_manager&#xFF0C;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4F46;&#x8FD9;&#x91CC;&#x5E76;&#x6CA1;&#x6709;&#x771F;&#x751F;&#x6210;lora manager</li>
+<li>&#x518D;&#x4F7F;&#x7528;lora_manager.create_lora_manager&#x8BBE;&#x7F6E;model&#x5BF9;&#x5E94;&#x7684;lora_manager</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x8FDB;&#x5165;LoRA&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6709;&#x5173;LoRA&#x7684;&#x7EC6;&#x8282;&#x4F1A;&#x5728;&#x8FD9;&#x91CC;&#x5C55;&#x5F00;&#x3002;</p>
+<p>LoRA&#x4E2D;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x91CD;&#x70B9;&#x6CE8;&#x610F;&#x4E24;&#x4E2A;&#x673A;&#x5236;&#xFF1A;</p>
+<ol>
+<li>LoRA&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5BFC;&#x5165;&#x4E86;LoRA&#x6743;&#x91CD;&#xFF0C;&#x4FEE;&#x6539;&#x4E86;&#x7EBF;&#x5F62;&#x5C42;&#x4EE3;&#x7801;</li>
+<li>LoRA&#x7684;&#x6FC0;&#x6D3B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x628A;LoRA&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#x653E;&#x5165;GPU&#x4E2D;&#xFF0C;&#x4E3A;&#x4E0B;&#x4E00;&#x6B65;&#x63A8;&#x7406;&#x6FC0;&#x6D3B;LoRA&#x7EBF;&#x5F62;&#x5C42;</li>
+<li>LoRA&#x7684;&#x8BA1;&#x7B97;</li>
+</ol>
+<h3 id="lora&#x7684;&#x521D;&#x59CB;&#x5316;">LoRA&#x7684;&#x521D;&#x59CB;&#x5316;</h3>
+<hr>
+<p><strong>lora/worker_manager</strong></p>
+<p><img src="vllm-LoRA.assets/2.png" alt="2"></p>
+<ul>
+<li>&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;<ul>
+<li>create_lora_manager&#x5176;&#x5B9E;&#x662F;&#x7EE7;&#x7EED;&#x8C03;&#x7528;&#x4E86;lora/models.py&#x4E2D;&#x7684;create_lora_manager&#x51FD;&#x6570;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;<code>Create a LoRA adapter for a given model</code>&#x3002;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x540E;&#xFF0C;&#x4F1A;&#x76F4;&#x63A5;&#x89E6;&#x53D1;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;LoRAModelManager&#x7C7B;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x6D89;&#x53CA;&#x5230;&#x4E86;LoRA&#x7684;&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>lora/model.py</strong></p>
+<p><img src="vllm-LoRA.assets/3.png" alt="3"></p>
+<p>&#x5728;&#x8FD9;&#x91CC;&#x901A;&#x8FC7;&#x5BF9;LoRAModelManager&#x7C7B;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E86;&#x628A;&#x5BF9;&#x5E94;&#x7684;modules&#x6362;&#x6210;LoRA&#x7684;modules&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x7684;&#x66F4;&#x6362;&#x673A;&#x5236;&#x5982;&#x4E0B;&#xFF0C;&#x5176;&#x4E2D;module&#x662F;&#x65E7;&#x7684;module&#xFF1A;</p>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_create_lora_modules</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> module_name, module <span class="hljs-keyword">in</span> self.model.named_modules(
+                remove_duplicate=<span class="hljs-keyword">False</span>):
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self._match_target_modules(module_name):
+                <span class="hljs-keyword">continue</span>
+            parts = module_name.split(<span class="hljs-string">&quot;.&quot;</span>)[<span class="hljs-number">-1</span>]
+            packed_moduled_lst = self.packed_modules_mapping.get(parts, [])
+            new_module = replace_submodule(
+                self.model, module_name,
+                from_layer(module, self.lora_slots, self.lora_config,
+                           packed_moduled_lst, self.model.config))
+            <span class="hljs-comment"># LinearScalingRotaryEmbeddingWithLora is used to handle</span>
+            <span class="hljs-comment"># long context lora. Register relevant metadata.</span>
+            <span class="hljs-keyword">if</span> isinstance(new_module, LinearScalingRotaryEmbeddingWithLora):
+                self.long_lora_context = LongContextLoRAContext(
+                    new_module.scaling_factors, new_module.rotary_dim)
+                self.scaling_factor_to_offset = \
+                    new_module.scaling_factor_to_offset
+            <span class="hljs-comment"># (yard1): TODO make this more robust</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;lm_head&quot;</span> <span class="hljs-keyword">in</span> module_name:
+                logits_processor_module = self.model.get_submodule(
+                    <span class="hljs-string">&quot;logits_processor&quot;</span>)
+                new_module = replace_submodule(
+                    self.model, <span class="hljs-string">&quot;logits_processor&quot;</span>,
+                    from_layer_logits_processor(logits_processor_module,
+                                                module, self.lora_slots,
+                                                self.lora_config,
+                                                self.model.config))
+            self.register_module(module_name, new_module)
+            self._register_packed_modules(module_name)
+            new_module.set_mapping(self.base_indices, self.sampler_indices,
+                                   self.sampler_indices_padded,
+                                   self.embeddings_indices,
+                                   self.long_lora_indices, self.indices_len)
+</code></pre>
+<p>&#x5176;&#x4E2D;</p>
+<ul>
+<li><p>&#x5728;&#x8FD9;&#x91CC;&#x6700;&#x540E;&#x8BBE;&#x7F6E;&#x4E86;Mapping&#x90E8;&#x5206;&#xFF0C;&#x5C06;&#x540E;&#x7EED;&#x63A8;&#x7406;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x5404;&#x4E2A;&#x53D8;&#x91CF;&#x521D;&#x59CB;&#x5316;</p>
+</li>
+<li><p>replace_submodule&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF0C;&#x529F;&#x80FD;&#x4E3A;&#x5229;&#x7528;&#x65B0;&#x7684;module&#x66FF;&#x6362;&#x4E86;model&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x65E7;module&#x3002;</p>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">replace_submodule</span><span class="hljs-params">(model: nn.Module, module_name: str,
+                      new_module: nn.Module)</span> -&gt; nn.Module:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Replace a submodule in a model with a new module.&quot;&quot;&quot;</span>
+    parent = model.get_submodule(<span class="hljs-string">&quot;.&quot;</span>.join(module_name.split(<span class="hljs-string">&quot;.&quot;</span>)[:<span class="hljs-number">-1</span>]))
+    target_name = module_name.split(<span class="hljs-string">&quot;.&quot;</span>)[<span class="hljs-number">-1</span>]
+    setattr(parent, target_name, new_module)
+    <span class="hljs-keyword">return</span> new_module
+</code></pre>
+<p>from_layer&#x7684;&#x673A;&#x5236;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># lora/util.py</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_layer</span><span class="hljs-params">(layer: nn.Module,
+               max_loras: int,
+               lora_config: LoRAConfig,
+               packed_modules_list: List,
+               model_config: Optional[PretrainedConfig] = None)</span> -&gt; nn.Module:</span>
+    <span class="hljs-keyword">for</span> lora_cls <span class="hljs-keyword">in</span> _all_lora_classes: <span class="hljs-comment">#_all_lora_classes&#x7C7B;&#x662F;&#x6240;&#x6709;&#x7684;LoRA&#x7EBF;&#x5F62;&#x5C42;&#x51FD;&#x6570;</span>
+        <span class="hljs-comment"># specifying kwargs so they can be easily accessed in decorator</span>
+        <span class="hljs-keyword">if</span> lora_cls.can_replace_layer(source_layer=layer,
+                                      lora_config=lora_config,
+                                      packed_modules_list=packed_modules_list,
+                                      model_config=model_config):
+            ret = lora_cls(layer)
+            ret.create_lora_weights(max_loras, lora_config, model_config)
+            <span class="hljs-keyword">return</span> ret
+    <span class="hljs-keyword">return</span> layer
+</code></pre>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;lora_cls&#x53EF;&#x4EE5;&#x662F;RowParallelLinearWithLoRA&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5C42;&#x6765;&#x66FF;&#x6362;RowParallelLinear&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># RowParallelLinearWithLoRA&#x7C7B;</span>
+<span class="hljs-meta">    @classmethod</span>
+<span class="hljs-meta">    @_not_fully_sharded_can_replace</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">can_replace_layer</span><span class="hljs-params">(cls, source_layer: nn.Module,
+                          lora_config: LoRAConfig, packed_modules_list: List,
+                          model_config: Optional[PretrainedConfig])</span> -&gt; bool:</span>
+        <span class="hljs-keyword">return</span> type(source_layer) <span class="hljs-keyword">is</span> RowParallelLinear
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;RowParallelLinear&#x3002;</p>
+<p>&#x5047;&#x5982;&#x662F;&#xFF0C;&#x5C31;&#x521D;&#x59CB;&#x5316;&#x751F;&#x6210;&#x53D8;&#x91CF;ret&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># RowParallelLinearWithLoRA&#x7C7B;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, base_layer: RowParallelLinear)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        super().__init__()
+        self.base_layer = base_layer
+        self.input_size = self.base_layer.input_size_per_partition
+        self.output_size = self.base_layer.output_size
+        self.device = _get_lora_device(self.base_layer)
+</code></pre>
+<p>&#x7136;&#x540E;&#x518D;&#x8D4B;&#x503C;&#x5BF9;&#x5E94;&#x7684;lora&#x7EC6;&#x8282;&#xFF0C;&#x6BD4;&#x5982;AB&#x77E9;&#x9635;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># RowParallelLinearWithLoRA&#x7C7B;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_lora_weights</span><span class="hljs-params">(
+            self,
+            max_loras: int,
+            lora_config: LoRAConfig,
+            model_config: Optional[PretrainedConfig] = None)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        self.lora_config = lora_config
+        self.tp_rank = get_tensor_model_parallel_rank()
+        self.lora_a_stacked = torch.zeros(
+            (
+                max_loras,
+                <span class="hljs-number">1</span>,
+                lora_config.max_lora_rank,
+                self.input_size,
+            ),
+            dtype=lora_config.lora_dtype,
+            device=self.device,
+        )
+        tp_size = get_tensor_model_parallel_world_size()
+        lora_b_output_size_per_partition = (
+            self.output_size <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> lora_config.fully_sharded_loras <span class="hljs-keyword">else</span>
+            divide(self.output_size, tp_size))
+
+        self.lora_b_stacked = torch.zeros(
+            (
+                max_loras,
+                <span class="hljs-number">1</span>,
+                lora_b_output_size_per_partition,
+                lora_config.max_lora_rank,
+            ),
+            dtype=lora_config.lora_dtype,
+            device=self.device,
+        )
+        <span class="hljs-comment"># Lazily initialized</span>
+        self.indices: torch.Tensor
+        self.indices_len: List[int]
+</code></pre>
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x5173;&#x4E8E;LoRA&#x521D;&#x59CB;&#x5316;&#x7684;&#x7EC6;&#x8282;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x3002;</p>
+<h3 id="lora&#x7684;&#x6FC0;&#x6D3B;">LoRA&#x7684;&#x6FC0;&#x6D3B;</h3>
+<hr>
+<p><strong>model_runner.py</strong></p>
+<p>&#x5728;model_runner&#x4E2D;&#x7684;execute&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x51FA;&#x73B0;&#x4E86;&#x6709;&#x5173;LoRA&#x6FC0;&#x6D3B;&#x90E8;&#x5206;&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x5728;&#x8FD0;&#x884C;&#x63A8;&#x7406;&#x524D;&#x4F1A;&#x5148;&#x5BF9;&#x4E8E;LoRA&#x8FDB;&#x884C;&#x6FC0;&#x6D3B;</p>
+<pre><code class="lang-python"># model_runner&#x7C7B;
+    def execute_model(...)
+        ...
+        if self.lora_config:
+            self.set_active_loras(lora_requests, lora_mapping)
+        ...
+
+    def set_active_loras(self, lora_requests: Set[LoRARequest],
+                         lora_mapping: LoRAMapping) -&gt; None:
+        if not self.lora_manager:
+            raise RuntimeError(&quot;LoRA is not enabled.&quot;)
+        self.lora_manager.set_active_loras(lora_requests, lora_mapping)
+</code></pre>
+<p>&#x5176;&#x8C03;&#x7528;&#x4E86;lora_manager&#x6765;&#x6FC0;&#x6D3B;loras</p>
+<hr>
+<p><strong>worker_manager.py</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># WorkerLoRAManager&#x7C7B;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_active_loras</span><span class="hljs-params">(self, lora_requests: Set[LoRARequest],
+                         lora_mapping: LoRAMapping)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        self._apply_loras(lora_requests)
+        self._lora_manager.set_lora_mapping(lora_mapping)
+</code></pre>
+<h4 id="apply-lora&#x90E8;&#x5206;">Apply LoRA&#x90E8;&#x5206;</h4>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x91CC;apply lora&#x540E;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x8C03;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;_apply_loras&#xFF0C;&#x800C;&#x662F;&#x8C03;&#x7528;&#x5176;&#x5B50;&#x7C7B;LRUCacheWorkerLoRAManager&#x7684;__apply_loras&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x673A;&#x5236;&#x662F;&#x5C06;&#x6240;&#x6709;lora request&#x90FD;add&#x5230;gpu&#x4E2D;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># LRUCacheWorkerLoRAManager</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_apply_loras</span><span class="hljs-params">(self, lora_requests: Set[LoRARequest])</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        loras_map = {
+            lora_request.lora_int_id: lora_request
+            <span class="hljs-keyword">for</span> lora_request <span class="hljs-keyword">in</span> lora_requests <span class="hljs-keyword">if</span> lora_request
+        }
+        <span class="hljs-keyword">if</span> len(loras_map) &gt; self._lora_manager.lora_slots:
+            <span class="hljs-keyword">raise</span> RuntimeError(
+                f<span class="hljs-string">&quot;Number of requested LoRAs ({len(loras_map)}) is greater &quot;</span>
+                <span class="hljs-string">&quot;than the number of GPU LoRA slots &quot;</span>
+                f<span class="hljs-string">&quot;({self._lora_manager.lora_slots}).&quot;</span>)
+        <span class="hljs-keyword">for</span> lora <span class="hljs-keyword">in</span> loras_map.values():
+            self.add_lora(lora)
+</code></pre>
+<p>&#x9996;&#x5148; applay lora&#x5C31;&#x662F;&#x628A;&#x6839;&#x636E;lora request&#xFF0C;&#x8BA1;&#x7B97;&#x5904;&#x8981;add&#x7684;lora&#x6A21;&#x5757;&#x548C;remove&#x7684;lora&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x8981;add&#x7684;lora&#x6A21;&#x5757;&#xFF0C;&#x4F9D;&#x6B21;&#x8FDB;&#x884C;load&#xFF0C;add&#x548C;activate&#xFF0C;&#x5176;&#x4E2D;&#x4F1A;&#x5148;load&#x5230;<strong>cpu</strong>&#x4E0A;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5C06;&#x5176;add&#x5230;cpu cache&#x4E0A;&#xFF0C;&#x6700;&#x540E;&#x901A;&#x8FC7;activate&#x5C06;&#x5176;&#x653E;&#x5230;gpu&#x4E0A;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># LRUCacheWorkerLoRAManager</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_lora</span><span class="hljs-params">(self, lora_request: LoRARequest)</span> -&gt; bool:</span>
+        <span class="hljs-keyword">if</span> lora_request.lora_int_id <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.list_loras():
+            <span class="hljs-comment"># Remove before we load the new lora to save memory</span>
+            <span class="hljs-keyword">if</span> len(self._lora_manager) + <span class="hljs-number">1</span> &gt; self._lora_manager.capacity:
+                <span class="hljs-keyword">assert</span> isinstance(self._lora_manager, LRUCacheLoRAModelManager)
+                self._lora_manager.remove_oldest_lora()
+            lora = self._load_lora(lora_request)
+            loaded = self._lora_manager.add_lora(lora)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-comment"># If the lora is already loaded, just touch it to</span>
+            <span class="hljs-comment"># update its position in the caches</span>
+            loaded = self._lora_manager.get_lora(
+                lora_request.lora_int_id) <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>
+        self._lora_manager.activate_lora(lora_request.lora_int_id)
+        <span class="hljs-keyword">return</span> loaded
+</code></pre>
+<p>add_lora&#x505A;&#x7684;&#x5DE5;&#x4F5C;&#x5219;&#x662F;</p>
+<ul>
+<li><p>&#x5224;&#x65AD;&#x662F;&#x5426;&#x88AB;&#x5BFC;&#x5165;&#x8FC7;CPU&#x4E86;</p>
+<ul>
+<li><p>&#x5047;&#x5982;&#x6CA1;&#x6709;&#x5BFC;&#x5165;&#x8FC7;</p>
+<ul>
+<li>&#x6839;&#x636E;LRU&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x5047;&#x5982;&#x7A7A;&#x95F4;&#x4E0D;&#x591F;&#xFF0C;&#x5219;&#x79FB;&#x9664;LRU&#x7684;&#x90A3;&#x4E00;&#x4E2A;LoRA</li>
+<li>&#x8C03;&#x7528;_load_lora&#x628A;LoRA model load&#x5230;cpu&#x4E0A;</li>
+<li>&#x5229;&#x7528;_lora_manager&#x7684;add_lora&#x5C06;&#x5176;&#x8BB0;&#x5F55;&#x5728;__lora_manager&#x4E2D;</li>
+</ul>
+</li>
+<li><p>&#x5047;&#x5982;&#x5BFC;&#x5165;&#x8FC7;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8C03;&#x7528;get_lora&#x68C0;&#x67E5;&#x662F;&#x5426;&#x83B7;&#x53D6;&#x6210;&#x529F;&#x3002;</p>
+</li>
+</ul>
+</li>
+<li><p>&#x7136;&#x540E;&#x518D;&#x7528;_lora_manager&#x7684;activate_lora&#x5BF9;&#x5176;&#x63A8;&#x5230;GPU&#x4E0A;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x5BF9;&#x5E94;&#x7684;LoRA weight</p>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># WorkerLoRAManager&#x7C7B;</span>
+     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_load_lora</span><span class="hljs-params">(self, lora_request: LoRARequest)</span> -&gt; LoRAModel:</span>
+        <span class="hljs-keyword">try</span>:
+            model = self._lora_manager.model
+            supported_lora_modules = model.supported_lora_modules
+            packed_modules_mapping = model.packed_modules_mapping
+            expected_lora_modules = []
+            <span class="hljs-keyword">for</span> module <span class="hljs-keyword">in</span> supported_lora_modules:
+                <span class="hljs-keyword">if</span> module <span class="hljs-keyword">in</span> packed_modules_mapping:
+                    expected_lora_modules.extend(
+                        packed_modules_mapping[module])
+                <span class="hljs-keyword">else</span>:
+                    expected_lora_modules.append(module)
+            lora = self._lora_model_cls.from_local_checkpoint(
+                lora_request.lora_local_path,
+                expected_lora_modules,
+                max_position_embeddings=self.max_position_embeddings,
+                lora_model_id=lora_request.lora_int_id,
+                device=<span class="hljs-string">&quot;cpu&quot;</span>,
+                dtype=self.lora_config.lora_dtype,
+                target_embedding_padding=self.vocab_size +
+                self.lora_config.lora_extra_vocab_size,
+                embedding_modules=self.embedding_modules,
+                embedding_padding_modules=self.embedding_padding_modules,
+            )
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">raise</span> RuntimeError(
+                f<span class="hljs-string">&quot;Loading lora {lora_request.lora_local_path} failed&quot;</span>) <span class="hljs-keyword">from</span> e
+        <span class="hljs-keyword">if</span> lora.rank &gt; self.lora_config.max_lora_rank:
+            <span class="hljs-keyword">raise</span> ValueError(
+                f<span class="hljs-string">&quot;LoRA rank {lora.rank} is greater than max_lora_rank &quot;</span>
+                f<span class="hljs-string">&quot;{self.lora_config.max_lora_rank}.&quot;</span>)
+        <span class="hljs-keyword">if</span> lora.extra_vocab_size &gt; self.lora_config.lora_extra_vocab_size:
+            <span class="hljs-keyword">raise</span> ValueError(f<span class="hljs-string">&quot;LoRA added vocab size {lora.extra_vocab_size} &quot;</span>
+                             f<span class="hljs-string">&quot;is greater than lora_extra_vocab_size &quot;</span>
+                             f<span class="hljs-string">&quot;{self.lora_config.lora_extra_vocab_size}.&quot;</span>)
+        <span class="hljs-keyword">return</span> lora
+</code></pre>
+<p>_load_lora&#x7684;&#x673A;&#x5236;&#x5219;&#x662F;&#x628A;LoRA&#x53C2;&#x6570;&#x4ECE;disk&#x4E2D;&#x5B58;&#x5230;CPU&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x7C7B;&#x578B;&#x4E3A;LoRAModel&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;LoRA&#x53D8;&#x91CF;&#x4E86;&#xFF01;</p>
+<hr>
+<p><strong>lora/models.py</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># LoRAModel&#x7C7B;</span>
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_local_checkpoint</span><span class="hljs-params">(
+        cls,
+        lora_dir: str,
+        expected_lora_modules: List[str],
+        *,
+        max_position_embeddings: Optional[int] = None,
+        lora_model_id: Optional[int] = None,
+        device: str = <span class="hljs-string">&quot;cuda&quot;</span>,
+        dtype: Optional[torch.dtype] = None,
+        target_embedding_padding: Optional[int] = None,
+        embedding_modules: Optional[Dict[str, str]] = None,
+        embedding_padding_modules: Optional[List[str]] = None,
+    )</span> -&gt; &quot;LoRAModel&quot;:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Create a LoRAModel from a local checkpoint.
+
+        Args:
+            lora_dir: The local path that has lora data.
+            expected_lora_modules: Name of modules that are expected to be
+                replaced by lora.
+            max_position_embeddings: Max position embedding length. Used to
+                scaling the largest context length. If None, the lora model&apos;s
+                context length is not scaled.
+            lora_model_id: Lora model id. If not given, automatically set by
+                a global counter.
+            device: Device where the lora model is loaded.
+            dtype: dtype of the lora model weights.
+
+        Returns:
+            Loaded LoRA Model.
+        &quot;&quot;&quot;</span>
+
+    <span class="hljs-comment"># &#x5C06;LoRA&#x52A0;&#x8F7D;&#x5230;CPU&#x4E0A;&#xFF01;    </span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_lora</span><span class="hljs-params">(self, lora: LoRAModel)</span> -&gt; bool:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Add a LoRAModel to the manager CPU cache.&quot;&quot;&quot;</span>
+        logger.debug(
+            <span class="hljs-string">&quot;Adding lora. Model id: %d, &quot;</span>
+            <span class="hljs-string">&quot;int id: %d, &quot;</span>
+            <span class="hljs-string">&quot;scaling factor: %s&quot;</span>, lora.id, lora.id, lora.scaling_factor)
+        <span class="hljs-keyword">if</span> lora.id <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self._registered_loras:
+            <span class="hljs-keyword">if</span> len(self._registered_loras) &gt;= self.capacity:
+                <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">&quot;No free LoRA slots.&quot;</span>)
+            self._add_lora(lora)
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+    <span class="hljs-comment"># &#x628A;LoRA&#x90E8;&#x7F72;&#x5230;GPU&#x4E0A;    </span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">activate_lora</span><span class="hljs-params">(
+        self,
+        lora_id: int,
+    )</span> -&gt; bool:</span>
+        <span class="hljs-keyword">if</span> lora_id <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self._active_loras <span class="hljs-keyword">and</span> len(
+                self._active_loras) &gt;= self.lora_slots:
+            self._active_loras.remove_oldest()
+        result = super().activate_lora(lora_id) <span class="hljs-string">&quot;&quot;&quot;Move LoRA into a GPU buffer to be used in the forward pass.&quot;&quot;&quot;</span>
+        <span class="hljs-comment"># We always touch to update the LRU cache order</span>
+        self._active_loras.touch(lora_id)
+        <span class="hljs-keyword">return</span> result
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">activate_lora</span><span class="hljs-params">(
+        self,
+        lora_id: int,
+    )</span> -&gt; bool:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Move LoRA into a GPU buffer to be used in the forward pass.&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> lora_id <span class="hljs-keyword">in</span> self._active_loras:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+        first_free_slot = next(
+            ((i, lora_id) <span class="hljs-keyword">for</span> i, lora_id <span class="hljs-keyword">in</span> enumerate(self.lora_index_to_id)
+             <span class="hljs-keyword">if</span> lora_id <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>), <span class="hljs-keyword">None</span>)
+        <span class="hljs-keyword">if</span> first_free_slot <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&quot;No free lora slots&quot;</span>)
+        index, _ = first_free_slot
+        self._active_loras[lora_id] = <span class="hljs-keyword">None</span>
+        lora_model = self._registered_loras[lora_id]
+        logger.debug(<span class="hljs-string">&quot;Activating LoRA. int id: %d, slot index: %d&quot;</span>,
+                     lora_model.id, index)
+        self.lora_index_to_id[index] = lora_model.id
+        <span class="hljs-keyword">for</span> module_name, module <span class="hljs-keyword">in</span> self.modules.items():
+            module_lora = lora_model.get_lora(module_name)
+            <span class="hljs-keyword">if</span> module_lora:
+                module_lora.optimize()
+                module.set_lora(index, module_lora.lora_a, module_lora.lora_b,
+                                module_lora.embeddings_tensor)
+            <span class="hljs-keyword">else</span>:
+                module.reset_lora(index)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+</code></pre>
+<p>&#x5C06;LoRA&#x90E8;&#x7F72;&#x5230;GPU&#xFF0C;set_lora&#x548C;reset_lora&#x5C31;&#x662F;&#x628A;A&#x3001;B&#x6743;&#x91CD;&#x653E;&#x5230;module&#x4E2D;</p>
+<h4 id="setloramapping&#x90E8;&#x5206;">Set_LoRA_Mapping&#x90E8;&#x5206;</h4>
+<pre><code class="lang-python"><span class="hljs-comment"># models.py</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_lora_mapping</span><span class="hljs-params">(self, lora_mapping: LoRAMapping)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        <span class="hljs-keyword">if</span> self._last_mapping != lora_mapping:
+            self._set_lora_mapping(lora_mapping)
+        self._last_mapping = lora_mapping
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_set_lora_mapping</span><span class="hljs-params">(self, mapping: LoRAMapping)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        (base_indices, sampler_indices, sampler_indices_padded,
+         embeddings_indices, long_lora_offsets_tensor,
+         indices_len) = convert_mapping(mapping, self.lora_index_to_id,
+                                        self.lora_slots + <span class="hljs-number">1</span>, self.vocab_size,
+                                        self.lora_config.lora_extra_vocab_size,
+                                        self.long_lora_context)
+        self.base_indices[:base_indices.shape[<span class="hljs-number">0</span>]].copy_(base_indices)
+        self.sampler_indices[:sampler_indices.shape[<span class="hljs-number">0</span>]].copy_(sampler_indices)
+        self.sampler_indices_padded[:sampler_indices_padded.shape[<span class="hljs-number">0</span>]].copy_(
+            sampler_indices_padded)
+        self.embeddings_indices[:embeddings_indices.
+                                shape[<span class="hljs-number">0</span>], :embeddings_indices.shape[<span class="hljs-number">1</span>]].copy_(
+                                    embeddings_indices)
+        <span class="hljs-keyword">if</span> long_lora_offsets_tensor <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            self.long_lora_indices[:long_lora_offsets_tensor.shape[<span class="hljs-number">0</span>]].copy_(
+                long_lora_offsets_tensor)
+        <span class="hljs-keyword">else</span>:
+            self.long_lora_indices.zero_()
+        <span class="hljs-comment"># Maintain the reference</span>
+        self.indices_len[:] = indices_len
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">convert_mapping</span><span class="hljs-params">(
+    mapping: LoRAMapping,
+    lora_index_to_id: List[Optional[int]],
+    max_loras: int,
+    vocab_size: int,
+    extra_vocab_size: int,
+    long_lora_context: Optional[LongContextLoRAContext] = None,
+)</span> -&gt; Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor,
+           Optional[torch.Tensor], List[int]]:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Converts LoRAMapping to index tensors.
+
+    Args:
+        mapping: LoRAMapping mapping rows in a batch to LoRA ids.
+        lora_index_to_id: List mapping LoRA ids to LoRA indices.
+        max_loras: Maximum number of LoRAs.
+        vocab_size: Model vocab size.
+        extra_vocab_size: Extra vocab size each LoRA can have.
+        long_lora_context: Passed if there are long context lora in a batch.
+
+    Returns:
+        A tuple of tensors:
+            base_indices: Tensor of shape [batch_size] mapping batch rows to
+                LoRA indices.
+            sampler_indices: Tensor of shape [batch_size] mapping requests to
+                LoRA indices for sampler. For generation, this will be the
+                same as base_indicies. For prefill, this will map requests
+                to LoRA indices.
+            sampler_indices_padded: Tensor of shape [batch_size] mapping
+                requests to LoRA indices for sampler with padding.
+                Same as sampler_indicies, but -1 is replaced with
+                max_loras.
+            embeddings_indices: Tensor of shape [2, batch_size] mapping
+                requests to embedding indices. First row is for embeddings
+                added by the LoRAs, second row is for the LoRA.lora_a
+                embeddings.
+            long_lora_indices: Tensor of shape [batch_size] mapping
+                requests to RoPE offsets and rot dims for long LoRAs.
+                None if long context lora doesn&apos;t exist.
+            indices_len: List of lengths of the above tensors.
+                Used to index into each tensor. It contains length for
+                (base_indices, sampler_indices, sampler_indices_padded,
+                embeddings_indices, long_lora_indices). If long_lora doesn&apos;t
+                exist, it only contains first 4 entries.
+    &quot;&quot;&quot;</span>
+</code></pre>
+<h4 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h4>
+<p>&#x603B;&#x7ED3;&#x51FA;&#x6765;&#xFF0C;&#x5219;&#x662F;&#xFF1A;</p>
+<ul>
+<li>model_runner&#x8C03;&#x7528;set_active_loras<ul>
+<li>WorkerLoRAManager&#x8C03;&#x7528;self&#x7684;_apply_loras<ul>
+<li>LRUCacheWorkerLoRAManager&#x5148;&#x786E;&#x5B9A;&#x5BF9;&#x5E94;&#x7684;&#x662F;&#x5426;&#x5728;CPU cache&#x4E0A;&#x4E86;</li>
+<li>&#x518D;&#x5C06;LoRA weight&#x4ECE;CPU&#x4E0A;activate&#xFF0C;&#x5373;&#x5B58;&#x5728;GPU&#x4E2D;&#xFF0C;&#x5E76;&#x66F4;&#x65B0;LoRA&#x7684;&#x6700;&#x540E;activate&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x5907;LRU&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+</li>
+<li>WorkerLoRAManager&#x8C03;&#x7528;_lora_manager&#x7684;set_lora_mapping<ul>
+<li>&#x8FD9;&#x4E00;&#x6B65;&#x628A;lora&#x63A8;&#x7406;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;lora&#x7D22;&#x5F15;&#x51C6;&#x5907;&#x597D;&#x4E86;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="lora&#x7684;&#x63A8;&#x7406;&#x8FC7;&#x7A0B;">LoRA&#x7684;&#x63A8;&#x7406;&#x8FC7;&#x7A0B;</h3>
+<p>&#x5728;llama&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x4E3B;&#x8981;&#x6D89;&#x53CA;&#x7684;&#x903B;&#x8F91;&#x662F;&#x4FEE;&#x6539;&#x8BCD;&#x6C47;&#x5927;&#x5C0F;&#xFF0C;&#x6DFB;&#x52A0;lora&#x8BCD;&#x6C47;&#x3002;</p>
+<p>&#x5728;layers&#x5C42;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x662F;&#x4FEE;&#x6539;&#x8BA1;&#x7B97;&#x903B;&#x8F91;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#xFF0C;&#x5728;RowParallelLinearWithLoRA&#x5C06;apply&#x7684;&#x903B;&#x8F91;&#x4FEE;&#x6539;&#x4E3A;_apply_lora&#xFF0C;&#x518D;&#x5F80;&#x4E0B;&#x5219;&#x4F7F;&#x7528;<a href="https://arxiv.org/abs/2310.18547" target="_blank">Punica</a>&#x5E93;&#x8FDB;&#x884C;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># RowParallelLinearWithLoRA&#x7C7B;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, input_)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Forward of RowParallelLinear
+
+        Args:
+            input_: tensor whose last dimension is `input_size`. If
+                    `input_is_parallel` is set, then the last dimension
+                    is `input_size // tp_size`.
+
+        Returns:
+            - output
+            - bias
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># Set up backprop all-reduce.</span>
+        <span class="hljs-keyword">if</span> self.base_layer.input_is_parallel:
+            input_parallel = input_
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-comment"># <span class="hljs-doctag">TODO:</span> simplify code below</span>
+            tp_rank = get_tensor_model_parallel_rank()
+            splitted_input = split_tensor_along_last_dim(
+                input_, num_partitions=self.base_layer.tp_size)
+            input_parallel = splitted_input[tp_rank].contiguous()
+
+        <span class="hljs-comment"># Matrix multiply.</span>
+        output_parallel = self.apply(input_parallel)
+        <span class="hljs-keyword">if</span> self.base_layer.reduce_results <span class="hljs-keyword">and</span> self.base_layer.tp_size &gt; <span class="hljs-number">1</span>:
+            output_ = tensor_model_parallel_all_reduce(output_parallel)
+        <span class="hljs-keyword">else</span>:
+            output_ = output_parallel
+
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.base_layer.skip_bias_add:
+            output = (output_ + self.base_layer.bias
+                      <span class="hljs-keyword">if</span> self.base_layer.bias <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">else</span> output_)
+            output_bias = <span class="hljs-keyword">None</span>
+        <span class="hljs-keyword">else</span>:
+            output = output_
+            output_bias = self.base_layer.bias
+        <span class="hljs-keyword">return</span> output, output_bias
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span><span class="hljs-params">(self, x: torch.Tensor)</span> -&gt; torch.Tensor:</span>
+        output = self.base_layer.quant_method.apply(self.base_layer, x)
+        _apply_lora( <span class="hljs-comment"># </span>
+            x,
+            self.lora_a_stacked,
+            self.lora_b_stacked,
+            self.indices[:self.indices_len[<span class="hljs-number">0</span>]],
+            output,
+        )
+        <span class="hljs-keyword">return</span> output
+</code></pre>
+<hr>
+<p>&#x76EE;&#x524D;&#x89C2;&#x6D4B;&#x7ED3;&#x679C;&#x662F;&#xFF1A;&#x6240;&#x6709;&#x90FD;&#x4F7F;&#x7528;&#x4E86;LoRA&#x5C42;</p>
+<hr>
+<p><strong>to be confirmed</strong></p>
+<ul>
+<li>LoRA Mapping&#x662F;&#x5904;&#x7406;&#x63A8;&#x7406;&#x90E8;&#x5206;&#x7684;&#x6620;&#x5C04;&#x7684;&#xFF1F;<ul>
+<li>&#x90A3;&#x8FD9;&#x79CD;set_lora&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x5E94;&#x8BE5;&#x4F1A;&#x8986;&#x76D6;&#xFF1F;</li>
+</ul>
+</li>
+<li><p>scheduler&#x662F;&#x5426;&#x6709;&#x5C06;LoRA&#x548C;&#x975E;LoRA&#x7684;&#x4E00;&#x8D77;&#x8BA1;&#x7B97;&#xFF1F;</p>
+</li>
+<li><p>s-lora</p>
+<ul>
+<li><a href="https://github.com/vllm-project/vllm/pull/1804" target="_blank">https://github.com/vllm-project/vllm/pull/1804</a></li>
+<li><a href="https://github.com/vllm-project/vllm/issues/1610" target="_blank">https://github.com/vllm-project/vllm/issues/1610</a></li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="vllm-llama.html" class="navigation navigation-prev " aria-label="Previous page: Vllm Llama">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="vllm-metadata.html" class="navigation navigation-next " aria-label="Next page: Vllm Metadata">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Vllm Lo RA","level":"4.10.8","depth":2,"next":{"title":"Vllm Metadata","level":"4.10.9","depth":2,"path":"Study Notes/vLLM Code/vllm-metadata.md","ref":"Study Notes/vLLM Code/vllm-metadata.md","articles":[]},"previous":{"title":"Vllm Llama","level":"4.10.7","depth":2,"path":"Study Notes/vLLM Code/vllm-llama.md","ref":"Study Notes/vLLM Code/vllm-llama.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex","expandable-chapters-small"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Study Notes/vLLM Code/vllm-LoRA.md","mtime":"2024-12-02T02:35:31.850Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-02T02:36:07.078Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

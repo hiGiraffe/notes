@@ -1,0 +1,1712 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>VSGM · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../OSDI 2020/" />
+    
+    
+    <link rel="prev" href="CoGNN.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Preface</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Blogs</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../Blogs/Academic Writing/">
+            
+                <a href="../../Blogs/Academic Writing/">
+            
+                    
+                    Academic Writing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../Blogs/Academic Writing/design of system.html">
+            
+                <a href="../../Blogs/Academic Writing/design of system.html">
+            
+                    
+                    Design Of System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Blogs/academic reading.html">
+            
+                <a href="../../Blogs/academic reading.html">
+            
+                    
+                    Academic Reading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Blogs/how to express.html">
+            
+                <a href="../../Blogs/how to express.html">
+            
+                    
+                    How To Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Reading Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../Arxiv/">
+            
+                <a href="../Arxiv/">
+            
+                    
+                    Arxiv
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../Arxiv/Mooncake.html">
+            
+                <a href="../Arxiv/Mooncake.html">
+            
+                    
+                    Mooncake
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../Arxiv/S-LoRA.html">
+            
+                <a href="../Arxiv/S-LoRA.html">
+            
+                    
+                    S-LoRA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../Arxiv/MemServe.md">
+            
+                <span>
+            
+                    
+                    MemServe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../ASPLOS 2024/">
+            
+                <a href="../ASPLOS 2024/">
+            
+                    
+                    ASPLOS 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../ASPLOS 2024/ExeGPT.html">
+            
+                <a href="../ASPLOS 2024/ExeGPT.html">
+            
+                    
+                    Exe GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../ASPLOS 2024/SpecInfer.html">
+            
+                <a href="../ASPLOS 2024/SpecInfer.html">
+            
+                    
+                    Spec Infer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../OSDI 2024/">
+            
+                <a href="../OSDI 2024/">
+            
+                    
+                    OSDI 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../OSDI 2024/Llumnix.html">
+            
+                <a href="../OSDI 2024/Llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../OSDI 2024/ServerlessLLM.html">
+            
+                <a href="../OSDI 2024/ServerlessLLM.html">
+            
+                    
+                    Serverless LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../OSDI 2024/Fairness in Serving LLM.md">
+            
+                <span>
+            
+                    
+                    Fairness in Serving LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../SOSP 2024/">
+            
+                <a href="../SOSP 2024/">
+            
+                    
+                    SOSP 2024
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../SOSP 2024/Apparate.html">
+            
+                <a href="../SOSP 2024/Apparate.html">
+            
+                    
+                    Apparate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../SOSP 2024/LoongServe.html">
+            
+                <a href="../SOSP 2024/LoongServe.html">
+            
+                    
+                    Loong Serve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../FAST 2023/">
+            
+                <a href="../FAST 2023/">
+            
+                    
+                    FAST 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../FAST 2023/Resource Scheduling for LC Services.html">
+            
+                <a href="../FAST 2023/Resource Scheduling for LC Services.html">
+            
+                    
+                    Resource Scheduling For LC Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../ICML 2023/">
+            
+                <a href="../ICML 2023/">
+            
+                    
+                    ICML 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../ICML 2023/FlexGen.html">
+            
+                <a href="../ICML 2023/FlexGen.html">
+            
+                    
+                    Flex Gen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../NSDI 2023/">
+            
+                <a href="../NSDI 2023/">
+            
+                    
+                    NSDI 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../NSDI 2023/Shockwave.html">
+            
+                <a href="../NSDI 2023/Shockwave.html">
+            
+                    
+                    Shockwave
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../SC 2023/">
+            
+                <a href="../SC 2023/">
+            
+                    
+                    SC 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="../SC 2023/AutoMap.html">
+            
+                <a href="../SC 2023/AutoMap.html">
+            
+                    
+                    Auto Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../SOSP 2023/">
+            
+                <a href="../SOSP 2023/">
+            
+                    
+                    SOSP 2023
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.9.1" data-path="../SOSP 2023/vllm.html">
+            
+                <a href="../SOSP 2023/vllm.html">
+            
+                    
+                    Vllm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../OSDI 2022/">
+            
+                <a href="../OSDI 2022/">
+            
+                    
+                    OSDI 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.10.1" data-path="../OSDI 2022/Orca.html">
+            
+                <a href="../OSDI 2022/Orca.html">
+            
+                    
+                    Orca
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    SC 2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.11.1" data-path="CoGNN.html">
+            
+                <a href="CoGNN.html">
+            
+                    
+                    Co GNN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.11.2" data-path="VSGM.html">
+            
+                <a href="VSGM.html">
+            
+                    
+                    VSGM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../OSDI 2020/">
+            
+                <a href="../OSDI 2020/">
+            
+                    
+                    OSDI 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.12.1" data-path="../OSDI 2020/Gavel.html">
+            
+                <a href="../OSDI 2020/Gavel.html">
+            
+                    
+                    Gavel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../SIGMOD 2020/">
+            
+                <a href="../SIGMOD 2020/">
+            
+                    
+                    SIGMOD 2020
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.13.1" data-path="../SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                <a href="../SIGMOD 2020/GPU-based Subgraph Enumerations.html">
+            
+                    
+                    GPU Based Subgraph Enumerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../OSDI 2018/">
+            
+                <a href="../OSDI 2018/">
+            
+                    
+                    OSDI 2018
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.14.1" data-path="../OSDI 2018/Ray.html">
+            
+                <a href="../OSDI 2018/Ray.html">
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Study Notes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../Study Notes/CME 213/">
+            
+                <a href="../../Study Notes/CME 213/">
+            
+                    
+                    CME 213
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../Study Notes/CME 213/C++.html">
+            
+                <a href="../../Study Notes/CME 213/C++.html">
+            
+                    
+                    C
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../Study Notes/CUDA/">
+            
+                <a href="../../Study Notes/CUDA/">
+            
+                    
+                    CUDA
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../Study Notes/CUDA/CUDA Warp Level.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA Warp Level.html">
+            
+                    
+                    CUDA Warp Level
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../Study Notes/CUDA/CUDA1 Basic.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA1 Basic.html">
+            
+                    
+                    CUDA 1 Basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../../Study Notes/CUDA/CUDA2 Brief Summary.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA2 Brief Summary.html">
+            
+                    
+                    CUDA 2 Brief Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../../Study Notes/CUDA/CUDA3 Kernels.html">
+            
+                <a href="../../Study Notes/CUDA/CUDA3 Kernels.html">
+            
+                    
+                    CUDA 3 Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../../Study Notes/CUDA/Nsight System.html">
+            
+                <a href="../../Study Notes/CUDA/Nsight System.html">
+            
+                    
+                    Nsight System
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../Study Notes/LLM Parallelism/">
+            
+                <a href="../../Study Notes/LLM Parallelism/">
+            
+                    
+                    LLM Parallelism
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../Study Notes/LLM Parallelism/Data Parallelism.html">
+            
+                <a href="../../Study Notes/LLM Parallelism/Data Parallelism.html">
+            
+                    
+                    Data Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../../Study Notes/LLM Parallelism/Pipe Parallelism.html">
+            
+                <a href="../../Study Notes/LLM Parallelism/Pipe Parallelism.html">
+            
+                    
+                    Pipe Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../../Study Notes/LLM Parallelism/Tensor Parallelism.html">
+            
+                <a href="../../Study Notes/LLM Parallelism/Tensor Parallelism.html">
+            
+                    
+                    Tensor Parallelism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../Study Notes/MIT 6.172/">
+            
+                <a href="../../Study Notes/MIT 6.172/">
+            
+                    
+                    MIT 6.172
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../../Study Notes/MIT 6.172/mit-6-172-1.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-1.html">
+            
+                    
+                    Mit 6 172 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../../Study Notes/MIT 6.172/mit-6-172-12.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-12.html">
+            
+                    
+                    Mit 6 172 12
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../../Study Notes/MIT 6.172/mit-6-172-2.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-2.html">
+            
+                    
+                    Mit 6 172 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../../Study Notes/MIT 6.172/mit-6-172-3.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-3.html">
+            
+                    
+                    Mit 6 172 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../../Study Notes/MIT 6.172/mit-6-172-hw2.html">
+            
+                <a href="../../Study Notes/MIT 6.172/mit-6-172-hw2.html">
+            
+                    
+                    Mit 6 172 Hw 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../../Study Notes/MLSYS/">
+            
+                <a href="../../Study Notes/MLSYS/">
+            
+                    
+                    MLSYS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../../Study Notes/MLSYS/Llama Model's Decoder Code.html">
+            
+                <a href="../../Study Notes/MLSYS/Llama Model's Decoder Code.html">
+            
+                    
+                    Llama Model S Decoder Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../../Study Notes/MLSYS/LLM Calculation.html">
+            
+                <a href="../../Study Notes/MLSYS/LLM Calculation.html">
+            
+                    
+                    LLM Calculation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" data-path="../../Study Notes/MLSYS/LLM Deployment Record.html">
+            
+                <a href="../../Study Notes/MLSYS/LLM Deployment Record.html">
+            
+                    
+                    LLM Deployment Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.4" data-path="../../Study Notes/MLSYS/Sepculative Decoding.html">
+            
+                <a href="../../Study Notes/MLSYS/Sepculative Decoding.html">
+            
+                    
+                    Sepculative Decoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../../Study Notes/NLP/">
+            
+                <a href="../../Study Notes/NLP/">
+            
+                    
+                    NLP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../../Study Notes/NLP/Basics of Machine Learning.html">
+            
+                <a href="../../Study Notes/NLP/Basics of Machine Learning.html">
+            
+                    
+                    Basics Of Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../../Study Notes/NLP/GPT.html">
+            
+                <a href="../../Study Notes/NLP/GPT.html">
+            
+                    
+                    GPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../../Study Notes/NLP/Implementation Neural Network.html">
+            
+                <a href="../../Study Notes/NLP/Implementation Neural Network.html">
+            
+                    
+                    Implementation Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="../../Study Notes/NLP/Loss Function.html">
+            
+                <a href="../../Study Notes/NLP/Loss Function.html">
+            
+                    
+                    Loss Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.5" data-path="../../Study Notes/NLP/Recurrent Neural Network.html">
+            
+                <a href="../../Study Notes/NLP/Recurrent Neural Network.html">
+            
+                    
+                    Recurrent Neural Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.6" data-path="../../Study Notes/NLP/Seq2Seq and Attention.html">
+            
+                <a href="../../Study Notes/NLP/Seq2Seq and Attention.html">
+            
+                    
+                    Seq 2 Seq And Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../../Study Notes/OPENMP/">
+            
+                <a href="../../Study Notes/OPENMP/">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../../Study Notes/OPENMP/openmp.html">
+            
+                <a href="../../Study Notes/OPENMP/openmp.html">
+            
+                    
+                    OPENMP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../../Study Notes/Triton/">
+            
+                <a href="../../Study Notes/Triton/">
+            
+                    
+                    Triton
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../../Study Notes/Ray/index.md">
+            
+                <span>
+            
+                    
+                    Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../../Study Notes/vLLM Code/">
+            
+                <a href="../../Study Notes/vLLM Code/">
+            
+                    
+                    VLLM Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.10.1" data-path="../../Study Notes/vLLM Code/vllm-async-llm.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-async-llm.html">
+            
+                    
+                    Vllm Async Llm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.2" data-path="../../Study Notes/vLLM Code/vllm-attention.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-attention.html">
+            
+                    
+                    Vllm Attention
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.3" data-path="../../Study Notes/vLLM Code/vllm-block.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-block.html">
+            
+                    
+                    Vllm Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.4" data-path="../../Study Notes/vLLM Code/vllm-cache.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-cache.html">
+            
+                    
+                    Vllm Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.5" data-path="../../Study Notes/vLLM Code/vllm-chunked-prefill.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-chunked-prefill.html">
+            
+                    
+                    Vllm Chunked Prefill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.6" data-path="../../Study Notes/vLLM Code/vllm-cpu.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-cpu.html">
+            
+                    
+                    Vllm Cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.7" data-path="../../Study Notes/vLLM Code/vllm-llama.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-llama.html">
+            
+                    
+                    Vllm Llama
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.8" data-path="../../Study Notes/vLLM Code/vllm-LoRA.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-LoRA.html">
+            
+                    
+                    Vllm Lo RA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.9" data-path="../../Study Notes/vLLM Code/vllm-metadata.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-metadata.html">
+            
+                    
+                    Vllm Metadata
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.10" data-path="../../Study Notes/vLLM Code/vllm-profile.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-profile.html">
+            
+                    
+                    Vllm Profile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.11" data-path="../../Study Notes/vLLM Code/vllm-ray.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-ray.html">
+            
+                    
+                    Vllm Ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10.12" data-path="../../Study Notes/vLLM Code/vllm-schedule.html">
+            
+                <a href="../../Study Notes/vLLM Code/vllm-schedule.html">
+            
+                    
+                    Vllm Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../../Study Notes/Llumnix Code/">
+            
+                <a href="../../Study Notes/Llumnix Code/">
+            
+                    
+                    Llumnix Code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.11.1" data-path="../../Study Notes/Llumnix Code/llumnix.html">
+            
+                <a href="../../Study Notes/Llumnix Code/llumnix.html">
+            
+                    
+                    Llumnix
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../../Study Notes/LoongServe Code/">
+            
+                <a href="../../Study Notes/LoongServe Code/">
+            
+                    
+                    LoongServe Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >VSGM</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vsgmview-based-gpu-accelerated-subgraph-matching-on-large-graphs">VSGM:View-Based GPU-Accelerated Subgraph Matching on Large Graphs</h1>
+<p>A paper at the SC 2022 conference.</p>
+<p>A view-based method to hide communication overhead and improve GPU utilization.</p>
+<h1 id="challenges"><strong>Challenges</strong>:</h1>
+<ul>
+<li>Now the works of subgraph matching <strong>cannot handle many large graphs</strong> (especially those in industry) that easily exceed the memory capacity of a GPU.</li>
+<li>Inter-partition search requires to repeatedly load the cross-partition neighbors of the candidate vertices on demand for matching. <strong>GPU threads are idle when waiting for required data.</strong></li>
+</ul>
+<p>PBE: A work supports subgraph matching on large graphs by partitioning a data graph, so that each partition fits in GPU memory.</p>
+<h1 id="background-of-subgraph-matching">Background of Subgraph Matching</h1>
+<p><strong>Data_graph:</strong></p>
+<p>G = (V<sub>G</sub>, E<sub>G</sub>)</p>
+<p>Data graph is undirected, unlabeled and simple (i.e., no self-loops and multiple edges) in this work</p>
+<p><strong>Query_graph(also_called_a_pattern):</strong></p>
+<p>P = (V<sub>P</sub> , E<sub>P</sub> )</p>
+<p>Query graph is undirected, unlabeled and simple (i.e., no self-loops and multiple edges) in this work</p>
+<p><strong>Neighbor_set_of_a_vertex_v: </strong></p>
+<p>N(v)</p>
+<p><strong>Match(also_called_isomorphic):</strong></p>
+<p>subgraph H match subgraph P means that there exists a mapping f : V<sub>P</sub> &#x2192; V<sub>H</sub> , such that (u<sub>1</sub>, u<sub>2</sub>) &#x2208; E<sub>P</sub> if and only if (f (u<sub>1</sub>), f (u<sub>2</sub>)) &#x2208; E<sub>H</sub> .</p>
+<p><strong>Subgraph_matching:</strong></p>
+<p>Given a data graph G and a pattern P, find all matches (or instances) of P in G.</p>
+<p>The matching of P follows a match order. A match order is essentially a permutation of the vertices in P .</p>
+<p><strong>The_set_of_all_match_orders_of_P:</strong></p>
+<p>$&#x3A0;$<sub>p</sub></p>
+<p>For efficient subgraph matching, it is generally required that for each &#x3C0; &#x2208; $&#x3A0;$<sub>P</sub> , the subgraph of P induced by a prefix of &#x3C0; is a connected subgraph.</p>
+<p><strong>The_set_of_match_orders_starting_from_a_vertex_u_in_P:</strong></p>
+<p>$&#x3A0;$<sub>P</sub> ($u$)</p>
+<p>$&#x3A0;$<sub>P</sub> ($u$) &#x2286; $&#x3A0;$<sub>P</sub></p>
+<p><strong>The_matching_process:</strong></p>
+<p><strong>intra-partition search</strong>: searches all matches within the partition.</p>
+<p><strong>inter-partition search</strong>: enumerates all cross-partition edges to find all the remaining matches</p>
+<ul>
+<li>brings redundant computation as a cross-partition edge can be mapped into two vertices of the pattern with multiple match orders simultaneously.</li>
+<li>causes higher PCI-e communication overhead as it needs to fetch the data graph from the host memory.</li>
+</ul>
+<h1 id="background-of-gpu-based-solutions">Background of GPU-based solutions</h1>
+<p><strong>the-work-assuming-the-entire-data-graph-can-fit-in-the-memory-of-a-GPU:</strong></p>
+<ul>
+<li><strong>GPSM</strong> adopts <strong>a filtering-and-joining approach</strong> to leverage the power of massive parallelism</li>
+<li><strong>GSI</strong> prevents conducting the same join operation twice in GPSM&apos;s the edge-based join operation, which requires a two-step output scheme. <strong>GSI</strong> also proposes a data structure, called <strong>Partitioned Compressed Sparse Row</strong>, to reduce the access latency of GPU memory.</li>
+<li><p><strong>GunrockSM</strong> uses <strong>a filtering-and-verification strategy</strong> built on a graph analytic framework called <strong>Gunrock</strong>.</p>
+</li>
+<li><p><strong>cuTS</strong> proposes <strong>a hybrid BFS-DFS strategy</strong> to limit memory usage when enabling high parallelism.</p>
+</li>
+</ul>
+<p><strong>the-work-not-assuming-the-entire-data-graph-can-fit-in-the-memory-of-a-GPU:</strong></p>
+<ul>
+<li><strong>PBE</strong><ul>
+<li>proposes partition-based enumeration to divide a data graph into multiple partitions and ensure that each partition (only with intra-partition edges) fits in GPU memory.</li>
+<li>uses shared-execution to group different match orders together so that fewer match plans are generated by combining strict-equivalent groups of match orders.</li>
+<li>conducts the matching by extending each inter-partition edge in one group of match orders at a time.</li>
+</ul>
+</li>
+</ul>
+<h1 id="view-based-graph-preparation">VIEW-BASED GRAPH PREPARATION</h1>
+<p>avoid on-demand data loading by <strong>preparing the multi-hop neighbors</strong> for each source vertex.</p>
+<p><strong>hop:</strong></p>
+<p>In a graph, a &quot;hop&quot; represents moving from one vertex to another through an edge.</p>
+<p>Here is a example of graph matching.</p>
+<p><img src="VSGM.assets/fig1.png" alt="fig1"></p>
+<h1 id="view-construction">View Construction</h1>
+<p><strong>vertex_level:</strong></p>
+<p>$l<em>{u&apos;</em>{i}}$</p>
+<p>the shortest-path distance between $u&apos;<em>{0}$and $u&apos;</em>{i}$ in the subgraph of P induced by {$u&apos;<em>{0}$,$u&apos;</em>{1}$, &#xB7; &#xB7; &#xB7; , $u&apos;_{i}$}</p>
+<p><strong>edge_level:</strong></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>l</mi><mrow><mo>(</mo><msup><mi>u</mi><mrow><mi mathvariant="normal">&#x2032;</mi></mrow></msup><mi>i</mi><mo separator="true">,</mo><msup><mi>u</mi><mrow><mi mathvariant="normal">&#x2032;</mi></mrow></msup><mi>j</mi><mo>)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">l_{(u&apos;i,u&apos;j)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:1.04964em;vertical-align:-0.3551999999999999em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist"><span style="top:0.18019999999999992em;margin-right:0.05em;margin-left:-0.01968em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mopen mtight">(</span><span class="mord mtight"><span class="mord mathit mtight">u</span><span class="msupsub"><span class="vlist"><span style="top:-0.286em;margin-right:0.07142857142857144em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord scriptscriptstyle cramped mtight"><span class="mord mathrm mtight">&#x2032;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit mtight">i</span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathit mtight">u</span><span class="msupsub"><span class="vlist"><span style="top:-0.286em;margin-right:0.07142857142857144em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord scriptscriptstyle cramped mtight"><span class="mord mathrm mtight">&#x2032;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>the number of hops that is needed to match P by following $&#x3A0;$.$&#x3A0;$ typically signifies the order of vertex traversal or vertex visiting sequence.</p>
+<p><strong>the_k-hop_neighbors_of_a_vertex_v:</strong></p>
+<p>N<sub>v,k</sub></p>
+<p><img src="VSGM.assets/equation1.png" alt="equation1"></p>
+<p>In fig2, N<sub>v4,0</sub> = {v4}, N<sub>v4,1</sub>={v0,v4,v5}</p>
+<p>Given a data graph G, all the matches of a pattern P starting from a source vertex $v &#x2208;V<em>{G}$ can be obtained from $S</em>{v,k}$, if there exists a match order $&#x3C0; &#x2208; &#x3A0;<em>{P} $for which the maximum edge level $l</em>{max}$ is no greater than $k$. The example is also in fig1.</p>
+<p> <strong>the_k-hop_view_of_v:</strong></p>
+<p>S<sub>v,k</sub></p>
+<p>visiting the (k &#x2212; 1)-hop neighbors of v and grouping their adjacency lists (i.e., 1-hop neighbors) in the CSR format.</p>
+<p>In fig1, S<sub>v4,2</sub>={N(v<sub>0</sub>,v<sub>4</sub>,v<sub>5</sub>)}</p>
+<p>The way to compute k<sub>min</sub> for each $&#x3A0;_{P}(U)$: construct a BFS tree on P with u as the root. When there is no edge between any two nodes at the largest level, k<sub>min</sub> is the largest level, otherwise k<sub>min</sub> is the largest level plus one.</p>
+<p>Then pick the minimum k<sub>min</sub> among the k<sub>min</sub> for all $\Pi<em>{P}(U)\subset\Pi</em>{P}$.</p>
+<p>Here is a example of computing k<sub>min</sub>:</p>
+<p><img src="VSGM.assets/fig2.png" alt="fig2"></p>
+<h1 id="view-bin-packing">View Bin Packing</h1>
+<p><strong>NP-hard_bin_packing_problem: </strong></p>
+<p>The <strong>bin packing problem</strong> is an optimization problem, in which items of different sizes must be packed into a finite number of bins or containers, each of a fixed given capacity, in a way that minimizes the number of bins used.</p>
+<p>NP-hard implies that finding an optimal solution (i.e., using the minimum number of bins) is believed to be computationally difficult and may require an exponential amount of time in the worst case.</p>
+<p><img src="VSGM.assets/fig4.png" alt="fig4"></p>
+<p>Two algorithms are proposed here.</p>
+<ul>
+<li><strong>Next-Fit Bin Packing:</strong><ul>
+<li>If M=15, next-fit generates five bins (v<sub>0</sub>),(v<sub>1</sub>),(v<sub>2</sub>,v<sub>3</sub>),(v<sub>4</sub>,v<sub>5</sub>),(v<sub>6</sub>).</li>
+<li>the time complexity is $O(|V<em>{G}|\times(|E</em>{G}|/|V_{G}|)^{k-1})$</li>
+<li>the effectiveness of next-fit packing highly depends on the vertex order and can incur excessive PCI-e communication overhead using a random order.</li>
+</ul>
+</li>
+<li><strong>K-Means-Based Vertex Ordering:</strong> a K-means-based heuristic to generate a good vertex order<ul>
+<li>The K-Means model.</li>
+<li>Vertex ordering.</li>
+<li>Assuming that the algorithm stops after t iterations and produces c clusters, the time complexity is $O(tc|V<em>{G}|^2)$ and the space complexity $O(|V</em>{G}|^2)$</li>
+</ul>
+</li>
+</ul>
+<h1 id="the-vsgm-framework">THE VSGM FRAMEWORK</h1>
+<p><img src="VSGM.assets/fig4-1.png" alt="fig4-1"></p>
+<ul>
+<li><p>DFS-based subgraph matching algorithm</p>
+</li>
+<li><p>MPMC design to pipelined execution</p>
+</li>
+<li><p>Load balancing among GPUs</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="CoGNN.html" class="navigation navigation-prev " aria-label="Previous page: Co GNN">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../OSDI 2020/" class="navigation navigation-next " aria-label="Next page: OSDI 2020">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"VSGM","level":"3.11.2","depth":2,"next":{"title":"OSDI 2020","level":"3.12","depth":1,"path":"Paper Reading Notes/OSDI 2020/index.md","ref":"Paper Reading Notes/OSDI 2020/index.md","articles":[{"title":"Gavel","level":"3.12.1","depth":2,"path":"Paper Reading Notes/OSDI 2020/Gavel.md","ref":"Paper Reading Notes/OSDI 2020/Gavel.md","articles":[]}]},"previous":{"title":"Co GNN","level":"3.11.1","depth":2,"path":"Paper Reading Notes/SC 2022/CoGNN.md","ref":"Paper Reading Notes/SC 2022/CoGNN.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","back-to-top-button","chapter-fold","code","splitter","katex","expandable-chapters-small"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Paper Reading Notes/SC 2022/VSGM.md","mtime":"2024-12-02T02:35:31.774Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-02T02:36:07.078Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
