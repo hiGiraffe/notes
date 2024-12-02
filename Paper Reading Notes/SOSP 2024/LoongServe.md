@@ -38,9 +38,82 @@
 - Scalable four-step scheduling algorithm
   - DoP setting, batching, key-value cache placement, elastic scaling
 
+---
+
+**ESP的例子**
+
+![image-20241122210942894](LoongServe.assets/image-20241122210942894.png)
+
+- 选择scale down
+  - 在prefill完长文本后，decode需要的资源不再那么多【B1，I1】【B2，I1】
+  - 需要分配一些资源给新的prefill【B2，I3】
+- 选择scale up
+  - decode阶段生成的tokens超过了KV cache的空间【B1，I3】【B2，I2】
+  - batch size很大的时候，会变成compute bound
+
+---
+
+**Scale down**的时候会面临一个挑战：旧的并行组的KV tensors如何有效地传输到新的并行组
+
+以往的解决方案：在prefill后将KV tensors传到对应的并行组。但这种方案有两个问题。（1）在句子长度很长的时候，需要长达几秒钟的传输时间需要几秒钟，甚至比decoding阶段还要长。（2）在多个instances节点都有足够空间的情况下才可以使用，比如需要600空间的请求进入100，200，400三个节点中，因为第一个节点没有600/3=200的空间，所以无法服务。那么，我们需要使用不规则的GPU空间来存放KV tensors？
+
+总的来说，有两个难题：1. 如何减少通信。2.如何实现不规则
+
+文章提出了一个insight：**在使用PP的prefill阶段中，并行组会循环KV tensors的信息**。我们就可以利用这个特性选择性保存我们需要的KV tensors，从而实现零额外开销的弹性缩小。
+
+![image-20241122213031306](LoongServe.assets/image-20241122213031306.png)
+
+---
+
+**Scale up**的时候会面临一个主要挑战：确保新添加的实例能够有效参与，并且不会增加额外的开销
+
+以往的解决方案：很多工作只支持在单个instance中分布式推理。但当其内存不足时，会将一部分批处理请求迁移到另外一个实例中，这部分开销很大。并且这种方法要求所有或大部分KV tensors都得存在一个instance中，可能会导致内存碎片问题。
+
+总的来说，有两个难题：1.Cache整体迁移耗时长。 2.KV cache的碎片化问题导致无法服务。
+
+所以文章提出了一种方法，将sequence parallelism推广到decode阶段。每个Req有其主要负责的master，而KV cache可以存在在不同节点中。比如Instance 1负责r1和r2两条req。其部分KV Cache存放在Instance2中。所以每次计算其在本地算完req的kv和q后，kv存放用于本地kv cache，并进行这部分kv的attention计算。将一部分q分到instance2中，然后instance2算完再发回来，然后在master instance完成剩下的线性层。
+
+> 感觉这里假如不均匀放的话，会涉及GPU忙等问题，比如r1可能只在一个节点，r2却在两个节点中。
+
+![image-20241123110217029](LoongServe.assets/image-20241123110217029.png)
+
+---
+
+**调度**
+
+1. **Dispatching**
+
+   考虑GPU内存和GPU计算压力的情况下，将一部分请求从pending queue分发到prefill queue，这部分请求就是$R_p$。
+   
+   关于GPU memory的限制，假如该请求可能触发驱逐（用户给出的最大生成长度），那么这个请求将无法进入。
+   
+   关于GPU computing的限制。这个有一个观测，LLM inference会在某个边界后从memory bound转化为computing bound。在memory bound的时候，增加更多的请求可以提高GPU计算的效率。在computing bound的时候，增加更多的请求基本只是延长执行的时间。所以本工作就在超过这一界限的时候，停止请求的分发。并且这里还得评估最坏情况中抢占之前请求的成本和该请求prefill获取的性能收益。
+   
+> 这里的公式没看懂
+   
+2. **Elastic Instance Allocation**
+
+   具体分发prefill的请求，意思是将选出来的$R_p$分发给哪些弹性节点$E_p$。
+
+   这里会涉及最大化性能的考虑。这里可能会涉及prefill对decode的抢占。
+
+   先将空闲的instance分发给Rp，如果空闲的kv cache空间不够，优先使用kv cache剩余空间更多的节点。
+
+   且为了避免抢占，需要尽可能将抢占实例中的kv cache迁移到别的实例中。
+   
+   > 公式也没看懂。
+   
+3. **Batching**
+
+   根据$R_p$和$E_p$决定DoP。
+
+4. **Elastic Scaling Plan Generation**
+
+   动态地生成ESP组的scale up和scale down。
+
 ## 实验评估
 
-
+实验评估真硬啊。。。
 
 
 
@@ -58,6 +131,7 @@
 fully unleashing the potential of ESP
 
 - A large overhead of elastic scaling can negate the benefit of flexible resource allocation
+
 - The complicated scheduling space: 
   - dynamic loads of requests
   - variable sequence lengths
@@ -121,11 +195,31 @@ fully unleashing the potential of ESP
 
 ---
 
-弹性序列并行
+**弹性序列并行**
 
 ![image-20241116151727039](LoongServe.assets/image-20241116151727039.png)
 
 不同文本情况下，并行策略带来的收益也不一样
 
+## 思考角度
+
+### 我如何做这个问题
+
+
+
+### 这个洞见可以引申出其他其他方法吗
+
+异构集群下处理弹性调度问题是否会有什么难题
+
+### 该洞见是否可以迁移到其他领域中
+
+
+
+### 该工作有什么可能可以改进的地方
+
+1. 是否只针对同构系统
+2. 这个和prefill decode静态的分离区别在哪
+
 ## Q&A
 
+scale down的缓冲区是什么？在4.1末尾

@@ -1,5 +1,7 @@
 Loongserve
 
+看完
+
 ---
 
 [Intelligent Resource Scheduling for Co-located Latency-critical Services: A Multi-Model Collaborative Learning Approach](https://arxiv.org/abs/1911.13208)
@@ -36,6 +38,10 @@ Meta的两个工作
 
 月之暗面的工作
 
+[Mooncake (4): 月饼的皮和馅是怎样制成的，Mooncake 传输引擎开源以及后续的计划 - 知乎](https://zhuanlan.zhihu.com/p/9461861451)
+
+传输部分的优化
+
 ---
 
 [Xiaodong Wang](https://www.csl.cornell.edu/~xiaodong/#Publications)
@@ -51,3 +57,27 @@ Meta的两个工作
 DLRover
 
 蚂蚁集团论文解析
+
+---
+
+[[2401.11181] Inference without Interference: Disaggregate LLM Inference for Mixed Downstream Workloads](https://arxiv.org/abs/2401.11181)
+
+对于不同的请求的一个优化
+
+---
+
+[Infinite-LLM: Efficient LLM Service for Long Context with DistAttention and Distributed KVCache](https://arxiv.org/pdf/2401.02669)
+
+alibaba长文本
+
+---
+
+[[2406.17565] MemServe: Context Caching for Disaggregated LLM Serving with Elastic Memory Pool](https://arxiv.org/abs/2406.17565)
+
+华为PD 分离的工作
+
+---
+
+[[2405.07719] USP: A Unified Sequence Parallelism Approach for Long Context Generative AI](https://arxiv.org/abs/2405.07719)
+
+方佳瑞关于长文本的工作，里面包含了带宽需求分析
